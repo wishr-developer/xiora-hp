@@ -27,8 +27,9 @@ GitHub Actions により `main` ブランチへの push で ConoHa WING へ自�
 | --- | --- |
 | デプロイ方式 | GitHub Actions（FTPS） |
 | トリガー | `main` ブランチへの push、または手動実行 |
-| デプロイ先（暫定） | `/public_html/xiora-official.com/v2/` |
-| 本番ディレクトリ | `/public_html/xiora-official.com/`（**現時点では上書きしない**） |
+| デプロイ先（暫定） | サイトルート配下の `v2/`（`/home/cXXXXXXX/public_html/xiora-official.com/v2/`） |
+| 本番ディレクトリ | サイトルート直下（**現時点では上書きしない**） |
+| FTPユーザー接続許可ディレクトリ | `/home/cXXXXXXX/public_html/xiora-official.com/`（サイトルート） |
 | プロトコル | FTPS（暗号化FTP・ポート21） |
 
 > **NOTE**: 本番サイトはまだ上書きしません。まず `v2/` で動作確認 → 問題なければ本番ディレクトリへ切り替えます。
@@ -132,8 +133,10 @@ GitHub → **Actions** → **Deploy to ConoHa WING** → **Run workflow** から
 1. `.github/workflows/deploy.yml` を編集：
 
    ```yaml
-   server-dir: /public_html/xiora-official.com/
+   server-dir: ./
    ```
+
+   （※ ConoHa の FTPアカウントの「接続許可ディレクトリ」がサイトルートに設定されている前提）
 
 2. 必要に応じて、旧サイトを ConoHa 上でバックアップ（例：`xiora-official.com_backup_YYYYMMDD/`）
 3. `main` に push → GitHub Actions が本番へ反映

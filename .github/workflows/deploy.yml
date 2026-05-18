@@ -28,7 +28,7 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: ./
-          server-dir: /public_html/xiora-official.com/v2/
+          server-dir: ./v2/
           dangerous-clean-slate: false
           log-level: standard
           exclude: |
