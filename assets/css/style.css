@@ -433,6 +433,110 @@ body {
   .hero__meta-label { font-size: 10px; }
 }
 
+/* ===== Problems We Solve ===== */
+.problems {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.problem {
+  background: var(--surface);
+  padding: clamp(34px, 4.2vw, 48px) clamp(28px, 3.6vw, 40px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform var(--t-med) var(--ease),
+              border-color var(--t-med) var(--ease),
+              box-shadow var(--t-med) var(--ease);
+}
+.problem:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+}
+.problem__label {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.problem__label--before { color: var(--text-faint); }
+.problem__label--after { color: var(--text); }
+.problem__before {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--text-tertiary);
+  margin-bottom: 28px;
+  letter-spacing: -0.012em;
+}
+.problem__divider {
+  width: 40px;
+  height: 1px;
+  background: var(--border-strong);
+  margin: 0 auto 28px;
+  position: relative;
+}
+.problem__divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+.problem__metric {
+  font-size: clamp(56px, 8vw, 84px);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 12px;
+  font-feature-settings: 'tnum';
+}
+.problem__metric > span:first-child {
+  font-size: 0.65em;
+  vertical-align: 8%;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin-right: 2px;
+}
+.problem__metric-unit {
+  font-size: 0.5em !important;
+  color: var(--text-tertiary) !important;
+  vertical-align: top;
+  margin-left: 2px;
+  font-weight: 500;
+  position: relative;
+  top: 0.35em;
+}
+.problem__metric-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 22px;
+}
+.problem__detail {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+@media (max-width: 900px) {
+  .problems { grid-template-columns: 1fr; gap: 14px; }
+  .problem { padding: 36px 28px; }
+}
+
 /* ===== Why Xiora (Strengths) ===== */
 .strengths {
   display: grid;
@@ -957,8 +1061,44 @@ body {
   font-size: 13px;
   color: var(--text-tertiary);
 }
+
+/* ----- inline CTA (mid-page) ----- */
+.inline-cta {
+  margin-top: 48px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px clamp(28px, 4vw, 44px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-md);
+}
+.inline-cta__text { flex: 1; min-width: 0; }
+.inline-cta__title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.inline-cta__desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
 @media (max-width: 900px) {
   .plans { grid-template-columns: 1fr; }
+  .inline-cta {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 20px;
+    padding: 28px 24px;
+  }
+  .inline-cta .btn { width: 100%; justify-content: center; }
 }
 
 /* ===== FAQ ===== */
