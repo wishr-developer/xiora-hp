@@ -28,7 +28,7 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: ./
-          server-dir: ./v2/
+          server-dir: ./
           dangerous-clean-slate: false
           log-level: standard
           exclude: |

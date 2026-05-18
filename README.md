@@ -27,12 +27,12 @@ GitHub Actions により `main` ブランチへの push で ConoHa WING へ自�
 | --- | --- |
 | デプロイ方式 | GitHub Actions（FTPS） |
 | トリガー | `main` ブランチへの push、または手動実行 |
-| デプロイ先（暫定） | サイトルート配下の `v2/`（`/home/cXXXXXXX/public_html/xiora-official.com/v2/`） |
-| 本番ディレクトリ | サイトルート直下（**現時点では上書きしない**） |
+| デプロイ先 | サイトルート直下（`/home/cXXXXXXX/public_html/xiora-official.com/`） |
 | FTPユーザー接続許可ディレクトリ | `/home/cXXXXXXX/public_html/xiora-official.com/`（サイトルート） |
+| 既存ファイル削除 | **しない**（`dangerous-clean-slate: false`）— WordPress関連ファイルは保持 |
 | プロトコル | FTPS（暗号化FTP・ポート21） |
 
-> **NOTE**: 本番サイトはまだ上書きしません。まず `v2/` で動作確認 → 問題なければ本番ディレクトリへ切り替えます。
+> **NOTE**: サイトルート直下にデプロイされます。`dangerous-clean-slate: false` により WordPress 等の既存ファイルは削除されません（追加・上書きのみ）。
 
 ---
 
@@ -87,7 +87,7 @@ push 後、GitHub リポジトリ → **Actions** タブ で `Deploy to ConoHa W
 成功すると以下URLでアクセス可能：
 
 ```
-https://xiora-official.com/v2/
+https://xiora-official.com/
 ```
 
 ---
@@ -123,23 +123,6 @@ GitHub → **Actions** → **Deploy to ConoHa WING** → **Run workflow** から
 - `package.json` などの Node 関連ファイル
 
 → 本番サーバーに公開すべきは `index.html` と `assets/` のみ。
-
----
-
-## 🔁 本番ディレクトリへの切替手順（v2 検証完了後）
-
-`/v2/` での動作確認が完了したら、本番（`/public_html/xiora-official.com/`）へ切り替えます。
-
-1. `.github/workflows/deploy.yml` を編集：
-
-   ```yaml
-   server-dir: ./
-   ```
-
-   （※ ConoHa の FTPアカウントの「接続許可ディレクトリ」がサイトルートに設定されている前提）
-
-2. 必要に応じて、旧サイトを ConoHa 上でバックアップ（例：`xiora-official.com_backup_YYYYMMDD/`）
-3. `main` に push → GitHub Actions が本番へ反映
 
 ---
 
