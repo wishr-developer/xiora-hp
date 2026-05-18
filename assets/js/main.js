@@ -1,57 +1,72 @@
-/* ============================================
-   Xiora - Main JavaScript
-   ============================================ */
+/* =====================================================
+   Xiora - Main JS
+   Minimal, dependency-free, lightweight
+   ===================================================== */
 
 (function () {
   'use strict';
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   /* ---------- Header scroll state ---------- */
-  const header = document.getElementById('header');
-  const onScroll = () => {
-    if (window.scrollY > 20) {
-      header.classList.add('is-scrolled');
-    } else {
-      header.classList.remove('is-scrolled');
-    }
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  const header = document.getElementById('siteHeader');
+  if (header) {
+    let lastY = -1;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if ((y > 16) !== (lastY > 16)) {
+        header.classList.toggle('is-scrolled', y > 16);
+      }
+      lastY = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
 
   /* ---------- Mobile nav toggle ---------- */
-  const navToggle = document.getElementById('navToggle');
-  const nav = document.getElementById('nav');
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('is-open');
-      nav.classList.toggle('is-open');
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('siteNav');
+  if (toggle && nav) {
+    const close = () => {
+      toggle.classList.remove('is-open');
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    toggle.addEventListener('click', () => {
+      const open = !toggle.classList.contains('is-open');
+      toggle.classList.toggle('is-open', open);
+      nav.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
     });
-    nav.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navToggle.classList.remove('is-open');
-        nav.classList.remove('is-open');
-      });
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 880) close();
     });
   }
 
   /* ---------- Scroll reveal ---------- */
   const reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
+  if (reduceMotion) {
+    reveals.forEach((el) => el.classList.add('is-visible'));
+  } else if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, i) => {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            const siblings = Array.from(el.parentElement.children).filter((c) =>
-              c.classList.contains('reveal')
-            );
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const parent = el.parentElement;
+          if (parent) {
+            const siblings = Array.from(parent.children).filter((c) => c.classList.contains('reveal'));
             const idx = siblings.indexOf(el);
-            el.style.transitionDelay = (idx * 0.08) + 's';
-            el.classList.add('is-visible');
-            io.unobserve(el);
+            el.style.transitionDelay = Math.min(idx * 70, 420) + 'ms';
           }
+          el.classList.add('is-visible');
+          io.unobserve(el);
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
     reveals.forEach((el) => io.observe(el));
   } else {
@@ -60,42 +75,52 @@
 
   /* ---------- Number count-up ---------- */
   const counters = document.querySelectorAll('[data-count]');
-  if ('IntersectionObserver' in window && counters.length) {
-    const countObserver = new IntersectionObserver(
+  if (counters.length && 'IntersectionObserver' in window && !reduceMotion) {
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const co = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           const el = entry.target;
-          const target = parseInt(el.getAttribute('data-count'), 10);
+          const target = parseFloat(el.getAttribute('data-count'));
+          const isDecimal = !Number.isInteger(target);
           const duration = 1600;
           const start = performance.now();
           const step = (now) => {
             const p = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            el.textContent = Math.floor(eased * target);
+            const v = target * easeOut(p);
+            el.textContent = isDecimal ? v.toFixed(1) : Math.floor(v);
             if (p < 1) requestAnimationFrame(step);
-            else el.textContent = target;
+            else el.textContent = isDecimal ? target.toFixed(1) : target;
           };
           requestAnimationFrame(step);
-          countObserver.unobserve(el);
+          co.unobserve(el);
         });
       },
       { threshold: 0.4 }
     );
-    counters.forEach((el) => countObserver.observe(el));
+    counters.forEach((el) => co.observe(el));
+  } else if (counters.length) {
+    counters.forEach((el) => {
+      const v = parseFloat(el.getAttribute('data-count'));
+      el.textContent = Number.isInteger(v) ? v : v.toFixed(1);
+    });
   }
 
-  /* ---------- Smooth scroll offset for fixed header ---------- */
+  /* ---------- Smooth scroll with header offset ---------- */
+  const HEADER_OFFSET = 72;
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      if (id.length <= 1) return;
-      const target = document.querySelector(id);
+      const href = a.getAttribute('href');
+      if (!href || href.length <= 1) return;
+      const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      const offset = 70;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
+      const top = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+      window.scrollTo({
+        top,
+        behavior: reduceMotion ? 'auto' : 'smooth'
+      });
     });
   });
 

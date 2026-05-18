@@ -2,230 +2,424 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Xiora（ジオラ）は、AI・Web制作・DX支援を一気通貫で行う総合パートナーです。12業種・9部門に対応し、戦略から実装まで伴走します。">
-<meta name="keywords" content="Xiora,ジオラ,AI開発,Web制作,DX支援,業務自動化,ホームページ制作,LP制作">
-<meta property="og:title" content="Xiora | AI・Web・DXの総合パートナー">
-<meta property="og:description" content="戦略から実装まで一気通貫。AI・Web・DXで企業の成長を加速させます。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="color-scheme" content="dark">
+
+<title>Xiora｜AI時代のDXパートナー</title>
+<meta name="description" content="Xiora（ジオラ）は、AIを活用して事業速度を再定義する DXパートナー。戦略・設計・実装・運用を一気通貫で提供し、12業種・100社以上の成長を支援しています。">
+<meta name="keywords" content="Xiora,ジオラ,AI開発,DX支援,業務自動化,Web制作,生成AI,LP制作,コーポレートサイト">
+<link rel="canonical" href="https://xiora-official.com/">
+
+<!-- OGP -->
 <meta property="og:type" content="website">
-<title>Xiora | AI・Web・DXの総合パートナー</title>
+<meta property="og:url" content="https://xiora-official.com/">
+<meta property="og:title" content="Xiora｜AI時代のDXパートナー">
+<meta property="og:description" content="AIで事業速度を再定義する。戦略から実装まで一気通貫で支援する DXパートナー。">
+<meta property="og:site_name" content="Xiora">
+<meta property="og:locale" content="ja_JP">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Xiora｜AI時代のDXパートナー">
+<meta name="twitter:description" content="AIで事業速度を再定義する。戦略から実装まで一気通貫。">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="assets/css/style.css">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Xiora",
+  "alternateName": "ジオラ",
+  "url": "https://xiora-official.com/",
+  "logo": "https://xiora-official.com/assets/img/logo.png",
+  "description": "AIを活用したDX支援、Web制作、業務自動化を提供する総合パートナー。",
+  "sameAs": [],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "info@xiora-official.com",
+    "contactType": "sales",
+    "areaServed": "JP",
+    "availableLanguage": ["Japanese"]
+  }
+}
+</script>
 </head>
+
 <body>
 
+<a href="#main" class="skip-link">本文へスキップ</a>
+
 <!-- ===== Header ===== -->
-<header class="header" id="header">
-  <div class="header__inner">
-    <a href="#" class="header__logo">Xiora</a>
-    <nav class="header__nav" id="nav">
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+    <a href="#" class="brand" aria-label="Xiora ホーム">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">Xiora</span>
+    </a>
+
+    <nav class="site-nav" id="siteNav" aria-label="メインメニュー">
       <a href="#services">Services</a>
       <a href="#industries">Industries</a>
-      <a href="#departments">Departments</a>
-      <a href="#works">Works</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#results">Results</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact" class="header__cta">Contact</a>
     </nav>
-    <button class="header__toggle" id="navToggle" aria-label="メニューを開く">
-      <span></span><span></span><span></span>
+
+    <div class="site-header__cta">
+      <a href="#contact" class="btn btn--sm">無料相談</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- ===== Hero / First View ===== -->
+<main id="main">
+
+<!-- ===== Hero ===== -->
 <section class="hero">
-  <div class="hero__bg"></div>
-  <div class="hero__inner">
-    <p class="hero__sub fade-in">AI × Web × DX</p>
-    <h1 class="hero__title fade-in">
-      テクノロジーで、<br>
-      事業の輪郭を、ひとつ先へ。
-    </h1>
-    <p class="hero__lead fade-in">
-      Xiora（ジオラ）は、AI・Web制作・DX支援を一気通貫で行う総合パートナーです。<br>
-      戦略設計から実装、運用までを伴走し、企業の成長を加速させます。
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__grid"></div>
+    <div class="hero__glow"></div>
+  </div>
+
+  <div class="container">
+    <p class="hero__eyebrow reveal">
+      <span class="dot"></span>AI × DX Partner
     </p>
-    <div class="hero__actions fade-in">
-      <a href="#contact" class="btn btn--primary">無料相談を申し込む</a>
+
+    <h1 class="hero__title reveal">
+      事業速度を、<br>
+      <span class="hero__title-accent">AIで再定義する。</span>
+    </h1>
+
+    <p class="hero__lead reveal">
+      Xiora は、AIとWebを組み合わせて、企業の「考える時間」と「動く時間」を圧縮する DXパートナー。<br class="pc-only">
+      戦略から実装、運用までを一気通貫で伴走し、事業の成長角度を変えます。
+    </p>
+
+    <div class="hero__actions reveal">
+      <a href="#contact" class="btn btn--primary">
+        無料相談を始める
+        <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
       <a href="#services" class="btn btn--ghost">サービスを見る</a>
     </div>
-  </div>
-  <div class="hero__scroll">
-    <span></span>
+
+    <div class="hero__meta reveal">
+      <div class="hero__meta-item">
+        <div class="hero__meta-value">120<span>+</span></div>
+        <div class="hero__meta-label">プロジェクト実績</div>
+      </div>
+      <div class="hero__meta-divider" aria-hidden="true"></div>
+      <div class="hero__meta-item">
+        <div class="hero__meta-value">12</div>
+        <div class="hero__meta-label">対応業種</div>
+      </div>
+      <div class="hero__meta-divider" aria-hidden="true"></div>
+      <div class="hero__meta-item">
+        <div class="hero__meta-value">98<span>%</span></div>
+        <div class="hero__meta-label">顧客満足度</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ===== Services ===== -->
 <section class="section" id="services">
   <div class="container">
-    <p class="section__label reveal">Services</p>
-    <h2 class="section__title reveal">事業を伸ばす、4つの中核領域。</h2>
-    <p class="section__lead reveal">
-      テクノロジー単体ではなく、戦略・実装・運用を一体で提供。<br class="pc-only">
-      課題の本質に踏み込み、成果につながる仕組みを設計します。
-    </p>
+    <header class="section__head">
+      <p class="section__label reveal"><span class="dash"></span>Services</p>
+      <h2 class="section__title reveal">事業を動かす、4つの中核領域。</h2>
+      <p class="section__lead reveal">
+        単独のサービス提供ではなく、戦略・実装・運用を一体で。<br class="pc-only">
+        「速く・正しく・持続的に」成果を出すための仕組みごと設計します。
+      </p>
+    </header>
 
     <div class="services">
       <article class="service reveal">
-        <div class="service__num">01</div>
-        <h3 class="service__title">AI開発・導入支援</h3>
+        <div class="service__top">
+          <span class="service__num">01</span>
+          <span class="service__tag">AI</span>
+        </div>
+        <h3 class="service__title">AI Implementation</h3>
+        <p class="service__sub">生成AI導入・業務自動化</p>
         <p class="service__desc">
-          生成AIを活用した業務自動化、社内チャットボット、AIエージェント構築。
-          現場に根づくAI導入を、設計から運用定着までサポートします。
+          社内ナレッジを学んだAIエージェント、問い合わせ自動応答、ドキュメント生成。
+          現場に定着するAI導入を、要件定義から運用設計まで支援します。
         </p>
+        <ul class="service__list">
+          <li>AIエージェント／チャットボット構築</li>
+          <li>RAG・社内ナレッジ検索基盤</li>
+          <li>業務プロセス自動化（RPA + AI）</li>
+        </ul>
       </article>
+
       <article class="service reveal">
-        <div class="service__num">02</div>
-        <h3 class="service__title">Web制作・LP制作</h3>
+        <div class="service__top">
+          <span class="service__num">02</span>
+          <span class="service__tag">Web</span>
+        </div>
+        <h3 class="service__title">Web Engineering</h3>
+        <p class="service__sub">コーポレート / LP / CMS</p>
         <p class="service__desc">
-          コーポレートサイト、サービスサイト、LPまで。
-          ブランドの世界観を保ちながら、コンバージョンに直結する設計を実現します。
+          ブランドの世界観と、コンバージョンへの導線を両立。
+          高速で美しく、運用しやすいサイトを、設計から構築まで一貫して提供します。
         </p>
+        <ul class="service__list">
+          <li>コーポレートサイト・サービスサイト</li>
+          <li>高速LP（CVR最適化）</li>
+          <li>ヘッドレスCMS / WordPress</li>
+        </ul>
       </article>
+
       <article class="service reveal">
-        <div class="service__num">03</div>
-        <h3 class="service__title">DX・業務自動化</h3>
+        <div class="service__top">
+          <span class="service__num">03</span>
+          <span class="service__tag">DX</span>
+        </div>
+        <h3 class="service__title">DX Engineering</h3>
+        <p class="service__sub">業務システム連携・自動化</p>
         <p class="service__desc">
-          基幹業務の棚卸しから、ノーコード／RPA／API連携まで。
-          数字に表れる「実効的なDX」を実装します。
+          散在するSaaSと業務フローを統合。
+          ノーコード／ローコード／API連携を組み合わせ、現場の負担を減らしながら数字を残します。
         </p>
+        <ul class="service__list">
+          <li>SaaS連携・データ統合</li>
+          <li>業務ダッシュボード構築</li>
+          <li>社内ツール内製化支援</li>
+        </ul>
       </article>
+
       <article class="service reveal">
-        <div class="service__num">04</div>
-        <h3 class="service__title">マーケティング支援</h3>
+        <div class="service__top">
+          <span class="service__num">04</span>
+          <span class="service__tag">Growth</span>
+        </div>
+        <h3 class="service__title">Growth Marketing</h3>
+        <p class="service__sub">SEO・広告・データ運用</p>
         <p class="service__desc">
-          SEO・広告運用・SNS・コンテンツ設計まで包括的に。
-          データに基づき、継続的な成果が出る仕組みを構築します。
+          作って終わりにしない。データに基づき継続的に磨き込み、
+          サイト・LP・広告の総合的なパフォーマンスを引き上げ続けます。
         </p>
+        <ul class="service__list">
+          <li>テクニカルSEO・コンテンツ設計</li>
+          <li>広告運用（リスティング／SNS）</li>
+          <li>計測設計・GA4ダッシュボード</li>
+        </ul>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ===== Industries ===== -->
-<section class="section section--dark" id="industries">
+<section class="section section--tight" id="industries">
   <div class="container">
-    <p class="section__label reveal">Industries</p>
-    <h2 class="section__title reveal">12の業種に、最適解を。</h2>
-    <p class="section__lead reveal">
-      業界ごとの商習慣、KPI、顧客導線を深く理解した上で、<br class="pc-only">
-      実装プランをカスタマイズします。
-    </p>
+    <header class="section__head">
+      <p class="section__label reveal"><span class="dash"></span>Industries</p>
+      <h2 class="section__title reveal">12業種、すべてに固有の解を。</h2>
+      <p class="section__lead reveal">
+        業界ごとの KPI・商習慣・顧客行動を理解した上で、最短経路を設計します。
+      </p>
+    </header>
+  </div>
 
-    <div class="industries">
-      <div class="industry reveal"><span>01</span><p>医療・クリニック</p></div>
-      <div class="industry reveal"><span>02</span><p>歯科</p></div>
-      <div class="industry reveal"><span>03</span><p>美容・サロン</p></div>
-      <div class="industry reveal"><span>04</span><p>飲食・店舗</p></div>
-      <div class="industry reveal"><span>05</span><p>不動産</p></div>
-      <div class="industry reveal"><span>06</span><p>建設・建築</p></div>
-      <div class="industry reveal"><span>07</span><p>士業・コンサル</p></div>
-      <div class="industry reveal"><span>08</span><p>教育・スクール</p></div>
-      <div class="industry reveal"><span>09</span><p>製造業</p></div>
-      <div class="industry reveal"><span>10</span><p>EC・通販</p></div>
-      <div class="industry reveal"><span>11</span><p>IT・SaaS</p></div>
-      <div class="industry reveal"><span>12</span><p>士業・人材・その他</p></div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>医療・クリニック</span><span>歯科</span><span>美容・サロン</span><span>飲食・店舗</span><span>不動産</span><span>建設・建築</span>
+      <span>医療・クリニック</span><span>歯科</span><span>美容・サロン</span><span>飲食・店舗</span><span>不動産</span><span>建設・建築</span>
     </div>
+  </div>
+  <div class="marquee marquee--reverse" aria-hidden="true">
+    <div class="marquee__track">
+      <span>士業・コンサル</span><span>教育・スクール</span><span>製造業</span><span>EC・通販</span><span>IT・SaaS</span><span>人材・その他</span>
+      <span>士業・コンサル</span><span>教育・スクール</span><span>製造業</span><span>EC・通販</span><span>IT・SaaS</span><span>人材・その他</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <ul class="industries-list" aria-label="対応業種一覧">
+      <li class="reveal"><span>01</span>医療・クリニック</li>
+      <li class="reveal"><span>02</span>歯科</li>
+      <li class="reveal"><span>03</span>美容・サロン</li>
+      <li class="reveal"><span>04</span>飲食・店舗</li>
+      <li class="reveal"><span>05</span>不動産</li>
+      <li class="reveal"><span>06</span>建設・建築</li>
+      <li class="reveal"><span>07</span>士業・コンサル</li>
+      <li class="reveal"><span>08</span>教育・スクール</li>
+      <li class="reveal"><span>09</span>製造業</li>
+      <li class="reveal"><span>10</span>EC・通販</li>
+      <li class="reveal"><span>11</span>IT・SaaS</li>
+      <li class="reveal"><span>12</span>人材・その他</li>
+    </ul>
   </div>
 </section>
 
-<!-- ===== Departments ===== -->
-<section class="section" id="departments">
+<!-- ===== Workflow ===== -->
+<section class="section" id="workflow">
   <div class="container">
-    <p class="section__label reveal">Departments</p>
-    <h2 class="section__title reveal">9つの共通部門で、横断支援。</h2>
-    <p class="section__lead reveal">
-      業種を越えて、企業活動を支える基盤領域。<br class="pc-only">
-      部門単位の課題に対しても、AIとWebで成果を生みます。
-    </p>
+    <header class="section__head">
+      <p class="section__label reveal"><span class="dash"></span>Workflow</p>
+      <h2 class="section__title reveal">透明な、5つのステップ。</h2>
+      <p class="section__lead reveal">
+        ブラックボックスを作らない。意思決定の理由まで共有しながら進めます。
+      </p>
+    </header>
 
-    <div class="departments">
-      <div class="department reveal">
-        <h3>営業</h3>
-        <p>SFA／CRM連携、AIによる商談支援、リード獲得設計。</p>
-      </div>
-      <div class="department reveal">
-        <h3>マーケティング</h3>
-        <p>SEO・広告・SNS・コンテンツ運用の統合支援。</p>
-      </div>
-      <div class="department reveal">
-        <h3>カスタマーサポート</h3>
-        <p>AIチャットボット、FAQ自動化、応対フロー改善。</p>
-      </div>
-      <div class="department reveal">
-        <h3>人事・採用</h3>
-        <p>採用LP、スカウト自動化、面接アシスタント構築。</p>
-      </div>
-      <div class="department reveal">
-        <h3>経理・財務</h3>
-        <p>請求・経費・仕訳の自動化、ダッシュボード化。</p>
-      </div>
-      <div class="department reveal">
-        <h3>総務・法務</h3>
-        <p>契約管理、文書ワークフロー、AI法務リサーチ。</p>
-      </div>
-      <div class="department reveal">
-        <h3>情シス・DX推進</h3>
-        <p>業務システム選定、内製化支援、API連携設計。</p>
-      </div>
-      <div class="department reveal">
-        <h3>経営企画</h3>
-        <p>KPI設計、データ可視化、AIを活用した意思決定支援。</p>
-      </div>
-      <div class="department reveal">
-        <h3>広報・ブランディング</h3>
-        <p>コーポレートサイト、IR、メディア戦略の設計。</p>
-      </div>
-    </div>
+    <ol class="workflow">
+      <li class="workflow__step reveal">
+        <div class="workflow__num">01</div>
+        <div class="workflow__body">
+          <h3 class="workflow__title">Discover</h3>
+          <p class="workflow__sub">課題の解像度を上げる</p>
+          <p class="workflow__desc">
+            事業構造、KPI、ボトルネックを丁寧に分解。
+            「何を作るか」ではなく「何を解くか」を共有することから始めます。
+          </p>
+        </div>
+      </li>
+      <li class="workflow__step reveal">
+        <div class="workflow__num">02</div>
+        <div class="workflow__body">
+          <h3 class="workflow__title">Design</h3>
+          <p class="workflow__sub">設計図を描く</p>
+          <p class="workflow__desc">
+            体験設計、情報設計、システム設計を統合。
+            「動く前に絵を揃える」ことで、後戻りを最小化します。
+          </p>
+        </div>
+      </li>
+      <li class="workflow__step reveal">
+        <div class="workflow__num">03</div>
+        <div class="workflow__body">
+          <h3 class="workflow__title">Develop</h3>
+          <p class="workflow__sub">実装する</p>
+          <p class="workflow__desc">
+            週次でレビューを回しながら高速に実装。
+            AIや自動化で内製の生産性を上げ、コストと品質を両立します。
+          </p>
+        </div>
+      </li>
+      <li class="workflow__step reveal">
+        <div class="workflow__num">04</div>
+        <div class="workflow__body">
+          <h3 class="workflow__title">Deliver</h3>
+          <p class="workflow__sub">引き渡す</p>
+          <p class="workflow__desc">
+            ドキュメントと操作レクチャーをセットで納品。
+            社内で運用が回るところまで責任を持ちます。
+          </p>
+        </div>
+      </li>
+      <li class="workflow__step reveal">
+        <div class="workflow__num">05</div>
+        <div class="workflow__body">
+          <h3 class="workflow__title">Drive</h3>
+          <p class="workflow__sub">運用と改善</p>
+          <p class="workflow__desc">
+            数字でモニタリングし、月次で打ち手を提案。
+            プロダクトを「育てる」フェーズまで継続支援します。
+          </p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
 
-<!-- ===== Works ===== -->
-<section class="section section--dark" id="works">
+<!-- ===== Results ===== -->
+<section class="section section--tight" id="results">
   <div class="container">
-    <p class="section__label reveal">Works</p>
-    <h2 class="section__title reveal">数字で見る、実績。</h2>
-    <p class="section__lead reveal">
-      創業以来、業種・規模を問わず多数のプロジェクトを支援してきました。
-    </p>
+    <header class="section__head">
+      <p class="section__label reveal"><span class="dash"></span>Results</p>
+      <h2 class="section__title reveal">数字と、事例で。</h2>
+      <p class="section__lead reveal">
+        積み上げてきた成果の一部です。守秘の範囲で公開可能なものを掲載しています。
+      </p>
+    </header>
 
     <div class="stats">
       <div class="stat reveal">
         <div class="stat__num"><span data-count="120">0</span>+</div>
-        <p class="stat__label">プロジェクト実績</p>
+        <div class="stat__label">Projects Delivered</div>
+        <div class="stat__sub">プロジェクト累計実績</div>
       </div>
       <div class="stat reveal">
         <div class="stat__num"><span data-count="98">0</span>%</div>
-        <p class="stat__label">顧客満足度</p>
-      </div>
-      <div class="stat reveal">
-        <div class="stat__num"><span data-count="12">0</span></div>
-        <p class="stat__label">対応業種</p>
+        <div class="stat__label">Client Satisfaction</div>
+        <div class="stat__sub">顧客満足度</div>
       </div>
       <div class="stat reveal">
         <div class="stat__num"><span data-count="40">0</span>%</div>
-        <p class="stat__label">平均工数削減</p>
+        <div class="stat__label">Time Saved</div>
+        <div class="stat__sub">平均工数削減率</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__num"><span data-count="2.3">0</span>x</div>
+        <div class="stat__label">CVR Lift</div>
+        <div class="stat__sub">平均CVR改善倍率</div>
       </div>
     </div>
 
-    <div class="works">
-      <article class="work reveal">
-        <p class="work__cat">医療・AI</p>
-        <h3 class="work__title">予約自動化AIで受付工数を月60時間削減</h3>
-        <p class="work__desc">クリニック向け予約・問合せ対応AIを構築。応対率を維持したまま受付業務を大幅に効率化。</p>
+    <div class="cases">
+      <article class="case reveal">
+        <header class="case__head">
+          <span class="case__cat">医療 × AI</span>
+          <span class="case__year">2026</span>
+        </header>
+        <h3 class="case__title">予約自動化AIで、受付工数を月60時間削減</h3>
+        <p class="case__desc">
+          複数院展開のクリニック向けに、予約・問い合わせ対応AIを構築。
+          応対率を維持しながら受付スタッフの負担を大幅に軽減。
+        </p>
+        <dl class="case__meta">
+          <div><dt>削減</dt><dd>−60h/月</dd></div>
+          <div><dt>期間</dt><dd>2ヶ月</dd></div>
+        </dl>
       </article>
-      <article class="work reveal">
-        <p class="work__cat">EC・Web</p>
-        <h3 class="work__title">サイトリニューアルでCVRが2.3倍に</h3>
-        <p class="work__desc">情報設計とUIを再構築。導線最適化と読み込み速度改善で売上を大きく押し上げ。</p>
+
+      <article class="case reveal">
+        <header class="case__head">
+          <span class="case__cat">EC × Web</span>
+          <span class="case__year">2026</span>
+        </header>
+        <h3 class="case__title">サイトリニューアルで、CVR が 2.3倍に</h3>
+        <p class="case__desc">
+          情報設計とUIを根本から再構築。導線最適化と表示速度改善により、
+          売上を大幅に押し上げ。広告依存度の低い体質へ転換。
+        </p>
+        <dl class="case__meta">
+          <div><dt>CVR</dt><dd>×2.3</dd></div>
+          <div><dt>期間</dt><dd>1.5ヶ月</dd></div>
+        </dl>
       </article>
-      <article class="work reveal">
-        <p class="work__cat">製造業・DX</p>
-        <h3 class="work__title">基幹業務の自動化で残業を月平均30%削減</h3>
-        <p class="work__desc">RPAとAPI連携を組み合わせ、見積〜納品までのフローを大幅に簡素化。</p>
+
+      <article class="case reveal">
+        <header class="case__head">
+          <span class="case__cat">製造 × DX</span>
+          <span class="case__year">2025</span>
+        </header>
+        <h3 class="case__title">基幹業務の自動化で、残業を月30%圧縮</h3>
+        <p class="case__desc">
+          見積〜納品フローを RPA・API連携・AIで再設計。
+          属人化していた業務を仕組み化し、組織全体の生産性を底上げ。
+        </p>
+        <dl class="case__meta">
+          <div><dt>残業</dt><dd>−30%</dd></div>
+          <div><dt>期間</dt><dd>3ヶ月</dd></div>
+        </dl>
       </article>
     </div>
   </div>
@@ -234,78 +428,134 @@
 <!-- ===== Pricing ===== -->
 <section class="section" id="pricing">
   <div class="container">
-    <p class="section__label reveal">Pricing</p>
-    <h2 class="section__title reveal">明朗な料金で、安心して始められる。</h2>
-    <p class="section__lead reveal">
-      規模・要件に応じて柔軟にご提案します。下記は目安料金です。
-    </p>
+    <header class="section__head">
+      <p class="section__label reveal"><span class="dash"></span>Pricing</p>
+      <h2 class="section__title reveal">明朗な料金で、安心して始められる。</h2>
+      <p class="section__lead reveal">
+        規模と要件に応じて柔軟にカスタマイズします。下記はあくまで目安です。
+      </p>
+    </header>
 
-    <div class="pricing">
+    <div class="plans">
       <article class="plan reveal">
-        <p class="plan__name">Light</p>
-        <p class="plan__price"><span>¥</span>30<small>万〜</small></p>
-        <p class="plan__for">小規模サイト／LP／単発のAI導入</p>
-        <ul class="plan__list">
-          <li>1ページ〜数ページ構成</li>
-          <li>スマホ対応 / 基本SEO</li>
-          <li>納品後の軽微な修正対応</li>
+        <header class="plan__head">
+          <p class="plan__name">Light</p>
+          <p class="plan__tagline">スピード重視の小規模案件</p>
+        </header>
+        <div class="plan__price">
+          <span class="plan__currency">¥</span>30<span class="plan__unit">万〜</span>
+        </div>
+        <ul class="plan__features">
+          <li>1〜数ページのLP／小規模サイト</li>
+          <li>スマホ最適化・基本SEO</li>
+          <li>納品後の軽微修正対応</li>
+          <li>2〜4週間で公開</li>
         </ul>
+        <a href="#contact" class="plan__cta">このプランで相談</a>
       </article>
+
       <article class="plan plan--feature reveal">
-        <p class="plan__name">Standard</p>
-        <p class="plan__price"><span>¥</span>80<small>万〜</small></p>
-        <p class="plan__for">中規模コーポレート／AI業務導入</p>
-        <ul class="plan__list">
+        <span class="plan__badge">Recommended</span>
+        <header class="plan__head">
+          <p class="plan__name">Standard</p>
+          <p class="plan__tagline">中規模コーポレート・AI業務導入</p>
+        </header>
+        <div class="plan__price">
+          <span class="plan__currency">¥</span>80<span class="plan__unit">万〜</span>
+        </div>
+        <ul class="plan__features">
           <li>戦略設計〜実装まで一気通貫</li>
-          <li>CMS／お問い合わせ／分析設定</li>
-          <li>運用サポート3ヶ月付き</li>
+          <li>CMS・お問い合わせ・GA4設定</li>
+          <li>運用サポート 3ヶ月</li>
+          <li>1〜2ヶ月で公開</li>
         </ul>
+        <a href="#contact" class="plan__cta plan__cta--primary">このプランで相談</a>
       </article>
+
       <article class="plan reveal">
-        <p class="plan__name">Enterprise</p>
-        <p class="plan__price"><span>¥</span>200<small>万〜</small></p>
-        <p class="plan__for">大規模DX／AIエージェント開発</p>
-        <ul class="plan__list">
+        <header class="plan__head">
+          <p class="plan__name">Enterprise</p>
+          <p class="plan__tagline">大規模DX・AIエージェント開発</p>
+        </header>
+        <div class="plan__price">
+          <span class="plan__currency">¥</span>200<span class="plan__unit">万〜</span>
+        </div>
+        <ul class="plan__features">
           <li>業務システム連携・API設計</li>
           <li>専任PMによる伴走</li>
           <li>セキュリティ・運用設計込み</li>
+          <li>スコープに応じて見積り</li>
         </ul>
+        <a href="#contact" class="plan__cta">このプランで相談</a>
       </article>
     </div>
-    <p class="pricing__note reveal">※ 価格は税抜表示です。要件により変動します。まずは無料でお見積もりください。</p>
+
+    <p class="plans__note reveal">※ 価格は税抜表示です。要件・規模により変動します。お見積りは無料で承ります。</p>
   </div>
 </section>
 
 <!-- ===== FAQ ===== -->
-<section class="section section--dark" id="faq">
+<section class="section section--tight" id="faq">
   <div class="container container--narrow">
-    <p class="section__label reveal">FAQ</p>
-    <h2 class="section__title reveal">よくあるご質問</h2>
+    <header class="section__head">
+      <p class="section__label reveal"><span class="dash"></span>FAQ</p>
+      <h2 class="section__title reveal">よくあるご質問</h2>
+    </header>
 
     <div class="faq">
       <details class="faq__item reveal">
-        <summary>初めての相談でも大丈夫ですか？</summary>
-        <p>はい、まずはお気軽にご相談ください。AI・Webの知識がない段階でも、ヒアリングを通じて最適な進め方をご提案します。</p>
+        <summary>
+          <span>初めての相談でも対応してもらえますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          <p>はい。AI・Webに関する知識がない段階でも、ヒアリングを通じて最適な進め方をご提案します。「何を作るべきか」が明確でなくても問題ありません。</p>
+        </div>
       </details>
       <details class="faq__item reveal">
-        <summary>納期はどれくらいかかりますか？</summary>
-        <p>規模によりますが、LPで2〜4週間、コーポレートサイトで1〜2ヶ月、AI導入は要件次第で1ヶ月〜が目安です。</p>
+        <summary>
+          <span>納期はどれくらいかかりますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          <p>LPは2〜4週間、コーポレートサイトは1〜2ヶ月、AI導入は要件次第で1ヶ月〜が目安です。お急ぎの案件もご相談ください。</p>
+        </div>
       </details>
       <details class="faq__item reveal">
-        <summary>遠方でも対応可能ですか？</summary>
-        <p>全国対応しております。オンラインMTGを中心に進行し、必要に応じて訪問も承ります。</p>
+        <summary>
+          <span>遠方でも対応可能ですか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          <p>全国対応しております。オンライン MTG を中心に進行し、必要に応じて訪問も承ります。</p>
+        </div>
       </details>
       <details class="faq__item reveal">
-        <summary>既存サイトの改修・部分対応もお願いできますか？</summary>
-        <p>もちろん可能です。改善箇所の優先順位付けから、コストを抑えた段階的な改修もご提案します。</p>
+        <summary>
+          <span>既存サイトの部分改修も依頼できますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          <p>もちろん可能です。優先順位を整理した上で、コストを抑えた段階的な改修もご提案します。</p>
+        </div>
       </details>
       <details class="faq__item reveal">
-        <summary>納品後のサポートはありますか？</summary>
-        <p>運用サポートプランをご用意しております。更新代行、改善提案、AI運用のチューニングまで対応可能です。</p>
+        <summary>
+          <span>納品後の運用サポートはありますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          <p>月次の運用保守プランをご用意しております。更新代行、改善提案、AIのチューニングまで継続的にサポートします。</p>
+        </div>
       </details>
       <details class="faq__item reveal">
-        <summary>請求書払い・分割払いは可能ですか？</summary>
-        <p>原則、銀行振込でお支払いいただきます。プロジェクト規模によっては分割払いのご相談も承ります。</p>
+        <summary>
+          <span>NDA・契約の締結は可能ですか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          <p>はい。ご相談段階での秘密保持契約（NDA）にも対応しております。安心して情報を共有いただける体制を整えています。</p>
+        </div>
       </details>
     </div>
   </div>
@@ -313,58 +563,82 @@
 
 <!-- ===== CTA ===== -->
 <section class="cta" id="contact">
-  <div class="container">
-    <h2 class="cta__title reveal">課題を、最短距離で前進させる。</h2>
+  <div class="cta__bg" aria-hidden="true"></div>
+  <div class="container container--narrow">
+    <p class="cta__label reveal"><span class="dash"></span>Get Started</p>
+    <h2 class="cta__title reveal">
+      課題を、最短距離で<br>
+      前進させる。
+    </h2>
     <p class="cta__lead reveal">
-      初回相談・お見積もりは無料です。<br>
+      初回相談・お見積りは無料です。<br>
       まずは現状の課題をお聞かせください。
     </p>
     <div class="cta__actions reveal">
-      <a href="mailto:info@xiora-official.com" class="btn btn--primary btn--lg">無料相談を申し込む</a>
-      <a href="mailto:info@xiora-official.com" class="btn btn--ghost btn--lg">資料請求はこちら</a>
+      <a href="mailto:info@xiora-official.com?subject=お問い合わせ&body=会社名:%0D%0Aお名前:%0D%0A連絡先:%0D%0Aご相談内容:" class="btn btn--primary btn--lg">
+        無料相談を申し込む
+        <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="mailto:info@xiora-official.com?subject=資料請求" class="btn btn--ghost btn--lg">資料請求はこちら</a>
     </div>
     <p class="cta__meta reveal">
-      Mail：info@xiora-official.com<br>
-      営業時間：平日 10:00 - 19:00
+      <span>Mail: info@xiora-official.com</span>
+      <span class="cta__sep" aria-hidden="true">／</span>
+      <span>営業時間: 平日 10:00–19:00</span>
     </p>
   </div>
 </section>
 
+</main>
+
 <!-- ===== Footer ===== -->
-<footer class="footer">
+<footer class="site-footer">
   <div class="container">
-    <div class="footer__top">
-      <div class="footer__brand">
-        <p class="footer__logo">Xiora</p>
-        <p class="footer__tag">AI・Web・DXの総合パートナー</p>
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__name">Xiora</span>
+        </div>
+        <p class="site-footer__tag">AI時代のDXパートナー</p>
       </div>
-      <nav class="footer__nav">
+      <nav class="site-footer__nav" aria-label="フッターメニュー">
         <div>
-          <p class="footer__head">Services</p>
+          <p class="site-footer__head">Services</p>
           <ul>
-            <li><a href="#services">AI開発</a></li>
-            <li><a href="#services">Web制作</a></li>
-            <li><a href="#services">DX支援</a></li>
-            <li><a href="#services">マーケティング</a></li>
+            <li><a href="#services">AI Implementation</a></li>
+            <li><a href="#services">Web Engineering</a></li>
+            <li><a href="#services">DX Engineering</a></li>
+            <li><a href="#services">Growth Marketing</a></li>
           </ul>
         </div>
         <div>
-          <p class="footer__head">Company</p>
+          <p class="site-footer__head">Company</p>
           <ul>
-            <li><a href="#works">実績</a></li>
-            <li><a href="#pricing">料金</a></li>
+            <li><a href="#workflow">Workflow</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__head">Contact</p>
+          <ul>
+            <li><a href="mailto:info@xiora-official.com">info@xiora-official.com</a></li>
+            <li><a href="#contact">無料相談</a></li>
           </ul>
         </div>
       </nav>
     </div>
-    <div class="footer__bottom">
+    <div class="site-footer__bottom">
       <p>&copy; <span id="year"></span> Xiora. All rights reserved.</p>
+      <p class="site-footer__sub">Crafted with care.</p>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
