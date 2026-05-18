@@ -1,25 +1,25 @@
-name: Deploy to ConoHa WING (Production)
+name: Deploy to ConoHa WING (Staging /v2/)
 
 on:
   push:
     branches:
-      - main
+      - staging
   workflow_dispatch:
 
 concurrency:
-  group: deploy-conoha
+  group: deploy-conoha-staging
   cancel-in-progress: false
 
 jobs:
   ftp-deploy:
-    name: FTP Deploy (Production)
+    name: FTP Deploy (Staging)
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy via FTP to ConoHa WING
+      - name: Deploy via FTP to ConoHa WING (/v2/)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -28,7 +28,7 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: ./
-          server-dir: ./
+          server-dir: ./v2/
           dangerous-clean-slate: false
           log-level: standard
           exclude: |

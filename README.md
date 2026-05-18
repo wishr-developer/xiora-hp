@@ -1,7 +1,10 @@
 # Xiora Official Site
 
 AI・Web制作・DX支援会社 **Xiora** のコーポレートサイト（静的HTML/CSS/JS）。
-GitHub Actions により `main` ブランチへの push で ConoHa WING へ自動デプロイされます。
+GitHub Actions により、ブランチ単位で ConoHa WING へ自動デプロイされます。
+
+- `main` ブランチ → **本番**：https://xiora-official.com/
+- `staging` ブランチ → **テスト**：https://xiora-official.com/v2/
 
 ---
 
@@ -14,7 +17,9 @@ GitHub Actions により `main` ブランチへの push で ConoHa WING へ自�
 │   ├── css/style.css
 │   └── js/main.js
 ├── .github/
-│   └── workflows/deploy.yml      # GitHub Actions 設定
+│   └── workflows/
+│       ├── deploy.yml            # 本番デプロイ（main → サイトルート）
+│       └── deploy-staging.yml    # テストデプロイ（staging → /v2/）
 ├── .gitignore
 └── README.md
 ```
@@ -23,16 +28,25 @@ GitHub Actions により `main` ブランチへの push で ConoHa WING へ自�
 
 ## 🚀 デプロイ仕様
 
+### 2環境構成
+
+| 環境 | ブランチ | デプロイ先 | URL |
+| --- | --- | --- | --- |
+| **本番（Production）** | `main` | サイトルート直下 | https://xiora-official.com/ |
+| **テスト（Staging）** | `staging` | サイトルート配下 `/v2/` | https://xiora-official.com/v2/ |
+
+### 共通仕様
+
 | 項目 | 内容 |
 | --- | --- |
 | デプロイ方式 | GitHub Actions（FTPS） |
-| トリガー | `main` ブランチへの push、または手動実行 |
-| デプロイ先 | サイトルート直下（`/home/cXXXXXXX/public_html/xiora-official.com/`） |
+| トリガー | 各ブランチへの push、または **Actions** タブからの手動実行 |
 | FTPユーザー接続許可ディレクトリ | `/home/cXXXXXXX/public_html/xiora-official.com/`（サイトルート） |
 | 既存ファイル削除 | **しない**（`dangerous-clean-slate: false`）— WordPress関連ファイルは保持 |
 | プロトコル | FTPS（暗号化FTP・ポート21） |
+| 同時実行制御 | 環境ごとに `concurrency` で1本ずつ実行 |
 
-> **NOTE**: サイトルート直下にデプロイされます。`dangerous-clean-slate: false` により WordPress 等の既存ファイルは削除されません（追加・上書きのみ）。
+> **NOTE**: `dangerous-clean-slate: false` により、サーバー上の既存ファイル（WordPress等）は削除されません。アップロード対象ファイルの追加・上書きのみが行われます。
 
 ---
 
@@ -94,24 +108,51 @@ https://xiora-official.com/
 
 ## 🔄 通常運用（更新時）
 
+### 🧪 まずテスト環境で確認 → 本番反映（推奨フロー）
+
 ```bash
-# 変更を加える
+# 1. staging ブランチに切り替えて作業
+git checkout staging   # 初回のみ: git checkout -b staging
+git pull origin staging
+
+# 2. 変更を加えてコミット
 git add .
 git commit -m "update: ヒーローコピーを修正"
+
+# 3. staging に push → /v2/ に自動デプロイ
+git push origin staging
+```
+
+→ https://xiora-official.com/v2/ で確認 → 問題なければ本番へ：
+
+```bash
+# 4. main にマージして push → 本番反映
+git checkout main
+git pull origin main
+git merge staging
 git push origin main
 ```
 
-→ push と同時に GitHub Actions が走り、約 1〜3 分で ConoHa WING に反映されます。
+### ⚡ 緊急時：直接本番
 
-### 手動デプロイ
+軽微な修正など、ステージングを飛ばしたい場合は `main` に直接コミットしてpush：
 
-GitHub → **Actions** → **Deploy to ConoHa WING** → **Run workflow** から手動実行も可能。
+```bash
+git checkout main
+git add .
+git commit -m "fix: typo"
+git push origin main
+```
+
+### 🖱 手動デプロイ
+
+GitHub → **Actions** タブ → 該当ワークフロー（Production / Staging）→ **Run workflow** から実行可能。
 
 ---
 
 ## 🚫 デプロイ対象外ファイル
 
-以下は FTP アップロード時に **除外** されます（`.github/workflows/deploy.yml` の `exclude` で制御）。
+以下は FTP アップロード時に **除外** されます（各ワークフローの `exclude` で制御。本番・ステージング共通）。
 
 - `.git*`、`.github/`、`.vscode/`、`.idea/`
 - `node_modules/`
