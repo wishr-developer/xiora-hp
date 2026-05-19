@@ -825,6 +825,7 @@ body {
 .product__cta--primary:hover .btn__arrow { transform: translateX(3px); }
 
 .products--2col { grid-template-columns: repeat(2, 1fr); }
+.products--3col { grid-template-columns: repeat(3, 1fr); }
 .products__note {
   margin-top: 40px;
   text-align: center;
@@ -834,6 +835,204 @@ body {
 @media (max-width: 1100px) {
   .products { grid-template-columns: 1fr; gap: 14px; }
   .products--2col { grid-template-columns: 1fr; }
+  .products--3col { grid-template-columns: 1fr; }
+}
+@media (min-width: 1101px) and (max-width: 1300px) {
+  .products--3col { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== XBeauty (New Business) ===== */
+.xbeauty {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.xbeauty__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: clamp(40px, 5vw, 64px);
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+.xbeauty__top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.xbeauty__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--text);
+  color: #fff;
+}
+.xbeauty__badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.7;
+}
+.xbeauty__tag {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.xbeauty__mission-label,
+.xbeauty__vision-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
+}
+.xbeauty__mission {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+}
+.xbeauty__vision {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.95;
+  max-width: 760px;
+}
+
+.xbeauty__split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.xbeauty__target {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: clamp(32px, 4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--t-med) var(--ease),
+              border-color var(--t-med) var(--ease),
+              box-shadow var(--t-med) var(--ease);
+}
+.xbeauty__target:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+}
+.xbeauty__target-label,
+.xbeauty__target-sub-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
+}
+.xbeauty__target-sub-label {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.xbeauty__target-title {
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.35;
+  color: var(--text);
+  margin-bottom: 22px;
+}
+.xbeauty__target-list,
+.xbeauty__value-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.xbeauty__target-list li,
+.xbeauty__value-list li {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  padding-left: 20px;
+  position: relative;
+}
+.xbeauty__target-list li::before,
+.xbeauty__value-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 10px;
+  height: 1px;
+  background: var(--text-tertiary);
+}
+
+.xbeauty__roadmap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: clamp(36px, 4.4vw, 48px);
+}
+.xbeauty__roadmap-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 28px;
+}
+.xbeauty__roadmap-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 32px;
+}
+.xbeauty__roadmap-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 14.5px;
+  color: var(--text);
+  letter-spacing: -0.008em;
+  line-height: 1.55;
+}
+.xbeauty__roadmap-list li span {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.xbeauty__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+@media (max-width: 900px) {
+  .xbeauty__split { grid-template-columns: 1fr; }
+  .xbeauty__roadmap-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .xbeauty__roadmap-list { grid-template-columns: 1fr; gap: 14px; }
+  .xbeauty__cta .btn { width: 100%; }
 }
 
 /* ===== About / Company ===== */
