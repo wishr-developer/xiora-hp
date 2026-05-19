@@ -667,7 +667,98 @@ body {
   .services { grid-template-columns: 1fr; gap: 14px; }
 }
 
-/* ===== Industries ===== */
+/* ===== Industries (category cards) ===== */
+.industry-cats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.industry-cat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: clamp(30px, 3.4vw, 40px) clamp(26px, 3vw, 34px);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--t-med) var(--ease),
+              border-color var(--t-med) var(--ease),
+              box-shadow var(--t-med) var(--ease);
+}
+.industry-cat:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+}
+.industry-cat__head {
+  margin-bottom: 26px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--border);
+}
+.industry-cat__num {
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--text-tertiary);
+  display: block;
+  margin-bottom: 14px;
+}
+.industry-cat__title {
+  font-size: clamp(20px, 2vw, 22px);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+.industry-cat__sub {
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+  line-height: 1.55;
+  letter-spacing: -0.003em;
+}
+.industry-cat__label {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
+}
+.industry-cat__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.industry-cat__list li {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  padding-left: 20px;
+  position: relative;
+}
+.industry-cat__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 10px;
+  height: 1px;
+  background: var(--text-tertiary);
+}
+.industry-cats__note {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+@media (max-width: 1100px) {
+  .industry-cats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .industry-cats { grid-template-columns: 1fr; }
+}
+
+/* ===== Industries legacy (kept for backward-compat) ===== */
 .marquee {
   position: relative; overflow: hidden;
   padding: 14px 0; margin: 32px 0;
