@@ -4,6 +4,9 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
+# Claude Code local state
+.claude/
+
 # Editor
 .vscode/
 .idea/
