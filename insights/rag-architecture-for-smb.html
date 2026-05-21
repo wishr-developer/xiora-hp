@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fbfbfd">
+<meta name="color-scheme" content="light">
+
+<title>中小企業のための、現実的な RAG アーキテクチャ | Xiora Insights</title>
+<meta name="description" content="社内ドキュメントを AI で横断検索する RAG（検索拡張生成）。理想と現実のあいだには「データ品質」「権限」「コスト」の壁があります。中小企業向けに Xiora が選ぶ、現実的な RAG アーキテクチャを公開します。">
+<link rel="canonical" href="https://xiora-official.com/insights/rag-architecture-for-smb.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xiora-official.com/insights/rag-architecture-for-smb.html">
+<meta property="og:title" content="中小企業のための、現実的な RAG アーキテクチャ | Xiora">
+<meta property="og:description" content="データ品質・権限・コストを踏まえた、SMB 向け RAG 実装の現実解。">
+<meta property="og:site_name" content="Xiora">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="中小企業のための、現実的な RAG アーキテクチャ | Xiora">
+<meta name="twitter:description" content="SMB 向け RAG 実装、3 つの落とし穴と回避策。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "中小企業のための、現実的な RAG アーキテクチャ",
+  "author": { "@type": "Organization", "name": "Xiora Engineering" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-05-12",
+  "mainEntityOfPage": "https://xiora-official.com/insights/rag-architecture-for-smb.html"
+}
+</script>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">本文へスキップ</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+    <a href="/" class="brand" aria-label="Xiora ホーム">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">Xiora</span>
+    </a>
+    <nav class="site-nav" id="siteNav" aria-label="メインメニュー">
+      <a href="/#services">サービス</a>
+      <a href="/#products">プロダクト</a>
+      <a href="/case-studies.html">事例</a>
+      <a href="/insights/" aria-current="page">Insights</a>
+      <a href="/company.html">Company</a>
+      <a href="/#news">News</a>
+    </nav>
+    <div class="site-header__cta">
+      <a href="/contact.html" class="btn btn--sm">無料相談</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <article class="insight-article">
+    <div class="container container--narrow">
+
+      <nav class="article-breadcrumb" aria-label="パンくず">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="/insights/">Insights</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">中小企業のための RAG</span>
+      </nav>
+
+      <header class="insight-header reveal">
+        <div class="insight-meta">
+          <span class="insight-meta__cat">AI</span>
+          <time datetime="2026-05-12">2026.05.12</time>
+          <span>読了 9 分</span>
+        </div>
+        <h1 class="insight-title">
+          中小企業のための、<br>現実的な RAG アーキテクチャ
+        </h1>
+        <p class="insight-lead">
+          全社ドキュメントを AI で横断検索できるようにする ── 言葉にすると魅力的ですが、実運用には「データ品質」「権限」「コスト」の壁が立ちはだかります。SMB 向けに Xiora が選んでいる、現実的な RAG アーキテクチャを公開します。
+        </p>
+        <div class="insight-author">
+          <span class="insight-author__avatar">XE</span>
+          <div>
+            <span class="insight-author__name">Xiora Engineering</span><br>
+            <span>AI / DX implementation team</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="article-rich reveal">
+
+        <h2>RAG が「使えない」と言われる本当の理由</h2>
+        <p>
+          <span class="term" data-def="RAG = 検索拡張生成。社内文書を AI に「学習させる」のではなく、その都度「参照させる」仕組みです。AI 自体は変えず、参照元の整理で回答品質を上げる方法。">RAG</span>（Retrieval-Augmented Generation、検索拡張生成）は、社内のナレッジや <span class="term" data-def="SaaS = インターネット経由で使えるサブスク型のソフトウェア。CRM、会計、勤怠管理など、業務で日常的に使うクラウドサービス全般を指します。">SaaS</span> データを <span class="term" data-def="LLM = 大規模言語モデル。ChatGPT・Claude のような汎用 AI モデル。">LLM</span> が引用できる形で参照する技術です。「ドキュメントを全部ベクトル化して、ChatGPT に答えさせる」というイメージで語られがちですが、実運用に乗せると、たいてい次の壁にぶつかります。
+        </p>
+        <ul>
+          <li>そもそも社内ドキュメントが古い・断片的・矛盾している</li>
+          <li>同じ情報が複数の SaaS に散在しており、どれが正かわからない</li>
+          <li>権限のないユーザーに、機密情報が漏れる可能性がある</li>
+          <li>本気でやるとベクトル DB と埋め込みコストが想定外に高い</li>
+        </ul>
+
+        <div class="callout">
+          <span class="callout__label">Note</span>
+          <div class="callout__body">
+            <p>つまり、RAG のボトルネックはモデルではなく、<strong>「データの正しさ・新鮮さ・権限」</strong>です。多くの SMB 環境で最初にやるべきは、ベクトル化ではなく、データの棚卸しです。</p>
+          </div>
+        </div>
+
+        <h2>SMB 向けの現実解：3 層構成</h2>
+        <p>
+          私たちが SMB 規模で繰り返し採用しているのは、次の 3 層構成です。
+        </p>
+
+        <div class="arch" aria-label="SMB 向け RAG アーキテクチャ">
+          <p class="arch__title">SMB 向け RAG アーキテクチャ</p>
+          <p class="arch__sub">
+            ソース → 正規化／インデックス → リトリーバ／LLM の 3 層。各層に「責任者」と「更新頻度」を必ず割り当てます。
+          </p>
+
+          <div class="arch__row arch__row--3">
+            <div class="arch__node">
+              <p class="arch__node-label">Source</p>
+              <p class="arch__node-title">Notion / Google Drive</p>
+              <p class="arch__node-sub">社内ドキュメント</p>
+            </div>
+            <div class="arch__node">
+              <p class="arch__node-label">Source</p>
+              <p class="arch__node-title">Slack / Email</p>
+              <p class="arch__node-sub">過去のやり取り</p>
+            </div>
+            <div class="arch__node">
+              <p class="arch__node-label">Source</p>
+              <p class="arch__node-title">業務 SaaS</p>
+              <p class="arch__node-sub">CRM · 会計 · 在庫</p>
+            </div>
+          </div>
+
+          <div class="arch__connector" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 4v14M6 12l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="arch__row arch__row--3">
+            <div class="arch__node">
+              <p class="arch__node-label">Normalize</p>
+              <p class="arch__node-title">ETL / Cleanup</p>
+              <p class="arch__node-sub">Airbyte · GAS</p>
+            </div>
+            <div class="arch__node arch__node--accent">
+              <p class="arch__node-label">Index</p>
+              <p class="arch__node-title">Vector + Metadata</p>
+              <p class="arch__node-sub">pgvector · Pinecone</p>
+            </div>
+            <div class="arch__node">
+              <p class="arch__node-label">ACL</p>
+              <p class="arch__node-title">Access Policy</p>
+              <p class="arch__node-sub">Row-level filter</p>
+            </div>
+          </div>
+
+          <div class="arch__connector" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 4v14M6 12l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="arch__row arch__row--3">
+            <div class="arch__node">
+              <p class="arch__node-label">Retrieve</p>
+              <p class="arch__node-title">Hybrid Search</p>
+              <p class="arch__node-sub">Vector + BM25</p>
+            </div>
+            <div class="arch__node arch__node--accent">
+              <p class="arch__node-title">LLM with Citations</p>
+              <p class="arch__node-label">Generation</p>
+              <p class="arch__node-sub">Claude · GPT</p>
+            </div>
+            <div class="arch__node">
+              <p class="arch__node-label">UI</p>
+              <p class="arch__node-title">Slack / Web</p>
+              <p class="arch__node-sub">出典付き回答</p>
+            </div>
+          </div>
+
+          <ul class="arch__legend">
+            <li><span class="arch__legend-swatch"></span>一般コンポーネント</li>
+            <li><span class="arch__legend-swatch arch__legend-swatch--accent"></span>AI / コア</li>
+          </ul>
+        </div>
+
+        <h2>各層の設計判断</h2>
+
+        <h3>1. Source（情報源）の絞り込み</h3>
+        <p>
+          「社内の全てを検索可能に」は理想ですが、最初は無理に広げない方が成功します。<strong>最初は「対応するクエリの 80% をカバーする少数のソース」に絞る</strong>のが鉄則です。たとえばカスタマーサポート用なら、Notion の FAQ・契約書テンプレート・直近 6 ヶ月の問い合わせログ、の 3 つだけで十分なケースが多いです。
+        </p>
+
+        <h3>2. Normalize（正規化）を軽視しない</h3>
+        <p>
+          PDF をそのままベクトル化しないでください。最低限、次の処理を入れます。
+        </p>
+        <ul>
+          <li>OCR を通し、テキスト化する</li>
+          <li>見出しに沿って 500〜1,000 字のチャンクに分割する</li>
+          <li>更新日・出典 URL・部署・公開範囲をメタデータとして付与する</li>
+          <li>重複・古い版を排除する</li>
+        </ul>
+        <p>
+          この工程をサボると、回答の精度は半分以下になります。
+        </p>
+
+        <h3>3. Index に Vector 専用 DB を選ぶか</h3>
+        <p>
+          <span class="term" data-def="ベクトル DB = テキストの意味を数値ベクトルとして保存・検索するデータベース。「キーワード一致」ではなく「意味が近いものを引っ張る」検索ができます。">ベクトル DB</span> といえば Pinecone / Weaviate のような専用サービスが有名ですが、SMB 規模では最初からそこに行く必要はほとんどありません。<strong>Supabase の pgvector で十分</strong>です。理由はシンプルで、業務データもメタデータも同じ Postgres に置けるため、JOIN や権限フィルタが圧倒的に楽になるからです。
+        </p>
+<pre><code>-- Supabase + pgvector の典型クエリ
+select
+  d.id, d.title, d.url, d.updated_at,
+  d.embedding &lt;=&gt; query_embedding as score
+from documents d
+where
+  d.tenant_id = $1
+  and (d.acl_role = any($2) or d.acl_role = 'public')
+order by score
+limit 8;</code></pre>
+        <p>
+          スケール要件が明確になってから、専用ベクトル DB に切り替えれば間に合います。
+        </p>
+
+        <h3>4. ACL（権限）はインデックス側に持つ</h3>
+        <p>
+          RAG で一番怖いのは、「権限のないユーザーに機密文書が返ってしまう」事故です。<strong>権限チェックは LLM プロンプトに依存させてはいけません</strong>。必ずインデックス側のクエリで row-level に弾く設計にします。
+        </p>
+        <p>
+          実装上は、ドキュメントに <code>acl_role</code> や <code>visible_to</code> のメタデータを付与し、検索クエリで強制フィルタする形が定番です。
+        </p>
+
+        <h3>5. Retrieval は Hybrid Search を初手から入れる</h3>
+        <p>
+          ベクトル検索だけだと、固有名詞や型番のような「単語そのものが重要」なクエリで弱くなります。ベクトル検索と BM25（キーワード検索）を組み合わせるハイブリッド検索を最初から入れておくと、精度のレンジが大きく広がります。
+        </p>
+
+        <h3>6. 生成は必ず Citation 付き</h3>
+        <p>
+          LLM の応答には、参照したドキュメントの ID と URL を必ず添えます。<strong>「出典を返せない RAG は、業務で使われません」</strong>。利用者が原典を 1 クリックで確認できることが、社内浸透の最重要要素です。
+        </p>
+
+        <h2>運用の現実：誰が、どの頻度で更新するか</h2>
+        <p>
+          技術より重要なのは、ここです。RAG は導入して終わりではなく、ナレッジの新陳代謝が運用の中心になります。
+        </p>
+        <ul>
+          <li>ソースごとに「責任者」を 1 名割り当てる</li>
+          <li>更新頻度（リアルタイム / 日次 / 週次 / 月次）を決める</li>
+          <li>古いドキュメントは「アーカイブ」フラグでインデックスから除外する</li>
+          <li>月次で、回答品質と citation のクリック率をレビューする</li>
+        </ul>
+
+        <div class="callout">
+          <span class="callout__label">Tip</span>
+          <div class="callout__body">
+            <p>RAG ダッシュボードには、最低限「回答数」「Citation クリック率」「未回答率」「ユーザーフィードバック」の 4 指標を載せておきます。これが運用改善のサイクルを支えます。</p>
+          </div>
+        </div>
+
+        <h2>まとめ</h2>
+        <blockquote>
+          SMB の RAG は、最先端モデルより、データ品質と権限設計で決まる。
+        </blockquote>
+        <p>
+          ベクトル DB の選定や LLM のスコアより、<strong>「情報源を絞る」「メタデータを揃える」「権限はインデックス側で弾く」「Citation を必ず返す」</strong> を徹底するほうが、最終的な体感品質は確実に上がります。
+        </p>
+        <p>
+          Xiora では、御社のドキュメントと SaaS 環境を踏まえた現実的な RAG 設計から運用設計までを一気通貫で支援しています。社内 AI の導入を検討している方は、<a href="/contact.html">30 分の無料相談</a>からどうぞ。
+        </p>
+
+      </div>
+
+      <footer class="insight-footer reveal">
+        <a href="/insights/" class="article-back">← Insights 一覧へ</a>
+        <a href="/contact.html" class="btn btn--primary btn--sm">
+          無料相談を申し込む
+          <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </footer>
+
+    </div>
+  </article>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="cta" id="contact">
+    <div class="container container--narrow">
+      <p class="cta__label reveal"><span class="dash"></span>Get Started</p>
+      <h2 class="cta__title reveal">
+        御社の RAG を、<br>
+        現実的な構成で設計しましょう。
+      </h2>
+      <p class="cta__lead reveal">
+        現状のドキュメント・SaaS 環境・権限要件を 30 分で伺い、御社にあわせた現実的な RAG 構成と費用感をご提案します。
+      </p>
+
+      <div class="cta__actions cta__actions--trio reveal">
+      <div class="cta__option">
+        <p class="cta__option-label">For Everyone</p>
+        <a href="/contact.html?type=general" class="btn btn--primary btn--lg">30 分の無料相談を申し込む</a>
+        <p class="cta__option-note">まずは現状を整理。何から始めるべきか提案します。</p>
+        <p class="cta__option-meta">所要 30 分 / オンライン / 無料</p>
+      </div>
+      <div class="cta__option">
+        <p class="cta__option-label">AI · DX</p>
+        <a href="/contact.html?type=ai-dx" class="btn btn--ghost btn--lg">AI・DX 導入を相談する</a>
+        <p class="cta__option-note">どの業務に AI を効かせるか、優先順位ごと提案します。</p>
+        <p class="cta__option-meta">AI 活用診断 / 業務自動化 / AI 研修</p>
+      </div>
+      <div class="cta__option">
+        <p class="cta__option-label">Web</p>
+        <a href="/contact.html?type=web" class="btn btn--ghost btn--lg">Web 改善 AI 診断を依頼</a>
+        <p class="cta__option-note">CVR・SEO・速度・計測の 5 観点で、現状と打ち手を可視化。</p>
+        <p class="cta__option-meta">レポート納品 / 1〜2 週間</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__name">Xiora</span>
+        </div>
+        <p class="site-footer__tag">AIを、事業に実装する。<br>信頼できる AI × DX × Web パートナー。</p>
+        <a href="/contact.html" class="btn btn--sm btn--ghost site-footer__cta">無料相談を申し込む</a>
+      </div>
+      <nav class="site-footer__nav" aria-label="フッターメニュー">
+        <div>
+          <p class="site-footer__head">Services</p>
+          <ul>
+            <li><a href="/ai-consulting.html">AI・DX Consulting</a></li>
+            <li><a href="/web-engineering.html">Web Engineering</a></li>
+            <li><a href="/dx-engineering.html">DX Engineering</a></li>
+            <li><a href="/growth-marketing.html">Growth Marketing</a></li>
+            <li><a href="/x-partner.html">X Partner</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__head">Products</p>
+          <ul>
+            <li><a href="https://xcloud-connect.vercel.app" target="_blank" rel="noopener">XCloud Connect</a></li>
+            <li><a href="https://xcloud-axive.vercel.app" target="_blank" rel="noopener">XCloud Axive</a></li>
+            <li><a href="https://xcloud-flow.vercel.app" target="_blank" rel="noopener">XCloud Flow</a></li>
+            <li><a href="/#xbeauty">XBeauty</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__head">Company</p>
+          <ul>
+            <li><a href="/company.html">Company</a></li>
+            <li><a href="/case-studies.html">事例</a></li>
+            <li><a href="/insights/">Insights</a></li>
+            <li><a href="/#news">News</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__head">Contact</p>
+          <ul>
+            <li><a href="mailto:info@xiora-official.com">info@xiora-official.com</a></li>
+            <li><a href="/contact.html">無料相談</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <p>&copy; <span id="year"></span> Xiora. All rights reserved.</p>
+      <ul class="site-footer__meta">
+        <li><a href="/privacy.html">プライバシーポリシー</a></li>
+        <li><a href="/terms.html">特定商取引法</a></li>
+        <li><a href="/sitemap.html">サイトマップ</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

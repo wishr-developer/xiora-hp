@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fbfbfd">
+<meta name="color-scheme" content="light">
+
+<title>Insights｜AI・DX・Web のナレッジ発信 | Xiora</title>
+<meta name="description" content="Xiora（シオラ）の Insights / Journal。AI 実装アーキテクチャ、RAG、PoC から本番運用への移行、業務自動化、テクニカル SEO など、現場の知見をエンジニアリング目線で発信します。">
+<meta name="keywords" content="AI実装,RAG,DX,業務自動化,Next.js,Web開発,テクニカルSEO,Insights">
+<link rel="canonical" href="https://xiora-official.com/insights/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xiora-official.com/insights/">
+<meta property="og:title" content="Insights｜AI・DX・Web のナレッジ発信 | Xiora">
+<meta property="og:description" content="AI 実装、RAG、PoC→本番、テクニカル SEO など、現場の知見をエンジニアリング目線で。">
+<meta property="og:site_name" content="Xiora">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Insights | Xiora">
+<meta name="twitter:description" content="AI・DX・Web の現場ナレッジを、エンジニアリング目線で発信。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">本文へスキップ</a>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+    <a href="/" class="brand" aria-label="Xiora ホーム">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">Xiora</span>
+    </a>
+    <nav class="site-nav" id="siteNav" aria-label="メインメニュー">
+      <a href="/#services">サービス</a>
+      <a href="/#products">プロダクト</a>
+      <a href="/case-studies.html">事例</a>
+      <a href="/insights/" aria-current="page">Insights</a>
+      <a href="/company.html">Company</a>
+      <a href="/#news">News</a>
+    </nav>
+    <div class="site-header__cta">
+      <a href="/contact.html" class="btn btn--sm">無料相談</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== Page Hero ===== -->
+<section class="page-hero">
+  <div class="container container--narrow">
+    <nav class="article-breadcrumb" aria-label="パンくず">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Insights</span>
+    </nav>
+
+    <p class="page-hero__eyebrow reveal"><span class="dash"></span>Insights · Journal</p>
+    <h1 class="page-hero__title reveal">
+      現場で動く、<br class="sp-only">AI と DX の知見。
+    </h1>
+    <p class="page-hero__lead reveal">
+      Xiora の現場で繰り返し問われるテーマを、エンジニアリングの目線で言語化しています。<br class="pc-only">
+      派手な未来論ではなく、明日の業務に効く、AI・DX・Web の実装知をお届けします。
+    </p>
+
+    <div style="display:flex;justify-content:center;margin-top:48px;">
+      <div class="insight-filter reveal" role="tablist" aria-label="カテゴリで絞り込み">
+        <a href="#" class="is-active">All</a>
+        <a href="#ai">AI</a>
+        <a href="#dx">DX</a>
+        <a href="#web">Web</a>
+        <a href="#growth">Growth</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Insights Grid ===== -->
+<section class="section section--soft" id="insights">
+  <div class="container">
+    <div class="insights-grid">
+
+      <a href="/insights/ai-implementation-architecture.html" class="insight-card reveal" style="text-decoration:none;color:inherit;">
+        <div class="insight-card__top">
+          <span class="insight-card__cat">AI</span>
+          <span class="insight-card__date">2026.05.18</span>
+        </div>
+        <h2 class="insight-card__title">
+          AI を事業に実装するための、最小構成アーキテクチャ
+        </h2>
+        <p class="insight-card__desc">
+          ChatGPT を「使う」段階から、AI を業務フローと売上に組み込む段階へ。Xiora が現場で繰り返し採用している、最小構成の AI 実装アーキテクチャを公開します。
+        </p>
+        <div class="insight-card__foot">
+          <span class="insight-card__author">Xiora Engineering</span>
+          <span class="insight-card__arrow" aria-hidden="true">→</span>
+        </div>
+      </a>
+
+      <a href="/insights/rag-architecture-for-smb.html" class="insight-card reveal" style="text-decoration:none;color:inherit;">
+        <div class="insight-card__top">
+          <span class="insight-card__cat">AI</span>
+          <span class="insight-card__date">2026.05.12</span>
+        </div>
+        <h2 class="insight-card__title">
+          中小企業のための、現実的な RAG アーキテクチャ
+        </h2>
+        <p class="insight-card__desc">
+          全社ドキュメントを一気に検索可能にする ── 言うのは簡単ですが、本番運用するには「データ品質」「権限」「コスト」の現実があります。SMB 向けに私たちが選ぶ構成を整理しました。
+        </p>
+        <div class="insight-card__foot">
+          <span class="insight-card__author">Xiora Engineering</span>
+          <span class="insight-card__arrow" aria-hidden="true">→</span>
+        </div>
+      </a>
+
+      <a href="/insights/from-poc-to-production.html" class="insight-card reveal" style="text-decoration:none;color:inherit;">
+        <div class="insight-card__top">
+          <span class="insight-card__cat">DX</span>
+          <span class="insight-card__date">2026.05.04</span>
+        </div>
+        <h2 class="insight-card__title">
+          AI PoC を、本番運用に乗せるための 5 つの設計判断
+        </h2>
+        <p class="insight-card__desc">
+          AI PoC は驚くほど簡単に動きますが、業務に乗せた瞬間に壊れます。Xiora が現場で繰り返し問われる、PoC → 本番運用のギャップを埋める設計判断を 5 つに絞ってまとめました。
+        </p>
+        <div class="insight-card__foot">
+          <span class="insight-card__author">Xiora Engineering</span>
+          <span class="insight-card__arrow" aria-hidden="true">→</span>
+        </div>
+      </a>
+
+      <article class="insight-card reveal" style="opacity:0.55;cursor:default;">
+        <div class="insight-card__top">
+          <span class="insight-card__cat">Web</span>
+          <span class="insight-card__date">Coming Soon</span>
+        </div>
+        <h2 class="insight-card__title">
+          Next.js 15 時代の、コーポレートサイト設計指針
+        </h2>
+        <p class="insight-card__desc">
+          App Router、PPR、Server Actions、Edge ─── 表現の幅は広がりましたが、コーポレートサイトに必要な設計判断は意外と少数です。
+        </p>
+        <div class="insight-card__foot">
+          <span class="insight-card__author">Xiora Engineering</span>
+          <span class="insight-card__arrow" aria-hidden="true">準備中</span>
+        </div>
+      </article>
+
+      <article class="insight-card reveal" style="opacity:0.55;cursor:default;">
+        <div class="insight-card__top">
+          <span class="insight-card__cat">Growth</span>
+          <span class="insight-card__date">Coming Soon</span>
+        </div>
+        <h2 class="insight-card__title">
+          GA4 × BigQuery で、意思決定に効く計測基盤を作る
+        </h2>
+        <p class="insight-card__desc">
+          GA4 の数値を信頼するには、Server-side tagging と BigQuery 連携が前提です。私たちが実装で採用している計測基盤の最小構成を共有します。
+        </p>
+        <div class="insight-card__foot">
+          <span class="insight-card__author">Xiora Engineering</span>
+          <span class="insight-card__arrow" aria-hidden="true">準備中</span>
+        </div>
+      </article>
+
+      <article class="insight-card reveal" style="opacity:0.55;cursor:default;">
+        <div class="insight-card__top">
+          <span class="insight-card__cat">DX</span>
+          <span class="insight-card__date">Coming Soon</span>
+        </div>
+        <h2 class="insight-card__title">
+          「繋いで効かせる DX」のための、API 連携設計
+        </h2>
+        <p class="insight-card__desc">
+          基幹を作り直さない DX のための、SaaS 間 API 連携の設計指針。冪等性、再送、計測、運用責任。
+        </p>
+        <div class="insight-card__foot">
+          <span class="insight-card__author">Xiora Engineering</span>
+          <span class="insight-card__arrow" aria-hidden="true">準備中</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Inline CTA ===== -->
+<section class="section section--tight">
+  <div class="container container--narrow">
+    <aside class="inline-cta reveal" aria-label="無料相談へのご案内">
+      <div class="inline-cta__text">
+        <p class="inline-cta__title">記事のテーマで、実際の導入を相談したい方へ。</p>
+        <p class="inline-cta__desc">記事の内容を御社の環境にあてはめた場合の現実的な構成や費用感を、30 分の無料相談でご提案します。</p>
+      </div>
+      <a href="mailto:info@xiora-official.com?subject=【無料相談】Insightsから&body=会社名:%0D%0Aお名前:%0D%0Aご連絡先:%0D%0A気になっているテーマ:%0D%0Aご相談内容:" class="btn btn--primary">
+        無料相談を申し込む
+        <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </aside>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__name">Xiora</span>
+        </div>
+        <p class="site-footer__tag">AIを、事業に実装する。<br>信頼できる AI × DX × Web パートナー。</p>
+        <a href="/contact.html" class="btn btn--sm btn--ghost site-footer__cta">無料相談を申し込む</a>
+      </div>
+      <nav class="site-footer__nav" aria-label="フッターメニュー">
+        <div>
+          <p class="site-footer__head">Services</p>
+          <ul>
+            <li><a href="/ai-consulting.html">AI・DX Consulting</a></li>
+            <li><a href="/web-engineering.html">Web Engineering</a></li>
+            <li><a href="/dx-engineering.html">DX Engineering</a></li>
+            <li><a href="/growth-marketing.html">Growth Marketing</a></li>
+            <li><a href="/x-partner.html">X Partner</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__head">Products</p>
+          <ul>
+            <li><a href="https://xcloud-connect.vercel.app" target="_blank" rel="noopener">XCloud Connect</a></li>
+            <li><a href="https://xcloud-axive.vercel.app" target="_blank" rel="noopener">XCloud Axive</a></li>
+            <li><a href="https://xcloud-flow.vercel.app" target="_blank" rel="noopener">XCloud Flow</a></li>
+            <li><a href="/#xbeauty">XBeauty</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__head">Company</p>
+          <ul>
+            <li><a href="/company.html">Company</a></li>
+            <li><a href="/company.html#mvv">Mission / Vision / Value</a></li>
+            <li><a href="/company.html#founder">代表メッセージ</a></li>
+            <li><a href="/case-studies.html">事例</a></li>
+            <li><a href="/insights/">Insights</a></li>
+            <li><a href="/#news">News</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__head">Contact</p>
+          <ul>
+            <li><a href="mailto:info@xiora-official.com">info@xiora-official.com</a></li>
+            <li><a href="/contact.html">無料相談</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <p>&copy; <span id="year"></span> Xiora. All rights reserved.</p>
+      <ul class="site-footer__meta">
+        <li><a href="/privacy.html">プライバシーポリシー</a></li>
+        <li><a href="/terms.html">特定商取引法</a></li>
+        <li><a href="/sitemap.html">サイトマップ</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

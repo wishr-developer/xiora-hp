@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fbfbfd">
+<meta name="color-scheme" content="light">
+
+<title>AI PoC を、本番運用に乗せるための 5 つの設計判断 | Xiora Insights</title>
+<meta name="description" content="AI PoC は驚くほど簡単に動きますが、業務に乗せた瞬間に壊れます。Xiora が現場で繰り返し問われる、PoC から本番運用への移行を成功させる 5 つの設計判断をまとめました。">
+<link rel="canonical" href="https://xiora-official.com/insights/from-poc-to-production.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://xiora-official.com/insights/from-poc-to-production.html">
+<meta property="og:title" content="AI PoC を本番運用に乗せる 5 つの設計判断 | Xiora">
+<meta property="og:description" content="PoC は簡単、本番運用は別物。Xiora が現場で問われる 5 つの判断ポイント。">
+<meta property="og:site_name" content="Xiora">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI PoC を本番運用に乗せる 5 つの設計判断 | Xiora">
+<meta name="twitter:description" content="PoC から本番運用へ。判断の順序を間違えないために。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI PoC を、本番運用に乗せるための 5 つの設計判断",
+  "author": { "@type": "Organization", "name": "Xiora Engineering" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-05-04",
+  "mainEntityOfPage": "https://xiora-official.com/insights/from-poc-to-production.html"
+}
+</script>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">本文へスキップ</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+    <a href="/" class="brand" aria-label="Xiora ホーム">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">Xiora</span>
+    </a>
+    <nav class="site-nav" id="siteNav" aria-label="メインメニュー">
+      <a href="/#services">サービス</a>
+      <a href="/#products">プロダクト</a>
+      <a href="/case-studies.html">事例</a>
+      <a href="/insights/" aria-current="page">Insights</a>
+      <a href="/company.html">Company</a>
+      <a href="/#news">News</a>
+    </nav>
+    <div class="site-header__cta">
+      <a href="/contact.html" class="btn btn--sm">無料相談</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <article class="insight-article">
+    <div class="container container--narrow">
+
+      <nav class="article-breadcrumb" aria-label="パンくず">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="/insights/">Insights</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">PoC から本番運用へ</span>
+      </nav>
+
+      <header class="insight-header reveal">
+        <div class="insight-meta">
+          <span class="insight-meta__cat">DX</span>
+          <time datetime="2026-05-04">2026.05.04</time>
+          <span>読了 7 分</span>
+        </div>
+        <h1 class="insight-title">
+          AI PoC を、本番運用に<br>乗せるための 5 つの設計判断
+        </h1>
+        <p class="insight-lead">
+          AI PoC は驚くほど簡単に動きます。が、業務に乗せた瞬間に壊れます。Xiora が現場で繰り返し問われる、PoC から本番運用へのギャップを埋める 5 つの設計判断を、実装目線でまとめました。
+        </p>
+        <div class="insight-author">
+          <span class="insight-author__avatar">XE</span>
+          <div>
+            <span class="insight-author__name">Xiora Engineering</span><br>
+            <span>AI / DX implementation team</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="article-rich reveal">
+
+        <h2>「動く PoC」と「業務に乗る AI」は別物</h2>
+        <p>
+          ChatGPT 経由のプロンプト試行や、ノーコードツールでの自動化は、半日もあれば PoC として動かせます。デモを見れば誰でも「これは使える」と感じます。
+        </p>
+        <p>
+          一方で、本当の難しさは、その後にやってきます。<strong>担当者だけが動かせる仕組みから、現場 100 人が毎日使い、月次でレビューされ、必要に応じて差し替えられる仕組みに格上げするフェーズ</strong>です。ここで失敗する PoC が、私たちの現場感覚では大半を占めます。
+        </p>
+
+        <div class="callout">
+          <span class="callout__label">Note</span>
+          <div class="callout__body">
+            <p>PoC が「面白い」で終わるか「業務に効く」に変わるかは、技術ではなく設計判断の問題です。順序を間違えると、半年かけても本番には乗りません。</p>
+          </div>
+        </div>
+
+        <h2>判断 1：「業務フローのどこに着地させるか」を最初に決める</h2>
+        <p>
+          PoC でよくあるのは、「AI とチャットで会話できる UI を作る」で終わってしまうケースです。これは、業務フローに何も組み込まれていません。
+        </p>
+        <p>
+          本番運用に乗せたいなら、最初に決めるべきは <strong>「AI の出力が、最終的に何のフィールドを埋め、誰に通知し、どの SaaS に着地するか」</strong>です。
+        </p>
+        <ul>
+          <li>問い合わせ仕分け AI → CRM の「優先度」「担当」「ステータス」フィールドを更新</li>
+          <li>見積ドラフト AI → kintone の「見積案」レコードを下書き状態で保存</li>
+          <li>議事録要約 AI → Notion の議事録テンプレートに自動投稿し、Slack で通知</li>
+        </ul>
+        <p>
+          ここを決めずに UI から作ると、後で必ず「結局運用されない」結果になります。
+        </p>
+
+        <h2>判断 2：プロンプトを「秘伝のタレ」にしない</h2>
+        <p>
+          PoC では、担当者が試行錯誤して育てたプロンプトが、Slack のスレッドや個人の Notion に散らばっていることがよくあります。これでは、誰も改善できません。
+        </p>
+        <p>
+          本番化する段階で、プロンプトは <strong>コードと同じく、バージョン管理と差分レビューの対象</strong>にします。
+        </p>
+        <ul>
+          <li>Git 管理または DB の <code>prompts</code> テーブルに集約する</li>
+          <li>変更前後を比較する評価データ（10〜30 件）を準備する</li>
+          <li>差し替え時は、評価データで自動回帰テストを通してから本番反映する</li>
+        </ul>
+
+<pre><code>// プロンプトはコードと並列にバージョン管理する
+import { loadPrompt } from "@/lib/prompts";
+
+const prompt = await loadPrompt("invoice_draft", { version: "2026-05-04" });
+const result = await llm.generate({
+  prompt: prompt.compile({ customer, items }),
+  guardrails: prompt.guardrails,
+});</code></pre>
+
+        <h2>判断 3：ガードレールをコードに書く</h2>
+        <p>
+          <span class="term" data-def="LLM = 大規模言語モデル。ChatGPT・Claude のように、大量のテキストで学習された汎用 AI モデル。">LLM</span> は確率的に振る舞います。本番に乗せた瞬間に、想定外の出力（個人情報の漏出、不適切な金額、空欄、過剰な約束）が混じります。
+        </p>
+        <p>
+          これを「プロンプトでお願いする」のは無理です。<strong>必ずコード側で「やってはいけないこと」を強制する <span class="term" data-def="ガードレール = AI が「やってはいけないこと」を、コード側で強制する仕組み。個人情報のマスク、金額バリデーション、コスト上限などをここで実装します。">ガードレール</span>層</strong>を実装します。
+        </p>
+        <ul>
+          <li>PII（個人情報）パターンを検出してマスクする</li>
+          <li>金額・日付など、構造化フィールドはバリデータで弾く</li>
+          <li>必須項目が欠けたら、ユーザーに再入力を求める</li>
+          <li>1 リクエストあたりトークンとコストの上限を超えたら停止する</li>
+        </ul>
+        <p>
+          ガードレールを最初から書いておくと、本番運用での事故が桁違いに減ります。
+        </p>
+
+        <h2>判断 4：観測（<span class="term" data-def="Observability = 観測性。AI や仕組みが「ちゃんと動いているか・効果が出ているか」を数字で見えるようにすること。ダッシュボードや指標で運用状況を可視化します。">Observability</span>）を最初に組み込む</h2>
+        <p>
+          PoC では、「動いた」「動かなかった」を目視で確認することが多いと思います。本番では、これでは絶対に運用できません。
+        </p>
+        <p>
+          最低限、次の指標を最初から収集します。
+        </p>
+        <ul>
+          <li>リクエスト件数、成功率、エラー率</li>
+          <li>レスポンス時間（p50 / p95 / p99）</li>
+          <li>1 リクエストあたりのトークン数とコスト</li>
+          <li>AI ドラフトが、現場で採用された率（accept rate）</li>
+          <li>ユーザーフィードバック（👍 / 👎、コメント）</li>
+        </ul>
+
+        <div class="callout">
+          <span class="callout__label">Tip</span>
+          <div class="callout__body">
+            <p>特に <strong>accept rate</strong> を最初から取ることをおすすめします。「AI が動いているか」ではなく「AI が役立っているか」を見るための指標になります。</p>
+          </div>
+        </div>
+
+        <h2>判断 5：失敗時の「人へのフォールバック」を必ず設計する</h2>
+        <p>
+          AI は必ず失敗します。失敗時に「ごめんなさい、わかりません」で終わるのではなく、<strong>人にスムーズに引き継ぐ動線を、業務フローの一部として設計</strong>します。
+        </p>
+        <ul>
+          <li>AI が回答に自信がない場合は、担当チャネル（Slack / 担当者の LINE / メール）に自動エスカレーション</li>
+          <li>その際、過去の文脈・関連ドキュメント・推定優先度をセットで渡す</li>
+          <li>引き継ぎ後の対応結果を、AI 改善のフィードバックとして蓄積する</li>
+        </ul>
+        <p>
+          AI 単体の精度を 90% から 95% にチューニングするより、<strong>失敗時の人へのフォールバックを設計するほうが、現場の信頼を圧倒的に早く獲得</strong>できます。
+        </p>
+
+        <h2>まとめ：PoC → 本番運用のチェックリスト</h2>
+        <p>
+          5 つの判断を、最後にチェックリストとしてまとめておきます。
+        </p>
+        <ol>
+          <li>AI の出力が「業務フロー上のどこに着地するか」を決めたか</li>
+          <li>プロンプトをバージョン管理 + 評価データで運用できる状態か</li>
+          <li>ガードレール（PII / バリデーション / コスト上限）をコードで実装したか</li>
+          <li>件数 / 成功率 / レイテンシ / コスト / accept rate を可視化したか</li>
+          <li>失敗時に人へ引き継ぐ動線が、業務フロー上に定義されているか</li>
+        </ol>
+        <p>
+          このどれかが欠けている状態で本番に出すと、ほぼ確実に「導入したが定着せず、半年後にひっそり止まった」となります。
+        </p>
+
+        <blockquote>
+          AI の本番運用は、モデルではなく、業務フローと運用設計が決める。
+        </blockquote>
+
+        <p>
+          Xiora では、御社の業務と既存システムに合わせて、PoC から本番運用までを一気通貫で支援しています。「PoC は動いたが、その先が見えない」段階の方は、ぜひ <a href="/contact.html">30 分の無料相談</a>からどうぞ。
+        </p>
+
+      </div>
+
+      <footer class="insight-footer reveal">
+        <a href="/insights/" class="article-back">← Insights 一覧へ</a>
+        <a href="/contact.html" class="btn btn--primary btn--sm">
+          無料相談を申し込む
+          <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </footer>
+
+    </div>
+  </article>
+
+  <!-- ===== Final CTA ===== -->
+  <section class="cta" id="contact">
+    <div class="container container--narrow">
+      <p class="cta__label reveal"><span class="dash"></span>Get Started</p>
+      <h2 class="cta__title reveal">
+        PoC の次の一歩を、<br>
+        一緒に設計しましょう。
+      </h2>
+      <p class="cta__lead reveal">
+        既に動いている PoC を本番運用に乗せるには、業務設計・運用フロー・観測の組み込みが必要です。30 分で現状を伺い、本番化のロードマップをご提案します。
+      </p>
+
+      <div class="cta__actions cta__actions--trio reveal">
+      <div class="cta__option">
+        <p class="cta__option-label">For Everyone</p>
+        <a href="/contact.html?type=general" class="btn btn--primary btn--lg">30 分の無料相談を申し込む</a>
+        <p class="cta__option-note">まずは現状を整理。何から始めるべきか提案します。</p>
+        <p class="cta__option-meta">所要 30 分 / オンライン / 無料</p>
+      </div>
+      <div class="cta__option">
+        <p class="cta__option-label">AI · DX</p>
+        <a href="/contact.html?type=ai-dx" class="btn btn--ghost btn--lg">AI・DX 導入を相談する</a>
+        <p class="cta__option-note">どの業務に AI を効かせるか、優先順位ごと提案します。</p>
+        <p class="cta__option-meta">AI 活用診断 / 業務自動化 / AI 研修</p>
+      </div>
+      <div class="cta__option">
+        <p class="cta__option-label">Web</p>
+        <a href="/contact.html?type=web" class="btn btn--ghost btn--lg">Web 改善 AI 診断を依頼</a>
+        <p class="cta__option-note">CVR・SEO・速度・計測の 5 観点で、現状と打ち手を可視化。</p>
+        <p class="cta__option-meta">レポート納品 / 1〜2 週間</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__name">Xiora</span>
+        </div>
+        <p class="site-footer__tag">AIを、事業に実装する。<br>信頼できる AI × DX × Web パートナー。</p>
+        <a href="/contact.html" class="btn btn--sm btn--ghost site-footer__cta">無料相談を申し込む</a>
+      </div>
+      <nav class="site-footer__nav" aria-label="フッターメニュー">
+        <div>
+          <p class="site-footer__head">Services</p>
+          <ul>
+            <li><a href="/ai-consulting.html">AI・DX Consulting</a></li>
+            <li><a href="/web-engineering.html">Web Engineering</a></li>
+            <li><a href="/dx-engineering.html">DX Engineering</a></li>
+            <li><a href="/growth-marketing.html">Growth Marketing</a></li>
+            <li><a href="/x-partner.html">X Partner</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__head">Products</p>
+          <ul>
+            <li><a href="https://xcloud-connect.vercel.app" target="_blank" rel="noopener">XCloud Connect</a></li>
+            <li><a href="https://xcloud-axive.vercel.app" target="_blank" rel="noopener">XCloud Axive</a></li>
+            <li><a href="https://xcloud-flow.vercel.app" target="_blank" rel="noopener">XCloud Flow</a></li>
+            <li><a href="/#xbeauty">XBeauty</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__head">Company</p>
+          <ul>
+            <li><a href="/company.html">Company</a></li>
+            <li><a href="/case-studies.html">事例</a></li>
+            <li><a href="/insights/">Insights</a></li>
+            <li><a href="/#news">News</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-footer__head">Contact</p>
+          <ul>
+            <li><a href="mailto:info@xiora-official.com">info@xiora-official.com</a></li>
+            <li><a href="/contact.html">無料相談</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <p>&copy; <span id="year"></span> Xiora. All rights reserved.</p>
+      <ul class="site-footer__meta">
+        <li><a href="/privacy.html">プライバシーポリシー</a></li>
+        <li><a href="/terms.html">特定商取引法</a></li>
+        <li><a href="/sitemap.html">サイトマップ</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -127,4 +127,102 @@
   /* ---------- Footer year ---------- */
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
+
+  /* ---------- Contact form ---------- */
+  const form = document.getElementById('contactForm');
+  if (form) {
+    const TYPE_LABEL = {
+      'general':   '30分無料相談',
+      'ai-dx':     'AI・DX 導入相談',
+      'web':       'Web 改善 AI 診断',
+      'x-partner': 'X Partner について',
+      'other':     'その他のご相談',
+    };
+    const METHOD_LABEL = {
+      'online': 'オンライン',
+      'email':  'メール',
+      'phone':  '電話',
+    };
+    const TIMING_LABEL = {
+      'asap':       'すぐ相談したい',
+      '1month':     '1ヶ月以内',
+      '3months':    '3ヶ月以内',
+      'undecided':  '未定 / 情報収集中',
+    };
+
+    /* Pre-select radio based on ?type= URL param */
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const type = params.get('type');
+      if (type && TYPE_LABEL[type]) {
+        const radio = form.querySelector(`input[name="type"][value="${type}"]`);
+        if (radio) {
+          radio.checked = true;
+          // Smooth-focus the form so users see their selection
+          requestAnimationFrame(() => {
+            const card = radio.closest('.radio-card');
+            if (card && 'scrollIntoView' in card) {
+              // No-op: keep top of page visible; just leave the selection.
+            }
+          });
+        }
+      }
+    } catch (_) {
+      /* URLSearchParams missing — ignore */
+    }
+
+    /* Build a mailto: link from form values, then open it */
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Native validation first
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        // Scroll to first invalid field
+        const first = form.querySelector(':invalid');
+        if (first && 'scrollIntoView' in first) {
+          first.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+          if (typeof first.focus === 'function') first.focus({ preventScroll: true });
+        }
+        return;
+      }
+
+      const data = new FormData(form);
+      const get = (k) => (data.get(k) || '').toString().trim();
+
+      const typeKey      = get('type');
+      const methodKey    = get('contactMethod');
+      const timingKey    = get('timing');
+      const typeLabel    = TYPE_LABEL[typeKey] || 'お問い合わせ';
+      const methodLabel  = METHOD_LABEL[methodKey] || '';
+      const timingLabel  = TIMING_LABEL[timingKey] || '';
+
+      const subject = `【${typeLabel}】${get('company') || ''} ${get('name') || ''}`.trim();
+
+      const lines = [
+        `■ 相談内容:    ${typeLabel}`,
+        `■ 会社名:      ${get('company')}`,
+        `■ お名前:      ${get('name')}`,
+        `■ メール:      ${get('email')}`,
+        `■ 電話番号:    ${get('phone') || '（未入力）'}`,
+        `■ Web サイト:  ${get('website') || '（未入力）'}`,
+        `■ 相談方法:    ${methodLabel || '（未選択）'}`,
+        `■ 希望時期:    ${timingLabel || '（未選択）'}`,
+        '',
+        '■ 現在の課題・ご相談内容:',
+        get('issue') || '（未記入）',
+        '',
+        '---',
+        '送信元: https://xiora-official.com/contact.html',
+      ];
+
+      const body = lines.join('\r\n');
+      const mailto = 'mailto:info@xiora-official.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body='    + encodeURIComponent(body);
+
+      // Open user's mail client. Use location.href so behavior is consistent.
+      window.location.href = mailto;
+    });
+  }
 })();
