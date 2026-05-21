@@ -5804,3 +5804,256 @@ body {
     scroll-snap-align: start;
   }
 }
+
+/* =====================================================
+   V3 — cybers.co.jp inspired redesign
+   - Critical SVG sizing safeguard (fix giant arrow bug)
+   - .c-section-title[data-en] big-English + small-JP heading
+   - .x-cards full-bleed horizontal card row
+   - Reduced vertical stacking sitewide
+   ===================================================== */
+
+/* ---------- CRITICAL: SVG sizing safeguard ---------- */
+/* Any decorative SVG with viewBox but no width/height → cap at 1em (text size) */
+svg[viewBox]:not([width]):not([height]) {
+  width: 1em;
+  height: 1em;
+}
+/* Within biz-card / x-card / lineup CTAs, force 14px regardless */
+.biz-card svg,
+.x-card svg,
+.lineup__cta svg,
+.business__link svg,
+.business__sublink svg,
+.btn__arrow {
+  width: 14px !important;
+  height: 14px !important;
+  flex-shrink: 0;
+}
+/* Article/related links: 18px */
+.article-related__link svg,
+.section__head-link svg,
+.insight-card__arrow {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* ---------- c-section-title (cybers-style heading) ---------- */
+.c-section-title {
+  text-align: left;
+  margin: 0 0 clamp(36px, 5vw, 56px);
+  font-weight: 500;
+  line-height: 1;
+}
+.c-section-title::before {
+  content: attr(data-en);
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--text);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.c-section-title__sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: -0.005em;
+}
+.c-section-title__sub::before {
+  content: "■";
+  font-size: 9px;
+  color: var(--text);
+  line-height: 1;
+}
+@media (max-width: 560px) {
+  .c-section-title { margin-bottom: 28px; }
+  .c-section-title::before {
+    font-size: clamp(36px, 12vw, 56px);
+    margin-bottom: 12px;
+    letter-spacing: -0.025em;
+  }
+  .c-section-title__sub { font-size: 12px; }
+}
+
+/* ---------- x-cards: full-bleed horizontal row ---------- */
+/* PC: 4-up grid that breaks out of container slightly. SP: horizontal scroll-snap */
+.x-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 32px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 0 clamp(24px, 5vw, 80px);
+}
+.x-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  padding: 0 8px;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.x-card:hover { opacity: 0.85; }
+
+.x-card__visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #f5f5f7 0%, #e8e8eb 100%);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--t-med) var(--ease);
+}
+.x-card:hover .x-card__visual { transform: translateY(-3px); }
+
+/* Visual variants — distinct gradient per card */
+.x-card__visual--ai { background: linear-gradient(135deg, #e8eaf0 0%, #2a2a2c 220%); }
+.x-card__visual--eng { background: linear-gradient(135deg, #eef4f4 0%, #1d1d1f 280%); }
+.x-card__visual--growth { background: linear-gradient(135deg, #f0ede8 0%, #1d1d1f 280%); }
+.x-card__visual--smb { background: linear-gradient(135deg, #efeaf0 0%, #1d1d1f 280%); }
+.x-card__visual--connect { background: linear-gradient(135deg, #1d1d1f 0%, #424245 100%); }
+.x-card__visual--axive { background: linear-gradient(135deg, #2a2a2c 0%, #6e6e73 100%); }
+.x-card__visual--flow { background: linear-gradient(135deg, #f5f5f7 0%, #d6d6dc 100%); }
+
+.x-card__abbr {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(38px, 6vw, 62px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  text-transform: uppercase;
+  line-height: 1;
+  z-index: 1;
+}
+.x-card__visual--ai .x-card__abbr,
+.x-card__visual--eng .x-card__abbr,
+.x-card__visual--growth .x-card__abbr,
+.x-card__visual--smb .x-card__abbr {
+  color: var(--text);
+  mix-blend-mode: difference;
+  color: #fff;
+}
+.x-card__visual--connect .x-card__abbr,
+.x-card__visual--axive .x-card__abbr {
+  color: #fff;
+  mix-blend-mode: normal;
+}
+
+.x-card__num {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  z-index: 2;
+}
+.x-card__visual--flow .x-card__num { color: var(--text-tertiary); }
+
+.x-card__tag {
+  position: absolute;
+  bottom: 14px;
+  right: 16px;
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  z-index: 2;
+}
+.x-card__visual--flow .x-card__tag { color: var(--text-tertiary); }
+
+.x-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--text);
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+.x-card__sub {
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+  letter-spacing: -0.005em;
+  line-height: 1.55;
+}
+
+@media (max-width: 960px) {
+  .x-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .x-cards {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    padding: 0 var(--pad-x);
+    padding-bottom: 20px;
+    margin-left: calc(var(--pad-x) * -1);
+    margin-right: calc(var(--pad-x) * -1);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .x-cards::-webkit-scrollbar { display: none; }
+  .x-card {
+    flex: 0 0 64%;
+    min-width: 230px;
+    max-width: 280px;
+    padding: 0 6px;
+    scroll-snap-align: start;
+  }
+  .x-card__visual { margin-bottom: 14px; aspect-ratio: 5 / 4; }
+  .x-card__title { font-size: 14px; }
+  .x-card__sub { font-size: 12px; }
+}
+
+/* ---------- Section wrapper (used with cybers-style head) ---------- */
+.section--cybers {
+  padding: clamp(80px, 12vw, 140px) 0;
+}
+.section--cybers .container { position: relative; }
+
+/* ---------- Section "view all" CTA (cybers style) ---------- */
+.section__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.005em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-strong);
+  transition: border-color var(--t-fast) var(--ease);
+}
+.section__view-all:hover { border-bottom-color: var(--text); }
+.section__view-all::after {
+  content: "";
+  width: 18px; height: 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  background:
+    linear-gradient(currentColor, currentColor) center / 6px 1px no-repeat;
+  transition: background-color var(--t-fast) var(--ease);
+}
+
+/* ---------- Hide old section heads when using c-section-title ---------- */
+.section--cybers .section__head { display: none; }

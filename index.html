@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=20260522b">
 
 <!-- JSON-LD -->
 <script type="application/ld+json">
@@ -254,218 +254,116 @@
   </div>
 </section>
 
-<!-- ===== Business (4 Pillars · compact carousel) ===== -->
-<section class="section" id="services">
+<!-- ===== Business (cybers-style horizontal cards) ===== -->
+<section class="section section--cybers" id="services">
   <div class="container">
-    <header class="section__head">
-      <p class="section__label reveal"><span class="dash"></span>Business</p>
-      <h2 class="section__title reveal">4 つの中核領域。</h2>
-      <p class="section__lead reveal">
-        AI / DX / Web / Growth / SMB 支援を、ひとつのチームで。
-      </p>
-    </header>
 
-    <div class="biz-carousel reveal">
+    <h2 class="c-section-title reveal" data-en="business">
+      <span class="c-section-title__sub">事業内容 — AI × DX × Web を、ひとつのチームで</span>
+    </h2>
 
-      <a href="/ai-consulting.html" class="biz-card">
-        <div class="biz-card__top">
-          <span class="biz-card__num">01</span>
-          <span class="biz-card__cat">Consulting</span>
+    <div class="x-cards reveal">
+
+      <a href="/ai-consulting.html" class="x-card">
+        <div class="x-card__visual x-card__visual--ai">
+          <span class="x-card__num">01</span>
+          <span class="x-card__abbr">AI</span>
+          <span class="x-card__tag">Consulting</span>
         </div>
-        <h3 class="biz-card__title">AI・DX<br>Consulting</h3>
-        <p class="biz-card__desc">
-          AI と仕組みで「何から・いくらで・どれくらい」を定量で提示します。
-        </p>
-        <ul class="biz-card__tags">
-          <li>AI 活用診断</li>
-          <li>業務自動化</li>
-          <li>Web 改善診断</li>
-        </ul>
-        <span class="biz-card__cta">
-          詳しく見る
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+        <h3 class="x-card__title">AI・DX Consulting</h3>
+        <p class="x-card__sub">活用診断 / 業務改善 / Web 改善</p>
       </a>
 
-      <a href="/web-engineering.html" class="biz-card">
-        <div class="biz-card__top">
-          <span class="biz-card__num">02</span>
-          <span class="biz-card__cat">Engineering</span>
+      <a href="/web-engineering.html" class="x-card">
+        <div class="x-card__visual x-card__visual--eng">
+          <span class="x-card__num">02</span>
+          <span class="x-card__abbr">WEB</span>
+          <span class="x-card__tag">Engineering</span>
         </div>
-        <h3 class="biz-card__title">Web / DX<br>Engineering</h3>
-        <p class="biz-card__desc">
-          サイト・SaaS・業務システム・自動化を、同じチームで設計と実装。
-        </p>
-        <ul class="biz-card__tags">
-          <li>Web / LP</li>
-          <li>SaaS フロント</li>
-          <li>API 連携</li>
-        </ul>
-        <span class="biz-card__cta">
-          詳しく見る
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+        <h3 class="x-card__title">Web / DX Engineering</h3>
+        <p class="x-card__sub">Web・SaaS・API 連携を一体で実装</p>
       </a>
 
-      <a href="/growth-marketing.html" class="biz-card">
-        <div class="biz-card__top">
-          <span class="biz-card__num">03</span>
-          <span class="biz-card__cat">Growth</span>
+      <a href="/growth-marketing.html" class="x-card">
+        <div class="x-card__visual x-card__visual--growth">
+          <span class="x-card__num">03</span>
+          <span class="x-card__abbr">GROW</span>
+          <span class="x-card__tag">Marketing</span>
         </div>
-        <h3 class="biz-card__title">Growth<br>Marketing</h3>
-        <p class="biz-card__desc">
-          公開後の Web を「伸び続ける資産」に。SEO・広告・CRO を一体運用。
-        </p>
-        <ul class="biz-card__tags">
-          <li>テクニカル SEO</li>
-          <li>広告運用</li>
-          <li>GA4 / CRO</li>
-        </ul>
-        <span class="biz-card__cta">
-          詳しく見る
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+        <h3 class="x-card__title">Growth Marketing</h3>
+        <p class="x-card__sub">SEO・広告・CRO を実装まで</p>
       </a>
 
-      <a href="/x-partner.html" class="biz-card">
-        <div class="biz-card__top">
-          <span class="biz-card__num">04</span>
-          <span class="biz-card__cat">SMB Support</span>
+      <a href="/x-partner.html" class="x-card">
+        <div class="x-card__visual x-card__visual--smb">
+          <span class="x-card__num">04</span>
+          <span class="x-card__abbr">X.P</span>
+          <span class="x-card__tag">SMB Support</span>
         </div>
-        <h3 class="biz-card__title">X Partner<br>中小企業伴走</h3>
-        <p class="biz-card__desc">
-          Web・採用・営業を、ひとつのチームで長く支える伴走ブランド。
-        </p>
-        <ul class="biz-card__tags">
-          <li class="is-live">X Works 提供中</li>
-          <li class="is-prep">Core 準備中</li>
-          <li class="is-concept">Link 構想中</li>
-        </ul>
-        <span class="biz-card__cta">
-          詳しく見る
-          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+        <h3 class="x-card__title">X Partner</h3>
+        <p class="x-card__sub">中小企業の Web・採用・営業伴走</p>
       </a>
 
     </div>
 
-    <p class="carousel-hint reveal">← スワイプして 4 領域を見る →</p>
+    <a href="#problems" class="section__view-all reveal">事業内容を詳しく見る</a>
 
   </div>
 </section>
 
-<!-- ===== Products ===== -->
-<section class="section" id="products">
+<!-- ===== Products (cybers-style horizontal cards) ===== -->
+<section class="section section--cybers" id="products">
   <div class="container">
-    <header class="section__head">
-      <p class="section__label reveal"><span class="dash"></span>Products</p>
-      <h2 class="section__title reveal">事業現場の課題から、<br class="sp-only">プロダクトへ。</h2>
-      <p class="section__lead reveal">
-        受託開発で見えてきた共通課題を、汎用プロダクトとして自社で開発・提供しています。<br class="pc-only">
-        いずれも実運用を想定し、現場で使われ続ける設計です。
-      </p>
-    </header>
 
-    <div class="products products--3col">
-      <article class="product reveal">
-        <div class="product__head">
-          <span class="product__badge product__badge--live">Now Available</span>
-          <span class="product__tag">Restaurant / SaaS</span>
-        </div>
-        <h3 class="product__name">XCloud Connect</h3>
-        <p class="product__tagline">飲食店向け QR モバイルオーダー</p>
-        <p class="product__desc">
-          席のQRを読み取るだけで、注文から決済まで完結。<br>
-          「注文を取りに、走らない店へ」── 工事・アプリ・契約縛り不要。<br>
-          iPad 1台と Wi-Fi があれば、5分で導入できます。
-        </p>
-        <ul class="product__features">
-          <li>QR注文・テーブル数の制限なし</li>
-          <li>Apple Pay / Google Pay / カード決済</li>
-          <li>キッチンディスプレイ・売上ダッシュボード</li>
-          <li>多言語自動切替・メニュー差し替え対応</li>
-        </ul>
-        <div class="product__ctas">
-          <a href="https://xcloud-connect.vercel.app" target="_blank" rel="noopener" class="product__cta product__cta--primary">
-            サービスサイトを見る
-            <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="mailto:info@xiora-official.com?subject=【お問い合わせ】XCloud Connect" class="product__cta">資料請求 →</a>
-        </div>
-      </article>
+    <h2 class="c-section-title reveal" data-en="products">
+      <span class="c-section-title__sub">自社プロダクト — 受託の現場から生まれた、実運用 SaaS</span>
+    </h2>
 
-      <article class="product reveal">
-        <div class="product__head">
-          <span class="product__badge product__badge--live">Now Available</span>
-          <span class="product__tag">HR Tech / LINE × AI</span>
-        </div>
-        <h3 class="product__name">XCloud Axive</h3>
-        <p class="product__tagline">派遣会社向け AI 運営管理 SaaS</p>
-        <p class="product__desc">
-          「電話・Excel・個別LINE」での運営をもう、続けない。<br>
-          LINE × AI で、前日確認・遅刻リスク検知・需要予測までを自動化。<br>
-          現場確認に費やす時間は、導入前 1日6.5時間から大幅に削減できます。
-        </p>
-        <ul class="product__features">
-          <li>LINE一斉配信＋既読・未返信の自動可視化</li>
-          <li>過去ノーショー実績で重み付けする遅刻リスク検知</li>
-          <li>スタッフ信頼度スコア・需要予測ダッシュボード</li>
-          <li>月額 ¥19,800〜・規模に応じた3プラン</li>
-        </ul>
-        <div class="product__ctas">
-          <a href="https://xcloud-axive.vercel.app" target="_blank" rel="noopener" class="product__cta product__cta--primary">
-            サービスサイトを見る
-            <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="mailto:info@xiora-official.com?subject=【お問い合わせ】XCloud Axive" class="product__cta">資料請求 →</a>
-        </div>
-      </article>
+    <div class="x-cards reveal">
 
-      <article class="product reveal">
-        <div class="product__head">
-          <span class="product__badge product__badge--live">Now Available</span>
-          <span class="product__tag">School / All-in-one SaaS</span>
+      <a href="https://xcloud-connect.vercel.app" target="_blank" rel="noopener" class="x-card">
+        <div class="x-card__visual x-card__visual--connect">
+          <span class="x-card__num">01</span>
+          <span class="x-card__abbr">QR</span>
+          <span class="x-card__tag">Restaurant</span>
         </div>
-        <h3 class="product__name">XCloud Flow</h3>
-        <p class="product__tagline">スクール運営 All-in-one SaaS</p>
-        <p class="product__desc">
-          予約・受講・決済・通知・AIをひとつに。<br>
-          学習塾、フィットネス、料理・音楽教室など、あらゆるスクール業態のDXを 60秒で開始できます。<br>
-          クレジットカード不要・無料登録で即運用可能。
-        </p>
-        <ul class="product__features">
-          <li>予約・スケジュール管理(対面 / オンライン / ハイブリッド)</li>
-          <li>動画・テキスト教材のオンデマンド受講</li>
-          <li>Stripe決済 + LINE・メール自動通知</li>
-          <li>AIチャット予約・運営アシスト</li>
-        </ul>
-        <div class="product__ctas">
-          <a href="https://xcloud-flow.vercel.app" target="_blank" rel="noopener" class="product__cta product__cta--primary">
-            サービスサイトを見る
-            <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="mailto:info@xiora-official.com?subject=【お問い合わせ】XCloud Flow" class="product__cta">資料請求 →</a>
+        <h3 class="x-card__title">XCloud Connect</h3>
+        <p class="x-card__sub">飲食店向け QR モバイルオーダー</p>
+      </a>
+
+      <a href="https://xcloud-axive.vercel.app" target="_blank" rel="noopener" class="x-card">
+        <div class="x-card__visual x-card__visual--axive">
+          <span class="x-card__num">02</span>
+          <span class="x-card__abbr">AX</span>
+          <span class="x-card__tag">HR · AI</span>
         </div>
-      </article>
+        <h3 class="x-card__title">XCloud Axive</h3>
+        <p class="x-card__sub">派遣会社向け AI 運営管理 SaaS</p>
+      </a>
+
+      <a href="https://xcloud-flow.vercel.app" target="_blank" rel="noopener" class="x-card">
+        <div class="x-card__visual x-card__visual--flow">
+          <span class="x-card__num">03</span>
+          <span class="x-card__abbr">FLW</span>
+          <span class="x-card__tag">School · SaaS</span>
+        </div>
+        <h3 class="x-card__title">XCloud Flow</h3>
+        <p class="x-card__sub">スクール運営 All-in-one SaaS</p>
+      </a>
+
+      <a href="#xbeauty" class="x-card">
+        <div class="x-card__visual x-card__visual--smb">
+          <span class="x-card__num">04</span>
+          <span class="x-card__abbr">X.B</span>
+          <span class="x-card__tag">Beauty Tech</span>
+        </div>
+        <h3 class="x-card__title">XBeauty</h3>
+        <p class="x-card__sub">AI × 美容のグローバル基盤（新規事業）</p>
+      </a>
+
     </div>
 
-    <p class="carousel-hint reveal">← スワイプして 3 つのプロダクトを見る →</p>
-
-    <p class="products__note reveal">
+    <p class="products__note reveal" style="margin-top: 24px;">
       ※ 自社プロダクトは順次拡充予定です。新規プロダクトの開発相談も承ります。
     </p>
   </div>
