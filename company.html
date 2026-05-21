@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=20260522c">
 
 <script type="application/ld+json">
 {
@@ -341,103 +341,38 @@
   </div>
 </section>
 
-<!-- ===== Clients We Support ===== -->
-<section class="section section--soft" id="clients">
+<!-- ===== Clients We Support (compact chips) ===== -->
+<section class="section section--cybers section--soft" id="clients">
   <div class="container">
-    <header class="section__head">
-      <p class="section__label reveal"><span class="dash"></span>Clients We Support</p>
-      <h2 class="section__title reveal">どんな企業を、<br class="sp-only">支援しているか。</h2>
-      <p class="section__lead reveal">
-        業種は横断しています。共通しているのは「人を増やす前に仕組みを増やしたい」と本気で考えている経営者の存在です。
-      </p>
-    </header>
 
-    <div class="clients">
-      <article class="client reveal">
-        <p class="client__label">Type 01</p>
-        <h3 class="client__title">成長期の中小企業</h3>
-        <p class="client__desc">
-          年商数億円〜数十億円規模で、人員と業務量がスケールしきれていない事業者。受注・運営・経理の自動化と、Web からの集客強化を同時に進めたいフェーズ。
-        </p>
-        <ul class="client__tags">
-          <li>10–100名</li><li>BtoB / BtoC</li><li>多店舗・多拠点</li>
-        </ul>
-      </article>
+    <h2 class="c-section-title reveal" data-en="clients">
+      <span class="c-section-title__sub">支援している企業</span>
+    </h2>
 
-      <article class="client reveal">
-        <p class="client__label">Type 02</p>
-        <h3 class="client__title">スタートアップ / SaaS</h3>
-        <p class="client__desc">
-          シード〜シリーズ B 前後で、プロダクトとマーケティングの両輪を磨き込みたいフェーズ。フロントエンド・計測・グロース・AI 組み込みを、開発組織を補完する形で担います。
-        </p>
-        <ul class="client__tags">
-          <li>SaaS</li><li>D2C</li><li>マーケットプレイス</li>
-        </ul>
-      </article>
-
-      <article class="client reveal">
-        <p class="client__label">Type 03</p>
-        <h3 class="client__title">専門サービス事業者</h3>
-        <p class="client__desc">
-          医療・士業・不動産・教育など、属人化しやすい専門サービス事業。AI と業務自動化で、専門家の時間を最大化し、より多くの顧客に価値を届けることを目指す事業者。
-        </p>
-        <ul class="client__tags">
-          <li>医療・歯科</li><li>士業・コンサル</li><li>教育・スクール</li>
-        </ul>
-      </article>
-
-      <article class="client reveal">
-        <p class="client__label">Type 04</p>
-        <h3 class="client__title">伝統産業の DX チーム</h3>
-        <p class="client__desc">
-          製造・建設・卸といった伝統産業で、現場の DX を推進する部門・新規事業チーム。既存基幹システムを尊重しつつ、SaaS・API・AI で「繋いで効かせる DX」を進めます。
-        </p>
-        <ul class="client__tags">
-          <li>製造</li><li>建設</li><li>卸・商社</li>
-        </ul>
-      </article>
-
-      <article class="client reveal">
-        <p class="client__label">Type 05</p>
-        <h3 class="client__title">経営の意思決定者</h3>
-        <p class="client__desc">
-          経営者・役員・CIO/CTO クラスが直接窓口になるケースが中心です。事業判断と紐づいたスピード感で動けるからこそ、私たちも最短距離で実装に踏み込めます。
-        </p>
-        <ul class="client__tags">
-          <li>CEO / 役員</li><li>事業責任者</li><li>CIO / CTO</li>
-        </ul>
-      </article>
-
-      <article class="client reveal">
-        <p class="client__label">Type 06</p>
-        <h3 class="client__title">新規事業の立ち上げ責任者</h3>
-        <p class="client__desc">
-          既存事業を持つ企業が、新規プロダクト・新規ブランド・新規ドメインを立ち上げる場面。プロダクト設計から Web、計測、AI 組み込みまで、ゼロイチ期を一気通貫で伴走します。
-        </p>
-        <ul class="client__tags">
-          <li>新規プロダクト</li><li>新ブランド</li><li>MVP 開発</li>
-        </ul>
-      </article>
-    </div>
+    <ul class="client-tags reveal" aria-label="支援対象">
+      <li class="client-tags__chip">成長期の中小企業</li>
+      <li class="client-tags__chip">スタートアップ / SaaS</li>
+      <li class="client-tags__chip">D2C / EC</li>
+      <li class="client-tags__chip">医療・歯科</li>
+      <li class="client-tags__chip">士業・コンサル</li>
+      <li class="client-tags__chip">教育・スクール</li>
+      <li class="client-tags__chip">製造・建設</li>
+      <li class="client-tags__chip">人材・派遣</li>
+      <li class="client-tags__chip">飲食・店舗</li>
+      <li class="client-tags__chip">新規事業チーム</li>
+    </ul>
   </div>
 </section>
 
 <!-- ===== Implementation Capabilities (typical AI architecture) ===== -->
-<section class="section" id="architecture">
+<section class="section section--cybers" id="architecture">
   <div class="container">
-    <header class="section__head">
-      <p class="section__label reveal"><span class="dash"></span>Implementation Capability</p>
-      <h2 class="section__title reveal">AIを、<br class="sp-only">事業に組み込む。</h2>
-      <p class="section__lead reveal">
-        Xiora が提供する AI 実装の典型的なアーキテクチャ。技術選定は事業フェーズと既存環境に合わせて柔軟に行いますが、考え方の骨格は変わりません。
-      </p>
-    </header>
+
+    <h2 class="c-section-title reveal" data-en="architecture">
+      <span class="c-section-title__sub">典型的な AI 実装構成</span>
+    </h2>
 
     <div class="arch reveal" aria-label="AI 実装アーキテクチャ図">
-      <p class="arch__title">典型的な AI 実装アーキテクチャ</p>
-      <p class="arch__sub">
-        ユーザー接点から既存の業務 SaaS、データ基盤までを、API と AI レイヤーで貫通させます。
-      </p>
 
       <div class="arch__row arch__row--3">
         <div class="arch__node">
@@ -457,11 +392,7 @@
         </div>
       </div>
 
-      <div class="arch__connector" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 4v14M6 12l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
+      <div class="arch__connector arch__connector--line" aria-hidden="true"></div>
 
       <div class="arch__row arch__row--2">
         <div class="arch__node">
@@ -476,11 +407,7 @@
         </div>
       </div>
 
-      <div class="arch__connector" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 4v14M6 12l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
+      <div class="arch__connector arch__connector--line" aria-hidden="true"></div>
 
       <div class="arch__row">
         <div class="arch__node">

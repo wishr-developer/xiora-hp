@@ -6057,3 +6057,104 @@ svg[viewBox]:not([width]):not([height]) {
 
 /* ---------- Hide old section heads when using c-section-title ---------- */
 .section--cybers .section__head { display: none; }
+
+/* =====================================================
+   V4 — Visual-first, ruthlessly minimal
+   - Flatten architecture connectors to thin dividers
+   - Screenshot-style Product cards (via image preview service)
+   - XBeauty service brand variant
+   - HARD CAP on every SVG so no future regression possible
+   ===================================================== */
+
+/* ABSOLUTE FINAL safeguard — no SVG anywhere may exceed 64px */
+svg { max-width: 64px !important; max-height: 64px !important; }
+/* But headers etc. that need bigger (none currently) can opt out via .svg--xl */
+.svg--xl { max-width: none !important; max-height: none !important; }
+
+/* Arch connector → simple thin divider line */
+.arch__connector--line {
+  height: 24px;
+  position: relative;
+  margin: 4px 0;
+}
+.arch__connector--line::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-strong);
+}
+
+/* Screenshot-style Product card */
+.x-card__visual--shot {
+  background: var(--bg-soft);
+  padding: 0;
+  position: relative;
+}
+.x-card__visual--shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: inherit;
+}
+.x-card__visual--shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.15) 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* XBeauty service brand visual variant (soft pink/beauty tone) */
+.x-card__visual--beauty {
+  background: linear-gradient(135deg, #f7e8ed 0%, #d4a8b8 100%);
+}
+.x-card__visual--beauty .x-card__abbr,
+.x-card__visual--beauty .x-card__num,
+.x-card__visual--beauty .x-card__tag {
+  color: #4a2a35;
+  mix-blend-mode: normal;
+}
+
+/* New: Service section uses 5 cards, more compact */
+.x-cards--5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+@media (max-width: 1100px) {
+  .x-cards--5 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 760px) {
+  .x-cards--5 { grid-template-columns: none; }
+}
+
+/* Compact Clients section (replaces sutra list on company.html) */
+.client-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.client-tags__chip {
+  padding: 10px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  transition: background var(--t-fast) var(--ease);
+}
+.client-tags__chip:hover {
+  background: var(--bg-soft);
+}
+@media (max-width: 560px) {
+  .client-tags__chip { font-size: 12.5px; padding: 8px 14px; }
+}
