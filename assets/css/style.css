@@ -6158,3 +6158,168 @@ svg { max-width: 64px !important; max-height: 64px !important; }
 @media (max-width: 560px) {
   .client-tags__chip { font-size: 12.5px; padding: 8px 14px; }
 }
+
+/* =====================================================
+   V5 — Premium service cards (Apple / Linear / Stripe inspired)
+   - White base, subtle border, soft hover
+   - Full names as the star (no abbreviation blocks)
+   - 2 featured + 3 regular grid
+   ===================================================== */
+
+.svc-row {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.svc-row:last-child { margin-bottom: 0; }
+.svc-row--featured { grid-template-columns: repeat(2, 1fr); }
+.svc-row--regular { grid-template-columns: repeat(3, 1fr); }
+
+.svc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: transform var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              box-shadow var(--t-fast) var(--ease);
+}
+.svc-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.08),
+              0 2px 6px -3px rgba(0, 0, 0, 0.04);
+}
+
+/* Featured (2-up row, larger) */
+.svc-card--lg {
+  padding: clamp(36px, 4vw, 48px) clamp(32px, 3.6vw, 44px);
+  min-height: 320px;
+  /* Subtle gradient backdrop — barely visible, premium feel */
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
+}
+.svc-card--lg .svc-card__title {
+  font-size: clamp(26px, 2.6vw, 32px);
+  margin-bottom: 18px;
+}
+.svc-card--lg .svc-card__desc {
+  font-size: 14.5px;
+  max-width: 460px;
+}
+
+/* Regular (3-up row, compact) */
+.svc-card--sm {
+  padding: 30px 28px;
+  min-height: 270px;
+}
+.svc-card--sm .svc-card__title {
+  font-size: 21px;
+  margin-bottom: 14px;
+}
+.svc-card--sm .svc-card__desc {
+  font-size: 13.5px;
+}
+
+/* Card internals */
+.svc-card__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  font-family: var(--ff-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.svc-card__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text);
+  flex-shrink: 0;
+}
+.svc-card__num {
+  color: var(--text-faint);
+  font-weight: 500;
+}
+.svc-card__cat {
+  color: var(--text-tertiary);
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.svc-card__title {
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  line-height: 1.25;
+  color: var(--text);
+}
+.svc-card__desc {
+  color: var(--text-secondary);
+  line-height: 1.85;
+  letter-spacing: -0.003em;
+  margin-bottom: 22px;
+}
+.svc-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+.svc-card__tags li {
+  font-size: 11.5px;
+  padding: 5px 11px;
+  background: var(--bg-soft);
+  border-radius: 999px;
+  color: var(--text-tertiary);
+  letter-spacing: -0.005em;
+  line-height: 1;
+}
+.svc-card__cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.svc-card__cta-arrow {
+  display: inline-block;
+  font-size: 13px;
+  transition: transform var(--t-fast) var(--ease);
+}
+.svc-card:hover .svc-card__cta-arrow { transform: translateX(4px); }
+
+/* Subtle per-card accent (visible only on the dot) */
+.svc-card--ai      .svc-card__dot { background: #1e3a8a; }
+.svc-card--eng     .svc-card__dot { background: #064e3b; }
+.svc-card--growth  .svc-card__dot { background: #7c2d12; }
+.svc-card--smb     .svc-card__dot { background: #3f3f46; }
+.svc-card--beauty  .svc-card__dot { background: #831843; }
+
+/* Responsive layout */
+@media (max-width: 960px) {
+  .svc-row--featured { grid-template-columns: repeat(2, 1fr); }
+  .svc-row--regular { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .svc-card--lg { padding: 32px 28px; min-height: 280px; }
+  .svc-card--lg .svc-card__title { font-size: 24px; }
+  .svc-card--sm { padding: 26px 22px; min-height: 240px; }
+  .svc-card--sm .svc-card__title { font-size: 19px; }
+}
+@media (max-width: 720px) {
+  .svc-row--featured,
+  .svc-row--regular {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .svc-card { min-height: 0; }
+  .svc-card--lg { padding: 28px 24px; }
+  .svc-card--sm { padding: 26px 22px; }
+}

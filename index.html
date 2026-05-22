@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=20260522c">
+<link rel="stylesheet" href="assets/css/style.css?v=20260522d">
 
 <!-- JSON-LD -->
 <script type="application/ld+json">
@@ -252,62 +252,127 @@
   </div>
 </section>
 
-<!-- ===== Services (5 cards) ===== -->
+<!-- ===== Services (2 featured + 3 regular) ===== -->
 <section class="section section--cybers" id="services">
   <div class="container">
 
     <h2 class="c-section-title reveal" data-en="services">
-      <span class="c-section-title__sub">事業内容</span>
+      <span class="c-section-title__sub">事業内容 — AI / DX / Web / Growth / SMB 支援</span>
     </h2>
 
-    <div class="x-cards x-cards--5 reveal">
+    <div class="svc-row svc-row--featured reveal">
 
-      <a href="/ai-consulting.html" class="x-card">
-        <div class="x-card__visual x-card__visual--ai">
-          <span class="x-card__num">01</span>
-          <span class="x-card__abbr">AI</span>
-          <span class="x-card__tag">Consulting</span>
+      <a href="/ai-consulting.html" class="svc-card svc-card--lg svc-card--ai">
+        <div class="svc-card__top">
+          <span class="svc-card__dot" aria-hidden="true"></span>
+          <span class="svc-card__num">01</span>
+          <span class="svc-card__cat">Consulting</span>
         </div>
-        <h3 class="x-card__title">AI・DX Consulting</h3>
+        <h3 class="svc-card__title">AI・DX Consulting</h3>
+        <p class="svc-card__desc">
+          AI 活用診断、業務自動化、AI 研修まで。現場業務に AI を組み込み、日々の作業を改善します。
+        </p>
+        <ul class="svc-card__tags">
+          <li>AI 診断</li>
+          <li>自動化</li>
+          <li>研修</li>
+        </ul>
+        <span class="svc-card__cta">
+          詳しく見る
+          <span class="svc-card__cta-arrow">→</span>
+        </span>
       </a>
 
-      <a href="/web-engineering.html" class="x-card">
-        <div class="x-card__visual x-card__visual--eng">
-          <span class="x-card__num">02</span>
-          <span class="x-card__abbr">WEB</span>
-          <span class="x-card__tag">Engineering</span>
+      <a href="/web-engineering.html" class="svc-card svc-card--lg svc-card--eng">
+        <div class="svc-card__top">
+          <span class="svc-card__dot" aria-hidden="true"></span>
+          <span class="svc-card__num">02</span>
+          <span class="svc-card__cat">Engineering</span>
         </div>
-        <h3 class="x-card__title">Web / DX Engineering</h3>
-      </a>
-
-      <a href="/growth-marketing.html" class="x-card">
-        <div class="x-card__visual x-card__visual--growth">
-          <span class="x-card__num">03</span>
-          <span class="x-card__abbr">GROW</span>
-          <span class="x-card__tag">Marketing</span>
-        </div>
-        <h3 class="x-card__title">Growth Marketing</h3>
-      </a>
-
-      <a href="/x-partner.html" class="x-card">
-        <div class="x-card__visual x-card__visual--smb">
-          <span class="x-card__num">04</span>
-          <span class="x-card__abbr">X.P</span>
-          <span class="x-card__tag">SMB</span>
-        </div>
-        <h3 class="x-card__title">X Partner</h3>
-      </a>
-
-      <a href="#xbeauty" class="x-card">
-        <div class="x-card__visual x-card__visual--beauty">
-          <span class="x-card__num">05</span>
-          <span class="x-card__abbr">X.B</span>
-          <span class="x-card__tag">Beauty</span>
-        </div>
-        <h3 class="x-card__title">XBeauty</h3>
+        <h3 class="svc-card__title">Web / DX Engineering</h3>
+        <p class="svc-card__desc">
+          コーポレートサイト、LP、採用ページ、業務導線を設計。見た目だけでなく、成果につながる Web 基盤を作ります。
+        </p>
+        <ul class="svc-card__tags">
+          <li>Web 制作</li>
+          <li>LP</li>
+          <li>採用サイト</li>
+        </ul>
+        <span class="svc-card__cta">
+          詳しく見る
+          <span class="svc-card__cta-arrow">→</span>
+        </span>
       </a>
 
     </div>
+
+    <div class="svc-row svc-row--regular reveal">
+
+      <a href="/growth-marketing.html" class="svc-card svc-card--sm svc-card--growth">
+        <div class="svc-card__top">
+          <span class="svc-card__dot" aria-hidden="true"></span>
+          <span class="svc-card__num">03</span>
+          <span class="svc-card__cat">Marketing</span>
+        </div>
+        <h3 class="svc-card__title">Growth Marketing</h3>
+        <p class="svc-card__desc">
+          SEO、広告、LPO、アクセス解析を一体で改善。問い合わせ・採用・予約につながる導線を設計します。
+        </p>
+        <ul class="svc-card__tags">
+          <li>SEO</li>
+          <li>広告</li>
+          <li>CV 改善</li>
+        </ul>
+        <span class="svc-card__cta">
+          詳しく見る
+          <span class="svc-card__cta-arrow">→</span>
+        </span>
+      </a>
+
+      <a href="/x-partner.html" class="svc-card svc-card--sm svc-card--smb">
+        <div class="svc-card__top">
+          <span class="svc-card__dot" aria-hidden="true"></span>
+          <span class="svc-card__num">04</span>
+          <span class="svc-card__cat">SMB Support</span>
+        </div>
+        <h3 class="svc-card__title">X Partner</h3>
+        <p class="svc-card__desc">
+          中小企業の Web・営業・採用を支える支援ブランド。X Works を提供中、Core / Link を段階的に展開予定。
+        </p>
+        <ul class="svc-card__tags">
+          <li>X Works</li>
+          <li>Core 準備中</li>
+          <li>Link 構想中</li>
+        </ul>
+        <span class="svc-card__cta">
+          詳しく見る
+          <span class="svc-card__cta-arrow">→</span>
+        </span>
+      </a>
+
+      <a href="#xbeauty" class="svc-card svc-card--sm svc-card--beauty">
+        <div class="svc-card__top">
+          <span class="svc-card__dot" aria-hidden="true"></span>
+          <span class="svc-card__num">05</span>
+          <span class="svc-card__cat">Beauty Tech</span>
+        </div>
+        <h3 class="svc-card__title">XBeauty</h3>
+        <p class="svc-card__desc">
+          美容領域に特化した AI・Web・集客支援。予約導線、症例ページ、SNS 運用を改善します。
+        </p>
+        <ul class="svc-card__tags">
+          <li>美容</li>
+          <li>予約導線</li>
+          <li>SNS</li>
+        </ul>
+        <span class="svc-card__cta">
+          詳しく見る
+          <span class="svc-card__cta-arrow">→</span>
+        </span>
+      </a>
+
+    </div>
+
   </div>
 </section>
 
