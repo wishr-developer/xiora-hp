@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=20260522c">
+<link rel="stylesheet" href="assets/css/style.css?v=20260525a">
 
 <script type="application/ld+json">
 {
@@ -60,8 +60,7 @@
       <a href="/#products">プロダクト</a>
       <a href="/case-studies.html">事例</a>
       <a href="/insights/">Insights</a>
-      <a href="/company.html">Company</a>
-      <a href="/#news">News</a>
+      <a href="/company.html">About</a>
     </nav>
     <div class="site-header__cta">
       <a href="/contact.html" class="btn btn--sm" aria-current="page">無料相談</a>
@@ -93,11 +92,43 @@
     </p>
 
     <ul class="contact-trust reveal" aria-label="お問い合わせ時の約束" style="margin-top:48px;">
-      <li><span class="cta__trust-check" aria-hidden="true"></span>24 時間以内に初回返信</li>
-      <li><span class="cta__trust-check" aria-hidden="true"></span>NDA 対応可</li>
-      <li><span class="cta__trust-check" aria-hidden="true"></span>無理な営業はいたしません</li>
+      <li><span class="cta__trust-check" aria-hidden="true"></span>通常 24 時間以内に返信</li>
       <li><span class="cta__trust-check" aria-hidden="true"></span>相談・お見積り無料</li>
+      <li><span class="cta__trust-check" aria-hidden="true"></span>NDA 対応可</li>
+      <li><span class="cta__trust-check" aria-hidden="true"></span>営業メール一切なし</li>
+      <li><span class="cta__trust-check" aria-hidden="true"></span>小規模な相談も歓迎</li>
     </ul>
+  </div>
+</section>
+
+<!-- ===== Contact Info Card ===== -->
+<section class="contact-info-band">
+  <div class="container container--narrow">
+    <div class="contact-info reveal">
+      <div class="contact-info__col">
+        <p class="contact-info__label">Mail</p>
+        <p class="contact-info__value">
+          <a href="mailto:info@xiora-official.com">info@xiora-official.com</a>
+        </p>
+        <p class="contact-info__note">24 時間以内に返信します。</p>
+      </div>
+      <div class="contact-info__col">
+        <p class="contact-info__label">Phone</p>
+        <p class="contact-info__value">
+          <a href="tel:07091650203">070-9165-0203</a>
+        </p>
+        <p class="contact-info__note">平日 10:00–19:00 / 不在時は折り返します。</p>
+      </div>
+      <div class="contact-info__col">
+        <p class="contact-info__label">Office</p>
+        <p class="contact-info__value contact-info__value--addr">
+          〒150-0043<br>
+          東京都渋谷区道玄坂 1-10-8<br>
+          渋谷道玄坂東急ビル 2F-C
+        </p>
+        <p class="contact-info__note">商談は基本オンラインで承ります。</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -151,9 +182,14 @@
             <span class="radio-card__desc">中小企業向け Web・採用・営業の伴走</span>
           </label>
           <label class="radio-card">
+            <input type="radio" name="type" value="intern">
+            <span class="radio-card__title">Build with us（インターン / アソシエイト）</span>
+            <span class="radio-card__desc">AI / SaaS / Web を一緒に作るポジションへの応募</span>
+          </label>
+          <label class="radio-card">
             <input type="radio" name="type" value="other">
             <span class="radio-card__title">その他のご相談</span>
-            <span class="radio-card__desc">採用・取材・協業など</span>
+            <span class="radio-card__desc">取材・協業など</span>
           </label>
         </div>
       </fieldset>
@@ -331,10 +367,10 @@
     <!-- ===== Direct contact alternative ===== -->
     <aside class="contact-alt" aria-label="直接連絡先">
       <div class="contact-alt__text">
-        <p class="contact-alt__title">フォーム入力が手間な方は、メール・電話で直接どうぞ。</p>
+        <p class="contact-alt__title">フォームを書く手間が惜しい方は、メール・電話で直接どうぞ。</p>
         <p class="contact-alt__desc">
-          メール: <a href="mailto:info@xiora-official.com">info@xiora-official.com</a><br>
-          営業時間: 平日 10:00–19:00
+          <a href="mailto:info@xiora-official.com">info@xiora-official.com</a> / <a href="tel:07091650203">070-9165-0203</a><br>
+          平日 10:00–19:00　/　小規模な相談・情報収集段階のご相談も歓迎しています。
         </p>
       </div>
       <a href="mailto:info@xiora-official.com?subject=【お問い合わせ】Xiora&body=会社名:%0D%0Aお名前:%0D%0Aご連絡先:%0D%0Aご相談内容:" class="btn btn--ghost">
@@ -359,7 +395,12 @@
           <span class="brand__mark" aria-hidden="true"></span>
           <span class="brand__name">Xiora</span>
         </div>
-        <p class="site-footer__tag">AIを、事業に実装する。<br>信頼できる AI × DX × Web パートナー。</p>
+        <p class="site-footer__tag">AI を、事業に実装する。<br>Founder-led の AI × DX × Web パートナー。</p>
+        <p class="site-footer__addr">
+          〒150-0043 東京都渋谷区道玄坂 1-10-8<br>
+          渋谷道玄坂東急ビル 2F-C<br>
+          <a href="tel:07091650203">070-9165-0203</a> / <a href="mailto:info@xiora-official.com">info@xiora-official.com</a>
+        </p>
         <a href="/contact.html" class="btn btn--sm btn--ghost site-footer__cta">無料相談を申し込む</a>
       </div>
       <nav class="site-footer__nav" aria-label="フッターメニュー">
@@ -385,9 +426,10 @@
         <div>
           <p class="site-footer__head">Company</p>
           <ul>
-            <li><a href="/company.html">Company</a></li>
+            <li><a href="/company.html">About</a></li>
             <li><a href="/case-studies.html">事例</a></li>
             <li><a href="/insights/">Insights</a></li>
+            <li><a href="/internship.html">Build with us</a></li>
             <li><a href="/#news">News</a></li>
           </ul>
         </div>
