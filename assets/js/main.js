@@ -30,6 +30,7 @@
     const close = () => {
       toggle.classList.remove('is-open');
       nav.classList.remove('is-open');
+      document.body.classList.remove('nav-open');
       toggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     };
@@ -37,10 +38,14 @@
       const open = !toggle.classList.contains('is-open');
       toggle.classList.toggle('is-open', open);
       nav.classList.toggle('is-open', open);
+      document.body.classList.toggle('nav-open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       document.body.style.overflow = open ? 'hidden' : '';
     });
     nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) close();
+    });
     window.addEventListener('resize', () => {
       if (window.innerWidth > 880) close();
     });
