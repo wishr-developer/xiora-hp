@@ -7318,6 +7318,30 @@ svg { max-width: 64px !important; max-height: 64px !important; }
   }
 }
 
+/* ---------- Capability axis label (Systems / Apps separator) ---------- */
+.cap-axis {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: clamp(28px, 4vw, 40px) 0 14px;
+  font-family: var(--ff-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.cap-axis:first-of-type { margin-top: clamp(12px, 2vw, 20px); }
+.cap-axis__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text);
+  flex-shrink: 0;
+}
+.cap-axis--apps .cap-axis__dot { background: #1e3a8a; }
+.cap-axis + .cap-grid { margin-top: 0; }
+
 /* ---------- 404 page ---------- */
 .notfound {
   min-height: calc(100vh - 60px);
