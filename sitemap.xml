@@ -86,6 +86,11 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://xiora-official.com/news/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/news/2026-05-15-xbeauty-launch.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

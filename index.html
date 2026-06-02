@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=20260603f">
+<link rel="stylesheet" href="assets/css/style.css?v=20260603g">
 
 <!-- JSON-LD -->
 <script type="application/ld+json">
@@ -95,6 +95,8 @@
 <link rel="alternate" hreflang="ja" href="https://xiora-official.com/">
 <link rel="alternate" hreflang="en" href="https://xiora-official.com/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://xiora-official.com/">
+<meta name="ga4-id" content="">
+<script src="/assets/js/analytics.js" defer></script>
 </head>
 
 <body>
@@ -182,52 +184,38 @@
     <header class="section__head">
       <p class="section__label reveal"><span class="dash"></span><span data-i18n="problems.label">Problems We Solve</span></p>
       <h2 class="section__title reveal" data-i18n="problems.title">こんな課題、<br class="sp-only">解決できます。</h2>
-      <p class="section__lead reveal">
-        中小企業によくある悩みを、AIと自動化で具体的にどう変えられるか。
-      </p>
+      <p class="section__lead reveal"><span data-i18n="problems.lead">中小企業によくある悩みを、AIと自動化で具体的にどう変えられるか。</span></p>
     </header>
 
     <div class="problems">
       <article class="problem reveal">
-        <p class="problem__label problem__label--before">Before</p>
-        <p class="problem__before">
-          問い合わせ対応に<br>1日3時間取られている
-        </p>
+        <p class="problem__label problem__label--before" data-i18n="problems.before">Before</p>
+        <p class="problem__before" data-i18n="problems.1.before">問い合わせ対応に<br>1日3時間取られている</p>
         <div class="problem__divider" aria-hidden="true"></div>
-        <p class="problem__label problem__label--after">After</p>
+        <p class="problem__label problem__label--after" data-i18n="problems.after">After</p>
         <p class="problem__metric"><span>−</span>80<span class="problem__metric-unit">%</span></p>
-        <p class="problem__metric-label">対応工数</p>
-        <p class="problem__detail">
-          AI問い合わせ自動応答で、受付スタッフを別業務に再配置。
-        </p>
+        <p class="problem__metric-label" data-i18n="problems.1.label">対応工数</p>
+        <p class="problem__detail" data-i18n="problems.1.detail">AI問い合わせ自動応答で、受付スタッフを別業務に再配置。</p>
       </article>
 
       <article class="problem reveal">
-        <p class="problem__label problem__label--before">Before</p>
-        <p class="problem__before">
-          人を増やしたいが、<br>採用コストが重い
-        </p>
+        <p class="problem__label problem__label--before" data-i18n="problems.before">Before</p>
+        <p class="problem__before" data-i18n="problems.2.before">人を増やしたいが、<br>採用コストが重い</p>
         <div class="problem__divider" aria-hidden="true"></div>
-        <p class="problem__label problem__label--after">After</p>
+        <p class="problem__label problem__label--after" data-i18n="problems.after">After</p>
         <p class="problem__metric">2<span class="problem__metric-unit">x</span></p>
-        <p class="problem__metric-label">業務処理量</p>
-        <p class="problem__detail">
-          業務自動化で、現状の人員のままキャパシティを2倍に。
-        </p>
+        <p class="problem__metric-label" data-i18n="problems.2.label">業務処理量</p>
+        <p class="problem__detail" data-i18n="problems.2.detail">業務自動化で、現状の人員のままキャパシティを2倍に。</p>
       </article>
 
       <article class="problem reveal">
-        <p class="problem__label problem__label--before">Before</p>
-        <p class="problem__before">
-          サイトはあるが、<br>問い合わせが来ない
-        </p>
+        <p class="problem__label problem__label--before" data-i18n="problems.before">Before</p>
+        <p class="problem__before" data-i18n="problems.3.before">サイトはあるが、<br>問い合わせが来ない</p>
         <div class="problem__divider" aria-hidden="true"></div>
-        <p class="problem__label problem__label--after">After</p>
+        <p class="problem__label problem__label--after" data-i18n="problems.after">After</p>
         <p class="problem__metric">2.3<span class="problem__metric-unit">x</span></p>
-        <p class="problem__metric-label">月の問い合わせ数</p>
-        <p class="problem__detail">
-          情報設計・速度・CTA改善で、CVR を2.3倍に。
-        </p>
+        <p class="problem__metric-label" data-i18n="problems.3.label">月の問い合わせ数</p>
+        <p class="problem__detail" data-i18n="problems.3.detail">情報設計・速度・CTA改善で、CVR を2.3倍に。</p>
       </article>
     </div>
     <p class="carousel-hint reveal">← スワイプして 3 つの課題を見る →</p>
@@ -247,27 +235,21 @@
 
     <div class="strengths">
       <article class="strength reveal">
-        <h3 class="strength__title">考えると作るが、<br>ひとつのチームに。</h3>
-        <p class="strength__desc">
-          戦略・設計・実装を分業しない。だから意思決定から実装までのスピードが圧倒的に速く、後戻りも最小限です。
-        </p>
-        <p class="strength__tag">一気通貫体制</p>
+        <h3 class="strength__title" data-i18n="strengths.1.title">考えると作るが、<br>ひとつのチームに。</h3>
+        <p class="strength__desc" data-i18n="strengths.1.desc">戦略・設計・実装を分業しない。だから意思決定から実装までのスピードが圧倒的に速く、後戻りも最小限です。</p>
+        <p class="strength__tag" data-i18n="strengths.1.tag">一気通貫体制</p>
       </article>
 
       <article class="strength reveal">
-        <h3 class="strength__title">AIネイティブの<br>開発体制。</h3>
-        <p class="strength__desc">
-          自社の業務にもAIを徹底活用。机上の空論ではなく、現場で本当に動くAI導入を提案します。
-        </p>
-        <p class="strength__tag">AI実装ノウハウ</p>
+        <h3 class="strength__title" data-i18n="strengths.2.title">AIネイティブの<br>開発体制。</h3>
+        <p class="strength__desc" data-i18n="strengths.2.desc">自社の業務にもAIを徹底活用。机上の空論ではなく、現場で本当に動くAI導入を提案します。</p>
+        <p class="strength__tag" data-i18n="strengths.2.tag">AI実装ノウハウ</p>
       </article>
 
       <article class="strength reveal">
-        <h3 class="strength__title">数字で、<br>コミットする。</h3>
-        <p class="strength__desc">
-          「作って終わり」にしない。導入後のKPIまで一緒に追い、改善を継続する伴走型のパートナーです。
-        </p>
-        <p class="strength__tag">成果へのコミット</p>
+        <h3 class="strength__title" data-i18n="strengths.3.title">数字で、<br>コミットする。</h3>
+        <p class="strength__desc" data-i18n="strengths.3.desc">「作って終わり」にしない。導入後のKPIまで一緒に追い、改善を継続する伴走型のパートナーです。</p>
+        <p class="strength__tag" data-i18n="strengths.3.tag">成果へのコミット</p>
       </article>
     </div>
   </div>
@@ -465,33 +447,25 @@
       <li class="lifecycle__step reveal">
         <span class="lifecycle__num">01</span>
         <h3 class="lifecycle__title">Build</h3>
-        <p class="lifecycle__desc">
-          要件・体験・設計を Founder と直接擦り合わせ、最短経路で実装。Next.js / TypeScript / Supabase / OpenAI などを軸に、過剰設計せず動くものから作ります。
-        </p>
+        <p class="lifecycle__desc" data-i18n="lifecycle.build.desc">要件・体験・設計を Founder と直接擦り合わせ、最短経路で実装。Next.js / TypeScript / Supabase / OpenAI などを軸に、過剰設計せず動くものから作ります。</p>
       </li>
       <li class="lifecycle__arrow" aria-hidden="true">→</li>
       <li class="lifecycle__step reveal">
         <span class="lifecycle__num">02</span>
         <h3 class="lifecycle__title">Launch</h3>
-        <p class="lifecycle__desc">
-          Vercel / Cloud Run などで本番リリース。ドメイン・SSL・解析・ログ・モニタリング・権限設計まで含めて、安全に立ち上げる準備を整えます。
-        </p>
+        <p class="lifecycle__desc" data-i18n="lifecycle.launch.desc">Vercel / Cloud Run などで本番リリース。ドメイン・SSL・解析・ログ・モニタリング・権限設計まで含めて、安全に立ち上げる準備を整えます。</p>
       </li>
       <li class="lifecycle__arrow" aria-hidden="true">→</li>
       <li class="lifecycle__step reveal">
         <span class="lifecycle__num">03</span>
         <h3 class="lifecycle__title">Operate</h3>
-        <p class="lifecycle__desc">
-          保守運用、監査ログ、Guardrail、コスト監視、SLA。AI と業務システムを、安心して使い続けられる状態に保ちます。
-        </p>
+        <p class="lifecycle__desc" data-i18n="lifecycle.operate.desc">保守運用、監査ログ、Guardrail、コスト監視、SLA。AI と業務システムを、安心して使い続けられる状態に保ちます。</p>
       </li>
       <li class="lifecycle__arrow" aria-hidden="true">→</li>
       <li class="lifecycle__step reveal">
         <span class="lifecycle__num">04</span>
         <h3 class="lifecycle__title">Scale</h3>
-        <p class="lifecycle__desc">
-          KPI を見ながら継続改善。機能追加、テナント拡張、AI モデル差し替え、システム化／SaaS 化まで。事業を伸ばす次の一手を、共に打ちます。
-        </p>
+        <p class="lifecycle__desc" data-i18n="lifecycle.scale.desc">KPI を見ながら継続改善。機能追加、テナント拡張、AI モデル差し替え、システム化／SaaS 化まで。事業を伸ばす次の一手を、共に打ちます。</p>
       </li>
     </ol>
   </div>
@@ -517,7 +491,7 @@
           <span class="cap-card__num">01</span>
           <span class="cap-card__cat">Business System</span>
         </header>
-        <h3 class="cap-card__title">業務システム</h3>
+        <h3 class="cap-card__title" data-i18n="cap.systems.1.title">業務システム</h3>
         <p class="cap-card__desc">
           スプレッドシート運用の限界を超える、業務の"芯"になるシステム。CRM、案件管理、在庫、受発注、シフト、予約まで、現場で本当に回る仕組みを構築します。
         </p>
@@ -534,7 +508,7 @@
           <span class="cap-card__num">02</span>
           <span class="cap-card__cat">SaaS Product</span>
         </header>
-        <h3 class="cap-card__title">SaaS プロダクト</h3>
+        <h3 class="cap-card__title" data-i18n="cap.systems.2.title">SaaS プロダクト</h3>
         <p class="cap-card__desc">
           ゼロから事業に育てる SaaS の MVP 構築から、マルチテナント・課金・運用監視まで。自社で Kigen ／ XCloud シリーズを運営してきた実装知見を投入します。
         </p>
@@ -556,7 +530,7 @@
           <span class="cap-card__num">03</span>
           <span class="cap-card__cat">Web App</span>
         </header>
-        <h3 class="cap-card__title">Web アプリ</h3>
+        <h3 class="cap-card__title" data-i18n="cap.apps.1.title">Web アプリ</h3>
         <p class="cap-card__desc">
           ログイン、申込、決済、マイページ、検索体験まで。事業の入口から課金までを Web 上で完結させるアプリを、Next.js / TypeScript を軸に構築します。
         </p>
@@ -573,7 +547,7 @@
           <span class="cap-card__num">04</span>
           <span class="cap-card__cat">AI App</span>
         </header>
-        <h3 class="cap-card__title">AI アプリ</h3>
+        <h3 class="cap-card__title" data-i18n="cap.apps.2.title">AI アプリ</h3>
         <p class="cap-card__desc">
           RAG ナレッジ検索、AI チャット、AI エージェント、LINE / Slack 連携 Bot。AI そのものを主役にした、単機能で強いアプリを設計・実装します。
         </p>
@@ -601,38 +575,62 @@
       <span class="c-section-title__sub" data-i18n="products.title.jp">自社システム — Kigen / XCloud シリーズ（業務システム / SaaS）</span>
     </h2>
 
-    <div class="x-cards reveal">
+    <div class="prod-cards reveal">
 
-      <a href="https://kigen.xiora-official.com" target="_blank" rel="noopener" class="x-card">
-        <div class="x-card__visual x-card__visual--shot">
-          <img src="https://image.thum.io/get/width/600/crop/450/noanimate/https://kigen.xiora-official.com/" alt="Kigen — AI ネイティブの業務改善プラットフォーム" loading="lazy" width="600" height="450">
+      <a href="https://kigen.xiora-official.com" target="_blank" rel="noopener" class="prod-card prod-card--kigen">
+        <div class="prod-card__top">
+          <span class="prod-card__cat" data-i18n="prod.kigen.cat">業務改善システム</span>
+          <span class="prod-card__status">In Development</span>
         </div>
-        <h3 class="x-card__title">Kigen <span class="x-card__badge">In Development</span></h3>
-        <p class="x-card__sub">AI ネイティブの業務改善システム（企業・組織向け）</p>
+        <p class="prod-card__brand">Kigen</p>
+        <div class="prod-card__motif" aria-hidden="true">
+          <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="20" cy="30" r="4"/><circle cx="50" cy="14" r="3"/><circle cx="50" cy="46" r="3"/><circle cx="80" cy="22" r="3"/><circle cx="80" cy="38" r="3"/><circle cx="105" cy="30" r="4"/><path d="M24 30L46 16M24 30L46 44M54 14L78 22M54 46L78 38M82 24L101 30M82 36L101 30"/></g></svg>
+        </div>
+        <h3 class="prod-card__title">Kigen</h3>
+        <p class="prod-card__sub" data-i18n="prod.kigen.sub">AI ネイティブの業務改善システム（企業・組織向け）</p>
+        <span class="prod-card__cta" data-i18n="prod.visit">サイトを見る <span aria-hidden="true">→</span></span>
       </a>
 
-      <a href="https://xcloud-connect.vercel.app" target="_blank" rel="noopener" class="x-card">
-        <div class="x-card__visual x-card__visual--shot">
-          <img src="https://image.thum.io/get/width/600/crop/450/noanimate/https://xcloud-connect.vercel.app/" alt="XCloud Connect" loading="lazy" width="600" height="450">
+      <a href="https://xcloud-connect.vercel.app" target="_blank" rel="noopener" class="prod-card prod-card--connect">
+        <div class="prod-card__top">
+          <span class="prod-card__cat" data-i18n="prod.connect.cat">飲食店向け SaaS</span>
+          <span class="prod-card__status">Released</span>
         </div>
-        <h3 class="x-card__title">XCloud Connect</h3>
-        <p class="x-card__sub">飲食店向け QR モバイルオーダー SaaS</p>
+        <p class="prod-card__brand">XCloud<br><span>Connect</span></p>
+        <div class="prod-card__motif" aria-hidden="true">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><rect x="6" y="6" width="22" height="22" rx="2"/><rect x="52" y="6" width="22" height="22" rx="2"/><rect x="6" y="52" width="22" height="22" rx="2"/><rect x="36" y="36" width="8" height="8"/><rect x="52" y="52" width="8" height="8"/><rect x="68" y="52" width="6" height="6"/><rect x="52" y="68" width="6" height="6"/><rect x="66" y="66" width="8" height="8"/></g><g fill="none" stroke="currentColor" stroke-width="1.2"><rect x="11" y="11" width="12" height="12"/><rect x="57" y="11" width="12" height="12"/><rect x="11" y="57" width="12" height="12"/></g></svg>
+        </div>
+        <h3 class="prod-card__title">XCloud Connect</h3>
+        <p class="prod-card__sub" data-i18n="prod.connect.sub">飲食店向け QR モバイルオーダー SaaS</p>
+        <span class="prod-card__cta" data-i18n="prod.visit">サイトを見る <span aria-hidden="true">→</span></span>
       </a>
 
-      <a href="https://xcloud-axive.vercel.app" target="_blank" rel="noopener" class="x-card">
-        <div class="x-card__visual x-card__visual--shot">
-          <img src="https://image.thum.io/get/width/600/crop/450/noanimate/https://xcloud-axive.vercel.app/" alt="XCloud Axive" loading="lazy" width="600" height="450">
+      <a href="https://xcloud-axive.vercel.app" target="_blank" rel="noopener" class="prod-card prod-card--axive">
+        <div class="prod-card__top">
+          <span class="prod-card__cat" data-i18n="prod.axive.cat">派遣会社向け SaaS</span>
+          <span class="prod-card__status">Released</span>
         </div>
-        <h3 class="x-card__title">XCloud Axive</h3>
-        <p class="x-card__sub">派遣会社向け AI 運営管理 SaaS</p>
+        <p class="prod-card__brand">XCloud<br><span>Axive</span></p>
+        <div class="prod-card__motif" aria-hidden="true">
+          <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="38" height="24" rx="4"/><path d="M14 38l4 6"/><circle cx="60" cy="26" r="8"/><path d="M60 18v-4M60 38v-4M52 26h-4M72 26h-4M54.5 20.5l-2.8-2.8M67.3 32.3l-2.8-2.8M67.3 20.5l2.8-2.8"/><rect x="80" y="14" width="32" height="24" rx="4"/><path d="M88 22h16M88 28h12M88 34h14"/></g></svg>
+        </div>
+        <h3 class="prod-card__title">XCloud Axive</h3>
+        <p class="prod-card__sub" data-i18n="prod.axive.sub">派遣会社向け AI 運営管理 SaaS</p>
+        <span class="prod-card__cta" data-i18n="prod.visit">サイトを見る <span aria-hidden="true">→</span></span>
       </a>
 
-      <a href="https://xcloud-flow.vercel.app" target="_blank" rel="noopener" class="x-card">
-        <div class="x-card__visual x-card__visual--shot">
-          <img src="https://image.thum.io/get/width/600/crop/450/noanimate/https://xcloud-flow.vercel.app/" alt="XCloud Flow" loading="lazy" width="600" height="450">
+      <a href="https://xcloud-flow.vercel.app" target="_blank" rel="noopener" class="prod-card prod-card--flow">
+        <div class="prod-card__top">
+          <span class="prod-card__cat" data-i18n="prod.flow.cat">スクール運営 SaaS</span>
+          <span class="prod-card__status">Released</span>
         </div>
-        <h3 class="x-card__title">XCloud Flow</h3>
-        <p class="x-card__sub">スクール運営 All-in-one SaaS</p>
+        <p class="prod-card__brand">XCloud<br><span>Flow</span></p>
+        <div class="prod-card__motif" aria-hidden="true">
+          <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M6 36 Q24 12 42 36 T78 36 T114 36"/><path d="M6 42 Q24 18 42 42 T78 42 T114 42" opacity="0.5"/><circle cx="24" cy="24" r="2.5" fill="currentColor"/><circle cx="60" cy="36" r="2.5" fill="currentColor"/><circle cx="96" cy="24" r="2.5" fill="currentColor"/></g></svg>
+        </div>
+        <h3 class="prod-card__title">XCloud Flow</h3>
+        <p class="prod-card__sub" data-i18n="prod.flow.sub">スクール運営 All-in-one SaaS</p>
+        <span class="prod-card__cta" data-i18n="prod.visit">サイトを見る <span aria-hidden="true">→</span></span>
       </a>
 
     </div>
@@ -685,7 +683,7 @@
           <span class="venture-card__num">01</span>
           <span class="venture-card__cat">Beauty Tech</span>
         </header>
-        <h3 class="venture-card__title">XBeauty</h3>
+        <h3 class="venture-card__title" data-i18n="ventures.xbeauty.title">XBeauty</h3>
         <p class="venture-card__desc">
           AI とデータで、美容業界の DX を進める新規事業。サロン・クリニック・ブランドを横断する、AI ネイティブのビューティープラットフォームを開発中です。
         </p>
@@ -705,7 +703,7 @@
           <span class="venture-card__num">02</span>
           <span class="venture-card__cat">Next Venture</span>
         </header>
-        <h3 class="venture-card__title">Stealth</h3>
+        <h3 class="venture-card__title" data-i18n="ventures.stealth.title">Stealth</h3>
         <p class="venture-card__desc">
           Xiora Labs にて検証中。AI エージェント領域での新規事業を、複数本パラレルで仕込み中です。
         </p>
@@ -739,10 +737,10 @@
       <article class="industry-cat reveal">
         <header class="industry-cat__head">
           <span class="industry-cat__num">01</span>
-          <h3 class="industry-cat__title">医療・ヘルスケア</h3>
+          <h3 class="industry-cat__title" data-i18n="industries.1.title">医療・ヘルスケア</h3>
           <p class="industry-cat__sub">医療・クリニック / 歯科 / 美容・サロン</p>
         </header>
-        <p class="industry-cat__label">導入例</p>
+        <p class="industry-cat__label" data-i18n="industries.examples">導入例</p>
         <ul class="industry-cat__list">
           <li>予約・問診の自動化AI</li>
           <li>患者対応Bot・SNS DM自動応答</li>
@@ -754,10 +752,10 @@
       <article class="industry-cat reveal">
         <header class="industry-cat__head">
           <span class="industry-cat__num">02</span>
-          <h3 class="industry-cat__title">店舗・サービス</h3>
+          <h3 class="industry-cat__title" data-i18n="industries.2.title">店舗・サービス</h3>
           <p class="industry-cat__sub">飲食 / 小売・店舗 / EC・通販</p>
         </header>
-        <p class="industry-cat__label">導入例</p>
+        <p class="industry-cat__label" data-i18n="industries.examples">導入例</p>
         <ul class="industry-cat__list">
           <li>在庫・受発注の自動化</li>
           <li>レビュー・顧客VoC分析AI</li>
@@ -769,10 +767,10 @@
       <article class="industry-cat reveal">
         <header class="industry-cat__head">
           <span class="industry-cat__num">03</span>
-          <h3 class="industry-cat__title">プロフェッショナル</h3>
+          <h3 class="industry-cat__title" data-i18n="industries.3.title">プロフェッショナル</h3>
           <p class="industry-cat__sub">士業 / コンサル / 不動産 / 教育・スクール</p>
         </header>
-        <p class="industry-cat__label">導入例</p>
+        <p class="industry-cat__label" data-i18n="industries.examples">導入例</p>
         <ul class="industry-cat__list">
           <li>契約書・議事録ドラフトAI</li>
           <li>リード獲得LP・自動ナーチャリング</li>
@@ -784,10 +782,10 @@
       <article class="industry-cat reveal">
         <header class="industry-cat__head">
           <span class="industry-cat__num">04</span>
-          <h3 class="industry-cat__title">産業・テクノロジー</h3>
+          <h3 class="industry-cat__title" data-i18n="industries.4.title">産業・テクノロジー</h3>
           <p class="industry-cat__sub">製造 / 建設・建築 / IT・SaaS / 人材</p>
         </header>
-        <p class="industry-cat__label">導入例</p>
+        <p class="industry-cat__label" data-i18n="industries.examples">導入例</p>
         <ul class="industry-cat__list">
           <li>見積・図面・帳票の自動生成</li>
           <li>基幹システム × SaaS の連携</li>
@@ -820,8 +818,8 @@
       <li class="workflow__step reveal">
         <div class="workflow__num">01</div>
         <div class="workflow__body">
-          <h3 class="workflow__title">Discover</h3>
-          <p class="workflow__sub">課題の解像度を上げる</p>
+          <h3 class="workflow__title" data-i18n="workflow.1.title">Discover</h3>
+          <p class="workflow__sub" data-i18n="workflow.1.sub">課題の解像度を上げる</p>
           <p class="workflow__desc">
             事業構造、KPI、ボトルネックを分解。「何を作るか」ではなく「何を解くか」を共有することから始めます。
           </p>
@@ -834,8 +832,8 @@
       <li class="workflow__step reveal">
         <div class="workflow__num">02</div>
         <div class="workflow__body">
-          <h3 class="workflow__title">Design</h3>
-          <p class="workflow__sub">設計図を描く</p>
+          <h3 class="workflow__title" data-i18n="workflow.2.title">Design</h3>
+          <p class="workflow__sub" data-i18n="workflow.2.sub">設計図を描く</p>
           <p class="workflow__desc">
             体験設計、情報設計、システム設計を統合。動く前に絵を揃えることで、後戻りを最小化します。
           </p>
@@ -848,8 +846,8 @@
       <li class="workflow__step reveal">
         <div class="workflow__num">03</div>
         <div class="workflow__body">
-          <h3 class="workflow__title">Develop</h3>
-          <p class="workflow__sub">実装する</p>
+          <h3 class="workflow__title" data-i18n="workflow.3.title">Develop</h3>
+          <p class="workflow__sub" data-i18n="workflow.3.sub">実装する</p>
           <p class="workflow__desc">
             週次でレビューを回しながら高速に実装。AIや自動化で生産性を上げ、コストと品質を両立します。
           </p>
@@ -862,8 +860,8 @@
       <li class="workflow__step reveal">
         <div class="workflow__num">04</div>
         <div class="workflow__body">
-          <h3 class="workflow__title">Deliver</h3>
-          <p class="workflow__sub">引き渡す</p>
+          <h3 class="workflow__title" data-i18n="workflow.4.title">Deliver</h3>
+          <p class="workflow__sub" data-i18n="workflow.4.sub">引き渡す</p>
           <p class="workflow__desc">
             ドキュメントと操作レクチャーをセットで納品。社内で運用が回るところまで責任を持ちます。
           </p>
@@ -876,8 +874,8 @@
       <li class="workflow__step reveal">
         <div class="workflow__num">05</div>
         <div class="workflow__body">
-          <h3 class="workflow__title">Drive</h3>
-          <p class="workflow__sub">運用と改善</p>
+          <h3 class="workflow__title" data-i18n="workflow.5.title">Drive</h3>
+          <p class="workflow__sub" data-i18n="workflow.5.sub">運用と改善</p>
           <p class="workflow__desc">
             数字でモニタリングし、月次で改善提案。プロダクトを「育てる」フェーズまで継続支援します。
           </p>
@@ -906,7 +904,7 @@
     <div class="trust-grid">
       <article class="trust-cell reveal">
         <span class="trust-cell__num">01</span>
-        <h3 class="trust-cell__title">NDA / 機密保持</h3>
+        <h3 class="trust-cell__title" data-i18n="trust.1.title">NDA / 機密保持</h3>
         <p class="trust-cell__desc">
           相談段階から NDA に対応。社外秘情報・顧客データを共有いただく前提で、契約と運用フローを設計します。
         </p>
@@ -914,7 +912,7 @@
 
       <article class="trust-cell reveal">
         <span class="trust-cell__num">02</span>
-        <h3 class="trust-cell__title">API キー / シークレット管理</h3>
+        <h3 class="trust-cell__title" data-i18n="trust.2.title">API キー / シークレット管理</h3>
         <p class="trust-cell__desc">
           OpenAI / Anthropic / 各種 SaaS の API キーをコードに埋め込まない。環境変数・シークレットマネージャで分離し、漏洩経路を作りません。
         </p>
@@ -922,7 +920,7 @@
 
       <article class="trust-cell reveal">
         <span class="trust-cell__num">03</span>
-        <h3 class="trust-cell__title">権限設計 / アクセス制御</h3>
+        <h3 class="trust-cell__title" data-i18n="trust.3.title">権限設計 / アクセス制御</h3>
         <p class="trust-cell__desc">
           誰が、どのデータを、いつ参照できるか。ロール / 行レベルセキュリティ (RLS) まで含めた、最小権限の原則を実装します。
         </p>
@@ -930,7 +928,7 @@
 
       <article class="trust-cell reveal">
         <span class="trust-cell__num">04</span>
-        <h3 class="trust-cell__title">監査ログ / Audit Logs</h3>
+        <h3 class="trust-cell__title" data-i18n="trust.4.title">監査ログ / Audit Logs</h3>
         <p class="trust-cell__desc">
           誰が・いつ・何を AI に投げ、どんな出力が返ったか。利用状況とコストを後から追跡できる形で記録します。
         </p>
@@ -938,7 +936,7 @@
 
       <article class="trust-cell reveal">
         <span class="trust-cell__num">05</span>
-        <h3 class="trust-cell__title">Guardrail / 出力レビュー</h3>
+        <h3 class="trust-cell__title" data-i18n="trust.5.title">Guardrail / 出力レビュー</h3>
         <p class="trust-cell__desc">
           機微情報の混入、プロンプトインジェクション、ハルシネーションを前提に、入出力ガードと検証ステップを設計します。
         </p>
@@ -946,7 +944,7 @@
 
       <article class="trust-cell reveal">
         <span class="trust-cell__num">06</span>
-        <h3 class="trust-cell__title">Citation / 根拠提示</h3>
+        <h3 class="trust-cell__title" data-i18n="trust.6.title">Citation / 根拠提示</h3>
         <p class="trust-cell__desc">
           RAG / ナレッジ検索では、出力に対する出典・引用元を併記。「AI がそう言った」では終わらせず、人が検証できる状態にします。
         </p>
@@ -954,7 +952,7 @@
 
       <article class="trust-cell reveal">
         <span class="trust-cell__num">07</span>
-        <h3 class="trust-cell__title">Human-in-the-loop</h3>
+        <h3 class="trust-cell__title" data-i18n="trust.7.title">Human-in-the-loop</h3>
         <p class="trust-cell__desc">
           重要な意思決定や外部送信を伴う処理は、人の承認を挟む。"AI が暴走しない" 業務フローを最初から組み込みます。
         </p>
@@ -962,7 +960,7 @@
 
       <article class="trust-cell reveal">
         <span class="trust-cell__num">08</span>
-        <h3 class="trust-cell__title">データ取扱い / Data Handling</h3>
+        <h3 class="trust-cell__title" data-i18n="trust.8.title">データ取扱い / Data Handling</h3>
         <p class="trust-cell__desc">
           学習に使われない API / モデルを優先選定。社外 LLM に流す範囲・流さない範囲を、業務単位で明文化します。
         </p>
@@ -970,7 +968,7 @@
 
       <article class="trust-cell reveal">
         <span class="trust-cell__num">09</span>
-        <h3 class="trust-cell__title">運用監視 / Monitoring</h3>
+        <h3 class="trust-cell__title" data-i18n="trust.9.title">運用監視 / Monitoring</h3>
         <p class="trust-cell__desc">
           リリースは"納品"ではなく"開始"。エラー率・応答時間・コスト・出力品質を継続観測し、改善を回し続けます。
         </p>
@@ -997,22 +995,22 @@
     <div class="stats">
       <div class="stat reveal">
         <div class="stat__num">5</div>
-        <div class="stat__label">Business Areas</div>
+        <div class="stat__label" data-i18n="stat.areas">Business Areas</div>
         <div class="stat__sub">AI / DX / Web / Growth / SMB</div>
       </div>
       <div class="stat reveal">
         <div class="stat__num">12</div>
-        <div class="stat__label">Industries</div>
+        <div class="stat__label" data-i18n="stat.industries">Industries</div>
         <div class="stat__sub">対応業種数</div>
       </div>
       <div class="stat reveal">
         <div class="stat__num"><span data-count="40">0</span>%</div>
-        <div class="stat__label">Time Saved (Est.)</div>
+        <div class="stat__label" data-i18n="stat.time">Time Saved (Est.)</div>
         <div class="stat__sub">業務工数の典型的な削減幅（目安）</div>
       </div>
       <div class="stat reveal">
         <div class="stat__num">2x<span>+</span></div>
-        <div class="stat__label">CVR Lift (Est.)</div>
+        <div class="stat__label" data-i18n="stat.cvr">CVR Lift (Est.)</div>
         <div class="stat__sub">Web 改善時の典型的な改善幅（目安）</div>
       </div>
     </div>
@@ -1399,22 +1397,22 @@
 
     <div class="cta__actions cta__actions--trio reveal">
       <div class="cta__option">
-        <p class="cta__option-label">For Everyone</p>
-        <a href="/contact.html?type=general" class="btn btn--primary btn--lg">30 分の無料相談を申し込む</a>
-        <p class="cta__option-note">まずは現状を整理。何から始めるべきか提案します。</p>
-        <p class="cta__option-meta">所要 30 分 / オンライン / 無料</p>
+        <p class="cta__option-label" data-i18n="cta.option.everyone.label">For Everyone</p>
+        <a href="/contact.html?type=general" class="btn btn--primary btn--lg"><span data-i18n="cta.option.everyone.cta">30 分の無料相談を申し込む</span></a>
+        <p class="cta__option-note" data-i18n="cta.option.everyone.note">まずは現状を整理。何から始めるべきか提案します。</p>
+        <p class="cta__option-meta" data-i18n="cta.option.everyone.meta">所要 30 分 / オンライン / 無料</p>
       </div>
       <div class="cta__option">
-        <p class="cta__option-label">AI · DX</p>
-        <a href="/contact.html?type=ai-dx" class="btn btn--ghost btn--lg">AI・DX 導入を相談する</a>
-        <p class="cta__option-note">どの業務に AI を効かせるか、優先順位ごと提案します。</p>
-        <p class="cta__option-meta">AI 活用診断 / 業務自動化 / AI 研修</p>
+        <p class="cta__option-label" data-i18n="cta.option.aidx.label">AI · DX</p>
+        <a href="/contact.html?type=ai-dx" class="btn btn--ghost btn--lg"><span data-i18n="cta.option.aidx.cta">AI・DX 導入を相談する</span></a>
+        <p class="cta__option-note" data-i18n="cta.option.aidx.note">どの業務に AI を効かせるか、優先順位ごと提案します。</p>
+        <p class="cta__option-meta" data-i18n="cta.option.aidx.meta">AI 活用診断 / 業務自動化 / AI 研修</p>
       </div>
       <div class="cta__option">
-        <p class="cta__option-label">Web</p>
-        <a href="/contact.html?type=web" class="btn btn--ghost btn--lg">Web 改善 AI 診断を依頼</a>
-        <p class="cta__option-note">CVR・SEO・速度・計測の 5 観点で、現状と打ち手を可視化。</p>
-        <p class="cta__option-meta">レポート納品 / 1〜2 週間</p>
+        <p class="cta__option-label" data-i18n="cta.option.web.label">Web</p>
+        <a href="/contact.html?type=web" class="btn btn--ghost btn--lg"><span data-i18n="cta.option.web.cta">Web 改善 AI 診断を依頼</span></a>
+        <p class="cta__option-note" data-i18n="cta.option.web.note">CVR・SEO・速度・計測の 5 観点で、現状と打ち手を可視化。</p>
+        <p class="cta__option-meta" data-i18n="cta.option.web.meta">レポート納品 / 1〜2 週間</p>
       </div>
     </div>
 
@@ -1477,6 +1475,7 @@
             <li><a href="company.html#founder">代表メッセージ</a></li>
             <li><a href="case-studies.html">事例</a></li>
             <li><a href="insights/">Insights</a></li>
+            <li><a href="news/">News</a></li>
             <li><a href="internship.html">Build with us</a></li>
             <li><a href="#ventures">Ventures / XBeauty</a></li>
             <li><a href="#lifecycle">Build → Scale</a></li>
