@@ -110,12 +110,12 @@ body {
 /* ---------- Brand ---------- */
 .brand { display: inline-flex; align-items: center; gap: 10px; }
 .brand__mark {
-  width: 22px; height: 22px; border-radius: 6px;
-  background: var(--text); position: relative;
-}
-.brand__mark::after {
-  content: ""; position: absolute; inset: 5px;
-  border-radius: 3px; background: var(--bg);
+  width: 28px; height: 28px;
+  background-image: url("/assets/img/favicon-192.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
 }
 .brand__name {
   font-size: 18px; font-weight: 600;
