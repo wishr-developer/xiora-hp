@@ -108,18 +108,23 @@ body {
 .skip-link:focus { left: 16px; top: 16px; }
 
 /* ---------- Brand ---------- */
-.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 .brand__mark {
-  width: 28px; height: 28px;
-  background-image: url("/assets/img/favicon-192.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  width: 26px !important;
+  height: 26px !important;
+  color: var(--text);
+  display: block;
   flex-shrink: 0;
+  transition: transform var(--t-fast) var(--ease);
 }
+.brand:hover .brand__mark { transform: rotate(-6deg); }
 .brand__name {
   font-size: 18px; font-weight: 600;
   letter-spacing: -0.012em; color: var(--text);
+}
+@media (max-width: 560px) {
+  .brand__mark { width: 24px !important; height: 24px !important; }
+  .brand__name { font-size: 17px; }
 }
 
 /* ---------- Header ---------- */
