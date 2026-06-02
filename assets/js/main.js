@@ -8,6 +8,61 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- i18n (auto language detection + toggle) ---------- */
+  const LANG_KEY = 'xiora.lang';
+  const SUPPORTED = ['ja', 'en'];
+
+  function detectLang() {
+    // 1) URL ?lang=
+    const url = new URLSearchParams(window.location.search).get('lang');
+    if (url && SUPPORTED.includes(url)) return url;
+    // 2) stored choice
+    const stored = localStorage.getItem(LANG_KEY);
+    if (stored && SUPPORTED.includes(stored)) return stored;
+    // 3) browser
+    const nav = (navigator.language || navigator.userLanguage || 'ja').toLowerCase();
+    return nav.startsWith('en') ? 'en' : 'ja';
+  }
+
+  function applyDict(dict, lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] != null) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
+      // value format: "attr1=key1;attr2=key2"
+      const spec = el.getAttribute('data-i18n-attr') || '';
+      spec.split(';').forEach((pair) => {
+        const [attr, key] = pair.split('=').map((s) => (s || '').trim());
+        if (attr && key && dict[key] != null) el.setAttribute(attr, dict[key]);
+      });
+    });
+    // Toggle button label: show *other* language name
+    const toggle = document.querySelector('[data-lang-toggle]');
+    if (toggle) toggle.textContent = lang === 'ja' ? 'EN' : 'JA';
+  }
+
+  function loadLang(lang) {
+    return fetch('/assets/i18n/' + lang + '.json', { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null);
+  }
+
+  const initialLang = detectLang();
+  loadLang(initialLang).then((dict) => { if (dict) applyDict(dict, initialLang); });
+
+  // Switch language on toggle click
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-lang-toggle]');
+    if (!trigger) return;
+    e.preventDefault();
+    const current = document.documentElement.lang === 'en' ? 'en' : 'ja';
+    const next = current === 'ja' ? 'en' : 'ja';
+    localStorage.setItem(LANG_KEY, next);
+    loadLang(next).then((dict) => { if (dict) applyDict(dict, next); });
+  });
+
   /* ---------- Header scroll state ---------- */
   const header = document.getElementById('siteHeader');
   if (header) {

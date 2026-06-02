@@ -7323,6 +7323,49 @@ svg { max-width: 64px !important; max-height: 64px !important; }
   }
 }
 
+/* ---------- Language toggle (i18n) ---------- */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 32px;
+  padding: 0 10px;
+  margin-right: 4px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+.lang-toggle:hover {
+  background: var(--bg-soft);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.site-header__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+@media (max-width: 880px) {
+  .lang-toggle { display: none; }
+  /* In mobile overlay, show the toggle as a full-width row */
+  .site-nav .lang-toggle--mobile {
+    display: inline-flex !important;
+    margin: 24px 0 0 !important;
+    min-width: 64px;
+    height: 38px;
+    font-size: 12px;
+  }
+}
+.site-nav .lang-toggle--mobile { display: none; }
+
 /* ---------- Capability axis label (Systems / Apps separator) ---------- */
 .cap-axis {
   display: flex;

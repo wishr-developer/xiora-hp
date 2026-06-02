@@ -1,0 +1,71 @@
+{
+  "nav.services": "Services",
+  "nav.products": "Products",
+  "nav.cases": "Cases",
+  "nav.insights": "Insights",
+  "nav.about": "About",
+  "nav.contact": "Talk to us",
+  "nav.menu": "Open menu",
+  "lang.toggle": "JA",
+
+  "hero.eyebrow": "Systems & Apps for the AI era",
+  "hero.title.main": "Systems and apps,",
+  "hero.title.accent": "built end-to-end.",
+  "hero.lead": "Business systems and SaaS. Web, AI and mobile apps.<br>A founder-led team that owns design, build, operations and iteration.",
+  "hero.cta.primary": "Book a 30-min intro call",
+  "hero.cta.secondary": "See what we do",
+  "hero.trust.1": "First reply within 24 hours",
+  "hero.trust.2": "NDA on request",
+  "hero.trust.3": "No hard selling",
+  "hero.trust.4": "Free consultation",
+
+  "hero.strip.1": "System & App Dev",
+  "hero.strip.2": "AI & DX",
+  "hero.strip.3": "Products",
+  "hero.strip.4": "Xiora Apps",
+  "hero.strip.5": "Xiora Labs",
+
+  "services.label": "Services",
+  "services.title.en": "services",
+  "services.title.jp": "What we do — systems, AI, products, new ventures",
+  "services.cta": "Learn more",
+
+  "svc.sad.title": "System & App Development",
+  "svc.sad.desc": "Contract development for systems (business systems, SaaS) and apps (Web, AI, mobile). Not just a website — we cover process design, build, and operations end-to-end.",
+  "svc.sad.cta": "See what we build",
+
+  "svc.ai.title": "AI & DX Consulting",
+  "svc.ai.desc": "AI opportunity diagnosis, workflow automation, AI training. We embed AI into your operations while moving DX forward in parallel.",
+
+  "svc.apps.title": "Xiora Apps",
+  "svc.apps.desc": "Our own apps business: Web, AI and mobile apps that we plan, build and operate. SaaS and business systems live under Products / System & App Development.",
+
+  "svc.labs.title": "Xiora Labs",
+  "svc.labs.desc": "An R&D space for products in progress: AI agents, MVPs and new business experiments. Where the next pillar gets started.",
+
+  "svc.partner.title": "X Partner",
+  "svc.partner.desc": "Our SMB partner brand for web, sales and hiring. X Works is live now; Core and Link are next.",
+
+  "lifecycle.label": "How We Work",
+  "lifecycle.title": "Build → Launch → Operate → Scale",
+  "lifecycle.lead": "We don't stop at hand-off. With four in-house products under our belt, we own building, launching, operating and scaling — together.",
+
+  "products.title.en": "products",
+  "products.title.jp": "In-house systems — Kigen / XCloud (business systems / SaaS)",
+
+  "ventures.label": "Ventures",
+  "ventures.title": "We start new ventures ourselves.",
+  "ventures.lead": "What we learn on contract work feeds our own products and ventures. We build and run the software the AI era needs.",
+
+  "cta.label": "Get Started",
+  "cta.title": "In 30 minutes, we'll suggest<br>your next move.",
+  "cta.lead": "Current issues, AI / web approaches, and a ballpark budget.<br class=\"pc-only\">You leave with concrete next steps.",
+
+  "footer.tagline": "Systems & apps partner<br>for the AI era.",
+  "footer.head.services": "Services",
+  "footer.head.products": "Products",
+  "footer.head.company": "Company",
+  "footer.head.contact": "Contact",
+  "footer.copyright": "All rights reserved.",
+  "footer.cta": "Book a free consultation"
+}

@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=20260603d">
+<link rel="stylesheet" href="assets/css/style.css?v=20260603e">
 
 <script type="application/ld+json">
 {
@@ -52,6 +52,9 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
 <link rel="shortcut icon" href="/assets/img/favicon-32.png" type="image/png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+<link rel="alternate" hreflang="ja" href="https://xiora-official.com/">
+<link rel="alternate" hreflang="en" href="https://xiora-official.com/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://xiora-official.com/">
 </head>
 
 <body>
@@ -66,15 +69,14 @@
       <span class="brand__name">Xiora</span>
     </a>
     <nav class="site-nav" id="siteNav" aria-label="メインメニュー">
-      <a href="/#services">サービス</a>
-      <a href="/#products">プロダクト</a>
-      <a href="/case-studies.html">事例</a>
-      <a href="/insights/">Insights</a>
-      <a href="/company.html">About</a>
+      <a href="/#services" data-i18n="nav.services">サービス</a>
+      <a href="/#products" data-i18n="nav.products">プロダクト</a>
+      <a href="/case-studies.html" data-i18n="nav.cases">事例</a>
+      <a href="/insights/" data-i18n="nav.insights">Insights</a>
+      <a href="/company.html" data-i18n="nav.about">About</a>
+      <button class="lang-toggle lang-toggle--mobile" data-lang-toggle aria-label="Switch language">EN</button>
     </nav>
-    <div class="site-header__cta">
-      <a href="/contact.html" class="btn btn--sm">無料相談</a>
-    </div>
+    <div class="site-header__cta"><button class="lang-toggle" data-lang-toggle aria-label="Switch language">EN</button><a href="/contact.html" class="btn btn--sm" data-i18n="nav.contact">無料相談</a></div>
     <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
       <span></span><span></span>
     </button>
@@ -728,7 +730,6 @@
     <ul class="cta__trust reveal" aria-label="お問い合わせ時の約束">
       <li><span class="cta__trust-check" aria-hidden="true"></span>24時間以内に初回返信</li>
       <li><span class="cta__trust-check" aria-hidden="true"></span>NDA 対応可</li>
-      <li><span class="cta__trust-check" aria-hidden="true"></span>無理な営業はいたしません</li>
       <li><span class="cta__trust-check" aria-hidden="true"></span>相談・お見積り無料</li>
     </ul>
 
@@ -751,17 +752,17 @@
           <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 7L25.5 25"/><path d="M6.5 25L13 18.5"/><path d="M19.5 12.5L25.5 7"/></g><circle cx="16.2" cy="15.7" r="3.4" fill="currentColor"/></svg>
           <span class="brand__name">Xiora</span>
         </div>
-        <p class="site-footer__tag">AI 時代のシステム開発・<br>アプリ開発パートナー。</p>
+        <p class="site-footer__tag" data-i18n="footer.tagline">AI 時代のシステム開発・<br>アプリ開発パートナー。</p>
         <p class="site-footer__addr">
           〒150-0043 東京都渋谷区道玄坂 1-10-8<br>
           渋谷道玄坂東急ビル 2F-C<br>
           <a href="tel:07091650203">070-9165-0203</a> / <a href="mailto:info@xiora-official.com">info@xiora-official.com</a>
         </p>
-        <a href="/contact.html" class="btn btn--sm btn--ghost site-footer__cta">無料相談を申し込む</a>
+        <a href="/contact.html" class="btn btn--sm btn--ghost site-footer__cta" data-i18n="footer.cta">無料相談を申し込む</a>
       </div>
       <nav class="site-footer__nav" aria-label="フッターメニュー">
         <div>
-          <p class="site-footer__head">Services</p>
+          <p class="site-footer__head" data-i18n="footer.head.services">Services</p>
           <ul>
             <li><a href="/system-app-development.html">System & App Development</a></li>
             <li><a href="/ai-consulting.html">AI・DX Consulting</a></li>
@@ -774,7 +775,7 @@
           </ul>
         </div>
         <div>
-          <p class="site-footer__head">Products</p>
+          <p class="site-footer__head" data-i18n="footer.head.products">Products</p>
           <ul>
             <li><a href="https://kigen.xiora-official.com" target="_blank" rel="noopener">Kigen</a></li>
             <li><a href="https://xcloud-connect.vercel.app" target="_blank" rel="noopener">XCloud Connect</a></li>
@@ -784,7 +785,7 @@
           </ul>
         </div>
         <div>
-          <p class="site-footer__head">Company</p>
+          <p class="site-footer__head" data-i18n="footer.head.company">Company</p>
           <ul>
             <li><a href="/company.html">About</a></li>
             <li><a href="/company.html#mvv">Mission / Vision / Value</a></li>
@@ -796,7 +797,7 @@
           </ul>
         </div>
         <div>
-          <p class="site-footer__head">Contact</p>
+          <p class="site-footer__head" data-i18n="footer.head.contact">Contact</p>
           <ul>
             <li><a href="mailto:info@xiora-official.com">info@xiora-official.com</a></li>
             <li><a href="/contact.html">お問い合わせ・無料相談</a></li>

@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/style.css?v=20260603d">
+<link rel="stylesheet" href="assets/css/style.css?v=20260603e">
 
 <!-- JSON-LD -->
 <script type="application/ld+json">
@@ -83,6 +83,9 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
 <link rel="shortcut icon" href="/assets/img/favicon-32.png" type="image/png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+<link rel="alternate" hreflang="ja" href="https://xiora-official.com/">
+<link rel="alternate" hreflang="en" href="https://xiora-official.com/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://xiora-official.com/">
 </head>
 
 <body>
@@ -98,18 +101,17 @@
     </a>
 
     <nav class="site-nav" id="siteNav" aria-label="メインメニュー">
-      <a href="#services">サービス</a>
-      <a href="#products">プロダクト</a>
-      <a href="case-studies.html">事例</a>
-      <a href="insights/">Insights</a>
-      <a href="company.html">About</a>
+      <a href="#services" data-i18n="nav.services">サービス</a>
+      <a href="#products" data-i18n="nav.products">プロダクト</a>
+      <a href="case-studies.html" data-i18n="nav.cases">事例</a>
+      <a href="insights/" data-i18n="nav.insights">Insights</a>
+      <a href="company.html" data-i18n="nav.about">About</a>
+      <button class="lang-toggle lang-toggle--mobile" data-lang-toggle aria-label="Switch language">EN</button>
     </nav>
 
-    <div class="site-header__cta">
-      <a href="/contact.html" class="btn btn--sm">無料相談</a>
-    </div>
+    <div class="site-header__cta"><button class="lang-toggle" data-lang-toggle aria-label="Switch language">EN</button><a href="/contact.html" class="btn btn--sm" data-i18n="nav.contact">無料相談</a></div>
 
-    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+    <button class="nav-toggle" id="navToggle" data-i18n-attr="aria-label=nav.menu" aria-label="メニューを開く" aria-expanded="false">
       <span></span><span></span>
     </button>
   </div>
@@ -126,42 +128,41 @@
   <div class="container">
     <p class="hero__eyebrow reveal">
       <span class="dot" aria-hidden="true"></span>
-      AI時代のシステム開発・アプリ開発パートナー
+      <span data-i18n="hero.eyebrow">AI時代のシステム開発・アプリ開発パートナー</span>
     </p>
 
     <h1 class="hero__title reveal">
-      システムも、アプリも、<br>
-      <span class="hero__title-accent">一気通貫でつくる。</span>
+      <span data-i18n="hero.title.main">システムも、アプリも、</span><br>
+      <span class="hero__title-accent" data-i18n="hero.title.accent">一気通貫でつくる。</span>
     </h1>
 
-    <p class="hero__lead reveal">
+    <p class="hero__lead reveal" data-i18n="hero.lead">
       業務システム・SaaS と、Web アプリ・AI アプリ・モバイルアプリ。<br>
       Founder-led の少数精鋭チームが、設計・実装・運用・改善まで責任を持ちます。
     </p>
 
     <div class="hero__actions reveal">
       <a href="/contact.html?type=general" class="btn btn--primary">
-        30分の無料相談を申し込む
+        <span data-i18n="hero.cta.primary">30分の無料相談を申し込む</span>
         <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" width="14" height="14">
           <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
-      <a href="#services" class="btn btn--ghost">事業領域を見る</a>
+      <a href="#services" class="btn btn--ghost" data-i18n="hero.cta.secondary">事業領域を見る</a>
     </div>
 
     <ul class="hero__trust reveal" aria-label="安心してご相談いただける理由">
-      <li><span class="hero__trust-check" aria-hidden="true"></span>24時間以内に初回返信</li>
-      <li><span class="hero__trust-check" aria-hidden="true"></span>NDA対応可</li>
-      <li><span class="hero__trust-check" aria-hidden="true"></span>無理な営業はいたしません</li>
-      <li><span class="hero__trust-check" aria-hidden="true"></span>相談・お見積り無料</li>
+      <li><span class="hero__trust-check" aria-hidden="true"></span><span data-i18n="hero.trust.1">24時間以内に初回返信</span></li>
+      <li><span class="hero__trust-check" aria-hidden="true"></span><span data-i18n="hero.trust.2">NDA対応可</span></li>
+      <li><span class="hero__trust-check" aria-hidden="true"></span><span data-i18n="hero.trust.4">相談・お見積り無料</span></li>
     </ul>
 
     <nav class="hero__strip reveal" aria-label="Xiora の事業領域">
-      <a href="system-app-development.html" class="hero__strip-item" data-num="01">System & App Dev</a>
-      <a href="ai-consulting.html" class="hero__strip-item" data-num="02">AI・DX</a>
-      <a href="#products" class="hero__strip-item" data-num="03">Products</a>
-      <a href="xiora-apps.html" class="hero__strip-item" data-num="04">Xiora Apps</a>
-      <a href="labs.html" class="hero__strip-item" data-num="05">Xiora Labs</a>
+      <a href="system-app-development.html" class="hero__strip-item" data-num="01" data-i18n="hero.strip.1">System & App Dev</a>
+      <a href="ai-consulting.html" class="hero__strip-item" data-num="02" data-i18n="hero.strip.2">AI・DX</a>
+      <a href="#products" class="hero__strip-item" data-num="03" data-i18n="hero.strip.3">Products</a>
+      <a href="xiora-apps.html" class="hero__strip-item" data-num="04" data-i18n="hero.strip.4">Xiora Apps</a>
+      <a href="labs.html" class="hero__strip-item" data-num="05" data-i18n="hero.strip.5">Xiora Labs</a>
     </nav>
   </div>
 </section>
@@ -268,7 +269,7 @@
   <div class="container">
 
     <h2 class="c-section-title reveal" data-en="services">
-      <span class="c-section-title__sub">事業内容 — システム開発 / AI / 自社プロダクト / 新規事業</span>
+      <span class="c-section-title__sub" data-i18n="services.title.jp">事業内容 — システム開発 / AI / 自社プロダクト / 新規事業</span>
     </h2>
 
     <div class="svc-row svc-row--featured reveal">
@@ -289,9 +290,9 @@
             <path d="M12 16l3 2-3 2M18 20h6"/>
           </svg>
         </span>
-        <h3 class="svc-card__title">System & App Development</h3>
+        <h3 class="svc-card__title" data-i18n="svc.sad.title">System & App Development</h3>
         <p class="svc-card__desc">
-          システム（業務システム・SaaS）と、アプリ（Web・AI・モバイル）の受託開発。Web 制作だけでは終わらず、業務改善から設計・開発・運用まで一気通貫で支援します。
+          <span data-i18n="svc.sad.desc">システム（業務システム・SaaS）と、アプリ（Web・AI・モバイル）の受託開発。Web 制作だけでは終わらず、業務改善から設計・開発・運用まで一気通貫で支援します。</span>
         </p>
         <ul class="svc-card__tags">
           <li>業務システム</li>
@@ -319,9 +320,9 @@
             <path d="M16 36h16M18 40h12"/>
           </svg>
         </span>
-        <h3 class="svc-card__title">AI・DX Consulting</h3>
+        <h3 class="svc-card__title" data-i18n="svc.ai.title">AI・DX Consulting</h3>
         <p class="svc-card__desc">
-          AI 活用診断、業務自動化、AI 研修まで。現場業務に AI を組み込み、開発と並走しながら DX を前に進めます。
+          <span data-i18n="svc.ai.desc">AI 活用診断、業務自動化、AI 研修まで。現場業務に AI を組み込み、開発と並走しながら DX を前に進めます。</span>
         </p>
         <ul class="svc-card__tags">
           <li>AI 診断</li>
@@ -355,9 +356,9 @@
             <path d="M6 26h4M38 26h4" stroke-width="1.2"/>
           </svg>
         </span>
-        <h3 class="svc-card__title">Xiora Apps</h3>
+        <h3 class="svc-card__title" data-i18n="svc.apps.title">Xiora Apps</h3>
         <p class="svc-card__desc">
-          Web アプリ・AI アプリ・モバイルアプリを企画・開発・運営する、アプリ事業領域。SaaS・業務システムは Products / System & App Development に分けて扱います。
+          <span data-i18n="svc.apps.desc">Web アプリ・AI アプリ・モバイルアプリを企画・開発・運営する、アプリ事業領域。SaaS・業務システムは Products / System & App Development に分けて扱います。</span>
         </p>
         <ul class="svc-card__tags">
           <li>Web App</li>
@@ -388,9 +389,9 @@
             <path d="M40 10l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" stroke-width="1.1"/>
           </svg>
         </span>
-        <h3 class="svc-card__title">Xiora Labs</h3>
+        <h3 class="svc-card__title" data-i18n="svc.labs.title">Xiora Labs</h3>
         <p class="svc-card__desc">
-          実験中のプロダクト、AI エージェント、MVP、検証中の新規事業を公開する研究開発の場。次の柱を、ここから生み出します。
+          <span data-i18n="svc.labs.desc">実験中のプロダクト、AI エージェント、MVP、検証中の新規事業を公開する研究開発の場。次の柱を、ここから生み出します。</span>
         </p>
         <ul class="svc-card__tags">
           <li>AI Agent</li>
@@ -419,9 +420,9 @@
             <path d="M24 20l3 3"/>
           </svg>
         </span>
-        <h3 class="svc-card__title">X Partner</h3>
+        <h3 class="svc-card__title" data-i18n="svc.partner.title">X Partner</h3>
         <p class="svc-card__desc">
-          中小企業の Web・営業・採用を支える支援ブランド。X Works を提供中、Core / Link を段階的に展開予定。
+          <span data-i18n="svc.partner.desc">中小企業の Web・営業・採用を支える支援ブランド。X Works を提供中、Core / Link を段階的に展開予定。</span>
         </p>
         <ul class="svc-card__tags">
           <li>X Works</li>
@@ -443,8 +444,8 @@
 <section class="section section--tight" id="lifecycle">
   <div class="container">
     <header class="section__head">
-      <p class="section__label reveal"><span class="dash"></span>How We Work</p>
-      <h2 class="section__title reveal">Build → Launch → Operate → Scale</h2>
+      <p class="section__label reveal"><span class="dash"></span><span data-i18n="lifecycle.label">How We Work</span></p>
+      <h2 class="section__title reveal" data-i18n="lifecycle.title">Build → Launch → Operate → Scale</h2>
       <p class="section__lead reveal">
         受託で作って終わりにはしません。自社プロダクトを 4 つ運営してきた知見をもとに、<br class="pc-only">
         作って・出して・運用して・伸ばす、まで責任を持つチームです。
@@ -588,7 +589,7 @@
   <div class="container">
 
     <h2 class="c-section-title reveal" data-en="products">
-      <span class="c-section-title__sub">自社システム — Kigen / XCloud シリーズ（業務システム / SaaS）</span>
+      <span class="c-section-title__sub" data-i18n="products.title.jp">自社システム — Kigen / XCloud シリーズ（業務システム / SaaS）</span>
     </h2>
 
     <div class="x-cards reveal">
@@ -661,8 +662,8 @@
 <section class="section section--soft section--tight" id="ventures">
   <div class="container">
     <header class="section__head">
-      <p class="section__label reveal"><span class="dash"></span>Ventures</p>
-      <h2 class="section__title reveal">新規事業を、自分たちで立ち上げる。</h2>
+      <p class="section__label reveal"><span class="dash"></span><span data-i18n="ventures.label">Ventures</span></p>
+      <h2 class="section__title reveal" data-i18n="ventures.title">新規事業を、自分たちで立ち上げる。</h2>
       <p class="section__lead reveal">
         受託で得た知見を、自社プロダクトと新規事業へ。<br class="pc-only">
         AI 時代に必要なソフトウェアを、Xiora 自身が作り、運営しています。
@@ -1410,17 +1411,10 @@
       </div>
     </div>
 
-    <ul class="cta__trust reveal" aria-label="お問い合わせ時の約束">
-      <li><span class="cta__trust-check" aria-hidden="true"></span>24時間以内に初回返信</li>
-      <li><span class="cta__trust-check" aria-hidden="true"></span>NDA対応可</li>
-      <li><span class="cta__trust-check" aria-hidden="true"></span>無理な営業はいたしません</li>
-      <li><span class="cta__trust-check" aria-hidden="true"></span>相談・お見積り無料</li>
-    </ul>
-
     <p class="cta__meta reveal">
       <span>Mail: info@xiora-official.com</span>
       <span class="cta__sep" aria-hidden="true">／</span>
-      <span>営業時間: 平日 10:00–19:00</span>
+      <span>平日 10:00–19:00</span>
     </p>
   </div>
 </section>
@@ -1436,17 +1430,17 @@
           <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 7L25.5 25"/><path d="M6.5 25L13 18.5"/><path d="M19.5 12.5L25.5 7"/></g><circle cx="16.2" cy="15.7" r="3.4" fill="currentColor"/></svg>
           <span class="brand__name">Xiora</span>
         </div>
-        <p class="site-footer__tag">AI 時代のシステム開発・<br>アプリ開発パートナー。</p>
+        <p class="site-footer__tag" data-i18n="footer.tagline">AI 時代のシステム開発・<br>アプリ開発パートナー。</p>
         <p class="site-footer__addr">
           〒150-0043 東京都渋谷区道玄坂 1-10-8<br>
           渋谷道玄坂東急ビル 2F-C<br>
           <a href="tel:07091650203">070-9165-0203</a> / <a href="mailto:info@xiora-official.com">info@xiora-official.com</a>
         </p>
-        <a href="/contact.html" class="btn btn--sm btn--ghost site-footer__cta">無料相談を申し込む</a>
+        <a href="/contact.html" class="btn btn--sm btn--ghost site-footer__cta" data-i18n="footer.cta">無料相談を申し込む</a>
       </div>
       <nav class="site-footer__nav" aria-label="フッターメニュー">
         <div>
-          <p class="site-footer__head">Services</p>
+          <p class="site-footer__head" data-i18n="footer.head.services">Services</p>
           <ul>
             <li><a href="/system-app-development.html">System & App Development</a></li>
             <li><a href="/ai-consulting.html">AI・DX Consulting</a></li>
@@ -1459,7 +1453,7 @@
           </ul>
         </div>
         <div>
-          <p class="site-footer__head">Products</p>
+          <p class="site-footer__head" data-i18n="footer.head.products">Products</p>
           <ul>
             <li><a href="https://kigen.xiora-official.com" target="_blank" rel="noopener">Kigen</a></li>
             <li><a href="https://xcloud-connect.vercel.app" target="_blank" rel="noopener">XCloud Connect</a></li>
@@ -1469,7 +1463,7 @@
           </ul>
         </div>
         <div>
-          <p class="site-footer__head">Company</p>
+          <p class="site-footer__head" data-i18n="footer.head.company">Company</p>
           <ul>
             <li><a href="company.html">About</a></li>
             <li><a href="company.html#mvv">Mission / Vision / Value</a></li>
@@ -1483,7 +1477,7 @@
           </ul>
         </div>
         <div>
-          <p class="site-footer__head">Contact</p>
+          <p class="site-footer__head" data-i18n="footer.head.contact">Contact</p>
           <ul>
             <li><a href="mailto:info@xiora-official.com">info@xiora-official.com</a></li>
             <li><a href="/contact.html">お問い合わせ・無料相談</a></li>

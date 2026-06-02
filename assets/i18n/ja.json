@@ -1,0 +1,71 @@
+{
+  "nav.services": "サービス",
+  "nav.products": "プロダクト",
+  "nav.cases": "事例",
+  "nav.insights": "Insights",
+  "nav.about": "About",
+  "nav.contact": "無料相談",
+  "nav.menu": "メニューを開く",
+  "lang.toggle": "EN",
+
+  "hero.eyebrow": "AI時代のシステム開発・アプリ開発パートナー",
+  "hero.title.main": "システムも、アプリも、",
+  "hero.title.accent": "一気通貫でつくる。",
+  "hero.lead": "業務システム・SaaS と、Web アプリ・AI アプリ・モバイルアプリ。<br>Founder-led の少数精鋭チームが、設計・実装・運用・改善まで責任を持ちます。",
+  "hero.cta.primary": "30分の無料相談を申し込む",
+  "hero.cta.secondary": "事業領域を見る",
+  "hero.trust.1": "24時間以内に初回返信",
+  "hero.trust.2": "NDA対応可",
+  "hero.trust.3": "無理な営業はいたしません",
+  "hero.trust.4": "相談・お見積り無料",
+
+  "hero.strip.1": "System & App Dev",
+  "hero.strip.2": "AI・DX",
+  "hero.strip.3": "Products",
+  "hero.strip.4": "Xiora Apps",
+  "hero.strip.5": "Xiora Labs",
+
+  "services.label": "Services",
+  "services.title.en": "services",
+  "services.title.jp": "事業内容 — システム開発 / AI / 自社プロダクト / 新規事業",
+  "services.cta": "詳しく見る",
+
+  "svc.sad.title": "System & App Development",
+  "svc.sad.desc": "システム（業務システム・SaaS）と、アプリ（Web・AI・モバイル）の受託開発。Web 制作だけでは終わらず、業務改善から設計・開発・運用まで一気通貫で支援します。",
+  "svc.sad.cta": "開発領域を見る",
+
+  "svc.ai.title": "AI・DX Consulting",
+  "svc.ai.desc": "AI 活用診断、業務自動化、AI 研修まで。現場業務に AI を組み込み、開発と並走しながら DX を前に進めます。",
+
+  "svc.apps.title": "Xiora Apps",
+  "svc.apps.desc": "Web アプリ・AI アプリ・モバイルアプリを企画・開発・運営する、アプリ事業領域。SaaS・業務システムは Products / System & App Development に分けて扱います。",
+
+  "svc.labs.title": "Xiora Labs",
+  "svc.labs.desc": "実験中のプロダクト、AI エージェント、MVP、検証中の新規事業を公開する研究開発の場。次の柱を、ここから生み出します。",
+
+  "svc.partner.title": "X Partner",
+  "svc.partner.desc": "中小企業の Web・営業・採用を支える支援ブランド。X Works を提供中、Core / Link を段階的に展開予定。",
+
+  "lifecycle.label": "How We Work",
+  "lifecycle.title": "Build → Launch → Operate → Scale",
+  "lifecycle.lead": "受託で作って終わりにはしません。自社プロダクトを 4 つ運営してきた知見をもとに、作って・出して・運用して・伸ばす、まで責任を持つチームです。",
+
+  "products.title.en": "products",
+  "products.title.jp": "自社システム — Kigen / XCloud シリーズ（業務システム / SaaS）",
+
+  "ventures.label": "Ventures",
+  "ventures.title": "新規事業を、自分たちで立ち上げる。",
+  "ventures.lead": "受託で得た知見を、自社プロダクトと新規事業へ。AI 時代に必要なソフトウェアを、Xiora 自身が作り、運営しています。",
+
+  "cta.label": "Get Started",
+  "cta.title": "30分で、次の一手を、<br>ご提案します。",
+  "cta.lead": "現状の課題ヒアリング、AI・Web での解決アプローチ、概算の費用感まで。<br class=\"pc-only\">その場で、具体的なアクションをお返しします。",
+
+  "footer.tagline": "AI 時代のシステム開発・<br>アプリ開発パートナー。",
+  "footer.head.services": "Services",
+  "footer.head.products": "Products",
+  "footer.head.company": "Company",
+  "footer.head.contact": "Contact",
+  "footer.copyright": "All rights reserved.",
+  "footer.cta": "無料相談を申し込む"
+}
