@@ -67,5 +67,43 @@
   "footer.head.company": "Company",
   "footer.head.contact": "Contact",
   "footer.copyright": "All rights reserved.",
-  "footer.cta": "無料相談を申し込む"
+  "footer.cta": "無料相談を申し込む",
+
+  "problems.label": "Problems We Solve",
+  "problems.title": "こんな課題、<br class=\"sp-only\">解決できます。",
+
+  "strengths.label": "Why Xiora",
+  "strengths.title": "中小企業に、<br class=\"sp-only\">選ばれる理由。",
+
+  "capabilities.label": "Capabilities",
+  "capabilities.title": "System と App、<br>軸を分けて設計する。",
+  "capabilities.axis.systems": "Systems — 業務の基盤になるもの",
+  "capabilities.axis.apps": "Apps — ユーザー体験の単位になるもの",
+
+  "industries.label": "Industries",
+  "industries.title": "業界ごとに、<br class=\"sp-only\">具体的な打ち手を。",
+
+  "workflow.label": "Workflow",
+  "workflow.title": "透明な、5つのステップ。",
+
+  "trust.label": "Trust & Governance",
+  "trust.title": "AI を、安全に運用する。",
+
+  "results.label": "Reference",
+  "results.title": "支援の規模と、<br class=\"sp-only\">想定される効果。",
+
+  "about.label": "About",
+  "about.title": "私たちについて。",
+
+  "message.label": "Message",
+  "message.title": "代表メッセージ",
+
+  "history.label": "History",
+  "history.title": "これまでの歩み。",
+
+  "news.label": "News",
+  "news.title": "最新の取り組みと、お知らせ。",
+
+  "faq.label": "FAQ",
+  "faq.title": "よくあるご質問"
 }

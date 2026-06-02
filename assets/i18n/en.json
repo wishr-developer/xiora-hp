@@ -67,5 +67,43 @@
   "footer.head.company": "Company",
   "footer.head.contact": "Contact",
   "footer.copyright": "All rights reserved.",
-  "footer.cta": "Book a free consultation"
+  "footer.cta": "Book a free consultation",
+
+  "problems.label": "Problems We Solve",
+  "problems.title": "Common problems,<br class=\"sp-only\">concretely solved.",
+
+  "strengths.label": "Why Xiora",
+  "strengths.title": "Why SMBs<br class=\"sp-only\">choose us.",
+
+  "capabilities.label": "Capabilities",
+  "capabilities.title": "Systems and Apps,<br>designed on different axes.",
+  "capabilities.axis.systems": "Systems — the operational backbone",
+  "capabilities.axis.apps": "Apps — units of user experience",
+
+  "industries.label": "Industries",
+  "industries.title": "Industry-specific<br class=\"sp-only\">playbooks.",
+
+  "workflow.label": "Workflow",
+  "workflow.title": "A transparent 5-step process.",
+
+  "trust.label": "Trust & Governance",
+  "trust.title": "Operating AI safely.",
+
+  "results.label": "Reference",
+  "results.title": "Support scale and<br class=\"sp-only\">typical outcomes.",
+
+  "about.label": "About",
+  "about.title": "About us.",
+
+  "message.label": "Message",
+  "message.title": "Message from the founder",
+
+  "history.label": "History",
+  "history.title": "Our story so far.",
+
+  "news.label": "News",
+  "news.title": "Latest updates.",
+
+  "faq.label": "FAQ",
+  "faq.title": "Frequently asked questions"
 }
