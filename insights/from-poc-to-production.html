@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="/assets/css/style.css?v=20260603i" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260603j" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -75,7 +75,7 @@
 <script defer="" src="/assets/js/analytics.js"></script>
 </head>
 <body>
-<a class="skip-link" data-i18n="common.a28547de" href="#main">本文へスキップ</a>
+<a class="skip-link" data-i18n="i18n.a28547de5359" href="#main">本文へスキップ</a>
 <header class="site-header" id="siteHeader">
 <div class="site-header__inner">
 <a aria-label="Xiora ホーム" class="brand" href="/">
@@ -103,18 +103,18 @@
 <span aria-hidden="true">/</span>
 <a data-i18n="nav.insights" href="/insights/">Insights</a>
 <span aria-hidden="true">/</span>
-<span aria-current="page" data-i18n="ins2.1">PoC から本番運用へ</span>
+<span aria-current="page" data-i18n="i18n.bc4743e9059c">PoC から本番運用へ</span>
 </nav>
 <header class="insight-header reveal">
 <div class="insight-meta">
 <span class="insight-meta__cat">DX</span>
 <time datetime="2026-05-04">2026.05.04</time>
-<span data-i18n="ins2.2">読了 7 分</span>
+<span data-i18n="i18n.1627cd9668ce">読了 7 分</span>
 </div>
-<h1 class="insight-title" data-i18n="ins2.3">
+<h1 class="insight-title" data-i18n="i18n.a6878b49f227">
           AI PoC を、本番運用に<br/>乗せるための 5 つの設計判断
         </h1>
-<p class="insight-lead" data-i18n="ins2.4">
+<p class="insight-lead" data-i18n="i18n.875fcc82c499">
           AI PoC は驚くほど簡単に動きます。が、業務に乗せた瞬間に壊れます。Xiora が現場で繰り返し問われる、PoC から本番運用へのギャップを埋める 5 つの設計判断を、実装目線でまとめました。
         </p>
 <div class="insight-author">
@@ -126,45 +126,45 @@
 </div>
 </header>
 <div class="article-rich reveal">
-<h2 data-i18n="ins2.5">「動く PoC」と「業務に乗る AI」は別物</h2>
-<p data-i18n="ins2.6">
+<h2 data-i18n="i18n.cc2cdc9786c4">「動く PoC」と「業務に乗る AI」は別物</h2>
+<p data-i18n="i18n.f4215896be13">
           ChatGPT 経由のプロンプト試行や、ノーコードツールでの自動化は、半日もあれば PoC として動かせます。デモを見れば誰でも「これは使える」と感じます。
         </p>
-<p>
-          一方で、本当の難しさは、その後にやってきます。<strong data-i18n="ins2.7">担当者だけが動かせる仕組みから、現場 100 人が毎日使い、月次でレビューされ、必要に応じて差し替えられる仕組みに格上げするフェーズ</strong>です。ここで失敗する PoC が、私たちの現場感覚では大半を占めます。
+<p data-i18n="i18n.21c20d18adbe">
+          一方で、本当の難しさは、その後にやってきます。<strong>担当者だけが動かせる仕組みから、現場 100 人が毎日使い、月次でレビューされ、必要に応じて差し替えられる仕組みに格上げするフェーズ</strong>です。ここで失敗する PoC が、私たちの現場感覚では大半を占めます。
         </p>
 <div class="callout">
 <span class="callout__label">Note</span>
 <div class="callout__body">
-<p data-i18n="ins2.8">PoC が「面白い」で終わるか「業務に効く」に変わるかは、技術ではなく設計判断の問題です。順序を間違えると、半年かけても本番には乗りません。</p>
+<p data-i18n="i18n.10f432ae284c">PoC が「面白い」で終わるか「業務に効く」に変わるかは、技術ではなく設計判断の問題です。順序を間違えると、半年かけても本番には乗りません。</p>
 </div>
 </div>
-<h2 data-i18n="ins2.9">判断 1：「業務フローのどこに着地させるか」を最初に決める</h2>
-<p data-i18n="ins2.10">
+<h2 data-i18n="i18n.d5cae252fc3f">判断 1：「業務フローのどこに着地させるか」を最初に決める</h2>
+<p data-i18n="i18n.48bcde563a2c">
           PoC でよくあるのは、「AI とチャットで会話できる UI を作る」で終わってしまうケースです。これは、業務フローに何も組み込まれていません。
         </p>
-<p>
-          本番運用に乗せたいなら、最初に決めるべきは <strong data-i18n="ins2.11">「AI の出力が、最終的に何のフィールドを埋め、誰に通知し、どの SaaS に着地するか」</strong>です。
+<p data-i18n="i18n.bfd24d7659ab">
+          本番運用に乗せたいなら、最初に決めるべきは <strong>「AI の出力が、最終的に何のフィールドを埋め、誰に通知し、どの SaaS に着地するか」</strong>です。
         </p>
 <ul>
-<li data-i18n="ins2.12">問い合わせ仕分け AI → CRM の「優先度」「担当」「ステータス」フィールドを更新</li>
-<li data-i18n="ins2.13">見積ドラフト AI → kintone の「見積案」レコードを下書き状態で保存</li>
-<li data-i18n="ins2.14">議事録要約 AI → Notion の議事録テンプレートに自動投稿し、Slack で通知</li>
+<li data-i18n="i18n.d5d280dbb738">問い合わせ仕分け AI → CRM の「優先度」「担当」「ステータス」フィールドを更新</li>
+<li data-i18n="i18n.5fa070f6aa2f">見積ドラフト AI → kintone の「見積案」レコードを下書き状態で保存</li>
+<li data-i18n="i18n.44ccd7915208">議事録要約 AI → Notion の議事録テンプレートに自動投稿し、Slack で通知</li>
 </ul>
-<p data-i18n="ins2.15">
+<p data-i18n="i18n.65deacfdffee">
           ここを決めずに UI から作ると、後で必ず「結局運用されない」結果になります。
         </p>
-<h2 data-i18n="ins2.16">判断 2：プロンプトを「秘伝のタレ」にしない</h2>
-<p data-i18n="ins2.17">
+<h2 data-i18n="i18n.60a1d770df6f">判断 2：プロンプトを「秘伝のタレ」にしない</h2>
+<p data-i18n="i18n.284b622b45f8">
           PoC では、担当者が試行錯誤して育てたプロンプトが、Slack のスレッドや個人の Notion に散らばっていることがよくあります。これでは、誰も改善できません。
         </p>
-<p>
-          本番化する段階で、プロンプトは <strong data-i18n="ins2.18">コードと同じく、バージョン管理と差分レビューの対象</strong>にします。
+<p data-i18n="i18n.3096f47067ea">
+          本番化する段階で、プロンプトは <strong>コードと同じく、バージョン管理と差分レビューの対象</strong>にします。
         </p>
 <ul>
-<li>Git 管理または DB の <code>prompts</code> テーブルに集約する</li>
-<li data-i18n="ins2.19">変更前後を比較する評価データ（10〜30 件）を準備する</li>
-<li data-i18n="ins2.20">差し替え時は、評価データで自動回帰テストを通してから本番反映する</li>
+<li data-i18n="i18n.11603c46978c">Git 管理または DB の <code>prompts</code> テーブルに集約する</li>
+<li data-i18n="i18n.5f0816731807">変更前後を比較する評価データ（10〜30 件）を準備する</li>
+<li data-i18n="i18n.74dffdf66e65">差し替え時は、評価データで自動回帰テストを通してから本番反映する</li>
 </ul>
 <pre><code>// プロンプトはコードと並列にバージョン管理する
 import { loadPrompt } from "@/lib/prompts";
@@ -174,78 +174,78 @@ const result = await llm.generate({
   prompt: prompt.compile({ customer, items }),
   guardrails: prompt.guardrails,
 });</code></pre>
-<h2 data-i18n="ins2.21">判断 3：ガードレールをコードに書く</h2>
-<p>
+<h2 data-i18n="i18n.b28074fa7c59">判断 3：ガードレールをコードに書く</h2>
+<p data-i18n="i18n.3fbcf3218941">
 <span class="term" data-def="LLM = 大規模言語モデル。ChatGPT・Claude のように、大量のテキストで学習された汎用 AI モデル。">LLM</span> は確率的に振る舞います。本番に乗せた瞬間に、想定外の出力（個人情報の漏出、不適切な金額、空欄、過剰な約束）が混じります。
         </p>
-<p>
-          これを「プロンプトでお願いする」のは無理です。<strong>必ずコード側で「やってはいけないこと」を強制する <span class="term" data-def="ガードレール = AI が「やってはいけないこと」を、コード側で強制する仕組み。個人情報のマスク、金額バリデーション、コスト上限などをここで実装します。" data-i18n="common.ef30b757">ガードレール</span>層</strong>を実装します。
+<p data-i18n="i18n.d7404c9a7ed4">
+          これを「プロンプトでお願いする」のは無理です。<strong>必ずコード側で「やってはいけないこと」を強制する <span class="term" data-def="ガードレール = AI が「やってはいけないこと」を、コード側で強制する仕組み。個人情報のマスク、金額バリデーション、コスト上限などをここで実装します。">ガードレール</span>層</strong>を実装します。
         </p>
 <ul>
-<li data-i18n="ins2.22">PII（個人情報）パターンを検出してマスクする</li>
-<li data-i18n="ins2.23">金額・日付など、構造化フィールドはバリデータで弾く</li>
-<li data-i18n="ins2.24">必須項目が欠けたら、ユーザーに再入力を求める</li>
-<li data-i18n="ins2.25">1 リクエストあたりトークンとコストの上限を超えたら停止する</li>
+<li data-i18n="i18n.1436d0489427">PII（個人情報）パターンを検出してマスクする</li>
+<li data-i18n="i18n.2a9e23fda332">金額・日付など、構造化フィールドはバリデータで弾く</li>
+<li data-i18n="i18n.8d197331852b">必須項目が欠けたら、ユーザーに再入力を求める</li>
+<li data-i18n="i18n.5146e402e0b3">1 リクエストあたりトークンとコストの上限を超えたら停止する</li>
 </ul>
-<p data-i18n="ins2.26">
+<p data-i18n="i18n.ee469df5d68f">
           ガードレールを最初から書いておくと、本番運用での事故が桁違いに減ります。
         </p>
-<h2>判断 4：観測（<span class="term" data-def="Observability = 観測性。AI や仕組みが「ちゃんと動いているか・効果が出ているか」を数字で見えるようにすること。ダッシュボードや指標で運用状況を可視化します。">Observability</span>）を最初に組み込む</h2>
-<p data-i18n="ins2.27">
+<h2 data-i18n="i18n.a7ea75f7c1bf">判断 4：観測（<span class="term" data-def="Observability = 観測性。AI や仕組みが「ちゃんと動いているか・効果が出ているか」を数字で見えるようにすること。ダッシュボードや指標で運用状況を可視化します。">Observability</span>）を最初に組み込む</h2>
+<p data-i18n="i18n.28ee8e184a6a">
           PoC では、「動いた」「動かなかった」を目視で確認することが多いと思います。本番では、これでは絶対に運用できません。
         </p>
-<p data-i18n="ins2.28">
+<p data-i18n="i18n.844473e4c45a">
           最低限、次の指標を最初から収集します。
         </p>
 <ul>
-<li data-i18n="ins2.29">リクエスト件数、成功率、エラー率</li>
-<li data-i18n="ins2.30">レスポンス時間（p50 / p95 / p99）</li>
-<li data-i18n="ins2.31">1 リクエストあたりのトークン数とコスト</li>
-<li data-i18n="ins2.32">AI ドラフトが、現場で採用された率（accept rate）</li>
-<li data-i18n="ins2.33">ユーザーフィードバック（👍 / 👎、コメント）</li>
+<li data-i18n="i18n.460e0261aff0">リクエスト件数、成功率、エラー率</li>
+<li data-i18n="i18n.7be85c55f171">レスポンス時間（p50 / p95 / p99）</li>
+<li data-i18n="i18n.681d480cae72">1 リクエストあたりのトークン数とコスト</li>
+<li data-i18n="i18n.663a966c41e5">AI ドラフトが、現場で採用された率（accept rate）</li>
+<li data-i18n="i18n.aef4d68cec60">ユーザーフィードバック（👍 / 👎、コメント）</li>
 </ul>
 <div class="callout">
 <span class="callout__label">Tip</span>
 <div class="callout__body">
-<p>特に <strong>accept rate</strong> を最初から取ることをおすすめします。「AI が動いているか」ではなく「AI が役立っているか」を見るための指標になります。</p>
+<p data-i18n="i18n.3aece2b7492c">特に <strong>accept rate</strong> を最初から取ることをおすすめします。「AI が動いているか」ではなく「AI が役立っているか」を見るための指標になります。</p>
 </div>
 </div>
-<h2 data-i18n="ins2.34">判断 5：失敗時の「人へのフォールバック」を必ず設計する</h2>
-<p>
-          AI は必ず失敗します。失敗時に「ごめんなさい、わかりません」で終わるのではなく、<strong data-i18n="ins2.35">人にスムーズに引き継ぐ動線を、業務フローの一部として設計</strong>します。
+<h2 data-i18n="i18n.921ca1d1e4ce">判断 5：失敗時の「人へのフォールバック」を必ず設計する</h2>
+<p data-i18n="i18n.e4288e118669">
+          AI は必ず失敗します。失敗時に「ごめんなさい、わかりません」で終わるのではなく、<strong>人にスムーズに引き継ぐ動線を、業務フローの一部として設計</strong>します。
         </p>
 <ul>
-<li data-i18n="ins2.36">AI が回答に自信がない場合は、担当チャネル（Slack / 担当者の LINE / メール）に自動エスカレーション</li>
-<li data-i18n="ins2.37">その際、過去の文脈・関連ドキュメント・推定優先度をセットで渡す</li>
-<li data-i18n="ins2.38">引き継ぎ後の対応結果を、AI 改善のフィードバックとして蓄積する</li>
+<li data-i18n="i18n.3591e5b2fadd">AI が回答に自信がない場合は、担当チャネル（Slack / 担当者の LINE / メール）に自動エスカレーション</li>
+<li data-i18n="i18n.825f8ec9abc4">その際、過去の文脈・関連ドキュメント・推定優先度をセットで渡す</li>
+<li data-i18n="i18n.669c40a4bd49">引き継ぎ後の対応結果を、AI 改善のフィードバックとして蓄積する</li>
 </ul>
-<p>
-          AI 単体の精度を 90% から 95% にチューニングするより、<strong data-i18n="ins2.39">失敗時の人へのフォールバックを設計するほうが、現場の信頼を圧倒的に早く獲得</strong>できます。
+<p data-i18n="i18n.cfc475f6805b">
+          AI 単体の精度を 90% から 95% にチューニングするより、<strong>失敗時の人へのフォールバックを設計するほうが、現場の信頼を圧倒的に早く獲得</strong>できます。
         </p>
-<h2 data-i18n="ins2.40">まとめ：PoC → 本番運用のチェックリスト</h2>
-<p data-i18n="ins2.41">
+<h2 data-i18n="i18n.74afbee02d27">まとめ：PoC → 本番運用のチェックリスト</h2>
+<p data-i18n="i18n.25184ae54ed7">
           5 つの判断を、最後にチェックリストとしてまとめておきます。
         </p>
 <ol>
-<li data-i18n="ins2.42">AI の出力が「業務フロー上のどこに着地するか」を決めたか</li>
-<li data-i18n="ins2.43">プロンプトをバージョン管理 + 評価データで運用できる状態か</li>
-<li data-i18n="ins2.44">ガードレール（PII / バリデーション / コスト上限）をコードで実装したか</li>
-<li data-i18n="ins2.45">件数 / 成功率 / レイテンシ / コスト / accept rate を可視化したか</li>
-<li data-i18n="ins2.46">失敗時に人へ引き継ぐ動線が、業務フロー上に定義されているか</li>
+<li data-i18n="i18n.676db6e5d853">AI の出力が「業務フロー上のどこに着地するか」を決めたか</li>
+<li data-i18n="i18n.40d1cf6d4665">プロンプトをバージョン管理 + 評価データで運用できる状態か</li>
+<li data-i18n="i18n.956b91f0dd4d">ガードレール（PII / バリデーション / コスト上限）をコードで実装したか</li>
+<li data-i18n="i18n.9f97cdafc6e8">件数 / 成功率 / レイテンシ / コスト / accept rate を可視化したか</li>
+<li data-i18n="i18n.c0cbed407752">失敗時に人へ引き継ぐ動線が、業務フロー上に定義されているか</li>
 </ol>
-<p data-i18n="ins2.47">
+<p data-i18n="i18n.09356003da7d">
           このどれかが欠けている状態で本番に出すと、ほぼ確実に「導入したが定着せず、半年後にひっそり止まった」となります。
         </p>
-<blockquote>
+<blockquote data-i18n="i18n.a78d68332ef9">
           AI の本番運用は、モデルではなく、業務フローと運用設計が決める。
         </blockquote>
-<p>
-          Xiora では、御社の業務と既存システムに合わせて、PoC から本番運用までを一気通貫で支援しています。「PoC は動いたが、その先が見えない」段階の方は、ぜひ <a data-i18n="common.c690ff3e" href="/contact.html">30 分の無料相談</a>からどうぞ。
+<p data-i18n="i18n.481366fbe8a7">
+          Xiora では、御社の業務と既存システムに合わせて、PoC から本番運用までを一気通貫で支援しています。「PoC は動いたが、その先が見えない」段階の方は、ぜひ <a href="/contact.html">30 分の無料相談</a>からどうぞ。
         </p>
 </div>
 <footer class="insight-footer reveal">
-<a class="article-back" data-i18n="common.c776da0b" href="/insights/">← Insights 一覧へ</a>
-<a class="btn btn--primary btn--sm" href="/contact.html">
+<a class="article-back" data-i18n="i18n.c776da0b205b" href="/insights/">← Insights 一覧へ</a>
+<a class="btn btn--primary btn--sm" data-i18n="i18n.fca40df4d09a" href="/contact.html">
           無料相談を申し込む
           <svg aria-hidden="true" class="btn__arrow" fill="none" height="14" viewbox="0 0 16 16" width="14">
 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
@@ -258,31 +258,31 @@ const result = await llm.generate({
 <section class="cta" id="contact">
 <div class="container container--narrow">
 <p class="cta__label reveal"><span class="dash"></span>Get Started</p>
-<h2 class="cta__title reveal" data-i18n="ins2.48">
+<h2 class="cta__title reveal" data-i18n="i18n.06af7adddc1d">
         PoC の次の一歩を、<br/>
         一緒に設計しましょう。
       </h2>
-<p class="cta__lead reveal" data-i18n="ins2.49">
+<p class="cta__lead reveal" data-i18n="i18n.175447577e24">
         既に動いている PoC を本番運用に乗せるには、業務設計・運用フロー・観測の組み込みが必要です。30 分で現状を伺い、本番化のロードマップをご提案します。
       </p>
 <div class="cta__actions cta__actions--trio reveal">
 <div class="cta__option">
 <p class="cta__option-label">For Everyone</p>
-<a class="btn btn--primary btn--lg" data-i18n="common.ce287a47" href="/contact.html?type=general">30 分の無料相談を申し込む</a>
-<p class="cta__option-note" data-i18n="common.e5d9a1af">まずは現状を整理。何から始めるべきか提案します。</p>
-<p class="cta__option-meta" data-i18n="common.1fd73c19">所要 30 分 / オンライン / 無料</p>
+<a class="btn btn--primary btn--lg" data-i18n="i18n.ce287a474fbf" href="/contact.html?type=general">30 分の無料相談を申し込む</a>
+<p class="cta__option-note" data-i18n="i18n.e5d9a1af9d7f">まずは現状を整理。何から始めるべきか提案します。</p>
+<p class="cta__option-meta" data-i18n="i18n.1fd73c19ac59">所要 30 分 / オンライン / 無料</p>
 </div>
 <div class="cta__option">
 <p class="cta__option-label">AI · DX</p>
-<a class="btn btn--ghost btn--lg" data-i18n="common.06053202" href="/contact.html?type=ai-dx">AI・DX 導入を相談する</a>
-<p class="cta__option-note" data-i18n="common.0303c2f2">どの業務に AI を効かせるか、優先順位ごと提案します。</p>
-<p class="cta__option-meta" data-i18n="common.70484af4">AI 活用診断 / 業務自動化 / AI 研修</p>
+<a class="btn btn--ghost btn--lg" data-i18n="i18n.06053202f030" href="/contact.html?type=ai-dx">AI・DX 導入を相談する</a>
+<p class="cta__option-note" data-i18n="i18n.0303c2f2578e">どの業務に AI を効かせるか、優先順位ごと提案します。</p>
+<p class="cta__option-meta" data-i18n="i18n.70484af42502">AI 活用診断 / 業務自動化 / AI 研修</p>
 </div>
 <div class="cta__option">
 <p class="cta__option-label">Web</p>
-<a class="btn btn--ghost btn--lg" data-i18n="common.a1b11aff" href="/contact.html?type=web">Web 改善 AI 診断を依頼</a>
-<p class="cta__option-note" data-i18n="common.80ef73bf">CVR・SEO・速度・計測の 5 観点で、現状と打ち手を可視化。</p>
-<p class="cta__option-meta" data-i18n="common.7ea6bbb6">レポート納品 / 1〜2 週間</p>
+<a class="btn btn--ghost btn--lg" data-i18n="i18n.a1b11aff53a3" href="/contact.html?type=web">Web 改善 AI 診断を依頼</a>
+<p class="cta__option-note" data-i18n="i18n.80ef73bfe5cf">CVR・SEO・速度・計測の 5 観点で、現状と打ち手を可視化。</p>
+<p class="cta__option-meta" data-i18n="i18n.7ea6bbb6691f">レポート納品 / 1〜2 週間</p>
 </div>
 </div>
 </div>
@@ -297,7 +297,7 @@ const result = await llm.generate({
 <span class="brand__name">Xiora</span>
 </div>
 <p class="site-footer__tag" data-i18n="footer.tagline">AI 時代のシステム開発・<br/>アプリ開発パートナー。</p>
-<p class="site-footer__addr">
+<p class="site-footer__addr" data-i18n="i18n.6ea352e2dc1a">
           〒150-0043 東京都渋谷区道玄坂 1-10-8<br/>
           渋谷道玄坂東急ビル 2F-C<br/>
 <a href="tel:07091650203">070-9165-0203</a> / <a href="mailto:info@xiora-official.com">info@xiora-official.com</a>
@@ -308,7 +308,7 @@ const result = await llm.generate({
 <div>
 <p class="site-footer__head" data-i18n="footer.head.services">Services</p>
 <ul>
-<li><a data-i18n="common.a8b7ba30" href="/ai-consulting.html">AI・DX Consulting</a></li>
+<li><a data-i18n="i18n.a8b7ba30a70a" href="/ai-consulting.html">AI・DX Consulting</a></li>
 <li><a href="/web-engineering.html">Web Engineering</a></li>
 <li><a href="/dx-engineering.html">DX Engineering</a></li>
 <li><a href="/growth-marketing.html">Growth Marketing</a></li>
@@ -338,7 +338,7 @@ const result = await llm.generate({
 <p class="site-footer__head" data-i18n="footer.head.contact">Contact</p>
 <ul>
 <li><a href="mailto:info@xiora-official.com">info@xiora-official.com</a></li>
-<li><a data-i18n="common.a99317da" href="/contact.html">無料相談</a></li>
+<li><a data-i18n="i18n.a99317da0816" href="/contact.html">無料相談</a></li>
 <li><a href="/#faq">FAQ</a></li>
 </ul>
 </div>
@@ -347,9 +347,9 @@ const result = await llm.generate({
 <div class="site-footer__bottom">
 <p>© <span id="year"></span> Xiora. All rights reserved.</p>
 <ul class="site-footer__meta">
-<li><a data-i18n="common.f28b5782" href="/privacy.html">プライバシーポリシー</a></li>
-<li><a data-i18n="common.ab193dfc" href="/terms.html">特定商取引法</a></li>
-<li><a data-i18n="common.6c694d00" href="/sitemap.html">サイトマップ</a></li>
+<li><a data-i18n="i18n.f28b5782bc5c" href="/privacy.html">プライバシーポリシー</a></li>
+<li><a data-i18n="i18n.ab193dfc0d7e" href="/terms.html">特定商取引法</a></li>
+<li><a data-i18n="i18n.6c694d000328" href="/sitemap.html">サイトマップ</a></li>
 </ul>
 </div>
 </div>

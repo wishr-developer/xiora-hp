@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="/assets/css/style.css?v=20260603i" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260603j" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -75,7 +75,7 @@
 <script defer="" src="/assets/js/analytics.js"></script>
 </head>
 <body>
-<a class="skip-link" data-i18n="common.a28547de" href="#main">本文へスキップ</a>
+<a class="skip-link" data-i18n="i18n.a28547de5359" href="#main">本文へスキップ</a>
 <header class="site-header" id="siteHeader">
 <div class="site-header__inner">
 <a aria-label="Xiora ホーム" class="brand" href="/">
@@ -103,18 +103,18 @@
 <span aria-hidden="true">/</span>
 <a data-i18n="nav.insights" href="/insights/">Insights</a>
 <span aria-hidden="true">/</span>
-<span aria-current="page" data-i18n="ins3.1">中小企業のための RAG</span>
+<span aria-current="page" data-i18n="i18n.ab9b5c8ec44a">中小企業のための RAG</span>
 </nav>
 <header class="insight-header reveal">
 <div class="insight-meta">
 <span class="insight-meta__cat">AI</span>
 <time datetime="2026-05-12">2026.05.12</time>
-<span data-i18n="ins3.2">読了 9 分</span>
+<span data-i18n="i18n.b23b169d5ad6">読了 9 分</span>
 </div>
-<h1 class="insight-title" data-i18n="ins3.3">
+<h1 class="insight-title" data-i18n="i18n.8a84a4936af5">
           中小企業のための、<br/>現実的な RAG アーキテクチャ
         </h1>
-<p class="insight-lead" data-i18n="ins3.4">
+<p class="insight-lead" data-i18n="i18n.6ae2c7865049">
           全社ドキュメントを AI で横断検索できるようにする ── 言葉にすると魅力的ですが、実運用には「データ品質」「権限」「コスト」の壁が立ちはだかります。SMB 向けに Xiora が選んでいる、現実的な RAG アーキテクチャを公開します。
         </p>
 <div class="insight-author">
@@ -126,46 +126,46 @@
 </div>
 </header>
 <div class="article-rich reveal">
-<h2 data-i18n="ins3.5">RAG が「使えない」と言われる本当の理由</h2>
-<p>
+<h2 data-i18n="i18n.8aa416cde6d6">RAG が「使えない」と言われる本当の理由</h2>
+<p data-i18n="i18n.377c49a11420">
 <span class="term" data-def="RAG = 検索拡張生成。社内文書を AI に「学習させる」のではなく、その都度「参照させる」仕組みです。AI 自体は変えず、参照元の整理で回答品質を上げる方法。">RAG</span>（Retrieval-Augmented Generation、検索拡張生成）は、社内のナレッジや <span class="term" data-def="SaaS = インターネット経由で使えるサブスク型のソフトウェア。CRM、会計、勤怠管理など、業務で日常的に使うクラウドサービス全般を指します。">SaaS</span> データを <span class="term" data-def="LLM = 大規模言語モデル。ChatGPT・Claude のような汎用 AI モデル。">LLM</span> が引用できる形で参照する技術です。「ドキュメントを全部ベクトル化して、ChatGPT に答えさせる」というイメージで語られがちですが、実運用に乗せると、たいてい次の壁にぶつかります。
         </p>
 <ul>
-<li data-i18n="ins3.6">そもそも社内ドキュメントが古い・断片的・矛盾している</li>
-<li data-i18n="ins3.7">同じ情報が複数の SaaS に散在しており、どれが正かわからない</li>
-<li data-i18n="ins3.8">権限のないユーザーに、機密情報が漏れる可能性がある</li>
-<li data-i18n="ins3.9">本気でやるとベクトル DB と埋め込みコストが想定外に高い</li>
+<li data-i18n="i18n.f01d0f18f526">そもそも社内ドキュメントが古い・断片的・矛盾している</li>
+<li data-i18n="i18n.e6b669aac5b4">同じ情報が複数の SaaS に散在しており、どれが正かわからない</li>
+<li data-i18n="i18n.163126db46b6">権限のないユーザーに、機密情報が漏れる可能性がある</li>
+<li data-i18n="i18n.d42dc2789daa">本気でやるとベクトル DB と埋め込みコストが想定外に高い</li>
 </ul>
 <div class="callout">
 <span class="callout__label">Note</span>
 <div class="callout__body">
-<p>つまり、RAG のボトルネックはモデルではなく、<strong data-i18n="ins3.10">「データの正しさ・新鮮さ・権限」</strong>です。多くの SMB 環境で最初にやるべきは、ベクトル化ではなく、データの棚卸しです。</p>
+<p data-i18n="i18n.661490c8459f">つまり、RAG のボトルネックはモデルではなく、<strong>「データの正しさ・新鮮さ・権限」</strong>です。多くの SMB 環境で最初にやるべきは、ベクトル化ではなく、データの棚卸しです。</p>
 </div>
 </div>
-<h2 data-i18n="ins3.11">SMB 向けの現実解：3 層構成</h2>
-<p data-i18n="ins3.12">
+<h2 data-i18n="i18n.d0b47e1ccf2f">SMB 向けの現実解：3 層構成</h2>
+<p data-i18n="i18n.4abe52ec5f1e">
           私たちが SMB 規模で繰り返し採用しているのは、次の 3 層構成です。
         </p>
 <div aria-label="SMB 向け RAG アーキテクチャ" class="arch">
-<p class="arch__title" data-i18n="ins3.13">SMB 向け RAG アーキテクチャ</p>
-<p class="arch__sub" data-i18n="ins3.14">
+<p class="arch__title" data-i18n="i18n.c2eecdb10494">SMB 向け RAG アーキテクチャ</p>
+<p class="arch__sub" data-i18n="i18n.ed329ca59f5d">
             ソース → 正規化／インデックス → リトリーバ／LLM の 3 層。各層に「責任者」と「更新頻度」を必ず割り当てます。
           </p>
 <div class="arch__row arch__row--3">
 <div class="arch__node">
 <p class="arch__node-label">Source</p>
 <p class="arch__node-title">Notion / Google Drive</p>
-<p class="arch__node-sub" data-i18n="ins3.15">社内ドキュメント</p>
+<p class="arch__node-sub" data-i18n="i18n.c0930e6a3b02">社内ドキュメント</p>
 </div>
 <div class="arch__node">
 <p class="arch__node-label">Source</p>
 <p class="arch__node-title">Slack / Email</p>
-<p class="arch__node-sub" data-i18n="ins3.16">過去のやり取り</p>
+<p class="arch__node-sub" data-i18n="i18n.4e816b82e9d0">過去のやり取り</p>
 </div>
 <div class="arch__node">
 <p class="arch__node-label">Source</p>
-<p class="arch__node-title" data-i18n="ins3.17">業務 SaaS</p>
-<p class="arch__node-sub" data-i18n="ins3.18">CRM · 会計 · 在庫</p>
+<p class="arch__node-title" data-i18n="i18n.e5a454f6c6c5">業務 SaaS</p>
+<p class="arch__node-sub" data-i18n="i18n.ba1d5a53e462">CRM · 会計 · 在庫</p>
 </div>
 </div>
 <div aria-hidden="true" class="arch__connector arch__connector--line"></div>
@@ -201,35 +201,35 @@
 <div class="arch__node">
 <p class="arch__node-label">UI</p>
 <p class="arch__node-title">Slack / Web</p>
-<p class="arch__node-sub" data-i18n="ins3.19">出典付き回答</p>
+<p class="arch__node-sub" data-i18n="i18n.7eaa83ed7f14">出典付き回答</p>
 </div>
 </div>
 <ul class="arch__legend">
-<li><span class="arch__legend-swatch"></span>一般コンポーネント</li>
-<li><span class="arch__legend-swatch arch__legend-swatch--accent"></span>AI / コア</li>
+<li data-i18n="i18n.1031a3b93f11"><span class="arch__legend-swatch"></span>一般コンポーネント</li>
+<li data-i18n="i18n.2ee9822bd396"><span class="arch__legend-swatch arch__legend-swatch--accent"></span>AI / コア</li>
 </ul>
 </div>
-<h2 data-i18n="ins3.20">各層の設計判断</h2>
-<h3 data-i18n="ins3.21">1. Source（情報源）の絞り込み</h3>
-<p>
-          「社内の全てを検索可能に」は理想ですが、最初は無理に広げない方が成功します。<strong data-i18n="ins3.22">最初は「対応するクエリの 80% をカバーする少数のソース」に絞る</strong>のが鉄則です。たとえばカスタマーサポート用なら、Notion の FAQ・契約書テンプレート・直近 6 ヶ月の問い合わせログ、の 3 つだけで十分なケースが多いです。
+<h2 data-i18n="i18n.57d3389d3e6a">各層の設計判断</h2>
+<h3 data-i18n="i18n.38fd32673028">1. Source（情報源）の絞り込み</h3>
+<p data-i18n="i18n.a3dee3cf222a">
+          「社内の全てを検索可能に」は理想ですが、最初は無理に広げない方が成功します。<strong>最初は「対応するクエリの 80% をカバーする少数のソース」に絞る</strong>のが鉄則です。たとえばカスタマーサポート用なら、Notion の FAQ・契約書テンプレート・直近 6 ヶ月の問い合わせログ、の 3 つだけで十分なケースが多いです。
         </p>
-<h3 data-i18n="ins3.23">2. Normalize（正規化）を軽視しない</h3>
-<p data-i18n="ins3.24">
+<h3 data-i18n="i18n.de4aa31eed2c">2. Normalize（正規化）を軽視しない</h3>
+<p data-i18n="i18n.40b5a27d4f2f">
           PDF をそのままベクトル化しないでください。最低限、次の処理を入れます。
         </p>
 <ul>
-<li data-i18n="ins3.25">OCR を通し、テキスト化する</li>
-<li data-i18n="ins3.26">見出しに沿って 500〜1,000 字のチャンクに分割する</li>
-<li data-i18n="ins3.27">更新日・出典 URL・部署・公開範囲をメタデータとして付与する</li>
-<li data-i18n="ins3.28">重複・古い版を排除する</li>
+<li data-i18n="i18n.940fa5f44e10">OCR を通し、テキスト化する</li>
+<li data-i18n="i18n.1855944a1e1e">見出しに沿って 500〜1,000 字のチャンクに分割する</li>
+<li data-i18n="i18n.30eeac7c8e73">更新日・出典 URL・部署・公開範囲をメタデータとして付与する</li>
+<li data-i18n="i18n.9b525a48b24a">重複・古い版を排除する</li>
 </ul>
-<p data-i18n="ins3.29">
+<p data-i18n="i18n.acd254611557">
           この工程をサボると、回答の精度は半分以下になります。
         </p>
-<h3 data-i18n="ins3.30">3. Index に Vector 専用 DB を選ぶか</h3>
-<p>
-<span class="term" data-def="ベクトル DB = テキストの意味を数値ベクトルとして保存・検索するデータベース。「キーワード一致」ではなく「意味が近いものを引っ張る」検索ができます。" data-i18n="ins3.31">ベクトル DB</span> といえば Pinecone / Weaviate のような専用サービスが有名ですが、SMB 規模では最初からそこに行く必要はほとんどありません。<strong data-i18n="ins3.32">Supabase の pgvector で十分</strong>です。理由はシンプルで、業務データもメタデータも同じ Postgres に置けるため、JOIN や権限フィルタが圧倒的に楽になるからです。
+<h3 data-i18n="i18n.8be710258a8a">3. Index に Vector 専用 DB を選ぶか</h3>
+<p data-i18n="i18n.4058201c5acd">
+<span class="term" data-def="ベクトル DB = テキストの意味を数値ベクトルとして保存・検索するデータベース。「キーワード一致」ではなく「意味が近いものを引っ張る」検索ができます。">ベクトル DB</span> といえば Pinecone / Weaviate のような専用サービスが有名ですが、SMB 規模では最初からそこに行く必要はほとんどありません。<strong>Supabase の pgvector で十分</strong>です。理由はシンプルで、業務データもメタデータも同じ Postgres に置けるため、JOIN や権限フィルタが圧倒的に楽になるからです。
         </p>
 <pre><code>-- Supabase + pgvector の典型クエリ
 select
@@ -241,54 +241,54 @@ where
   and (d.acl_role = any($2) or d.acl_role = 'public')
 order by score
 limit 8;</code></pre>
-<p data-i18n="ins3.33">
+<p data-i18n="i18n.c1525fd4e8d2">
           スケール要件が明確になってから、専用ベクトル DB に切り替えれば間に合います。
         </p>
-<h3 data-i18n="ins3.34">4. ACL（権限）はインデックス側に持つ</h3>
-<p>
-          RAG で一番怖いのは、「権限のないユーザーに機密文書が返ってしまう」事故です。<strong data-i18n="ins3.35">権限チェックは LLM プロンプトに依存させてはいけません</strong>。必ずインデックス側のクエリで row-level に弾く設計にします。
+<h3 data-i18n="i18n.f9e1f8eacccb">4. ACL（権限）はインデックス側に持つ</h3>
+<p data-i18n="i18n.327f359ad731">
+          RAG で一番怖いのは、「権限のないユーザーに機密文書が返ってしまう」事故です。<strong>権限チェックは LLM プロンプトに依存させてはいけません</strong>。必ずインデックス側のクエリで row-level に弾く設計にします。
         </p>
-<p>
+<p data-i18n="i18n.28fefd668e3d">
           実装上は、ドキュメントに <code>acl_role</code> や <code>visible_to</code> のメタデータを付与し、検索クエリで強制フィルタする形が定番です。
         </p>
-<h3 data-i18n="ins3.36">5. Retrieval は Hybrid Search を初手から入れる</h3>
-<p data-i18n="ins3.37">
+<h3 data-i18n="i18n.4b184ab0b0a7">5. Retrieval は Hybrid Search を初手から入れる</h3>
+<p data-i18n="i18n.413b2ab4b6e2">
           ベクトル検索だけだと、固有名詞や型番のような「単語そのものが重要」なクエリで弱くなります。ベクトル検索と BM25（キーワード検索）を組み合わせるハイブリッド検索を最初から入れておくと、精度のレンジが大きく広がります。
         </p>
-<h3 data-i18n="ins3.38">6. 生成は必ず Citation 付き</h3>
-<p>
-          LLM の応答には、参照したドキュメントの ID と URL を必ず添えます。<strong data-i18n="ins3.39">「出典を返せない RAG は、業務で使われません」</strong>。利用者が原典を 1 クリックで確認できることが、社内浸透の最重要要素です。
+<h3 data-i18n="i18n.4cecb9954aed">6. 生成は必ず Citation 付き</h3>
+<p data-i18n="i18n.fb91e904b15c">
+          LLM の応答には、参照したドキュメントの ID と URL を必ず添えます。<strong>「出典を返せない RAG は、業務で使われません」</strong>。利用者が原典を 1 クリックで確認できることが、社内浸透の最重要要素です。
         </p>
-<h2 data-i18n="ins3.40">運用の現実：誰が、どの頻度で更新するか</h2>
-<p data-i18n="ins3.41">
+<h2 data-i18n="i18n.6cd9fd85ab56">運用の現実：誰が、どの頻度で更新するか</h2>
+<p data-i18n="i18n.305bf329fc44">
           技術より重要なのは、ここです。RAG は導入して終わりではなく、ナレッジの新陳代謝が運用の中心になります。
         </p>
 <ul>
-<li data-i18n="ins3.42">ソースごとに「責任者」を 1 名割り当てる</li>
-<li data-i18n="ins3.43">更新頻度（リアルタイム / 日次 / 週次 / 月次）を決める</li>
-<li data-i18n="ins3.44">古いドキュメントは「アーカイブ」フラグでインデックスから除外する</li>
-<li data-i18n="ins3.45">月次で、回答品質と citation のクリック率をレビューする</li>
+<li data-i18n="i18n.4a5926c0223a">ソースごとに「責任者」を 1 名割り当てる</li>
+<li data-i18n="i18n.04152615662d">更新頻度（リアルタイム / 日次 / 週次 / 月次）を決める</li>
+<li data-i18n="i18n.0a1ba22ed720">古いドキュメントは「アーカイブ」フラグでインデックスから除外する</li>
+<li data-i18n="i18n.676909aaf4e0">月次で、回答品質と citation のクリック率をレビューする</li>
 </ul>
 <div class="callout">
 <span class="callout__label">Tip</span>
 <div class="callout__body">
-<p data-i18n="ins3.46">RAG ダッシュボードには、最低限「回答数」「Citation クリック率」「未回答率」「ユーザーフィードバック」の 4 指標を載せておきます。これが運用改善のサイクルを支えます。</p>
+<p data-i18n="i18n.6ccb55c3642b">RAG ダッシュボードには、最低限「回答数」「Citation クリック率」「未回答率」「ユーザーフィードバック」の 4 指標を載せておきます。これが運用改善のサイクルを支えます。</p>
 </div>
 </div>
-<h2 data-i18n="common.7f7ad40b">まとめ</h2>
-<blockquote>
+<h2 data-i18n="i18n.7f7ad40ba94a">まとめ</h2>
+<blockquote data-i18n="i18n.722d4ee2730b">
           SMB の RAG は、最先端モデルより、データ品質と権限設計で決まる。
         </blockquote>
-<p>
-          ベクトル DB の選定や LLM のスコアより、<strong data-i18n="ins3.47">「情報源を絞る」「メタデータを揃える」「権限はインデックス側で弾く」「Citation を必ず返す」</strong> を徹底するほうが、最終的な体感品質は確実に上がります。
+<p data-i18n="i18n.7c9cbd53bd83">
+          ベクトル DB の選定や LLM のスコアより、<strong>「情報源を絞る」「メタデータを揃える」「権限はインデックス側で弾く」「Citation を必ず返す」</strong> を徹底するほうが、最終的な体感品質は確実に上がります。
         </p>
-<p>
-          Xiora では、御社のドキュメントと SaaS 環境を踏まえた現実的な RAG 設計から運用設計までを一気通貫で支援しています。社内 AI の導入を検討している方は、<a data-i18n="common.c690ff3e" href="/contact.html">30 分の無料相談</a>からどうぞ。
+<p data-i18n="i18n.e875e723cfe3">
+          Xiora では、御社のドキュメントと SaaS 環境を踏まえた現実的な RAG 設計から運用設計までを一気通貫で支援しています。社内 AI の導入を検討している方は、<a href="/contact.html">30 分の無料相談</a>からどうぞ。
         </p>
 </div>
 <footer class="insight-footer reveal">
-<a class="article-back" data-i18n="common.c776da0b" href="/insights/">← Insights 一覧へ</a>
-<a class="btn btn--primary btn--sm" href="/contact.html">
+<a class="article-back" data-i18n="i18n.c776da0b205b" href="/insights/">← Insights 一覧へ</a>
+<a class="btn btn--primary btn--sm" data-i18n="i18n.fca40df4d09a" href="/contact.html">
           無料相談を申し込む
           <svg aria-hidden="true" class="btn__arrow" fill="none" height="14" viewbox="0 0 16 16" width="14">
 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
@@ -301,31 +301,31 @@ limit 8;</code></pre>
 <section class="cta" id="contact">
 <div class="container container--narrow">
 <p class="cta__label reveal"><span class="dash"></span>Get Started</p>
-<h2 class="cta__title reveal" data-i18n="ins3.48">
+<h2 class="cta__title reveal" data-i18n="i18n.8a04f00ddd3c">
         御社の RAG を、<br/>
         現実的な構成で設計しましょう。
       </h2>
-<p class="cta__lead reveal" data-i18n="ins3.49">
+<p class="cta__lead reveal" data-i18n="i18n.6b2d1f7857ca">
         現状のドキュメント・SaaS 環境・権限要件を 30 分で伺い、御社にあわせた現実的な RAG 構成と費用感をご提案します。
       </p>
 <div class="cta__actions cta__actions--trio reveal">
 <div class="cta__option">
 <p class="cta__option-label">For Everyone</p>
-<a class="btn btn--primary btn--lg" data-i18n="common.ce287a47" href="/contact.html?type=general">30 分の無料相談を申し込む</a>
-<p class="cta__option-note" data-i18n="common.e5d9a1af">まずは現状を整理。何から始めるべきか提案します。</p>
-<p class="cta__option-meta" data-i18n="common.1fd73c19">所要 30 分 / オンライン / 無料</p>
+<a class="btn btn--primary btn--lg" data-i18n="i18n.ce287a474fbf" href="/contact.html?type=general">30 分の無料相談を申し込む</a>
+<p class="cta__option-note" data-i18n="i18n.e5d9a1af9d7f">まずは現状を整理。何から始めるべきか提案します。</p>
+<p class="cta__option-meta" data-i18n="i18n.1fd73c19ac59">所要 30 分 / オンライン / 無料</p>
 </div>
 <div class="cta__option">
 <p class="cta__option-label">AI · DX</p>
-<a class="btn btn--ghost btn--lg" data-i18n="common.06053202" href="/contact.html?type=ai-dx">AI・DX 導入を相談する</a>
-<p class="cta__option-note" data-i18n="common.0303c2f2">どの業務に AI を効かせるか、優先順位ごと提案します。</p>
-<p class="cta__option-meta" data-i18n="common.70484af4">AI 活用診断 / 業務自動化 / AI 研修</p>
+<a class="btn btn--ghost btn--lg" data-i18n="i18n.06053202f030" href="/contact.html?type=ai-dx">AI・DX 導入を相談する</a>
+<p class="cta__option-note" data-i18n="i18n.0303c2f2578e">どの業務に AI を効かせるか、優先順位ごと提案します。</p>
+<p class="cta__option-meta" data-i18n="i18n.70484af42502">AI 活用診断 / 業務自動化 / AI 研修</p>
 </div>
 <div class="cta__option">
 <p class="cta__option-label">Web</p>
-<a class="btn btn--ghost btn--lg" data-i18n="common.a1b11aff" href="/contact.html?type=web">Web 改善 AI 診断を依頼</a>
-<p class="cta__option-note" data-i18n="common.80ef73bf">CVR・SEO・速度・計測の 5 観点で、現状と打ち手を可視化。</p>
-<p class="cta__option-meta" data-i18n="common.7ea6bbb6">レポート納品 / 1〜2 週間</p>
+<a class="btn btn--ghost btn--lg" data-i18n="i18n.a1b11aff53a3" href="/contact.html?type=web">Web 改善 AI 診断を依頼</a>
+<p class="cta__option-note" data-i18n="i18n.80ef73bfe5cf">CVR・SEO・速度・計測の 5 観点で、現状と打ち手を可視化。</p>
+<p class="cta__option-meta" data-i18n="i18n.7ea6bbb6691f">レポート納品 / 1〜2 週間</p>
 </div>
 </div>
 </div>
@@ -340,7 +340,7 @@ limit 8;</code></pre>
 <span class="brand__name">Xiora</span>
 </div>
 <p class="site-footer__tag" data-i18n="footer.tagline">AI 時代のシステム開発・<br/>アプリ開発パートナー。</p>
-<p class="site-footer__addr">
+<p class="site-footer__addr" data-i18n="i18n.6ea352e2dc1a">
           〒150-0043 東京都渋谷区道玄坂 1-10-8<br/>
           渋谷道玄坂東急ビル 2F-C<br/>
 <a href="tel:07091650203">070-9165-0203</a> / <a href="mailto:info@xiora-official.com">info@xiora-official.com</a>
@@ -351,7 +351,7 @@ limit 8;</code></pre>
 <div>
 <p class="site-footer__head" data-i18n="footer.head.services">Services</p>
 <ul>
-<li><a data-i18n="common.a8b7ba30" href="/ai-consulting.html">AI・DX Consulting</a></li>
+<li><a data-i18n="i18n.a8b7ba30a70a" href="/ai-consulting.html">AI・DX Consulting</a></li>
 <li><a href="/web-engineering.html">Web Engineering</a></li>
 <li><a href="/dx-engineering.html">DX Engineering</a></li>
 <li><a href="/growth-marketing.html">Growth Marketing</a></li>
@@ -381,7 +381,7 @@ limit 8;</code></pre>
 <p class="site-footer__head" data-i18n="footer.head.contact">Contact</p>
 <ul>
 <li><a href="mailto:info@xiora-official.com">info@xiora-official.com</a></li>
-<li><a data-i18n="common.a99317da" href="/contact.html">無料相談</a></li>
+<li><a data-i18n="i18n.a99317da0816" href="/contact.html">無料相談</a></li>
 <li><a href="/#faq">FAQ</a></li>
 </ul>
 </div>
@@ -390,9 +390,9 @@ limit 8;</code></pre>
 <div class="site-footer__bottom">
 <p>© <span id="year"></span> Xiora. All rights reserved.</p>
 <ul class="site-footer__meta">
-<li><a data-i18n="common.f28b5782" href="/privacy.html">プライバシーポリシー</a></li>
-<li><a data-i18n="common.ab193dfc" href="/terms.html">特定商取引法</a></li>
-<li><a data-i18n="common.6c694d00" href="/sitemap.html">サイトマップ</a></li>
+<li><a data-i18n="i18n.f28b5782bc5c" href="/privacy.html">プライバシーポリシー</a></li>
+<li><a data-i18n="i18n.ab193dfc0d7e" href="/terms.html">特定商取引法</a></li>
+<li><a data-i18n="i18n.6c694d000328" href="/sitemap.html">サイトマップ</a></li>
 </ul>
 </div>
 </div>
