@@ -8000,14 +8000,19 @@ svg { max-width: 64px !important; max-height: 64px !important; }
 }
 .trust-cells .trust-cell {
   display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 16px;
+  grid-template-columns: 40px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 16px;
+  row-gap: 2px;
   padding: 18px 4px;
   border-bottom: 1px solid rgba(10, 10, 10, 0.06);
   background: transparent;
   border-radius: 0;
 }
 .trust-cell__icon {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: start;
   width: 40px;
   height: 40px;
   border-radius: 10px;
@@ -8021,6 +8026,8 @@ svg { max-width: 64px !important; max-height: 64px !important; }
 }
 .trust-cell__icon svg { width: 20px; height: 20px; }
 .trust-cells .trust-cell__title {
+  grid-column: 2;
+  grid-row: 1;
   font-family: Inter, "Noto Sans JP", sans-serif;
   font-size: 15.5px;
   font-weight: 600;
@@ -8029,6 +8036,8 @@ svg { max-width: 64px !important; max-height: 64px !important; }
   letter-spacing: -0.005em;
 }
 .trust-cells .trust-cell__desc {
+  grid-column: 2;
+  grid-row: 2;
   font-size: 13.5px;
   line-height: 1.7;
   color: #47474b;
