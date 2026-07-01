@@ -195,7 +195,9 @@
       'general':   '30分無料相談',
       'ai-dx':     'AI・DX 導入相談',
       'web':       'Web 改善 AI 診断',
+      'product':   'プロダクト導入相談',
       'x-partner': 'X Partner について',
+      'intern':    'Build with us（インターン / アソシエイト）',
       'other':     'その他のご相談',
     };
     const METHOD_LABEL = {
@@ -209,22 +211,32 @@
       '3months':    '3ヶ月以内',
       'undecided':  '未定 / 情報収集中',
     };
+    const PRODUCT_PREFILL = {
+      'kigen':          'Kigenについて相談したい',
+      'xcloud-connect': 'Connectについて相談したい',
+      'connect':        'Connectについて相談したい',
+      'xcloud-flow':    'Flowについて相談したい',
+      'flow':           'Flowについて相談したい',
+    };
 
-    /* Pre-select radio based on ?type= URL param */
+    /* Pre-select radio + prefill textarea based on ?type= / ?product= URL params */
     try {
       const params = new URLSearchParams(window.location.search);
       const type = params.get('type');
-      if (type && TYPE_LABEL[type]) {
-        const radio = form.querySelector(`input[name="type"][value="${type}"]`);
-        if (radio) {
-          radio.checked = true;
-          // Smooth-focus the form so users see their selection
-          requestAnimationFrame(() => {
-            const card = radio.closest('.radio-card');
-            if (card && 'scrollIntoView' in card) {
-              // No-op: keep top of page visible; just leave the selection.
-            }
-          });
+      const product = params.get('product');
+
+      // If ?product= is present, imply type=product (unless user set type explicitly)
+      const effectiveType = type || (product ? 'product' : null);
+
+      if (effectiveType && TYPE_LABEL[effectiveType]) {
+        const radio = form.querySelector(`input[name="type"][value="${effectiveType}"]`);
+        if (radio) radio.checked = true;
+      }
+
+      if (product && PRODUCT_PREFILL[product]) {
+        const issue = document.getElementById('issue');
+        if (issue && !issue.value) {
+          issue.value = PRODUCT_PREFILL[product];
         }
       }
     } catch (_) {
