@@ -196,6 +196,7 @@
       'ai-dx':     'AI・DX 導入相談',
       'web':       'Web 改善 AI 診断',
       'product':   'プロダクト導入相談',
+      'pricing':   '見積り依頼',
       'x-partner': 'X Partner について',
       'intern':    'Build with us（インターン / アソシエイト）',
       'other':     'その他のご相談',
