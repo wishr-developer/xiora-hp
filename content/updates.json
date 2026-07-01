@@ -1,0 +1,134 @@
+{
+  "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
+  "items": [
+    {
+      "id": "2026-07-01-products-refresh",
+      "date": "2026-07-01",
+      "type": "news",
+      "kind": "release",
+      "title": "Products 情報ページを刷新しました。",
+      "description": "Kigen / XCloud Connect / XCloud Flow それぞれに、Xiora からの一次情報でまとめた詳細ページを新設。導入相談窓口を統一しました。",
+      "url": "/news/2026-07-01-products-refresh.html",
+      "build_cat": "Release Updates",
+      "news_cat": "Update"
+    },
+    {
+      "id": "2026-06-10-kigen-beta-partners",
+      "date": "2026-06-10",
+      "type": "news",
+      "kind": "kigen",
+      "title": "「Kigen」ベータプログラムのパートナー企業を追加募集します。",
+      "description": "業務改善プラットフォーム Kigen のパートナー企業を追加募集開始。6〜8 週間で業務ナレッジと運営を仕組みに変えます。",
+      "url": "/news/2026-06-10-kigen-beta-partners.html",
+      "build_cat": "Kigen Development",
+      "news_cat": "Product"
+    },
+    {
+      "id": "2026-05-15-xbeauty-launch",
+      "date": "2026-05-15",
+      "type": "news",
+      "kind": "venture",
+      "title": "新規事業「XBeauty」を始動しました。",
+      "description": "AI と データで美容業界の DX を推進するビューティーテック事業を立ち上げました。",
+      "url": "/news/2026-05-15-xbeauty-launch.html",
+      "build_cat": "New Features",
+      "news_cat": "Business"
+    },
+    {
+      "id": "2026-05-10-xcloud-flow-release",
+      "date": "2026-05-10",
+      "type": "news",
+      "kind": "release",
+      "title": "スクール運営 All-in-one SaaS「XCloud Flow」の提供を開始しました。",
+      "description": "受講管理・予約・決済・受講進捗分析を一つの管理画面に集約する、スクール運営 SaaS を正式リリース。",
+      "url": "/news/2026-05-10-xcloud-flow-release.html",
+      "news_cat": "Product"
+    },
+    {
+      "id": "2026-05-01-site-renewal",
+      "date": "2026-05-01",
+      "type": "news",
+      "kind": "release",
+      "title": "公式サイトをフルリニューアルしました。",
+      "description": "コーポレートサイトを Founder-led 実装パートナー向けにフルリニューアル。",
+      "url": "/news/2026-05-01-site-renewal.html",
+      "news_cat": "Release"
+    },
+    {
+      "id": "2026-04-01-xcloud-connect-release",
+      "date": "2026-04-01",
+      "type": "news",
+      "kind": "release",
+      "title": "飲食店向け QR オーダー「XCloud Connect」の提供を開始しました。",
+      "description": "工事不要・最短 5 分で導入できる飲食店向け QR モバイルオーダー SaaS をリリース。",
+      "url": "/news/2026-04-01-xcloud-connect-release.html",
+      "news_cat": "Product"
+    },
+    {
+      "id": "2026-03-20-medical-case",
+      "date": "2026-03-20",
+      "type": "news",
+      "kind": "case",
+      "title": "医療機関向け予約自動化 AI の導入事例（月 60 時間削減）を公開しました。",
+      "description": "複数院展開クリニックへの予約自動化 AI 支援モデル事例を公開。",
+      "url": "/news/2026-03-20-medical-case.html",
+      "news_cat": "Case"
+    },
+    {
+      "id": "2026-02-10-industries-update",
+      "date": "2026-02-10",
+      "type": "news",
+      "kind": "update",
+      "title": "対応業種を医療・店舗・専門士業を含む 4 カテゴリに整理しました。",
+      "description": "対応業種を医療・店舗・専門士業・産業テクノロジーの 4 カテゴリに整理し、事業ページを構成し直しました。",
+      "url": "/news/2026-02-10-industries-update.html",
+      "news_cat": "Update"
+    },
+    {
+      "id": "insight-ai-implementation-architecture",
+      "date": "2026-05-18",
+      "type": "insight",
+      "kind": "engineering",
+      "insight_cat": "AI",
+      "title": "AI を事業に実装するための、最小構成アーキテクチャ",
+      "description": "ChatGPT を「使う」段階から、AI を業務フローと売上に組み込む段階へ。Xiora が現場で繰り返し採用している、最小構成の AI 実装アーキテクチャを公開します。",
+      "url": "/insights/ai-implementation-architecture.html",
+      "author": "Xiora Engineering"
+    },
+    {
+      "id": "insight-rag-architecture-for-smb",
+      "date": "2026-05-12",
+      "type": "insight",
+      "kind": "research",
+      "insight_cat": "AI",
+      "title": "中小企業のための、現実的な RAG アーキテクチャ",
+      "description": "全社ドキュメントを一気に検索可能にする ── 言うのは簡単ですが、本番運用するには「データ品質」「権限」「コスト」の現実があります。SMB 向けに私たちが選ぶ構成を整理しました。",
+      "url": "/insights/rag-architecture-for-smb.html",
+      "build_cat": "AI Research",
+      "author": "Xiora Engineering"
+    },
+    {
+      "id": "insight-from-poc-to-production",
+      "date": "2026-05-04",
+      "type": "insight",
+      "kind": "engineering",
+      "insight_cat": "DX",
+      "title": "AI PoC を、本番運用に乗せるための 5 つの設計判断",
+      "description": "AI PoC は驚くほど簡単に動きますが、業務に乗せた瞬間に壊れます。Xiora が現場で繰り返し問われる、PoC → 本番運用のギャップを埋める設計判断を 5 つに絞ってまとめました。",
+      "url": "/insights/from-poc-to-production.html",
+      "build_cat": "Engineering Notes",
+      "author": "Xiora Engineering"
+    },
+    {
+      "id": "labs-line-ai-assistant",
+      "date": null,
+      "type": "labs",
+      "kind": "labs",
+      "title": "LINE × AI 業務アシスタント（実験中）",
+      "description": "LINE 公式アカウントを UI とする、店舗・現場向け AI アシスタントを Labs で試作中。SaaS 運営で得た知見を横展開。",
+      "url": "/labs.html",
+      "build_cat": "Prototype",
+      "date_label": "In Labs"
+    }
+  ]
+}
