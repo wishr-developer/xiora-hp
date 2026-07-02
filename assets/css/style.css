@@ -6085,7 +6085,19 @@ svg[viewBox]:not([width]):not([height]) {
 
 /* ABSOLUTE FINAL safeguard — no SVG anywhere may exceed 64px */
 svg { max-width: 64px !important; max-height: 64px !important; }
-/* But headers etc. that need bigger (none currently) can opt out via .svg--xl */
+/* Opt-outs for legitimately large SVGs (product mocks, hero visuals, brand marks). */
+.brand__mark,
+.flagship__visual svg,
+.featured-product__visual svg,
+.prod-sub__visual svg,
+.prod-card__motif svg,
+.hero__bg svg,
+.hero__halo svg,
+.notfound svg,
+svg.svg--xl {
+  max-width: none !important;
+  max-height: none !important;
+}
 .svg--xl { max-width: none !important; max-height: none !important; }
 
 /* Arch connector → simple thin divider line */
@@ -7742,13 +7754,16 @@ svg { max-width: 64px !important; max-height: 64px !important; }
 .flagship__visual {
   border-radius: 16px;
   overflow: hidden;
+  aspect-ratio: 640 / 420;
   box-shadow: 0 20px 48px -20px rgba(10, 10, 10, 0.35),
               0 8px 24px -12px rgba(10, 10, 10, 0.14);
 }
 .flagship__visual svg {
-  display: block;
-  width: 100%;
-  height: auto;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
 }
 .flagship__cat {
   font-size: 12px;
@@ -7849,11 +7864,14 @@ svg { max-width: 64px !important; max-height: 64px !important; }
 .prod-sub__visual {
   background: #f5f5f7;
   overflow: hidden;
+  aspect-ratio: 320 / 200;
 }
 .prod-sub__visual svg {
-  display: block;
-  width: 100%;
-  height: auto;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
 }
 .prod-sub__visual--soon {
   background: #fafafa;
@@ -8047,8 +8065,11 @@ svg { max-width: 64px !important; max-height: 64px !important; }
   .trust-cells { grid-template-columns: 1fr; gap: 4px; }
 }
 
-/* Our Principles */
+/* Our Principles — reset company.html's legacy .principles / .principle rules */
 .principles {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
   margin-top: 12px;
   padding: 40px clamp(24px, 4vw, 44px);
   background: rgba(10, 10, 10, 0.02);
@@ -8078,10 +8099,22 @@ svg { max-width: 64px !important; max-height: 64px !important; }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px 32px;
 }
-.principle {
+.principles__grid .principle {
+  display: block;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   padding: 0;
+  grid-template-columns: none;
+  gap: 0;
+  transition: none;
+  transform: none;
 }
-.principle__num {
+.principles__grid .principle:hover {
+  transform: none;
+  border-color: transparent;
+}
+.principles__grid .principle__num {
   display: block;
   font-family: Inter, sans-serif;
   font-size: 12px;
@@ -8549,6 +8582,227 @@ svg { max-width: 64px !important; max-height: 64px !important; }
       transparent 12px 24px
     ),
     #ffffff;
+}
+
+/* ---------- Xiora Apps Portfolio (apps.xiora-official.com) ---------- */
+.apps-portfolio {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  overflow: hidden;
+}
+.apps-portfolio__item {
+  background: var(--surface);
+  padding: clamp(28px, 3.4vw, 40px) clamp(24px, 3vw, 34px);
+  display: flex;
+  flex-direction: column;
+  transition: background var(--t-fast) var(--ease);
+}
+.apps-portfolio__item:hover { background: var(--bg-softer); }
+.apps-portfolio__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-family: var(--ff-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.apps-portfolio__cat {
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+.apps-portfolio__status {
+  color: var(--text-faint);
+  font-weight: 500;
+  padding: 3px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  line-height: 1;
+}
+.apps-portfolio__status--live {
+  color: var(--text);
+  border-color: var(--text);
+}
+.apps-portfolio__item--next {
+  background: var(--bg-soft);
+}
+.apps-portfolio__item--next:hover { background: var(--bg-softer); }
+.apps-portfolio__name--muted {
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+.apps-portfolio__name {
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.2;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+.apps-portfolio__tag {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  letter-spacing: -0.005em;
+  margin: 0 0 14px;
+  font-weight: 500;
+}
+.apps-portfolio__desc {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-tertiary);
+  letter-spacing: -0.003em;
+  margin: 0;
+  margin-top: auto;
+}
+.apps-portfolio__foot {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.apps-portfolio__principles {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+.apps-portfolio__principles [aria-hidden="true"] {
+  color: var(--text-faint);
+}
+@media (max-width: 960px) {
+  .apps-portfolio { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .apps-portfolio { grid-template-columns: 1fr; border-radius: 16px; }
+  .apps-portfolio__item { padding: 26px 22px; }
+  .apps-portfolio__name { font-size: 22px !important; }
+  .apps-portfolio__foot { margin-top: 32px; gap: 16px; }
+}
+
+/* ---------- Kigen Pricing Cards ---------- */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.pricing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: clamp(28px, 3.4vw, 40px) clamp(24px, 3vw, 34px);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+.pricing-card:hover { border-color: var(--text-tertiary); }
+.pricing-card--primary {
+  background: var(--text);
+  color: #fff;
+  border-color: var(--text);
+}
+.pricing-card--primary:hover { border-color: var(--text); }
+.pricing-card__head {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.pricing-card--primary .pricing-card__head {
+  border-bottom-color: rgba(255, 255, 255, 0.16);
+}
+.pricing-card__label {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 12px;
+}
+.pricing-card--primary .pricing-card__label {
+  color: rgba(255, 255, 255, 0.6);
+}
+.pricing-card__price {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0 0 6px;
+}
+.pricing-card__price span {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin-left: 4px;
+}
+.pricing-card--primary .pricing-card__price span {
+  color: rgba(255, 255, 255, 0.6);
+}
+.pricing-card__note {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+.pricing-card--primary .pricing-card__note {
+  color: rgba(255, 255, 255, 0.6);
+}
+.pricing-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pricing-card__list li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  padding-left: 22px;
+  position: relative;
+}
+.pricing-card__list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  width: 8px;
+  height: 4px;
+  border-left: 1.5px solid var(--text);
+  border-bottom: 1.5px solid var(--text);
+  transform: rotate(-45deg);
+}
+.pricing-card--primary .pricing-card__list li {
+  color: rgba(255, 255, 255, 0.85);
+}
+.pricing-card--primary .pricing-card__list li::before {
+  border-color: #fff;
+}
+.pricing-cards__foot {
+  margin-top: 24px;
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+  text-align: center;
+  line-height: 1.7;
+}
+@media (max-width: 640px) {
+  .pricing-cards { grid-template-columns: 1fr; }
+  .pricing-card__price { font-size: 34px; }
 }
 
 

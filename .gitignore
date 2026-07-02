@@ -46,3 +46,6 @@ tmp/
 *.bak
 *.old
 *.orig
+
+# Playwright MCP local traces / screenshots
+.playwright-mcp/
