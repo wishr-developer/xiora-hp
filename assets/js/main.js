@@ -298,4 +298,40 @@
       window.location.href = mailto;
     });
   }
+
+  /* ---------- Marquee (auto-flowing horizontal cards) ---------- */
+  const MARQUEE_SELECTOR = [
+    '.tech-wall', '.trust-cells', '.prod-sub-grid',
+    '.cases', '.cases-grid', '.service-list', '.workflow',
+    '.issues-list', '.plans', '.pricing-cards', '.learn-list',
+    '.trust-grid', '.stack-grid', '.who-grid', '.dept-grid', '.cap-grid'
+  ].join(',');
+
+  document.querySelectorAll(MARQUEE_SELECTOR).forEach((el) => {
+    if (el.dataset.marquee || !el.children.length) return;
+    el.dataset.marquee = '1';
+
+    // Wrap the target in a mask container to clip overflow + edge fade
+    const mask = document.createElement('div');
+    mask.className = 'marquee-mask';
+    el.parentNode.insertBefore(mask, el);
+    mask.appendChild(el);
+
+    // Duplicate children for seamless loop
+    const originals = Array.from(el.children);
+    originals.forEach((child) => {
+      const clone = child.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.setAttribute('tabindex', '-1');
+      // Force revealed state on clones (IntersectionObserver won't fire in animated track)
+      clone.classList.add('is-visible');
+      clone.querySelectorAll('.reveal').forEach((r) => r.classList.add('is-visible'));
+      el.appendChild(clone);
+    });
+    // Also force originals visible (marquee track transforms break reveal timing)
+    originals.forEach((child) => {
+      child.classList.add('is-visible');
+      child.querySelectorAll('.reveal').forEach((r) => r.classList.add('is-visible'));
+    });
+  });
 })();

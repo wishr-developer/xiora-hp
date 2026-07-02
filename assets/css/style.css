@@ -9209,3 +9209,91 @@ svg.svg--xl {
   }
 }
 
+/* ============================================================
+   Marquee — auto-flowing horizontal cards (JS-wrapped)
+   Overrides the scroll-snap behavior for the same target classes.
+   Structure: .marquee-mask > (.tech-wall|.trust-cells|...) > items×2 (JS duplicated)
+   ============================================================ */
+
+.marquee-mask {
+  overflow: hidden;
+  position: relative;
+  margin-left: calc(var(--pad-x) * -1);
+  margin-right: calc(var(--pad-x) * -1);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+}
+
+.marquee-mask > .tech-wall,
+.marquee-mask > .trust-cells,
+.marquee-mask > .prod-sub-grid,
+.marquee-mask > .cases,
+.marquee-mask > .cases-grid,
+.marquee-mask > .service-list,
+.marquee-mask > .workflow,
+.marquee-mask > .issues-list,
+.marquee-mask > .plans,
+.marquee-mask > .pricing-cards,
+.marquee-mask > .learn-list,
+.marquee-mask > .trust-grid,
+.marquee-mask > .stack-grid,
+.marquee-mask > .who-grid,
+.marquee-mask > .dept-grid,
+.marquee-mask > .cap-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: max-content;
+  max-width: none;
+  overflow: visible;
+  scroll-snap-type: none;
+  margin: 0;
+  padding: 4px var(--pad-x) 16px;
+  animation: marquee-slide 40s linear infinite;
+  will-change: transform;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Kill scroll-snap side effects on children inside marquee */
+.marquee-mask > * > * {
+  scroll-snap-align: none !important;
+}
+
+/* Per-section cadence & spacing */
+.marquee-mask > .tech-wall     { gap: 10px; animation-duration: 30s; }
+.marquee-mask > .trust-cells   { gap: 14px; animation-duration: 55s; }
+.marquee-mask > .prod-sub-grid { gap: 20px; animation-duration: 55s; }
+.marquee-mask > .cases         { gap: 18px; animation-duration: 55s; }
+.marquee-mask > .cases-grid    { gap: 18px; animation-duration: 80s; }
+.marquee-mask > .service-list  { gap: 14px; animation-duration: 60s; }
+.marquee-mask > .workflow      { gap: 16px; animation-duration: 55s; }
+.marquee-mask > .issues-list   { gap: 14px; animation-duration: 45s; }
+.marquee-mask > .plans         { gap: 16px; animation-duration: 55s; }
+.marquee-mask > .pricing-cards { gap: 16px; animation-duration: 55s; }
+.marquee-mask > .learn-list    { gap: 14px; animation-duration: 55s; }
+.marquee-mask > .trust-grid    { gap: 14px; animation-duration: 60s; }
+.marquee-mask > .stack-grid    { gap: 14px; animation-duration: 55s; }
+.marquee-mask > .who-grid      { gap: 14px; animation-duration: 55s; }
+.marquee-mask > .dept-grid     { gap: 14px; animation-duration: 55s; }
+.marquee-mask > .cap-grid      { gap: 14px; animation-duration: 55s; }
+
+/* Pause on hover / focus so users can read & interact */
+.marquee-mask:hover > *,
+.marquee-mask:focus-within > * {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-slide {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Reveal state overrides — always visible inside marquee track */
+.marquee-mask .reveal { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-mask > * { animation: none; }
+}
+
