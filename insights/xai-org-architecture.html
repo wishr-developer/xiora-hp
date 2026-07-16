@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Xiora AI 組織アーキテクチャ: 9 agent + orchestrator + 憲法投入で何が変わったか | Xiora Insights</title>
+<meta content="9 agent + orchestrator + 憲法投入の AI 組織アーキテクチャを、実装レベルで公開。M10.3 達成の技術発信。" name="description"/>
+<link href="https://xiora-official.com/insights/xai-org-architecture.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/xai-org-architecture.html" property="og:url"/>
+<meta content="Xiora AI 組織アーキテクチャ: 9 agent + orchestrator + 憲法投入で何が変わったか | Xiora" property="og:title"/>
+<meta content="9 agent + orchestrator + 憲法投入の AI 組織アーキテクチャを、実装レベルで公開。M10.3 達成の技術発信。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Xiora AI 組織アーキテクチャ: 9 agent + orchestrator + 憲法投入で何が変わったか | Xiora" name="twitter:title"/>
+<meta content="9 agent + orchestrator + 憲法投入の AI 組織アーキテクチャを、実装レベルで公開。M10.3 達成の技術発信。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Xiora AI 組織アーキテクチャ: 9 agent + orchestrator + 憲法投入で何が変わったか",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "9 agent + orchestrator + 憲法投入の AI 組織アーキテクチャを、実装レベルで公開。M10.3 達成の技術発信。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-16",
+  "mainEntityOfPage": "https://xiora-official.com/insights/xai-org-architecture.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Xiora)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Xiora AI 組織アーキテクチャ: 9 agent + orchestrator + 憲法投入で何が変わったか</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Architecture</span>
+<time datetime="2026-07-16">2026.07.16</time>
+</div>
+<h1 class="insight-title">Xiora AI 組織アーキテクチャ: 9 agent + orchestrator + 憲法投入で何が変わったか</h1>
+<p class="insight-lead">9 agent + orchestrator + 憲法投入の AI 組織アーキテクチャを、実装レベルで公開。M10.3 達成の技術発信。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2>Introduction</h2>
+<p>Xiora は、単独創業者 1 名 + AI 社員複数名で 5 プロダクトを 24/7 運用しています。この構成を実現するために、私たちは <strong>「9 agent + orchestrator + 憲法投入」</strong> の AI 組織アーキテクチャを設計しました。</p>
+<p>本記事では、Xiora AI Org spec v1.0 (<code>services/platform/XioraAIOrg/</code>) の設計思想と、実装で得られた知見を、developer / CTO 向けに公開します。</p>
+<h2>背景 — 「AI エージェント」の実運用が難しい理由</h2>
+<p>2025 年以降、AI エージェント (LLM ベースの自律エージェント) の実用化が進む一方で、実運用で以下のような課題が繰り返し観察されました。</p>
+<p>1. <strong>暴走リスク</strong>: エージェントが想定外の action を実行し、外部システムに影響を与える</p>
+<p>2. <strong>責任分界の曖昧さ</strong>: 複数エージェントが同じ判断領域に手を出し、結果が非決定的になる</p>
+<p>3. <strong>監査可能性の欠如</strong>: どのエージェントがいつ何を決めたかのログが分散し、後から追跡できない</p>
+<p>4. <strong>憲法/ポリシーの散逸</strong>: 各エージェントに個別の system prompt があり、組織全体で「何をしない」が統一されない</p>
+<p>Xiora AI Org spec v1.0 は、これら 4 課題に対する具体的な設計解として設計されました。</p>
+<p>---</p>
+<h2>Layer 構成</h2>
+<p>Xiora の AI 組織は 3 層で構成されます。</p>
+<h3>Layer 1: Orchestrator (単一責任)</h3>
+<p><code>services/platform/XioraAIOrg/app/orchestrator/</code> に実装。<strong>組織全体で 1 個のみ</strong>、AI 社員間の task queue 管理・優先度判定・承認 gate の実行を担う。</p>
+<p>Orchestrator は自ら判断を下しません (LLM を呼びません、決定論的にルーティングだけをする)。判断は必ず下層の Agent に委譲され、Orchestrator は結果を Reo 承認 queue に集約します。</p>
+<h3>Layer 2: Agents (9 role)</h3>
+<p>各 Agent は「役割」を持ち、以下 9 種類に整理されます。</p>
+<p>| Code | Role | 責任範囲 |</p>
+<p>| ---- | ---- | -------- |</p>
+<p>| CEO | Chief Executive | Reo proxy、escalation format 化 |</p>
+<p>| CTO | Chief Technology | 技術方針、コードレビュー一次判定 |</p>
+<p>| PROD | Product | 仕様書 draft、gap 検出 |</p>
+<p>| SALES | Sales | 見込み顧客 follow-up proposal |</p>
+<p>| SUPP | Support | 既存顧客への問い合わせ返信 draft |</p>
+<p>| MKT | Marketing | LP コピー、SEO draft |</p>
+<p>| LEGAL | Legal | 規約・特商法・プラポリ draft 監視 |</p>
+<p>| FIN | Finance | 月次売上・コスト集計 draft |</p>
+<p>| OPS | Operations | インフラ監視、障害検知一次通知 |</p>
+<p>(実際の 12 社員は上記 9 role に加え、Data / Writer / QA を追加した拡張構成。spec v1.0 は 9 role を core とする)</p>
+<h3>Layer 3: Substrate (LLM providers)</h3>
+<p><code>services/platform/XioraAIOrg/app/substrate/</code> に実装。以下 2 tier で構成:</p>
+<ul class="article-list">
+<li><strong>L1_LOCAL</strong>: Ollama (llama3.2 / qwen2.5 等) — cost ¥0、privacy 高、latency 中</li>
+<li><strong>L2_CLOUD</strong>: Claude API (Sonnet 4.6 / Opus 4.7) — cost 有、privacy 中 (ゼロデータリテンション設定)、latency 低</li>
+</ul>
+<p>各 Agent は「タスク種別」に応じて L1 → L2 の順で fallback。ゼロ予算運用では L1 のみで完結する task が多く、Claude API 呼び出しは 「複雑な文章 draft」「長文コード生成」等に限定しています。</p>
+<p>---</p>
+<h2>憲法投入 (Constitution Injection)</h2>
+<p>Xiora AI Org の中核は <strong>「憲法投入」</strong> の仕組みです。</p>
+<p><code>docs/PROJECT_GUIDELINES.md</code> に組織全体の「やらないこと」「守るべきこと」を明記し、全 Agent の system prompt にランタイムで注入します。</p>
+<p>具体的には、Orchestrator が Agent 呼び出し時に以下を実施します。</p>
+<p>1. <code>docs/PROJECT_GUIDELINES.md</code> を読み込み</p>
+<p>2. Agent の role-specific prompt に <strong>prefix として憲法を追加</strong></p>
+<p>3. Agent の action 実行前に、憲法違反可能性を regex + LLM (低コスト L1) で 2 段チェック</p>
+<p>4. 違反検知時は Orchestrator が action を拒否、Reo 承認 queue に「憲法違反疑い」として上げる</p>
+<p>これにより、以下が保証されます。</p>
+<ul class="article-list">
+<li><strong>組織全体で「何をしない」が統一</strong> される (規約変更 = 1 ファイル書き換えで全 Agent に反映)</li>
+<li><strong>監査可能性</strong>: 憲法違反検知ログは <code>xai_agent_audit_log</code> に永続化、後から追跡可能</li>
+<li><strong>暴走防止</strong>: 憲法違反系の action は Orchestrator layer で必ずブロックされる</li>
+</ul>
+<p>---</p>
+<h2>Permanent Human Gate (5 領域のみ)</h2>
+<p>Xiora AI Org では、Reo (代表) の承認が <strong>永続的に必須</strong> な action を 5 領域に限定しています。</p>
+<p>| Gate | 内容 |</p>
+<p>| ---- | ---- |</p>
+<p>| billing | 課金設定変更 (Stripe live flip 等) |</p>
+<p>| delete | データ・アカウント削除 |</p>
+<p>| permission | 権限変更 (Agent の scope 拡大) |</p>
+<p>| contract | 契約締結 (受託契約、SaaS 契約等) |</p>
+<p>| KYC | 本人確認関連 (Stripe KYC、銀行口座開設等) |</p>
+<p><strong>この 5 領域以外は Agent が自律実行可能</strong> です。逆に言えば、この 5 領域はどれだけ AI が進化しても、Reo 承認なしに実行できません。</p>
+<p>これは「AI に何を任せて、何を任せないか」の設計判断です。「全部任せる」でも「何も任せない」でもなく、<strong>責任と権限の境界を明確に引く</strong> ことが、単独創業で AI を実運用する上で最重要でした。</p>
+<p>---</p>
+<h2>実装の勘所</h2>
+<h3>1. Orchestrator は LLM を呼ばない</h3>
+<p>Orchestrator が LLM を呼ぶと、Orchestrator 自体が非決定的になり、監査が困難になります。Xiora では Orchestrator を <strong>決定論的なルーティング層</strong> に徹底し、判断は Agent に委譲する設計を選択しました。</p>
+<h3>2. Agent 間通信は Orchestrator 経由のみ</h3>
+<p>Agent A → Agent B の直接通信は禁止。全て Orchestrator を経由します。これにより:</p>
+<ul class="article-list">
+<li>通信ログが 1 箇所に集約</li>
+<li>Circular dependency の防止</li>
+<li>Agent の差し替え・削除が容易 (Orchestrator の routing table 変更のみ)</li>
+</ul>
+<h3>3. LLM output は必ず <code>agent_action_proposal</code> を経由</h3>
+<p>Agent が直接 external system (git, API, DB) を触ることを禁止。全ての action は <code>agent_action_proposal</code> テーブルに proposal として書き込み、Orchestrator が承認判定を実行 → 承認済みなら executor が action を実行する分離設計としています。</p>
+<p>これにより、Agent の LLM output が誤動作しても、executor 層で最終的な action ブロックが可能です。</p>
+<h3>4. 憲法違反検知は regex → LLM の 2 段構え</h3>
+<p>軽量な regex 検査 (禁止表現リスト、URL パターン等) を最初に実行し、grey zone のみ LLM (L1_LOCAL) に判定させます。全ての output を LLM 検査に回すのはコスト過大なので、規模の経済で 2 段構えにしています。</p>
+<h3>5. Audit log は WORM (Write Once Read Many) 志向</h3>
+<p><code>xai_agent_audit_log</code> テーブルは、insert only (update / delete なし)。改ざん検知のため、行ごとに前行の hash を含む chain 構造を採用しています。</p>
+<p>---</p>
+<h2>M10.3 達成で何が変わったか</h2>
+<p>Xiora AI Org spec v1.0 の M10.3 マイルストーン (2026 年 7 月時点で達成済み) では、以下を確立しました。</p>
+<ul class="article-list">
+<li><strong>9 agent (core)</strong> の role 定義と system prompt (BUILD_PLAN §M10.1)</li>
+<li><strong>Orchestrator</strong> の task queue + routing table 実装 (BUILD_PLAN §M10.2)</li>
+<li><strong>憲法投入 pipeline</strong> と audit log の永続化 (BUILD_PLAN §M10.3)</li>
+</ul>
+<p>これにより、それまで「Reo が手動で prompt を打ち込んで Claude と対話する」という運用から、「Reo は承認判断だけを行い、Agent が自律的にタスクを進める」運用へ移行できました。</p>
+<p>具体的な効果:</p>
+<ul class="article-list">
+<li>Reo の作業時間 / 日: 8 時間 → 15-30 分 (承認セッションのみ)</li>
+<li>障害検知〜対応開始: 数時間 → 数分 (Ops Agent が自律で 1 次対応 draft)</li>
+<li>新プロダクト立ち上げ工数: 数週間 → 数日 (Product Agent が仕様 draft、CTO Agent がコード draft)</li>
+</ul>
+<p>「Reo が寝ている間に、Xiora が動き続ける」体験が、実運用として成立しました。</p>
+<p>---</p>
+<h2>課題と今後の計画</h2>
+<p>M10.3 は core の確立に過ぎず、以下の課題が残っています。</p>
+<ul class="article-list">
+<li><strong>Agent 間の意見対立 (Sales vs Legal)</strong> の自動調停 → 現状は Reo escalation で人力解決</li>
+<li><strong>憲法の版管理</strong>: 憲法 v1 → v2 移行時の Agent への段階的反映</li>
+<li><strong>LLM cost の予算 gate</strong>: 月次 cap を超えないための自動 fallback 強化</li>
+<li><strong>12 week BUILD_PLAN</strong> の M10.4 以降 (認証・監査・障害 recovery) の実装</li>
+</ul>
+<p>これらは <code>services/platform/XioraAIOrg/BUILD_STATUS.md</code> と <code>MAPPING_TO_BRAIN.md</code> に沿って段階的に実装していきます。</p>
+<p>---</p>
+<h2>Xiora の受託開発について</h2>
+<p>Xiora は自社プロダクトの他、AI 導入コンサル・受託開発を承っております。以下のような案件をお受けしています。</p>
+<ul class="article-list">
+<li><strong>AI エージェント組織の設計・実装</strong>: 貴社の業務プロセスに合わせた Multi-Agent アーキテクチャの設計</li>
+<li><strong>憲法投入 / 監査 log 設計</strong>: コンプライアンス要件の高い業界での AI 導入</li>
+<li><strong>Claude API + Local LLM ハイブリッド構成</strong>: cost / privacy 要件に応じた LLM 選定</li>
+</ul>
+<p>お問い合わせは info@xiora-official.com までご連絡ください。</p>
+<p>---</p>
+<h2>参考リンク</h2>
+<ul class="article-list">
+<li>Xiora コーポレートサイト: https://xiora-official.com/</li>
+<li>受託開発 (AI 導入コンサル): https://xiora-official.com/ai-consulting.html</li>
+<li>Xiora AI Org 内部仕様: <code>services/platform/XioraAIOrg/</code> (README / CLAUDE.md / BUILD_STATUS.md)</li>
+</ul>
+<p>---</p>
+<p><strong>筆者</strong>: Xiora 代表 沓澤 怜士 (kutsuzawa reo)</p>
+<p><strong>連絡</strong>: info@xiora-official.com</p>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Zero-Spend で SaaS 会社を作る — ¥0 で LLM 呼出しまで完成する構成 | Xiora Insights</title>
+<meta content="Ollama L1_LOCAL + xioraai-orchestrator の実構成で、追加課金ゼロで agent が LLM 呼出しまで到達する道筋。" name="description"/>
+<link href="https://xiora-official.com/insights/zero-spend-saas-startup.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/zero-spend-saas-startup.html" property="og:url"/>
+<meta content="Zero-Spend で SaaS 会社を作る — ¥0 で LLM 呼出しまで完成する構成 | Xiora" property="og:title"/>
+<meta content="Ollama L1_LOCAL + xioraai-orchestrator の実構成で、追加課金ゼロで agent が LLM 呼出しまで到達する道筋。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Zero-Spend で SaaS 会社を作る — ¥0 で LLM 呼出しまで完成する構成 | Xiora" name="twitter:title"/>
+<meta content="Ollama L1_LOCAL + xioraai-orchestrator の実構成で、追加課金ゼロで agent が LLM 呼出しまで到達する道筋。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Zero-Spend で SaaS 会社を作る — ¥0 で LLM 呼出しまで完成する構成",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "Ollama L1_LOCAL + xioraai-orchestrator の実構成で、追加課金ゼロで agent が LLM 呼出しまで到達する道筋。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-16",
+  "mainEntityOfPage": "https://xiora-official.com/insights/zero-spend-saas-startup.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Xiora)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Zero-Spend で SaaS 会社を作る — ¥0 で LLM 呼出しまで完成する構成</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Practice</span>
+<time datetime="2026-07-16">2026.07.16</time>
+</div>
+<h1 class="insight-title">Zero-Spend で SaaS 会社を作る — ¥0 で LLM 呼出しまで完成する構成</h1>
+<p class="insight-lead">Ollama L1_LOCAL + xioraai-orchestrator の実構成で、追加課金ゼロで agent が LLM 呼出しまで到達する道筋。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2>Introduction</h2>
+<p>Xiora には「収益化まで追加課金ゼロ」というポリシーがあります。ユーザーメモリーでは <code>spend_policy_zero_until_revenue.md</code> として明文化されており、私 (Reo) はこれを 6 ヶ月ほど厳守しています。</p>
+<p>現時点の Xiora の月次固定費は <strong>3,000 円台</strong> (ConoHa VPS + ドメイン更新分担のみ)。それでも:</p>
+<ul class="article-list">
+<li>5 プロダクトが 24/7 稼働</li>
+<li>12 名の AI 社員が動く</li>
+<li>LLM 呼び出しも走る (Ollama + Claude API のハイブリッド)</li>
+</ul>
+<p>「¥0 で LLM 呼び出しまで完成する構成」を、実装レベルで公開します。同じ状況にいる solo founder の参考になれば幸いです。</p>
+<p><strong>免責</strong>: 本記事は情報提供を目的としており、事業の成功や収益を保証するものではありません。構成の採用可否は各自の状況に応じてご判断ください。</p>
+<p>---</p>
+<h2>なぜ Zero-spend policy が必要だったか</h2>
+<p>私が Xiora を立ち上げた 2026 年 1 月、手元資金は限定的でした。同時に、以下の失敗パターンを過去 (Xiora 以前の個人プロジェクト) で経験していました。</p>
+<ul class="article-list">
+<li>立ち上げ時に「これは必須」と思って月額 SaaS を 5-10 個契約</li>
+<li>3 ヶ月後、実際に使っているのは 2-3 個</li>
+<li>残りは「解約するのが面倒」で払い続ける</li>
+<li>6 ヶ月後、月次固定費が 3-5 万円に膨らむ</li>
+<li>売上は 0</li>
+</ul>
+<p>この pattern を繰り返さないため、Zero-spend policy を最初に導入しました。ルールは 4 条:</p>
+<p>1. <strong>新 domain 購入禁止</strong> (subdomain で足りる場合は subdomain のみ)</p>
+<p>2. <strong>SaaS は Free tier で開始</strong> (Pro tier への switch は「1 ヶ月の実利用ログ」を根拠に決裁)</p>
+<p>3. <strong>LLM は Ollama L1_LOCAL 優先</strong> (Claude API は「必要な用途」に限定)</p>
+<p>4. <strong>弁護士 spot / KYC 系 は Stage 2 flip 直前まで先送り</strong></p>
+<p>---</p>
+<h2>Domain 戦略 — subdomain で足りる</h2>
+<p>Xiora が公開しているサービスは以下です。</p>
+<p>| サービス | URL | 用途 |</p>
+<p>| -------- | --- | ---- |</p>
+<p>| Xiora コーポ | https://xiora-official.com/ | ブランド |</p>
+<p>| XCloud Connect | https://connect.xiora-official.com/ | 飲食 QR オーダー |</p>
+<p>| XCloud Flow | https://flow.xiora-official.com/ | スクール予約 |</p>
+<p>| XCloud Studio | https://studio.xiora-official.com/ | (準備中) |</p>
+<p>| Aiverse Studio | https://aiverse.xiora-official.com/ | AI 配信 |</p>
+<p>| Gourmie | https://gourmie.jp/ | (別 domain、既存契約) |</p>
+<p>| PSOS | (未公開) | 補助金 SaaS |</p>
+<p>これらのうち Xiora 系はすべて <code>xiora-official.com</code> の subdomain で運用しています。<strong>新規 domain 購入は 1 個もありません</strong>。</p>
+<p>subdomain 運用のメリット:</p>
+<ul class="article-list">
+<li>ドメイン更新費が 1 個で済む</li>
+<li>SSL 証明書は Cloudflare or Let's Encrypt でワイルドカード発行できる</li>
+<li>SEO のドメイン権威が集約される</li>
+<li>「新プロダクトを立ち上げる = subdomain を切る」で決裁不要になる</li>
+</ul>
+<p>「独立ブランドとして立てたい」場合を除き、subdomain で足ります。Xiora ブランドの中でも、Aiverse や XCloud は独立プロダクト感を持たせつつ、subdomain で運用しています。</p>
+<p>---</p>
+<h2>Infra 選定 — Free tier をフル活用</h2>
+<p>Xiora の infra は以下の構成です。</p>
+<h3>Web (Next.js)</h3>
+<ul class="article-list">
+<li><strong>Vercel Hobby</strong> (¥0) — 個人プロジェクト扱いの制約に触れない範囲で使用</li>
+<li>または <strong>Cloudflare Pages</strong> (¥0) — 無制限リクエスト</li>
+<li>または <strong>ConoHa VPS</strong> (¥1,000 台/月) — 全社共用の 1 台に集約</li>
+</ul>
+<h3>DB</h3>
+<ul class="article-list">
+<li><strong>Supabase Free tier</strong> — 500MB DB + 1GB storage、行 500K まで</li>
+<li><strong>Neon Free tier</strong> — 10GB storage、branch 10 個まで</li>
+<li>越えたら <strong>ConoHa VPS 上の PostgreSQL</strong> に移行 (Docker で 1 コマンド)</li>
+</ul>
+<h3>Storage</h3>
+<ul class="article-list">
+<li><strong>Cloudflare R2 Free</strong> (10GB / 月) — S3 互換、egress 無料が最強</li>
+<li>越えたら <strong>Backblaze B2</strong> ($6/TB) を検討 (それでも安い)</li>
+</ul>
+<h3>Auth</h3>
+<ul class="article-list">
+<li><strong>Auth.js</strong> (self-hosted) — セッションを DB に持たせる (JWT の localStorage 保存禁止)</li>
+<li><strong>Cloudflare Turnstile Free</strong> — reCAPTCHA 代替</li>
+</ul>
+<h3>監視</h3>
+<ul class="article-list">
+<li><strong>Sentry Free</strong> (5,000 errors/month)</li>
+<li><strong>Uptime Robot Free</strong> (50 monitors)</li>
+<li><strong>Cloudflare Analytics Free</strong></li>
+</ul>
+<h3>CI/CD</h3>
+<ul class="article-list">
+<li><strong>GitHub Actions Free</strong> (private repo で月 2,000 分)</li>
+<li>ローカルで build → ConoHa VPS に scp deploy でも十分</li>
+</ul>
+<p>これで <strong>月次固定費 ¥3,000-¥4,000</strong> に収まります。</p>
+<p>---</p>
+<h2>LLM 戦略 — Ollama L1_LOCAL + Claude API L2_CLOUD の 2 tier</h2>
+<p>Zero-spend policy で最も難しかったのが LLM 呼び出しです。Xiora は 12 名の AI 社員を持ち、日々数千 token の LLM 呼び出しが発生します。全部 Claude API に流すと、月 5-10 万円は簡単に到達します。</p>
+<p>対策として、Xiora AI Org (services/platform/XioraAIOrg/) では L1_LOCAL / L2_CLOUD の 2 tier 構成を採用しています。</p>
+<h3>L1_LOCAL: Ollama (¥0)</h3>
+<ul class="article-list">
+<li><strong>Model</strong>: llama3.2 (3B), qwen2.5 (7B), gemma2 (9B) 等</li>
+<li><strong>Host</strong>: ConoHa VPS 上に Ollama を Docker で起動</li>
+<li><strong>用途</strong>:</li>
+</ul>
+<p>  - 憲法違反 grey zone の 2 段目チェック</p>
+<p>  - 短文の要約・翻訳</p>
+<p>  - 定型的な返信 draft</p>
+<p>  - コードの単純な reformat / rename</p>
+<ul class="article-list">
+<li><strong>強み</strong>: cost ¥0、privacy 高 (外に出ない)、latency 中 (VPS の spec による)</li>
+</ul>
+<h3>L2_CLOUD: Claude API</h3>
+<ul class="article-list">
+<li><strong>Model</strong>: Sonnet 4.6 / Opus 4.7</li>
+<li><strong>用途</strong>:</li>
+</ul>
+<p>  - 長文の技術文書 draft (本 blog も)</p>
+<p>  - 複雑なコード生成</p>
+<p>  - 憲法違反の high-stakes 判定</p>
+<p>  - 顧客への proposal 文面 (品質が売上に直結)</p>
+<ul class="article-list">
+<li><strong>強み</strong>: 品質高、latency 低、context 長</li>
+<li><strong>弱み</strong>: cost 有 (但しゼロデータリテンション設定は可能)</li>
+</ul>
+<h3>Routing rule</h3>
+<p>Agent が LLM を呼ぶ時、以下の routing を Orchestrator が実行します。</p>
+<p>1. Task に <code>preferred_tier</code> metadata がある → その tier を試行</p>
+<p>2. なければ <code>L1_LOCAL</code> を最初に試行</p>
+<p>3. L1 の output を軽量 validator (regex + rule) でチェック、pass なら採用</p>
+<p>4. L1 で不足 (validator fail or output 長すぎ / 短すぎ) なら <code>L2_CLOUD</code> に fallback</p>
+<p>5. L2 も fail なら Reo escalation queue に上げる</p>
+<p>この 5 step で、<strong>8-9 割の LLM 呼び出しが L1_LOCAL で完結</strong> します。Claude API の月次 cost は数百円〜数千円台に抑えられています。</p>
+<p>---</p>
+<h2>開発ツール — 個人プランを最大活用</h2>
+<ul class="article-list">
+<li><strong>エディタ</strong>: VS Code (¥0) + Claude Code (契約プラン内)</li>
+<li><strong>git</strong>: GitHub Free (private repo 無制限)</li>
+<li><strong>設計図</strong>: Excalidraw (¥0) / Mermaid (¥0)</li>
+<li><strong>図表・スライド</strong>: Google Slides / Canva Free</li>
+<li><strong>タスク管理</strong>: GitHub Issues + Xiora AI Org の Portal <code>/approvals</code></li>
+<li><strong>通信</strong>: Gmail (reo44283@gmail.com / xiora00000@gmail.com / info@xiora-official.com の alias)</li>
+</ul>
+<p>Slack や Notion 有料版は、必要になるまで契約しません。GitHub Issues と Google Docs で 6 ヶ月やってきました。</p>
+<p>---</p>
+<h2>「¥0 で作れないもの」の判断</h2>
+<p>一方で、Zero-spend policy でも「これだけは金を出さないとダメ」というものがあります。私は以下の 4 領域を Stage 2 flip 直前まで先送りし、必要時のみ支出します。</p>
+<h3>1. 弁護士 spot review (¥30-50k / 回)</h3>
+<p>Aiverse Studio の billing live flip 前に、規約 / プラポリ / 特商法の spot review。これは AI で代替できません。「代替できないもの」を見極めるのが Zero-spend の肝です。</p>
+<h3>2. Stripe KYC (¥0 だが手続き必須)</h3>
+<p>Stripe live activation は Reo 個人 or 法人の KYC が必要。書類提出だけで済むが、手続き時間はかかる。</p>
+<h3>3. PRtimes 有料枠 (¥30k / 回)</h3>
+<p>自然拡散だけでは届かない層へリーチする時のみ使用。本プレスリリース draft は、この判断のために準備してあります。</p>
+<h3>4. 会計 / 税務 (年数万円)</h3>
+<p>個人事業主 or 法人化後の税務は freee / マネーフォワード Free tier で開始、規模が大きくなれば税理士 spot に切り替え。</p>
+<p>これら 4 領域は「¥0 で無理をすると事業が壊れる」ので、必要時に支出する。Zero-spend policy は「無駄な支出をゼロ」であって「必要な支出をゼロ」ではありません。</p>
+<p>---</p>
+<h2>ゼロ予算 SaaS 構成の 7 step (実装手順)</h2>
+<p>もし今日から同じ構成で作るなら、以下の順で構築します。</p>
+<p>1. <strong>domain 1 個購入 → subdomain 戦略で運用</strong></p>
+<p>2. <strong>Cloudflare で DNS / SSL / CDN を管理</strong> (すべて Free tier)</p>
+<p>3. <strong>Vercel or ConoHa VPS に Next.js デプロイ</strong> (Vercel は Hobby、VPS は月 ¥1,000)</p>
+<p>4. <strong>Supabase Free tier で DB + Auth の PoC</strong>、規模が見えたら VPS 上 PostgreSQL に移行</p>
+<p>5. <strong>Ollama を VPS に Docker で起動、Xiora AI Org の Orchestrator を実装</strong></p>
+<p>6. <strong>Stripe test mode で決済フローを構築、live 前に弁護士 spot review</strong></p>
+<p>7. <strong>PRtimes / 有料広告は「売上が立ってから」</strong></p>
+<p>この 7 step で、月次固定費 ¥3,000-4,000 の SaaS 会社が回ります。</p>
+<p>---</p>
+<h2>「¥0 の呪縛」に落ちない注意</h2>
+<p>Zero-spend policy を厳格化しすぎると、逆に事業が止まります。以下は私が気をつけているアンチパターンです。</p>
+<ul class="article-list">
+<li><strong>時間コストの過小評価</strong>: 「¥3,000/月の SaaS を契約すれば 10 時間節約できる」なら、契約すべき。時給換算で判断。</li>
+<li><strong>セキュリティ・法務コストの後回し</strong>: 弁護士 spot、Stripe KYC、SSL 証明書は「必要投資」であり「節約対象」ではない。</li>
+<li><strong>Free tier の制約に事業を合わせる</strong>: Free tier に収めるために本来の機能を削るのは本末転倒。</li>
+<li><strong>売上が立った後の見直し</strong>: 売上が立ったら「¥0 で回す」を解除し、time-to-value に投資する。</li>
+</ul>
+<p>Zero-spend policy は「収益化まで」の phase 限定ルールで、収益化後は投資 phase に切り替える設計です。</p>
+<p>---</p>
+<h2>Xiora の受託開発について</h2>
+<p>Xiora は、他社の「zero-spend SaaS 立ち上げ」の支援も承っております。</p>
+<ul class="article-list">
+<li><strong>infra 選定 &amp; subdomain 戦略のコンサル</strong></li>
+<li><strong>Ollama + Claude API ハイブリッド構成の実装支援</strong></li>
+<li><strong>Auth.js + Supabase / Neon での認証設計</strong></li>
+</ul>
+<p>お問い合わせは info@xiora-official.com までご連絡ください。</p>
+<p>---</p>
+<h2>参考リンク</h2>
+<ul class="article-list">
+<li>Xiora コーポレートサイト: https://xiora-official.com/</li>
+<li>受託開発 (AI 導入コンサル): https://xiora-official.com/ai-consulting.html</li>
+<li>XCloud Connect (¥0 立ち上げ実例): https://connect.xiora-official.com/</li>
+<li>Aiverse Studio (M1a): https://aiverse.xiora-official.com/pricing</li>
+</ul>
+<p>---</p>
+<p><strong>筆者</strong>: Xiora 代表 沓澤 怜士 (kutsuzawa reo)</p>
+<p><strong>連絡</strong>: info@xiora-official.com</p>
+<p><strong>免責</strong>: 本記事は情報提供を目的としており、事業の成功や収益を保証するものではありません。構成の採用可否は各自の状況に応じてご判断ください。</p>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>

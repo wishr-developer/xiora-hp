@@ -2,6 +2,39 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "2026-07-16-gourmie-beta-learnings",
+      "date": "2026-07-16",
+      "type": "insight",
+      "kind": "release",
+      "title": "Gourmie β 運用で分かった、飲食コンシェルジュの需要と課題",
+      "description": "会話型 AI と二層プロファイル学習を運用して見えた飲食コンシェルジュ需要と、店舗プランへの意思決定。",
+      "url": "/insights/gourmie-beta-learnings.html",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)"
+    },
+    {
+      "id": "2026-07-16-zero-spend-saas-startup",
+      "date": "2026-07-16",
+      "type": "insight",
+      "kind": "release",
+      "title": "Zero-Spend で SaaS 会社を作る — ¥0 で LLM 呼出しまで完成する構成",
+      "description": "Ollama L1_LOCAL + xioraai-orchestrator の実構成で、追加課金ゼロで agent が LLM 呼出しまで到達する道筋。",
+      "url": "/insights/zero-spend-saas-startup.html",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)"
+    },
+    {
+      "id": "2026-07-16-xai-org-architecture",
+      "date": "2026-07-16",
+      "type": "insight",
+      "kind": "release",
+      "title": "Xiora AI 組織アーキテクチャ: 9 agent + orchestrator + 憲法投入で何が変わったか",
+      "description": "9 agent + orchestrator + 憲法投入の AI 組織アーキテクチャを、実装レベルで公開。M10.3 達成の技術発信。",
+      "url": "/insights/xai-org-architecture.html",
+      "insight_cat": "Architecture",
+      "author": "沓澤 怜士 (Xiora)"
+    },
+    {
       "id": "2026-07-01-products-refresh",
       "date": "2026-07-01",
       "type": "news",

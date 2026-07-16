@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Gourmie β 運用で分かった、飲食コンシェルジュの需要と課題 | Xiora Insights</title>
+<meta content="会話型 AI と二層プロファイル学習を運用して見えた飲食コンシェルジュ需要と、店舗プランへの意思決定。" name="description"/>
+<link href="https://xiora-official.com/insights/gourmie-beta-learnings.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/gourmie-beta-learnings.html" property="og:url"/>
+<meta content="Gourmie β 運用で分かった、飲食コンシェルジュの需要と課題 | Xiora" property="og:title"/>
+<meta content="会話型 AI と二層プロファイル学習を運用して見えた飲食コンシェルジュ需要と、店舗プランへの意思決定。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Gourmie β 運用で分かった、飲食コンシェルジュの需要と課題 | Xiora" name="twitter:title"/>
+<meta content="会話型 AI と二層プロファイル学習を運用して見えた飲食コンシェルジュ需要と、店舗プランへの意思決定。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gourmie β 運用で分かった、飲食コンシェルジュの需要と課題",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "会話型 AI と二層プロファイル学習を運用して見えた飲食コンシェルジュ需要と、店舗プランへの意思決定。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-16",
+  "mainEntityOfPage": "https://xiora-official.com/insights/gourmie-beta-learnings.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Xiora)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Gourmie β 運用で分かった、飲食コンシェルジュの需要と課題</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Practice</span>
+<time datetime="2026-07-16">2026.07.16</time>
+</div>
+<h1 class="insight-title">Gourmie β 運用で分かった、飲食コンシェルジュの需要と課題</h1>
+<p class="insight-lead">会話型 AI と二層プロファイル学習を運用して見えた飲食コンシェルジュ需要と、店舗プランへの意思決定。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2>Introduction</h2>
+<p>Xiora が運営する <strong>Gourmie</strong> (グルミー、https://gourmie.jp/) は、飲食コンシェルジュ型の PWA です。ユーザーは「今日の気分」「予算」「場所」を伝えると、AI がおすすめの店・メニュー・注文の順序を提案します。</p>
+<p>β 運用フェーズを経て、以下が見えてきました。</p>
+<ul class="article-list">
+<li><strong>どの層のユーザーが本当に価値を感じるか</strong></li>
+<li><strong>店舗側 (β 加盟店) が何を導入決定要因と見ているか</strong></li>
+<li><strong>店舗プラン (basic / pro / premium) がなぜこの区切りになったか</strong></li>
+</ul>
+<p>本記事では、β 運用中に得られた具体的なインサイトと、店舗プラン (basic / pro / premium) の設計思想を、飲食店経営者と product manager 向けに公開します。</p>
+<p><strong>免責</strong>: 本記事は Gourmie β 運用中の観察結果であり、GA (一般公開) 後の状況・料金・機能は変更となる可能性があります。導入判断は個別の店舗事情に応じてご判断ください。</p>
+<p>---</p>
+<h2>Gourmie とは</h2>
+<p>Gourmie は「今日、どこで何を食べるか」の意思決定を支援する PWA です。</p>
+<ul class="article-list">
+<li><strong>User 側</strong>: <code>https://gourmie.jp/</code> — 気分・予算・場所を入力すると、店 + メニュー + 注文順を提案</li>
+<li><strong>店舗側</strong>: <code>https://gourmie.jp/merchant</code> — 店舗情報・メニュー・在庫・予約枠の管理</li>
+</ul>
+<p>技術的には Python (FastAPI) + PostgreSQL + PWA (Next.js) 構成。Stripe SDK 15.3.0 で店舗プランの課金を実装済み (<code>STRIPE_SECRET_KEY</code> + <code>STRIPE_PRICE_{BASIC,PRO,PREMIUM}</code> env で切替、<code>services/systems/Gourmie/app/backend/app/api/billing.py</code> 参照)。</p>
+<p>現在 <strong>β 運用中</strong>。店舗プランは実装済みですが、Stripe live キーの本番設定と加盟店の同意プロセスは Reo action として保留中です (<code>docs/REVENUE_ACTIVATION_PLAN.md</code> §3 参照)。</p>
+<p>---</p>
+<h2>β 運用で得られた 3 つのインサイト</h2>
+<h3>インサイト 1: 「コンシェルジュ機能」への価値評価は、ユーザーの状況で 2 分される</h3>
+<p>β ユーザーへのヒアリングで、以下 2 パターンに分かれました。</p>
+<p><strong>Pattern A: 「決める疲れ」を抱える人 (高評価)</strong></p>
+<ul class="article-list">
+<li>平日夜 or 週末、外食するつもりだが「どこにするか決めるのが億劫」</li>
+<li>選択肢は多い (都市部・繁華街) が、選ぶのが疲れる</li>
+<li>→ Gourmie の提案がそのまま答えになる、価値評価は高い</li>
+</ul>
+<p><strong>Pattern B: 「探究好き」の人 (低評価)</strong></p>
+<ul class="article-list">
+<li>自分で新しい店を発掘するのが楽しい</li>
+<li>食べログ / Retty / Instagram でリサーチ済み</li>
+<li>→ AI 提案は「自分の判断を鈍らせるので不要」、価値評価は低い</li>
+</ul>
+<p>これは「Gourmie を全ユーザーに広げるのは無理」を意味します。<strong>Pattern A に集中してマーケティング</strong> する方針に切り替えました。具体的には:</p>
+<ul class="article-list">
+<li>ターゲット: 20-40 代、フルタイム勤務、平日夕方以降の外食判断が多い層</li>
+<li>Not target: 外食探究層 (別プラットフォームを既に使いこなしている)</li>
+</ul>
+<h3>インサイト 2: 店舗側が最も気にするのは「集客効果」ではなく「オペ負荷」</h3>
+<p>β 加盟店 (現時点で少数) にヒアリングして、意外だったのが導入時の関心事です。</p>
+<p><strong>予想していた質問</strong>:</p>
+<ul class="article-list">
+<li>「集客はどれくらい増えますか？」</li>
+<li>「食べログとの違いは？」</li>
+</ul>
+<p><strong>実際に多かった質問</strong>:</p>
+<ul class="article-list">
+<li>「メニュー登録の手間は？」</li>
+<li>「予約枠の管理は既存のシステムと重複しませんか？」</li>
+<li>「解約はしやすいですか？」</li>
+</ul>
+<p>つまり、<strong>「導入時オペ負荷 + 解約容易性」が「集客期待」より優先</strong> されていました。これは合理的で、既に食べログ + LINE 公式 + Instagram + 自社 HP を運用している店舗にとって、新プラットフォーム追加は「増えた作業」でしかありません。</p>
+<p>Gourmie 側の対応:</p>
+<ul class="article-list">
+<li><strong>メニュー登録の CSV import 対応</strong> (実装済)</li>
+<li><strong>既存 POS / 予約システムからのデータ移行支援</strong> (β 加盟店には Reo が個別対応)</li>
+<li><strong>解約時のデータエクスポート機能</strong> (実装済、30 日以内)</li>
+<li><strong>「集客保証」の売り文句を廃止</strong> (景表法 + 過剰期待の温床になる)</li>
+</ul>
+<h3>インサイト 3: 「AI 提案」の説明可能性が信頼を決める</h3>
+<p>β ユーザーの継続利用の分かれ道は、<strong>「なぜこの店を勧めたか」を Gourmie が説明できるかどうか</strong> でした。</p>
+<p>初期実装では「あなたにおすすめ」とだけ表示していましたが、継続率が低かった。</p>
+<p>改善後: 「今日は雨予報なので駅から近い店」「予算 3,000 円以内で ★4.0 以上の店」「20 時以降でも入店可能な店」と、<strong>判断根拠を 3 行で見せる</strong> 実装に変更。継続率が改善しました。</p>
+<p>これは Recommender System 全般の教訓ですが、Gourmie のような「体験と結びつく提案」では特に重要でした。ユーザーは「AI が神託を下す」よりも「AI がロジックを説明してくれる」を信頼します。</p>
+<p>---</p>
+<h2>店舗プラン設計 (basic / pro / premium)</h2>
+<p>上記のインサイトを踏まえ、店舗プランは 3 tier に設計しました。詳細な料金は Stripe live 本番設定後に公表しますが、以下は設計思想です。</p>
+<h3>Basic</h3>
+<ul class="article-list">
+<li><strong>想定利用者</strong>: 個人店・小規模店 (客席 30 席以下、SNS 発信は限定的)</li>
+<li><strong>機能</strong>: 店舗情報公開、メニュー登録、Gourmie コンシェルジュ提案対象</li>
+<li><strong>オペ負荷</strong>: 最小 (メニュー登録さえすれば運用開始)</li>
+<li><strong>設計意図</strong>: 「まず Gourmie に載る」を実現するためのエントリー tier</li>
+</ul>
+<h3>Pro</h3>
+<ul class="article-list">
+<li><strong>想定利用者</strong>: 中規模店 (客席 30-80 席、既存 SNS 発信あり)</li>
+<li><strong>機能</strong>: Basic + 予約枠管理、店舗ダッシュボード、リピーター管理</li>
+<li><strong>オペ負荷</strong>: 中 (予約枠の日次メンテが必要)</li>
+<li><strong>設計意図</strong>: 「食べログ / LINE 公式と重複するオペを一本化」</li>
+</ul>
+<h3>Premium</h3>
+<ul class="article-list">
+<li><strong>想定利用者</strong>: 複数店舗経営、または席単価 5,000 円超の店</li>
+<li><strong>機能</strong>: Pro + 複数店舗管理、席単価分析、パーソナライズ提案の詳細ログ</li>
+<li><strong>オペ負荷</strong>: 大 (経営者が主体的にダッシュボードを見る必要)</li>
+<li><strong>設計意図</strong>: 「Gourmie を経営判断ツールとして使う」</li>
+</ul>
+<p>料金の正式公開は Stripe live activation 後に行います。β 加盟店には別途、有料化への移行案内をお送りする予定です。</p>
+<p>---</p>
+<h2>「Gourmie に載せた方がいい店」の判断基準</h2>
+<p>前記事「2026 年、飲食店の QR モバイルオーダー導入で本当に得する店 / しない店」と同様、Gourmie も「載せない方がいい店」があります。フラットに書きます。</p>
+<h3>載せた方がいい店</h3>
+<ul class="article-list">
+<li>平日夜の集客に波があり、平均化したい店</li>
+<li>「決めきれない」ユーザーに向けて自店を提案してもらいたい店</li>
+<li>客単価 2,000-6,000 円のカジュアル業態</li>
+<li>SNS 運用に手が回らないが、店の情報を届けたい店主</li>
+</ul>
+<h3>載せない方がいい店</h3>
+<ul class="article-list">
+<li>常連中心で、既に予約が満席 (Gourmie で追加流入しても運用できない)</li>
+<li>カウンター寿司・割烹など「予約時の会話が接客価値」の店 (Gourmie の淡白な予約フローは合わない)</li>
+<li>席単価が極端に低い (500 円ラーメン等、Gourmie の月額を回収できない)</li>
+</ul>
+<p>「Gourmie に載せれば必ず集客できる」とは言いません。載せる意味がない店に無理に売り込む気はありません。</p>
+<p>---</p>
+<h2>GA (一般公開) 前の未解決課題</h2>
+<p>Gourmie の β → GA 移行前に、以下の課題を残しています。</p>
+<p>1. <strong>Stripe live 特商法 URL 提出</strong> (Reo action)</p>
+<p>2. <strong>STRIPE_PRICE_BASIC/PRO/PREMIUM を live mode で発行</strong> (Reo action、Stripe dashboard 操作)</p>
+<p>3. <strong>β 加盟店の中で「有料化に同意する店舗」の抽出と案内</strong> (10 名程度)</p>
+<p>4. <strong>AI 提案の説明ロジック改善</strong> (継続実装)</p>
+<p>5. <strong>モバイル UI の PWA インストール率向上</strong> (実装済だが UX 改善余地あり)</p>
+<p>これらは 2026 年の後半に向けて段階的に着手します。</p>
+<p>---</p>
+<h2>Xiora の受託開発について</h2>
+<p>Xiora は、飲食業界向け SaaS の受託開発も承っております。</p>
+<ul class="article-list">
+<li><strong>飲食コンシェルジュ / 予約プラットフォーム設計</strong></li>
+<li><strong>QR モバイルオーダー導入支援</strong> (XCloud Connect の応用)</li>
+<li><strong>POS / 既存予約システムとのデータ連携</strong></li>
+</ul>
+<p>お問い合わせは info@xiora-official.com までご連絡ください。</p>
+<p>---</p>
+<h2>参考リンク</h2>
+<ul class="article-list">
+<li>Gourmie ユーザーサイト: https://gourmie.jp/</li>
+<li>Gourmie 店舗管理: https://gourmie.jp/merchant</li>
+<li>Xiora コーポレートサイト: https://xiora-official.com/</li>
+<li>関連記事「2026 年、飲食店の QR モバイルオーダー導入で本当に得する店 / しない店」: (note にて公開予定)</li>
+</ul>
+<p>---</p>
+<p><strong>筆者</strong>: Xiora 代表 沓澤 怜士 (kutsuzawa reo)</p>
+<p><strong>連絡</strong>: info@xiora-official.com</p>
+<p><strong>免責</strong>: 本記事は Gourmie β 運用中の観察結果であり、GA 後の状況・料金・機能は変更となる可能性があります。導入判断は個別の店舗事情に応じてご判断ください。</p>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
