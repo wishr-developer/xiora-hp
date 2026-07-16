@@ -15,6 +15,32 @@
   const form = document.getElementById('contactForm');
   if (!form) return;
 
+  // URL query params → prefill (revenue funnel: 商品ページ CTA `/contact.html?type=X&product=Y` を受ける)
+  const params = new URLSearchParams(location.search);
+  const typeParam = params.get('type');
+  const productParam = params.get('product');
+  const VALID_TYPES = ['general','ai-dx','web','product','pricing','x-partner','intern','other'];
+  const VALID_PRODUCTS = ['aiverse','gourmie','tradeos','xcloud-connect','xcloud-flow','kigen','general','other'];
+
+  if (typeParam && VALID_TYPES.includes(typeParam)) {
+    const radio = form.querySelector(`input[name="type"][value="${typeParam}"]`);
+    if (radio) radio.checked = true;
+  }
+  // Hidden product field so /api/contact receives the correct product tag
+  if (productParam && VALID_PRODUCTS.includes(productParam)) {
+    const hiddenProduct = document.createElement('input');
+    hiddenProduct.type = 'hidden';
+    hiddenProduct.name = 'product';
+    hiddenProduct.value = productParam;
+    form.appendChild(hiddenProduct);
+  }
+  // Hidden source field for attribution
+  const hiddenSource = document.createElement('input');
+  hiddenSource.type = 'hidden';
+  hiddenSource.name = 'source';
+  hiddenSource.value = 'xiora-official.com/contact.html' + (location.search || '');
+  form.appendChild(hiddenSource);
+
   // hidden honeypot field (bot filter). CSS で display:none.
   const honeypot = document.createElement('input');
   honeypot.type = 'text';
