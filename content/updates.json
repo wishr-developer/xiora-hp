@@ -10,7 +10,8 @@
       "description": "会話型 AI と二層プロファイル学習を運用して見えた飲食コンシェルジュ需要と、店舗プランへの意思決定。",
       "url": "/insights/gourmie-beta-learnings.html",
       "insight_cat": "Practice",
-      "author": "沓澤 怜士 (Xiora)"
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Gourmie β Learnings"
     },
     {
       "id": "2026-07-16-zero-spend-saas-startup",
@@ -21,7 +22,8 @@
       "description": "Ollama L1_LOCAL + xioraai-orchestrator の実構成で、追加課金ゼロで agent が LLM 呼出しまで到達する道筋。",
       "url": "/insights/zero-spend-saas-startup.html",
       "insight_cat": "Practice",
-      "author": "沓澤 怜士 (Xiora)"
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Zero-Spend Practice"
     },
     {
       "id": "2026-07-16-xai-org-architecture",
@@ -32,7 +34,8 @@
       "description": "9 agent + orchestrator + 憲法投入の AI 組織アーキテクチャを、実装レベルで公開。M10.3 達成の技術発信。",
       "url": "/insights/xai-org-architecture.html",
       "insight_cat": "Architecture",
-      "author": "沓澤 怜士 (Xiora)"
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Architecture"
     },
     {
       "id": "2026-07-01-products-refresh",
