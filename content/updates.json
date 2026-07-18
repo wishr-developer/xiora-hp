@@ -2,6 +2,17 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-nextjs-15-corporate-site-design",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "engineering",
+      "insight_cat": "Engineering",
+      "title": "Next.js 15 時代の、コーポレートサイト設計指針",
+      "description": "async request APIs、Turbopack GA、キャッシュのデフォルト変更 ── Next.js 15 の変更点を踏まえ、Xiora が自社コーポレートサイトで採用している設計判断を実装目線で整理します。",
+      "url": "/insights/nextjs-15-corporate-site-design.html",
+      "author": "Xiora Engineering"
+    },
+    {
       "id": "2026-07-19-kigen-5-problems",
       "date": "2026-07-19",
       "type": "insight",

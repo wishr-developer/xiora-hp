@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Next.js 15 時代の、コーポレートサイト設計指針 | Xiora Insights</title>
+<meta content="async request APIs、Turbopack GA、キャッシュのデフォルト変更 ── Next.js 15 の変更点を踏まえ、Xiora が自社コーポレートサイトで採用している設計判断を実装目線で整理します。" name="description"/>
+<link href="https://xiora-official.com/insights/nextjs-15-corporate-site-design.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/nextjs-15-corporate-site-design.html" property="og:url"/>
+<meta content="Next.js 15 時代の、コーポレートサイト設計指針 | Xiora" property="og:title"/>
+<meta content="async request APIs、Turbopack GA、キャッシュのデフォルト変更 ── Next.js 15 の変更点を踏まえ、Xiora が自社コーポレートサイトで採用している設計判断を実装目線で整理します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Next.js 15 時代の、コーポレートサイト設計指針 | Xiora" name="twitter:title"/>
+<meta content="async request APIs、Turbopack GA、キャッシュのデフォルト変更 ── Next.js 15 の変更点を踏まえ、Xiora が自社コーポレートサイトで採用している設計判断を実装目線で整理します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Next.js 15 時代の、コーポレートサイト設計指針",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "async request APIs、Turbopack GA、キャッシュのデフォルト変更 ── Next.js 15 の変更点を踏まえ、Xiora が自社コーポレートサイトで採用している設計判断を実装目線で整理します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Organization", "name": "Xiora Engineering" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-19",
+  "mainEntityOfPage": "https://xiora-official.com/insights/nextjs-15-corporate-site-design.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="Xiora Engineering" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Next.js 15 時代の、コーポレートサイト設計指針</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Engineering</span>
+<time datetime="2026-07-19">2026.07.19</time>
+</div>
+<h1 class="insight-title">Next.js 15 時代の、コーポレートサイト設計指針</h1>
+<p class="insight-lead">async request APIs、Turbopack GA、キャッシュのデフォルト変更 ── Next.js 15 の変更点を踏まえ、Xiora が自社コーポレートサイトで採用している設計判断を実装目線で整理します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">XE</span>
+<div>
+<span class="insight-author__name">Xiora Engineering</span><br/>
+<span>Web / DX engineering team</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2 id="introduction-next.js-15-で何が変わったか">Introduction — Next.js 15 で何が変わったか</h2>
+<p>Next.js 15 は 2024 年 10 月に GA された、フレームワーク側の内部モデルを大きく更新したリリースです。コーポレートサイトのようにアクセスの多くが静的な用途でも、影響が出る変更点がいくつかあります。</p>
+<p>主な変更点は次の 3 つと考えられます。</p>
+<ul class="article-list">
+<li><strong>Request APIs が async 化</strong>: <code>cookies()</code> / <code>headers()</code> / <code>draftMode()</code> / <code>params</code> / <code>searchParams</code> が Promise を返すようになり、コード上は <code>await</code> が必要になりました。従来の同期アクセスは非推奨扱いです。</li>
+<li><strong>Turbopack for dev が Stable</strong>: <code>next dev --turbo</code> が本番安定版として利用可能になり、開発時の HMR が高速化する構成が公式サポートに入りました。</li>
+<li><strong><code>fetch</code> / Route Handler のデフォルトキャッシュ挙動が変更</strong>: これまで暗黙にキャッシュされていたリクエストが、既定では都度実行 (non-cached) になりました。キャッシュしたい場合は明示的に指定します。</li>
+</ul>
+<p>いずれも「知らずに 14 → 15 に上げると挙動が変わる」ものです。特に 3 つ目は、コーポレートサイトの CDN 費用や API コール数に直結し得る変更です。</p>
+<h2 id="コーポレートサイトの要件を先に決める">コーポレートサイトの要件を先に決める</h2>
+<p>Next.js のどの機能を使うかを決める前に、コーポレートサイトの要件を分けて整理するのが実務的です。私たちは通常、次の 3 つで判断しています。</p>
+<ul class="article-list">
+<li><strong>更新頻度</strong>: トップページやサービス紹介は月に数回、ニュースやインサイトは週次、というのが典型です。</li>
+<li><strong>SEO の重み</strong>: 検索流入を狙うページは、Server Component + 静的生成 (SSG) が原則です。</li>
+<li><strong>動的要素の有無</strong>: フォーム、Live 情報、認証を持つ管理画面などが混ざるかどうか。</li>
+</ul>
+<p>これらを混ぜて設計すると、「静的でよいはずのページに毎回サーバー処理が走る」「動的にすべきページが古いままキャッシュされる」という状況が起きます。<strong>ページごとに最適なレンダリング戦略を選ぶこと</strong>が、Next.js 15 でも変わらない原則です。</p>
+<h2 id="私たちの設計判断-6-つ">私たちの設計判断 6 つ</h2>
+<p>Xiora のコーポレートサイトで採用している設計判断を、Next.js 15 に置き換えた場合の指針として 6 つに整理します。</p>
+<ul class="article-list">
+<li><strong>1. デフォルトは Server Component + SSG</strong>: <code>app/</code> 配下のページは、明示的に必要がなければ Server Component のままにします。JS バンドルが増えないため、初回描画とコアウェブバイタルに素直に効きます。</li>
+<li><strong>2. ニュース / インサイトは ISR (revalidate)</strong>: <code>revalidate</code> を秒単位で指定し、更新のたびにビルドし直さなくても新しい記事が配信される構成にします。</li>
+<li><strong>3. <code>generateMetadata</code> で OGP を集中管理</strong>: タイトル、description、OGP 画像、canonical、JSON-LD をページごとに <code>generateMetadata</code> に集約します。手書き HTML の重複を避けられます。</li>
+<li><strong>4. 動的要素は Streaming + Suspense</strong>: 問い合わせフォームの初期化や、外部 API を叩く部分は <code>&lt;Suspense&gt;</code> で囲み、静的部分を先に返してから動的部分を追いつかせます。</li>
+<li><strong>5. <code>fetch</code> のキャッシュは明示指定</strong>: Next.js 15 では <code>fetch</code> のデフォルトが no-store 相当になったため、キャッシュしたい呼び出しでは <code>{ next: { revalidate: N } }</code> などを明示します。「なんとなく速い」に依存しない構成にします。</li>
+<li><strong>6. Server Actions は限定的に</strong>: フォーム送信など「ユーザー操作を伴い、副作用が伴う」箇所に限って使用します。表示専用ページで安易に使うと、キャッシュ戦略が複雑になります。</li>
+</ul>
+<h2 id="xiora-hp-の現状-build.py-hand-crafted-html">Xiora HP の現状 ── build.py + hand-crafted HTML</h2>
+<p>正直に書くと、この Xiora コーポレートサイトはまだ Next.js 15 には移行していません。現状は次の構成です。</p>
+<ul class="article-list">
+<li>静的 HTML を手で書き、<code>content/updates.json</code> を Single Source of Truth として扱う</li>
+<li><code>scripts/build.py</code> が JSON からニュース、インサイト、サイトマップの領域を自動生成 (マーカー <code>&lt;!-- BUILD:start ... --&gt;</code> で差し替え)</li>
+<li>ホスティングは VPS 上の静的配信</li>
+</ul>
+<p>依存を最小化して、ビルドが素直に通る状態を優先した構成です。長期的には Next.js 15 移行を検討しており、その場合の想定 spec は次の通りです。</p>
+<ul class="article-list">
+<li>App Router + Server Component ベースに移行</li>
+<li><code>content/*.json</code> を <code>generateStaticParams</code> に渡し、記事ページを SSG</li>
+<li>ニュースやインサイトは ISR、動的な問い合わせフォームは Server Actions</li>
+<li>画像は <code>next/image</code>、フォントは <code>next/font</code></li>
+</ul>
+<p>「フレームワーク移行そのものを目的にしない」を運用ルールにしており、移行のコストと得られる価値を都度秤にかけて判断しています。</p>
+<h2 id="導入時に気をつけている落とし穴">導入時に気をつけている落とし穴</h2>
+<p>Next.js 15 を採用するとき、私たちが実装レビューで見ている観点は次のあたりです。</p>
+<ul class="article-list">
+<li><strong>async request APIs の未対応</strong>: 14 系向けのライブラリを持ち込むと、<code>cookies()</code> を同期で呼んで警告や実行時エラーになることがあります。upgrade codemod で拾える箇所と、拾えない箇所があります。</li>
+<li><strong>キャッシュ挙動の変化</strong>: 14 では暗黙にキャッシュされていた API 呼び出しが、15 では毎回走る想定に変わります。呼び出し回数と外部 API の rate limit を見直しておく必要があります。</li>
+<li><strong>Turbopack と一部プラグイン</strong>: dev で Turbopack を使う場合、Webpack 前提のプラグインが動かないケースがあります。プロダクションビルドは今も Webpack が既定です。</li>
+<li><strong>React 19 との組み合わせ</strong>: Next.js 15 は React 19 サポートを含みます。UI ライブラリ側の対応状況を事前確認しておくと安全です。</li>
+</ul>
+<h2 id="免責">免責</h2>
+<p>本記事は Next.js 15 の公式ドキュメントおよび Vercel の一次情報を参照して執筆していますが、フレームワークの仕様は継続的に更新されます。実装時は最新の公式ドキュメントを確認したうえで判断してください。また、コーポレートサイトの設計は業種、更新頻度、運用体制によって最適解が異なるため、本記事は判断材料の一例としてご活用ください。</p>
+<h2 id="参考リンク">参考リンク</h2>
+<ul class="article-list">
+<li>Next.js 15 リリースブログ (Vercel): https://nextjs.org/blog/next-15</li>
+<li>Next.js Docs — Upgrading to Version 15: https://nextjs.org/docs/app/guides/upgrading/version-15</li>
+<li>Next.js Docs — Caching: https://nextjs.org/docs/app/deep-dive/caching</li>
+<li>Next.js Docs — Turbopack: https://nextjs.org/docs/app/api-reference/turbopack</li>
+<li>MDN — HTTP caching: https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching</li>
+</ul>
+<p><strong>筆者</strong>: Xiora Engineering<br />
+<strong>連絡</strong>: info@xiora-official.com</p>
+<hr/>
+<h2>お問い合わせ / 無料相談</h2>
+<p>本記事の内容や、貴社の AI 導入・DX についてのご相談は、以下からお気軽にご連絡ください (¥0、初回相談は 30 分無料)。</p>
+<ul class="article-list">
+<li>フォーム: <a href="/contact.html?type=ai-dx&amp;src=insight-nextjs-15-corporate-site-design">/contact.html</a></li>
+<li>メール: <a href="mailto:info@xiora-official.com?subject=[nextjs-15-corporate-site-design] 相談">info@xiora-official.com</a></li>
+</ul>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
