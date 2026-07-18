@@ -154,6 +154,11 @@
   </url>
   <!-- BUILD:start sitemap-news -->
   <url>
+    <loc>https://xiora-official.com/news/2026-07-19-xiora-brand-and-billing.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/news/2026-07-01-products-refresh.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>

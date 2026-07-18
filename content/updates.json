@@ -2,6 +2,17 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "2026-07-19-xiora-brand-and-billing",
+      "date": "2026-07-19",
+      "type": "news",
+      "kind": "update",
+      "title": "Xiora ブランドの統一と、決済インフラの本番稼働を開始しました。",
+      "description": "決済アカウントの表示名を Xiora に統一、明細書表記を XIORA / シオラ に統一しました。事業情報も xiora-official.com に集約。今後の全 SaaS サブスクリプションで一貫した Xiora ブランドが表示されます。",
+      "url": "/news/2026-07-19-xiora-brand-and-billing.html",
+      "build_cat": "Brand Consolidation",
+      "news_cat": "Update"
+    },
+    {
       "id": "2026-07-16-gourmie-beta-learnings",
       "date": "2026-07-16",
       "type": "insight",
