@@ -2,16 +2,28 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
-      "id": "2026-07-19-api-integration-design",
+      "id": "insight-api-integration-design",
       "date": "2026-07-19",
       "type": "insight",
       "kind": "release",
       "title": "「繋いで効かせる DX」のための、API 連携設計",
-      "description": "基幹を作り直さない DX を目指す SMB 向けに、Xiora が XAISeoAutomation / XAIOutreach 等で採用している SaaS 間 API 連携の設計原則 (冪等性・再送・計測・運用責任) と実装例、Webhook 受信の 5 論点を実装レベルで公開します。",
+      "description": "基幹を作り直さない DX のための、SaaS 間 API 連携の設計指針。冪等性、指数バックオフ、Webhook 署名検証、運用責任を、Xiora の実装から整理します。",
       "url": "/insights/api-integration-design.html",
       "insight_cat": "Engineering",
       "author": "Xiora Engineering",
-      "build_cat": "DX Engineering"
+      "build_cat": "Engineering Notes"
+    },
+    {
+      "id": "2026-07-19-ga4-bigquery-analytics",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "GA4 × BigQuery で、意思決定に効く計測基盤を作る",
+      "description": "GA4 単体では、サンプリング・保持期間・カーディナリティの実制約に突き当たります。BigQuery Export と Server-side tagging を最初から組み込む、Xiora の計測基盤設計を共有します。",
+      "url": "/insights/ga4-bigquery-analytics.html",
+      "insight_cat": "AI",
+      "author": "Xiora Engineering",
+      "build_cat": "Analytics Playbook"
     },
     {
       "id": "2026-07-19-kigen-5-problems",
