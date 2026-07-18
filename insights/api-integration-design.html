@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>「繋いで効かせる DX」のための、API 連携設計 | Xiora Insights</title>
+<meta content="基幹を作り直さない DX を目指す SMB 向けに、Xiora が XAISeoAutomation / XAIOutreach 等で採用している SaaS 間 API 連携の設計原則 (冪等性・再送・計測・運用責任) と実装例、Webhook 受信の 5 論点を実装レベルで公開します。" name="description"/>
+<link href="https://xiora-official.com/insights/api-integration-design.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/api-integration-design.html" property="og:url"/>
+<meta content="「繋いで効かせる DX」のための、API 連携設計 | Xiora" property="og:title"/>
+<meta content="基幹を作り直さない DX を目指す SMB 向けに、Xiora が XAISeoAutomation / XAIOutreach 等で採用している SaaS 間 API 連携の設計原則 (冪等性・再送・計測・運用責任) と実装例、Webhook 受信の 5 論点を実装レベルで公開します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="「繋いで効かせる DX」のための、API 連携設計 | Xiora" name="twitter:title"/>
+<meta content="基幹を作り直さない DX を目指す SMB 向けに、Xiora が XAISeoAutomation / XAIOutreach 等で採用している SaaS 間 API 連携の設計原則 (冪等性・再送・計測・運用責任) と実装例、Webhook 受信の 5 論点を実装レベルで公開します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "「繋いで効かせる DX」のための、API 連携設計",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "基幹を作り直さない DX を目指す SMB 向けに、Xiora が XAISeoAutomation / XAIOutreach 等で採用している SaaS 間 API 連携の設計原則 (冪等性・再送・計測・運用責任) と実装例、Webhook 受信の 5 論点を実装レベルで公開します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "Xiora Engineering", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-19",
+  "mainEntityOfPage": "https://xiora-official.com/insights/api-integration-design.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="Xiora Engineering" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">「繋いで効かせる DX」のための、API 連携設計</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Engineering</span>
+<time datetime="2026-07-19">2026.07.19</time>
+</div>
+<h1 class="insight-title">「繋いで効かせる DX」のための、API 連携設計</h1>
+<p class="insight-lead">基幹を作り直さない DX を目指す SMB 向けに、Xiora が XAISeoAutomation / XAIOutreach 等で採用している SaaS 間 API 連携の設計原則 (冪等性・再送・計測・運用責任) と実装例、Webhook 受信の 5 論点を実装レベルで公開します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">Xiora Engineering</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2 id="introduction-基幹を作り直さない-dx">Introduction — 基幹を作り直さない DX</h2>
+<p>SMB (中小企業) の DX で「基幹システムを丸ごと入れ替える」という選択肢を取れるケースは多くありません。 既存の会計・顧客管理・在庫・EC が動いている以上、現実的な打ち手は「既存を残したまま、SaaS を API で繋いで効かせる」ことです。</p>
+<p>Xiora 自身が採用している内製システム (<code>XAISeoAutomation</code> = ConoHa v3 DNS + Google OAuth + GA4 Admin API 統合、<code>XAIOutreach</code> = Gmail SMTP + IMAP 統合) も、同じ考え方で作っています。 本記事では、その実装から抽出した 4 つの設計原則と、Webhook 受信で押さえるべき論点を共有します。</p>
+<h2 id="つの設計原則">4 つの設計原則</h2>
+<h3 id="冪等性-idempotency">1. 冪等性 (Idempotency)</h3>
+<p>同じ request を N 回送っても最終状態が変わらないこと。 これは HTTP の基本設計 (RFC 9110 では <code>GET</code> / <code>PUT</code> / <code>DELETE</code> が冪等メソッドと定義) に沿った考え方で、SaaS 側の実装としては Stripe の <code>Idempotency-Key</code> header が代表例です (公式: <a href="https://docs.stripe.com/api/idempotent_requests">Idempotent requests</a>)。</p>
+<p>Xiora の実装では、外部 API を叩く operation ごとにアプリ側で UUIDv4 を採番し、DB に「送信済み key」を残す運用にしています。 再送が発生しても Stripe 側で 24 時間は同じ結果が返るため、ネットワークタイムアウト後の再試行で二重課金が起きません。</p>
+<h3 id="再送設計-retry-with-backoff">2. 再送設計 (Retry with backoff)</h3>
+<p>外部 API は本番運用に乗せた瞬間に失敗が観測されます。 5xx や 429 (Too Many Requests) は「一時的な失敗」なので、指数バックオフ + jitter で再送するのが定石です (AWS Architecture Blog: <a href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">Exponential Backoff And Jitter</a>)。</p>
+<p>Xiora の brain runtime では、<code>attempt</code> に対して <code>min(cap, base * 2^attempt) + random(0, jitter)</code> の待機を挟み、<code>max_attempts = 5</code> で打ち切ってからは Dead Letter Queue (再処理待ちテーブル) に落として運用側の確認に回します。 4xx (認証失敗・validation error) は再送せず即 fail するのが原則です。</p>
+<h3 id="計測-observability">3. 計測 (Observability)</h3>
+<p>「なぜ失敗したか」を後から追えなければ、連携は属人化します。 最低限、<code>request_id / endpoint / status_code / latency_ms / error_code / attempt</code> の 6 項目を構造化ログで残し、外部 API のコスト (呼び出し数 × 単価) も日次で集計します。 Xiora では <code>xioraai-postgres</code> の共通テーブルに集約し、ダッシュボードで異常値 (エラー率急増・latency spike) を可視化しています。</p>
+<h3 id="運用責任-ownership">4. 運用責任 (Ownership)</h3>
+<p>技術面が完璧でも、運用の窓口が決まっていない連携は障害時に沈黙します。 SaaS ごとに「SLA / 障害時の一次対応者 / secret rotation の担当と周期 / breaking change 通知の受信先」を最低限ドキュメント化しておきます。 Xiora では ConoHa API password / Google refresh_token / Stripe restricted key を 90 日で rotation する運用にしています。</p>
+<h2 id="webhook-受信の-5-論点">Webhook 受信の 5 論点</h2>
+<p>こちらから叩く API と対になるのが、SaaS 側から呼ばれる Webhook です。 実装時に押さえるべきは以下の 5 点です。</p>
+<ol type="1">
+<li><strong>署名検証</strong> — 受信 body の HMAC-SHA256 署名を検証。 Stripe は <code>Stripe-Signature</code> header と <code>whsec_...</code> secret (<a href="https://docs.stripe.com/webhooks/signature">公式</a>)、GitHub は <code>X-Hub-Signature-256</code> (<a href="https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries">公式</a>)、Slack は <code>X-Slack-Signature</code> + <code>X-Slack-Request-Timestamp</code> (<a href="https://api.slack.com/authentication/verifying-requests-from-slack">公式</a>)</li>
+<li><strong>冪等 event_id</strong> — SaaS 側は re-delivery を行う前提。 Stripe / GitHub とも event に一意 ID があり、受信側で処理済みかを DB でチェック</li>
+<li><strong>順序保証なし</strong> — HTTP 経由の Webhook は到着順が入れ替わる。 順序が重要な処理は event timestamp を基準に並べ替え</li>
+<li><strong>retry 前提の応答</strong> — 2xx を返さないと SaaS 側が再送。 重い処理は queue に積んで即 200 を返し、非同期で処理</li>
+<li><strong>stateless</strong> — 受信 endpoint 自体はローカル state を持たず、必要な情報はすべて event に含まれる前提で書く</li>
+</ol>
+<h2 id="saas-間で壊れやすい繋ぎパターン">SaaS 間で「壊れやすい繋ぎ」パターン</h2>
+<ul class="article-list">
+<li><strong>認証情報の rotation 忘れ</strong> — refresh_token / API key の失効で突然止まる。 secret manager 側に有効期限を持たせて事前通知</li>
+<li><strong>rate limit 到達</strong> — 平常時の 3-5 倍のバーストで簡単に頭打ち。 予備として local queue とバックプレッシャを組む</li>
+<li><strong>breaking change</strong> — SaaS 側の API バージョンアップで silent break。 常にバージョン pinned + release note を購読</li>
+</ul>
+<h2 id="免責-参考リンク">免責 / 参考リンク</h2>
+<ul class="article-list">
+<li>本記事は 2026-07-19 時点の公開仕様に基づく整理です。 各サービスの実装は最新の公式ドキュメントをあわせて参照してください</li>
+<li>RFC 9110 HTTP Semantics: https://www.rfc-editor.org/rfc/rfc9110.html</li>
+<li>Stripe Idempotent requests: https://docs.stripe.com/api/idempotent_requests</li>
+<li>AWS Architecture Blog — Exponential Backoff And Jitter: https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/</li>
+<li>Stripe Webhooks — Verify signatures: https://docs.stripe.com/webhooks/signature</li>
+<li>GitHub Webhooks — Validating deliveries: https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries</li>
+<li>Slack — Verifying requests: https://api.slack.com/authentication/verifying-requests-from-slack</li>
+</ul>
+<hr/>
+<h2>お問い合わせ / 無料相談</h2>
+<p>本記事の内容や、貴社の AI 導入・DX についてのご相談は、以下からお気軽にご連絡ください (¥0、初回相談は 30 分無料)。</p>
+<ul class="article-list">
+<li>フォーム: <a href="/contact.html?type=ai-dx&amp;src=insight-api-integration-design">/contact.html</a></li>
+<li>メール: <a href="mailto:info@xiora-official.com?subject=[api-integration-design] 相談">info@xiora-official.com</a></li>
+</ul>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+<script defer src="../assets/js/main.js"></script>
+</body>
+</html>

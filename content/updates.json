@@ -2,6 +2,18 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-api-integration-design",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "「繋いで効かせる DX」のための、API 連携設計",
+      "description": "基幹を作り直さない DX のための、SaaS 間 API 連携の設計指針。冪等性、指数バックオフ、Webhook 署名検証、運用責任を、Xiora の実装から整理します。",
+      "url": "/insights/api-integration-design.html",
+      "insight_cat": "Engineering",
+      "author": "Xiora Engineering",
+      "build_cat": "Engineering Notes"
+    },
+    {
       "id": "2026-07-19-ga4-bigquery-analytics",
       "date": "2026-07-19",
       "type": "insight",
