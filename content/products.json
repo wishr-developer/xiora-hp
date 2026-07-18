@@ -163,6 +163,24 @@
       "sub_cat_short": "Content SaaS",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><path d=\"M20 20 L100 20 M20 30 L100 30 M20 40 L60 40\"></path><path d=\"M75 40 L95 40\" opacity=\"0.5\"></path><circle cx=\"105\" cy=\"30\" r=\"3\" fill=\"currentColor\"></circle></g></svg>",
       "card_class": "prod-card--content"
+    },
+    {
+      "id": "tradeos",
+      "name": "TradeOS",
+      "brand_short": "TradeOS",
+      "brand_html": "TradeOS",
+      "status": "Phase 1 · personal",
+      "category_ja": "個人投資家向け情報 tool",
+      "sub_desc_ja": "分散した投資 tool を、1 つに",
+      "sub_desc_meta": "個人投資家のポートフォリオ管理 + マーケットダッシュボード + 自作ルール alert を統合。金融商品取引法上の投資助言業には該当させない設計。",
+      "who": "個人投資家 (株式・投信・FX・crypto を複数 broker で運用している方)",
+      "problem": "Excel + iSpeed + Yahoo Finance + Google スプレッドシートに分散した投資情報の一元化",
+      "ai_use": "自作ルール alert の判定エンジン (Phase 2)、過去取引の税務向け整理",
+      "url": "/products/tradeos.html",
+      "sub_short_desc": "個人投資家の tool 分散を統合。broker OAuth は read-only のみ、投資助言業には該当させない情報 tool。",
+      "sub_cat_short": "Investing",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><path d=\"M8 44 L28 32 L46 40 L64 20 L82 26 L100 12 L114 18\"></path><path d=\"M8 50 L114 50\" opacity=\"0.4\"></path><circle cx=\"64\" cy=\"20\" r=\"2\" fill=\"currentColor\"></circle><circle cx=\"100\" cy=\"12\" r=\"2\" fill=\"currentColor\"></circle></g></svg>",
+      "card_class": "prod-card--tradeos"
     }
   ]
 }
