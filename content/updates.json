@@ -14,6 +14,53 @@
       "build_cat": "Kigen Playbook"
     },
     {
+      "id": "2026-07-19-xiora-brand-and-billing",
+      "date": "2026-07-19",
+      "type": "news",
+      "kind": "update",
+      "title": "Xiora ブランドの統一と、決済インフラの本番稼働を開始しました。",
+      "description": "決済アカウントの表示名を Xiora に統一、明細書表記を XIORA / シオラ に統一しました。事業情報も xiora-official.com に集約。今後の全 SaaS サブスクリプションで一貫した Xiora ブランドが表示されます。",
+      "url": "/news/2026-07-19-xiora-brand-and-billing.html",
+      "build_cat": "Brand Consolidation",
+      "news_cat": "Update"
+    },
+    {
+      "id": "2026-07-18-ai-saas-solo-founder",
+      "date": "2026-07-18",
+      "type": "insight",
+      "kind": "release",
+      "title": "単独創業者が AI で 24/7 稼働の SaaS 会社を作る方法 — Xiora の実践事例",
+      "description": "従業員ゼロの単独創業者が、AI 社員 12 名 + orchestrator + 憲法投入で 24/7 稼働の SaaS 会社を作る具体的な手順を、Xiora の実装から公開します。",
+      "url": "/insights/ai-saas-solo-founder.html",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Solo Founder x AI"
+    },
+    {
+      "id": "2026-07-18-restaurant-qr-order-2026",
+      "date": "2026-07-18",
+      "type": "insight",
+      "kind": "release",
+      "title": "2026 年、飲食店の QR モバイルオーダー導入で本当に得する店 / しない店",
+      "description": "QR モバイルオーダーを 5 分で導入できる時代に、それでも「入れない方がいい店」があります。業種別の判断基準と、越谷・草加エリアの実導入事例をまとめました。",
+      "url": "/insights/restaurant-qr-order-2026.html",
+      "insight_cat": "SMB",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "QR Order Playbook"
+    },
+    {
+      "id": "2026-07-18-smb-subsidy-ai-2026",
+      "date": "2026-07-18",
+      "type": "insight",
+      "kind": "release",
+      "title": "持続化補助金 2026、AI で下書きを 10 倍速く作る方法 (代行はしない、本人が書く)",
+      "description": "持続化補助金を 2026 年に申請する中小企業向けに、AI で下書きを 10 倍速く作る手順を公開。行政書士法適合のフローで、本人が最終確定するプロセスの正しい使い方を Public Support OS (PSOS) の設計思想から。",
+      "url": "/insights/smb-subsidy-ai-2026.html",
+      "insight_cat": "SMB",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Subsidy AI"
+    },
+    {
       "id": "2026-07-16-gourmie-beta-learnings",
       "date": "2026-07-16",
       "type": "insight",
