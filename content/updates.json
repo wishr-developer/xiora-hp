@@ -5,12 +5,37 @@
       "id": "insight-nextjs-15-corporate-site-design",
       "date": "2026-07-19",
       "type": "insight",
-      "kind": "engineering",
-      "insight_cat": "Engineering",
+      "kind": "release",
       "title": "Next.js 15 時代の、コーポレートサイト設計指針",
-      "description": "async request APIs、Turbopack GA、キャッシュのデフォルト変更 ── Next.js 15 の変更点を踏まえ、Xiora が自社コーポレートサイトで採用している設計判断を実装目線で整理します。",
+      "description": "Next.js 15 で変わった async APIs / Turbopack / caching デフォルトを、コーポレートサイトの要件 (SEO / 更新頻度 / 静的 vs 動的) から整理。Xiora HP の実装判断もあわせて公開。",
       "url": "/insights/nextjs-15-corporate-site-design.html",
-      "author": "Xiora Engineering"
+      "insight_cat": "Engineering",
+      "author": "Xiora Engineering",
+      "build_cat": "Engineering Notes"
+    },
+    {
+      "id": "insight-api-integration-design",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "「繋いで効かせる DX」のための、API 連携設計",
+      "description": "基幹を作り直さない DX のための、SaaS 間 API 連携の設計指針。冪等性、指数バックオフ、Webhook 署名検証、運用責任を、Xiora の実装から整理します。",
+      "url": "/insights/api-integration-design.html",
+      "insight_cat": "Engineering",
+      "author": "Xiora Engineering",
+      "build_cat": "Engineering Notes"
+    },
+    {
+      "id": "2026-07-19-ga4-bigquery-analytics",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "GA4 × BigQuery で、意思決定に効く計測基盤を作る",
+      "description": "GA4 単体では、サンプリング・保持期間・カーディナリティの実制約に突き当たります。BigQuery Export と Server-side tagging を最初から組み込む、Xiora の計測基盤設計を共有します。",
+      "url": "/insights/ga4-bigquery-analytics.html",
+      "insight_cat": "AI",
+      "author": "Xiora Engineering",
+      "build_cat": "Analytics Playbook"
     },
     {
       "id": "2026-07-19-kigen-5-problems",
