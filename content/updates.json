@@ -2,6 +2,30 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-restaurant-review-ai-5-caveats",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "飲食店の口コミ返信を AI で自動化する時に注意すべき 5 項目 (景表法・薬機法・顧客体験)",
+      "description": "Google レビュー / 食べログ / ぐるなびの口コミ返信を AI で自動化する飲食店・チェーン運営者向けに、景表法・薬機法・プライバシー・クレーム対応・トーン設計の 5 項目を整理します。",
+      "url": "/insights/restaurant-review-ai-5-caveats.html",
+      "insight_cat": "SMB",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Restaurant OS Playbook"
+    },
+    {
+      "id": "insight-reduce-churn-ai-3-patterns",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "解約率を下げる AI 導入 3 パターン (SaaS スタートアップ 実装例)",
+      "description": "SaaS の churn を抑えるための AI 活用 3 パターン (オンボ支援 / 兆候検知 / セルフサーブ) を、実装レベルで整理します。",
+      "url": "/insights/reduce-churn-ai-3-patterns.html",
+      "insight_cat": "Engineering",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "SaaS Churn Playbook"
+    },
+    {
       "id": "insight-nextjs-15-corporate-site-design",
       "date": "2026-07-19",
       "type": "insight",
