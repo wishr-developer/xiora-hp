@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>単独創業者が AI で 24/7 稼働の SaaS 会社を作る方法 — Xiora の実践事例 | Xiora Insights</title>
+<meta content="従業員ゼロの単独創業者が、AI 社員 12 名 + orchestrator + 憲法投入で 24/7 稼働の SaaS 会社を作る具体的な手順を、Xiora の実装から公開します。" name="description"/>
+<link href="https://xiora-official.com/insights/ai-saas-solo-founder.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/ai-saas-solo-founder.html" property="og:url"/>
+<meta content="単独創業者が AI で 24/7 稼働の SaaS 会社を作る方法 — Xiora の実践事例 | Xiora" property="og:title"/>
+<meta content="従業員ゼロの単独創業者が、AI 社員 12 名 + orchestrator + 憲法投入で 24/7 稼働の SaaS 会社を作る具体的な手順を、Xiora の実装から公開します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="単独創業者が AI で 24/7 稼働の SaaS 会社を作る方法 — Xiora の実践事例 | Xiora" name="twitter:title"/>
+<meta content="従業員ゼロの単独創業者が、AI 社員 12 名 + orchestrator + 憲法投入で 24/7 稼働の SaaS 会社を作る具体的な手順を、Xiora の実装から公開します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "単独創業者が AI で 24/7 稼働の SaaS 会社を作る方法 — Xiora の実践事例",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "従業員ゼロの単独創業者が、AI 社員 12 名 + orchestrator + 憲法投入で 24/7 稼働の SaaS 会社を作る具体的な手順を、Xiora の実装から公開します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-18",
+  "mainEntityOfPage": "https://xiora-official.com/insights/ai-saas-solo-founder.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Kutsuzawa Reo)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">単独創業者が AI で 24/7 稼働の SaaS 会社を作る方法 — Xiora の実践事例</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Practice</span>
+<time datetime="2026-07-18">2026.07.18</time>
+</div>
+<h1 class="insight-title">単独創業者が AI で 24/7 稼働の SaaS 会社を作る方法 — Xiora の実践事例</h1>
+<p class="insight-lead">従業員ゼロの単独創業者が、AI 社員 12 名 + orchestrator + 憲法投入で 24/7 稼働の SaaS 会社を作る具体的な手順を、Xiora の実装から公開します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2 id="この記事は何か">この記事は何か</h2>
+<p>「一人で、追加雇用なしで、追加課金なしで、SaaS 会社を回せるのか？」</p>
+<p>この問いを、私 (Xiora 代表 沓澤 怜士) が実装して 6 ヶ月、実際に動かしている構成をそのまま公開します。</p>
+<p>Xiora は 2026 年 1 月に単独で立ち上げた SaaS スタートアップです。従業員は私一人。契約社員も業務委託もいません。それでも、以下のプロダクトが 24 時間動いています。</p>
+<ul class="article-list">
+<li><strong>XCloud Connect</strong> — 飲食店向け QR モバイルオーダー (Live 稼働)</li>
+<li><strong>XCloud Flow</strong> — スクール向け予約 SaaS (Live 稼働)</li>
+<li><strong>Aiverse Studio</strong> — AI 配信 SaaS (M1a waitlist 受付中、料金 ¥2,980 から)</li>
+<li><strong>Gourmie</strong> — 飲食コンシェルジュ (β 運用中)</li>
+<li><strong>PSOS (Public Support OS)</strong> — 中小企業向け補助金・助成金コンシェルジュ (企画検証フェーズ)</li>
+</ul>
+<p>「一人でこれだけのプロダクトを回すのは無理では？」と、10 回聞かれました。実際、無理です。私が全部やるなら。</p>
+<p>答えは「私は 20% しかやらない、残り 80% は AI に任せる」でした。この記事では、その構成を包み隠さず書きます。</p>
+<p><strong>免責</strong>: 本記事は情報提供を目的としており、事業の成功や収益を保証するものではありません。実装や運用の判断はご自身の状況に応じて行ってください。</p>
+<h2 id="ai-社員-12-名の実体">1. 「AI 社員 12 名」の実体</h2>
+<p>まず結論から。Xiora には 12 人の AI 社員がいます。これは比喩ではなく、実装として <code>registry/organization/ai-employees.yaml</code> という一つの YAML ファイルに、各 AI 社員の役割・権限・所属レイヤーが記録されています。</p>
+<p>12 名の内訳は以下の通りです (実際の名簿から)。</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Role</th>
+<th>主な仕事</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>CEO AI</td>
+<td>Reo の proxy、escalation の集約と format 化</td>
+</tr>
+<tr>
+<td>2</td>
+<td>CTO AI</td>
+<td>技術方針、コードレビューの一次判定</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Product AI</td>
+<td>プロダクト仕様のドキュメント化と gap 検出</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Sales AI</td>
+<td>見込み顧客への follow-up proposal 生成</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Support AI</td>
+<td>既存顧客への問い合わせ返信 draft</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Marketing AI</td>
+<td>LP コピー生成、SEO 記事 draft</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Legal AI</td>
+<td>規約・特商法・プラポリの draft 更新監視</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Finance AI</td>
+<td>月次の売上・コスト集計 draft</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Ops AI</td>
+<td>インフラ監視、障害検知の一次通知</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Data AI</td>
+<td>KPI dashboard の draft 更新</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Writer AI</td>
+<td>PR・blog draft (本記事も Writer AI + 私が最終編集)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>QA AI</td>
+<td>全 draft の憲法遵守 regex 検証</td>
+</tr>
+</tbody>
+</table>
+<p>重要なのは、この 12 名は「独立した Claude Code agent」として構成されていて、共通の憲法 (<code>docs/PROJECT_GUIDELINES.md</code>) を参照する点です。</p>
+<p>「AI エージェント」というと自律的に暴走する印象を持たれがちですが、Xiora の AI 社員は「Reo の 1 タップ承認なしで課金・削除・契約は実行できない」という永続 human gate に縛られています。この 5 つの gate (billing / delete / permission / contract / KYC) だけが Reo 承認必須で、それ以外はすべて AI 社員が自律実行できます。</p>
+<h2 id="層アーキテクチャで役割を切る">2. 4 層アーキテクチャで役割を切る</h2>
+<p>12 人の AI 社員をどう組織化するか。Xiora では 4 層に分けています。</p>
+<h3 id="layer-1-xai-brain-247-runtime">Layer 1: XAI Brain (24/7 runtime)</h3>
+<p>24 時間動いている「脳幹」。cron / launchd で常駐し、8 stage の business cycle (課題発見 → 分析 → 提案 draft → Reo 承認待ち → 実装 → 検証 → 展開 → 再投資) を回します。</p>
+<h3 id="layer-2-claude-management-hq-12-能動型-ai-社員">Layer 2: Claude Management HQ (12 能動型 AI 社員)</h3>
+<p>上記の 12 名。各 AI 社員は自分の担当領域を持ち、Brain からの task queue を消化します。</p>
+<h3 id="layer-3-xiora-platform-共通基盤">Layer 3: Xiora Platform (共通基盤)</h3>
+<p>Contact API、認証、決済 (Stripe)、監視、VPN。全プロダクトが共通で使う基盤。</p>
+<h3 id="layer-4-xiora-services-実プロダクト">Layer 4: Xiora Services (実プロダクト)</h3>
+<p>XCloud Connect / Flow / Studio、Aiverse Studio、Gourmie、PSOS、Xiora HP。ユーザーが直接触るもの。</p>
+<p>この 4 層の分離が効いていて、たとえば「Aiverse Studio の M1a を立ち上げる」というタスクは Layer 4 のプロダクトチームで完結し、Layer 3 の Stripe や Contact API を書き換える必要はありません。</p>
+<p>もし単独創業で複数プロダクトを回すなら、この「共通基盤の独立性」を最初に固めることを強くおすすめします。私はここに 3 ヶ月かけました。</p>
+<h2 id="zero-spend-policy-収益化まで追加課金ゼロ">3. Zero-spend policy — 収益化まで追加課金ゼロ</h2>
+<p>もう一つ、Xiora の運用ルールで大きいのが「収益化まで追加課金ゼロ」です。</p>
+<p>具体的には:
+- <strong>新 domain 購入禁止</strong> (ConoHa の subdomain を使う。<code>xiora-official.com</code> に集約)
+- <strong>SaaS は Free tier で開始</strong> (Vercel Hobby, Supabase Free, Cloudflare Free)
+- <strong>LLM は Ollama L1_LOCAL 優先</strong> (Claude API は必要な時だけ、コスト超過が見えたら Ollama に fallback)
+- <strong>弁護士 spot は Stage 2 flip 直前まで先送り</strong> (Aiverse Studio の billing live 前だけ ¥30-50k で 1 回)</p>
+<p>この方針で、Xiora の月次固定費は現時点で 3,000 円台です (ConoHa VPS + ドメイン更新分担のみ)。売上が立ってから固定費を積み上げる、という順番を厳密に守っています。</p>
+<p>「単独創業でお金が続かない」と言われる最大の理由は、「使ってから稼ぐ」順番になっていることです。私も過去に何度もやりました。Xiora では「稼いでから使う」を鉄則にしました。</p>
+<h2 id="実運用-247-に耐える具体的な仕組み">4. 実運用 24/7 に耐える具体的な仕組み</h2>
+<p>「24/7 稼働」と言うのは簡単ですが、実際に耐えるには具体的な仕組みが要ります。</p>
+<h3 id="brain-runtime-8-stage-cycle">4-1. Brain runtime + 8 stage cycle</h3>
+<p>Xiora の頭脳部分は <code>brain/</code> 配下の runtime で、以下の 8 stage を回します。</p>
+<ol type="1">
+<li><strong>課題発見</strong> — 監視データ (Sentry / uptime / KPI dashboard) から異常検知</li>
+<li><strong>分析</strong> — 該当プロダクトのログ / メトリクスを取得、根本原因を推定</li>
+<li><strong>提案 draft</strong> — 修正案を Reo の承認待ち queue に投入</li>
+<li><strong>Reo 承認</strong> — /approvals タップ (permanent human gate)</li>
+<li><strong>実装</strong> — 承認された修正を自動実行 (git commit / deploy)</li>
+<li><strong>検証</strong> — 修正後の指標を再取得、悪化していれば rollback 提案</li>
+<li><strong>展開</strong> — 他プロダクトへの横展開判断</li>
+<li><strong>再投資</strong> — 得られた知見を憲法 / runbook に反映</li>
+</ol>
+<p>この 8 stage が延々と回ることで、私が寝ている間にも改善が積み上がる状態を作っています。</p>
+<h3 id="reo-brief.sh-起きた瞬間の状況把握">4-2. reo-brief.sh — 起きた瞬間の状況把握</h3>
+<p>私が朝起きて最初にやるのは、<code>bash brain/scripts/reo-brief.sh</code> の実行です。これで:
+- 前日の課題発見件数
+- Reo 承認待ちの proposal 数
+- 24h のインシデント履歴
+- 収益指標の変動 (Stripe API 経由)</p>
+<p>が 1 画面で見えます。5 分で状況把握が終わり、承認判断を 5-10 個タップして、残りの 23 時間 55 分は AI に任せる、というのが基本の一日です。</p>
+<h2 id="個別プロダクトの実例-aiverse-studio-m1a-と-xcloud-connect-live">5. 個別プロダクトの実例 — Aiverse Studio M1a と XCloud Connect Live</h2>
+<p>「本当に AI だけで回せるのか」を、実プロダクトで見てみます。</p>
+<h3 id="aiverse-studio-m1a-ai-配信-saas">Aiverse Studio M1a — AI 配信 SaaS</h3>
+<p>Aiverse Studio は、AI ライバーが配信するプラットフォームです。2026 年 7 月時点で <strong>M1a (ウェイトリスト受付フェーズ)</strong> にあります。料金 tier は既に確定していて (<code>src/lib/pricing.ts</code> に実装済):</p>
+<ul class="article-list">
+<li>Free: ¥0</li>
+<li>Creator: ¥2,980/月 + 従量 ¥200/h (上限 ¥3,000)</li>
+<li>Pro: ¥9,800/月 + 従量 ¥150/h (上限 ¥10,000)</li>
+<li>Business: ¥49,800/月〜</li>
+</ul>
+<p>現状、<code>AIVERSE_BILLING_LIVE=false</code> で default-deny 設定。/pricing 上は「ウェイトリスト受付中」バナー表示に置換 (<code>plan-checkout-button.tsx</code>)。</p>
+<p>M1b (Stripe live flip) には以下のゲートがあります。
+1. 弁護士 spot review 完了 (利用規約 / プラポリ / 特商法)
+2. 特商法表記に実事業者情報
+3. Stripe live 審査通過
+4. <code>STRIPE_PRICE_STUDIO_{CREATOR,PRO,BUSINESS}</code> を live mode で発行
+5. <code>AIVERSE_BILLING_LIVE=true</code> に flip
+6. テストカードで課金→解約検証</p>
+<p>このゲートは代理人 AI が全て準備済みで、Reo 実行分は「弁護士 spot 予約 + Stripe live 提出 + env flip」のみ。<strong>AI 側で完結できる作業は AI 側で 100% 完了する</strong>、という切り分けを厳格にしています。</p>
+<p><strong>→ M1a waitlist に興味のある方は https://aiverse.xiora-official.com/pricing からご登録ください。M1b 稼働時に優先ご案内します。</strong></p>
+<h3 id="xcloud-connect-live-飲食店-qr-モバイルオーダー">XCloud Connect Live — 飲食店 QR モバイルオーダー</h3>
+<p>XCloud Connect (https://connect.xiora-official.com/) は既に Live 稼働。Stripe セルフサーブが有効で、14 日 trial → 月額 + Stripe 手数料 3.6% で運用中。</p>
+<p>導入時間は <strong>5 分</strong>。QR コードを卓上に貼り、店主のスマホでダッシュボードを開くだけです。実装済み機能:</p>
+<ul class="article-list">
+<li>卓上 QR → PWA でメニュー閲覧・注文</li>
+<li>店舗ダッシュボードでオーダー管理</li>
+<li>Stripe 決済連携 (前会計 / 後会計 両対応)</li>
+<li>多言語 (日本語 / 英語)</li>
+</ul>
+<p>現在、越谷・草加エリアの飲食店向けに 5 分導入デモを実施しています。</p>
+<p><strong>→ XCloud Connect のお試し・導入相談は https://connect.xiora-official.com/ からどうぞ。</strong></p>
+<h2 id="うまくいっていないことも書く">6. 「うまくいっていないこと」も書く</h2>
+<p>正直に書きます。Xiora も全部うまくいっているわけではありません。</p>
+<ul class="article-list">
+<li><strong>ROOM</strong> (旧プロダクト): 放置運用モデルは storage_state Cookie 期限切れ + BAN リスクで破綻、2026-07-15 に完全撤退しました。「何もしなくても収益化」は無理でした。</li>
+<li><strong>PSOS</strong> (補助金 SaaS): Phase 0-10 (企画検証) 段階。行政書士法適合の設計を弁護士に確認してもらうまでコード実装は着手しません (<code>services/systems/PSOS/CLAUDE.md</code> に明記)。</li>
+<li><strong>TradeOS</strong> (投資情報): 現状は個人 tool として使用中、金融商品取引法の投資助言業に該当しない設計。収益化はしません。</li>
+</ul>
+<p><strong>免責</strong>: TradeOS を含む投資関連の記述は、金融商品取引法上の投資助言・代理業には該当しません。投資判断はご自身の責任で行ってください。</p>
+<p>うまくいかなかったプロダクトを撤退させ、うまくいく可能性が見えたものに集中する。これも AI 社員に任せています。Data AI が「このプロダクトはどの指標も改善しない」と判定した時、CEO AI が撤退 proposal を Reo に上げる、という流れです。</p>
+<h2 id="単独創業で-ai-247-会社を作る手順-要約">7. 単独創業で AI 24/7 会社を作る手順 (要約)</h2>
+<p>もし今日から同じことを始めるなら、私は以下の順で作ります。</p>
+<ol type="1">
+<li><strong>憲法を最初に書く</strong> — <code>PROJECT_GUIDELINES.md</code> に「何をしない」を明記。誇大広告禁止、投資助言禁止、代行禁止など。</li>
+<li><strong>4 層に分ける</strong> — Brain / AI 社員 / Platform / Services。それぞれ独立して差し替え可能に。</li>
+<li><strong>Zero-spend policy</strong> — 売上が立つまで固定費を積まない。Free tier をフル活用。</li>
+<li><strong>1 プロダクトで先に売上を作る</strong> — 私の場合は XCloud Connect と Flow。他プロダクトは並行 R&amp;D。</li>
+<li><strong>8 stage cycle を Brain に実装</strong> — 課題発見 → 分析 → 提案 → 承認 → 実装 → 検証 → 展開 → 再投資。</li>
+<li><strong>人間 gate を 5 個に絞る</strong> — billing / delete / permission / contract / KYC のみ。それ以外は AI 自律。</li>
+<li><strong>1 日 15 分の Reo 承認セッションを固定化</strong> — reo-brief.sh + /approvals タップ + escalation 判断。</li>
+</ol>
+<p>この 7 step で、私は 6 ヶ月で 5 プロダクト同時運用まで来ました。</p>
+<h2 id="次の一手">8. 次の一手</h2>
+<p>Xiora のプロダクトは、以下から触れます。</p>
+<ul class="article-list">
+<li><strong>Aiverse Studio (M1a waitlist)</strong> — https://aiverse.xiora-official.com/pricing</li>
+<li><strong>XCloud Connect (Live)</strong> — https://connect.xiora-official.com/</li>
+<li><strong>XCloud Flow (Live)</strong> — https://flow.xiora-official.com/</li>
+<li><strong>Xiora コーポレートサイト</strong> — https://xiora-official.com/</li>
+</ul>
+<p>受託開発のご依頼、AI 導入コンサルのお問い合わせは info@xiora-official.com までお願いします。</p>
+<p>Xiora の中の話をもっと知りたい方は、note のフォロー + Xiora HP の insights ブログ (https://xiora-official.com/insights/) も見てみてください。単独創業で AI を本気で使い倒す事例を、これからも公開していきます。</p>
+<p><strong>筆者</strong>: Xiora 代表 沓澤 怜士 (kutsuzawa reo)
+<strong>連絡</strong>: info@xiora-official.com
+<strong>免責</strong>: 本記事は情報提供を目的としており、事業の成功や収益を保証するものではありません。実装や運用の判断はご自身の状況に応じて行ってください。TradeOS を含む投資関連の記述は、金融商品取引法上の投資助言・代理業には該当しません。</p>
+<p>#AI #SaaS #単独創業 #生成AI #スタートアップ #自動化 #Xiora</p>
+<hr/>
+<h2>お問い合わせ / 無料相談</h2>
+<p>本記事の内容や、貴社の AI 導入・DX についてのご相談は、以下からお気軽にご連絡ください (¥0、初回相談は 30 分無料)。</p>
+<ul class="article-list">
+<li>フォーム: <a href="/contact.html?type=ai-dx&amp;src=insight-ai-saas-solo-founder">/contact.html</a></li>
+<li>メール: <a href="mailto:info@xiora-official.com?subject=[ai-saas-solo-founder] 相談">info@xiora-official.com</a></li>
+</ul>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
