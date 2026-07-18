@@ -2,6 +2,18 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-ai-agent-task-selection-4-axes",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "AI エージェントに何をやらせるかを決める 4 軸判断 framework (時間・可逆性・失敗コスト・データ整備度)",
+      "description": "生成 AI エージェントに任せる業務を選ぶための 4 軸 (時間 / 可逆性 / 失敗コスト / データ整備度) を判断 matrix で整理、Xiora の実装事例を交えて解説します。",
+      "url": "/insights/ai-agent-task-selection-4-axes.html",
+      "insight_cat": "Business",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Agent Design Playbook"
+    },
+    {
       "id": "insight-restaurant-review-ai-5-caveats",
       "date": "2026-07-19",
       "type": "insight",
