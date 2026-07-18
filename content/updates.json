@@ -2,6 +2,18 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "2026-07-19-kigen-5-problems",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "AI 期限管理アプリ Kigen が解決する 5 つの生活課題 — 免許・保証・サブスク・薬・車検",
+      "description": "免許の更新忘れ、サブスクの解約忘れ、薬の期限切れ、車検、家族の重要書類。暮らしにある期限は無数にありますが、そのほとんどが「うっかり」で失われます。iOS アプリ Kigen が OCR + AI で解決する 5 課題を、具体的な使い方とともに整理します。",
+      "url": "/insights/kigen-5-problems.html",
+      "insight_cat": "SMB",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Kigen Playbook"
+    },
+    {
       "id": "2026-07-16-gourmie-beta-learnings",
       "date": "2026-07-16",
       "type": "insight",
