@@ -138,6 +138,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://xiora-official.com/insights/nextjs-15-corporate-site-design.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/ai-implementation-architecture.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>

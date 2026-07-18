@@ -2,6 +2,18 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-nextjs-15-corporate-site-design",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "Next.js 15 時代の、コーポレートサイト設計指針",
+      "description": "Next.js 15 で変わった async APIs / Turbopack / caching デフォルトを、コーポレートサイトの要件 (SEO / 更新頻度 / 静的 vs 動的) から整理。Xiora HP の実装判断もあわせて公開。",
+      "url": "/insights/nextjs-15-corporate-site-design.html",
+      "insight_cat": "Engineering",
+      "author": "Xiora Engineering",
+      "build_cat": "Engineering Notes"
+    },
+    {
       "id": "insight-api-integration-design",
       "date": "2026-07-19",
       "type": "insight",
