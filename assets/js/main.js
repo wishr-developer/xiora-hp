@@ -300,9 +300,10 @@
   }
 
   /* ---------- Marquee (auto-flowing horizontal cards) ---------- */
+  // 除外: .workflow (01→05 sequential 順序が重要、loop 化で「05 Drive」が先に見えて混乱)
   const MARQUEE_SELECTOR = [
     '.tech-wall', '.trust-cells', '.prod-sub-grid',
-    '.cases', '.cases-grid', '.service-list', '.workflow',
+    '.cases', '.cases-grid', '.service-list',
     '.issues-list', '.plans', '.pricing-cards', '.learn-list',
     '.trust-grid', '.stack-grid', '.who-grid', '.dept-grid', '.cap-grid'
   ].join(',');
