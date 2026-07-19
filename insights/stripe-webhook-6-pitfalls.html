@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Stripe webhook を本番運用する時に踏むべき 6 つの落とし穴 — 冪等性・署名検証・タイムアウト・再送・重複・失敗記録 | Xiora Insights</title>
+<meta content="Stripe webhook を動くところまで実装するのは 30 分ですが、本番運用 6 ヶ月で受ける再送や失敗はまた別の設計が要ります。 冪等性・署名検証・5 秒タイムアウト・再送耐性・重複キー選定・失敗 audit の 6 落とし穴を、Xiora の billing-core-service (FastAPI) 実装事例を根拠に整理します。" name="description"/>
+<link href="https://xiora-official.com/insights/stripe-webhook-6-pitfalls.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/stripe-webhook-6-pitfalls.html" property="og:url"/>
+<meta content="Stripe webhook を本番運用する時に踏むべき 6 つの落とし穴 — 冪等性・署名検証・タイムアウト・再送・重複・失敗記録 | Xiora" property="og:title"/>
+<meta content="Stripe webhook を動くところまで実装するのは 30 分ですが、本番運用 6 ヶ月で受ける再送や失敗はまた別の設計が要ります。 冪等性・署名検証・5 秒タイムアウト・再送耐性・重複キー選定・失敗 audit の 6 落とし穴を、Xiora の billing-core-service (FastAPI) 実装事例を根拠に整理します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Stripe webhook を本番運用する時に踏むべき 6 つの落とし穴 — 冪等性・署名検証・タイムアウト・再送・重複・失敗記録 | Xiora" name="twitter:title"/>
+<meta content="Stripe webhook を動くところまで実装するのは 30 分ですが、本番運用 6 ヶ月で受ける再送や失敗はまた別の設計が要ります。 冪等性・署名検証・5 秒タイムアウト・再送耐性・重複キー選定・失敗 audit の 6 落とし穴を、Xiora の billing-core-service (FastAPI) 実装事例を根拠に整理します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stripe webhook を本番運用する時に踏むべき 6 つの落とし穴 — 冪等性・署名検証・タイムアウト・再送・重複・失敗記録",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "Stripe webhook を動くところまで実装するのは 30 分ですが、本番運用 6 ヶ月で受ける再送や失敗はまた別の設計が要ります。 冪等性・署名検証・5 秒タイムアウト・再送耐性・重複キー選定・失敗 audit の 6 落とし穴を、Xiora の billing-core-service (FastAPI) 実装事例を根拠に整理します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-19",
+  "mainEntityOfPage": "https://xiora-official.com/insights/stripe-webhook-6-pitfalls.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Kutsuzawa Reo)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<script defer="" src="../assets/js/main.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Stripe webhook を本番運用する時に踏むべき 6 つの落とし穴 — 冪等性・署名検証・タイムアウト・再送・重複・失敗記録</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Engineering</span>
+<time datetime="2026-07-19">2026.07.19</time>
+</div>
+<h1 class="insight-title">Stripe webhook を本番運用する時に踏むべき 6 つの落とし穴 — 冪等性・署名検証・タイムアウト・再送・重複・失敗記録</h1>
+<p class="insight-lead">Stripe webhook を動くところまで実装するのは 30 分ですが、本番運用 6 ヶ月で受ける再送や失敗はまた別の設計が要ります。 冪等性・署名検証・5 秒タイムアウト・再送耐性・重複キー選定・失敗 audit の 6 落とし穴を、Xiora の billing-core-service (FastAPI) 実装事例を根拠に整理します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<p>Stripe webhook を「動く」ところまで実装する時間は、ドキュメントを見ながらで 30 分程度です。 Stripe CLI の <code>stripe listen --forward-to localhost:3000/webhook</code> を起動し、<code>checkout.session.completed</code> を受けて 200 を返す関数を書けば、開発環境の確認までは到達できます。 一方、本番運用 6 ヶ月では、失敗した event が最大 3 日間・複数回リトライされる旨が Stripe 公式に明記されており (<a href="https://docs.stripe.com/webhooks">Stripe Docs — Best practices for using webhooks</a>)、無視できない量の再送が現実に発生します。 落とし穴は先に潰したほうが安く済みます。 本稿は Xiora の billing-core-service (FastAPI, port 3025、<code>services/shared/billing-core-service/app/main.py</code>) を実装した際に整理した 6 落とし穴を、実装レベルで振り返る形で共有します。</p>
+<h2 id="落とし穴-1-冪等性-idempotency-は-event.id-unique-で担保する">落とし穴 1: 冪等性 (idempotency) は event.id UNIQUE で担保する</h2>
+<p>Stripe webhook は、ネットワーク障害・受信側タイムアウト・5xx 応答などを契機に同じ event を複数回送ってきます。 これに対して DB を毎回書き換えると、決済 1 回に対して subscription が 2 回 activate する / invoice が 2 回発行される、といった不整合が起こります。 対策は、Stripe が発行する <code>event.id</code> (例: <code>evt_1P...</code>) を DB カラムの UNIQUE 制約で守り、INSERT-or-skip pattern で書くことです。 Xiora の billing-core-service では <code>BillingEvent.event_id</code> を UNIQUE にし、webhook ハンドラで最初に INSERT を試み、<code>IntegrityError</code> を捕まえた場合は 200 で <code>duplicate=true</code> を返すだけにしています。 SELECT で存在確認 → INSERT に切り替えると、2 プロセス同時受信のレースで UNIQUE 違反を潰しきれないため、順序として INSERT を先に置くのがポイントです。</p>
+<h2 id="落とし穴-2-署名検証は-sdk-の-constructevent-系関数を通す">落とし穴 2: 署名検証は SDK の constructEvent 系関数を通す</h2>
+<p>Stripe webhook エンドポイントは公開 URL のため、第三者からもリクエストが届きます。 「payload の中身に customer_id が含まれていれば信じる」実装は、payload を偽造されれば被害に直結します。 Stripe は各 event のリクエストヘッダに <code>Stripe-Signature</code> を付けており、受信側は endpoint secret (<code>whsec_...</code>) と HMAC 突合で「Stripe が発行した payload か」を検証できます (<a href="https://docs.stripe.com/webhooks/signature">Stripe Docs — Verify webhook signatures</a>)。 実装は、Python なら <code>stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)</code>、Node.js なら <code>stripe.webhooks.constructEvent(...)</code> を通すのが基本形です。 endpoint secret はコードに埋めず環境変数 (Vault / <code>.env</code>) に置き、test / live で別 secret を用意すると、テスト payload の混入も見分けられます。 Xiora では未設定時は 503 で fail-secure に落とし、「動くけど検証していない」状態を作らない設計にしています。</p>
+<h2 id="落とし穴-3-5-秒タイムアウトを前提に重処理は-queue-に押し出す">落とし穴 3: 5 秒タイムアウトを前提に、重処理は queue に押し出す</h2>
+<p>Stripe 公式は、webhook に対してタイムリーに 2xx を返すことを求めており、応答が遅い / 失敗するとリトライ対象になります (<a href="https://docs.stripe.com/webhooks#quick-start">Stripe Docs — Handle webhook events</a>)。 現場では 5 秒以内に 200 を返す設計にしておくと、ネットワーク揺らぎ込みで収まります。 webhook ハンドラの中で Clerk のユーザーメタデータ更新・welcome メール送信・Slack 通知・BigQuery 書き込みまで同期でやると、外部 API が 1 つ詰まった瞬間に 5 秒を超え、Stripe がリトライを始め、多重処理のリスクが積み上がります。 対策は、webhook 側は「署名検証 + event の DB 記録 + state の UPSERT」までに絞り、重処理は別 consumer (Celery / RQ / background worker / SQS など) に押し出すことです。 Xiora の billing-core-service も同じ設計で、Nexa の Clerk メタデータ更新や Gourmie の plan flip は別 PR の consumer 側で拾う責務分割にしています。</p>
+<h2 id="落とし穴-4-再送への耐性は同じ-event-を-2-回処理しても壊れないを-test-で押さえる">落とし穴 4: 再送への耐性は「同じ event を 2 回処理しても壊れない」を test で押さえる</h2>
+<p>Stripe は webhook の失敗を最大 3 日間リトライする旨を明記しています (<a href="https://docs.stripe.com/webhooks#retry-logic">Stripe Docs — Webhook retry logic</a>)。 これは「1 回目の処理で DB を半分だけ書き換えた」「2 回目で残りを書き換えようとした」というパターンが現実に起きうるということです。 対策は 2 段構えで、(a) webhook ハンドラを transactional に書く (dispatch 中に例外が出たら rollback → error 列付きで最小 row を書き残す)、(b) 「同じ payload を 2 回渡しても状態が変わらない」ことを pytest で assert する、の 2 つです。 Xiora の billing-core-service では <code>tests/test_webhook_endpoint.py</code> で同じ event を 2 回 POST し、2 回目のレスポンスに <code>duplicate=true</code> が含まれることと DB の row 数が 1 のままであることを検証しています。</p>
+<h2 id="落とし穴-5-重複防止のキーに-checkout-session-id-payment-intent-id-を使わない">落とし穴 5: 重複防止のキーに checkout session id / payment intent id を使わない</h2>
+<p>冪等性のキー選定でよくある失敗が、「checkout session id」「payment intent id」「subscription id」を dedup key に使ってしまうパターンです。 これらは同じ 1 つのオブジェクトに対して Stripe が複数の event (例: <code>checkout.session.completed</code>, <code>payment_intent.succeeded</code>, <code>invoice.paid</code>) を独立に送るため、同じキーで dedup すると関連する別 event までまとめて捨ててしまいます。 Stripe が webhook 冪等性は <code>event.id</code> を使うよう案内している通り (<a href="https://docs.stripe.com/webhooks#best-practices">Stripe Docs — Webhooks best practices</a>)、dedup key は <code>event.id</code> 一択にするのが安全です。 Xiora では、<code>BillingEvent.event_id</code> が UNIQUE、<code>SubscriptionState</code> は customer × product の複合 unique + <code>last_event_id</code> で「どの event で最後に上書きしたか」を追跡する構造に分けています。</p>
+<h2 id="落とし穴-6-失敗した-event-の-payload-error-timestamp-を-audit-として残す">落とし穴 6: 失敗した event の payload + error + timestamp を audit として残す</h2>
+<p>理想的な webhook 処理は「常に成功する」ですが、現実には downstream の DB deadlock、外部 API 障害、想定外の event 型、API version bump など、失敗理由は尽きません。 ここで多いのが「500 を返せば Stripe が再送してくれるから log だけ残そう」という判断ですが、この設計は 3 日後に消えます (Stripe が retry を諦めた瞬間、我々側にも何も残りません)。 対策は、失敗した event についても payload と error 文字列と timestamp を DB に残し、Stripe Dashboard 側の Events view と cross-reference で「Stripe 側は成功、我々側では副作用が反映されていない」不整合を検知できる状態を作ることです。 Xiora の billing-core-service では、dispatch 失敗時にも <code>BillingEvent</code> を error 列付きで INSERT し、<code>/events</code> audit endpoint (Basic auth) から検索できるようにしています。</p>
+<h2 id="xiora-実装のケース-6-落とし穴を-pytest-で押さえる">Xiora 実装のケース: 6 落とし穴を pytest で押さえる</h2>
+<p>Xiora の billing-core-service (<code>services/shared/billing-core-service/</code>) は、上記 6 落とし穴を test で拾う構成にしています。 <code>tests/test_webhook_endpoint.py</code> と <code>tests/test_subscription_state.py</code> に、署名不正 400 / secret 未設定 503 / duplicate event の idempotent 200 / dispatch 失敗時の audit row 作成 / status 遷移 (active → past_due → canceled) の各パスを分けて記述し、pytest で 35+ ケースが通ります。 実装本体は薄い FastAPI サーバ (app/main.py 181 行) に留め、Stripe SDK は既存 billing-core library (<code>services/shared/billing-core/</code>) 経由でしか触らない責務分割で、library 変更が service に不必要に波及しない設計を取っています。</p>
+<h2 id="お問い合わせ-30-分無料相談">お問い合わせ / 30 分無料相談</h2>
+<p>Xiora の Stripe 実装事例 (billing-core-service のコード構成、pytest cover 範囲、5 秒 SLA 設計) を、貴社の SaaS 課金要件に当てはめる形で 30 分お話しします。 SaaS スタートアップの本番前 review、または既存 webhook 実装のセルフレビュー観点として活用ください。</p>
+<hr/>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">この記事の内容を、貴社に当てはめて 30 分で整理します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">本記事のアプローチを貴社の状況で使えるか、代表 沓澤が 1 対 1 で棚卸しします。 所要 30 分・オンライン・費用 ¥0。 商談化しない相談も歓迎します。</p>
+<ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:row;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:#4b5563;">
+<li style="padding-left:0;position:static;">✓ 24 時間以内に返信</li>
+<li style="padding-left:0;position:static;">✓ NDA 対応可</li>
+<li style="padding-left:0;position:static;">✓ 営業メール一切なし</li>
+<li style="padding-left:0;position:static;">✓ 小規模な相談も歓迎</li>
+</ul>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-stripe-webhook-6-pitfalls" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[stripe-webhook-6-pitfalls] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
