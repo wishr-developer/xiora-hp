@@ -230,6 +230,20 @@ def render_sitemap_news(updates: dict) -> str:
     return "\n".join(parts)
 
 
+def render_sitemap_insights(updates: dict) -> str:
+    items = [i for i in updates["items"] if i["type"] == "insight"]
+    items = sort_by_date_desc(items)
+    parts: list[str] = []
+    for it in items:
+        url = "https://xiora-official.com" + it["url"]
+        parts.append("  <url>")
+        parts.append(f"    <loc>{url}</loc>")
+        parts.append("    <changefreq>monthly</changefreq>")
+        parts.append("    <priority>0.4</priority>")
+        parts.append("  </url>")
+    return "\n".join(parts)
+
+
 def render_sitemap_products(products_data: dict) -> str:
     parts: list[str] = []
     for p in products_data["products"]:
@@ -307,7 +321,8 @@ def main() -> int:
     sm = ROOT / "sitemap.xml"
     c1 = build_file(sm, "sitemap-news", render_sitemap_news(updates))
     c2 = build_file(sm, "sitemap-products", render_sitemap_products(products))
-    print(f"  {'✓' if (c1 or c2) else '·'} sitemap.xml                 news + products URL entries")
+    c3 = build_file(sm, "sitemap-insights", render_sitemap_insights(updates))
+    print(f"  {'✓' if (c1 or c2 or c3) else '·'} sitemap.xml                 news + insights + products URL entries")
 
     print("\n[xiora-build] done.")
     return 0
