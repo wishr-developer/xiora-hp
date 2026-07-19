@@ -116,9 +116,17 @@
 </ul>
 <p>新規業務は原則としてこの matrix にプロットしてから実装に進む、という運用にすると、後から「これ AI に任せるべきだったか」の議論が減ります。 matrix は四半期ごとに見直します — データ整備度は時間とともに変化し、象限 4 の業務が徐々に象限 3 へ、象限 2 が象限 1 へ移行していくのが健全な状態です。</p>
 <h2 id="xiora-のケース-4-軸をどう-handler-に落としているか">Xiora のケース — 4 軸をどう handler に落としているか</h2>
-<p>Xiora の 24/7 AI Brain は、この 4 軸を各 handler の permission 設計と escalation gate に反映しています。 例えば kakuyomu editor は「原稿の推敲」= 象限 1 に置いて single-shot 実行、Aiverse の SNS 投稿 handler は「下書き作成 + 承認待ち」= 象限 2、M4 の billing-core-service (Stripe webhook 受信 + 決済処理) は「不可逆 × 高失敗コスト」なので象限 4 相当扱いで、金額変更は永続的に人間 gate を必須にしています。 XAILegalChain (Track Z) の契約書 draft は象限 3、実際の契約締結は象限 4 と分離しています。 全体を貫く permission layer に「outgoing money / delete / KYC / 契約締結」の 4 カテゴリを permanent human gate として明示し、エージェントの判断で解除できない構造にしているのがポイントです。 この設計により、業務追加時に「どの象限に置くか」を最初に決めるだけで、gate の要件が自動で決まる状態にしています。</p>
+<p>Xiora の 24/7 AI Brain は、この 4 軸を各 handler の permission 設計と escalation gate に反映しています。 例えば content editor は「原稿の推敲」= 象限 1 に置いて single-shot 実行、Aiverse の SNS 投稿 handler は「下書き作成 + 承認待ち」= 象限 2、M4 の billing-core-service (Stripe webhook 受信 + 決済処理) は「不可逆 × 高失敗コスト」なので象限 4 相当扱いで、金額変更は永続的に人間 gate を必須にしています。 XAILegalChain (Track Z) の契約書 draft は象限 3、実際の契約締結は象限 4 と分離しています。 全体を貫く permission layer に「outgoing money / delete / KYC / 契約締結」の 4 カテゴリを permanent human gate として明示し、エージェントの判断で解除できない構造にしているのがポイントです。 この設計により、業務追加時に「どの象限に置くか」を最初に決めるだけで、gate の要件が自動で決まる状態にしています。</p>
 <h2 id="お問い合わせ-30-分-無料相談">お問い合わせ / 30 分 無料相談</h2>
 <p>自社の業務棚卸しを 4 軸で評価してみたい、または現在検討中の AI エージェント導入プロジェクトの象限判定を第三者視点で確認したい、という場合は 30 分 無料相談で承ります。 業種・業務内容をヒアリングし、matrix を一緒に作成して、優先度と gate 設計の素案までお渡しします。</p>
+<!-- product-cta-audit-2026-07-19 START -->
+<hr/>
+<h2 id="関連プロダクト">関連 Xiora プロダクト</h2>
+<p>本記事のトピックに直接関わる Xiora 自社プロダクトです。 いずれも公開情報、¥0 で概要確認できます。</p>
+<ul class="article-list">
+  <li class="article-list-item"><a href="/products/agent-factory.html"><strong>Agent Factory — AI エージェント構築 SaaS</strong></a> — 4 軸判定を組み込んだ task queue</li>
+</ul>
+<!-- product-cta-audit-2026-07-19 END -->
 <hr/>
 <h2>お問い合わせ / 無料相談</h2>
 <p>本記事の内容や、貴社の AI 導入・DX についてのご相談は、以下からお気軽にご連絡ください (¥0、初回相談は 30 分無料)。</p>
