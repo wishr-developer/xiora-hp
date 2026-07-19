@@ -2,6 +2,18 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "2026-07-19-stripe-webhook-6-pitfalls",
+      "date": "2026-07-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "Stripe webhook を本番運用する時に踏むべき 6 つの落とし穴 — 冪等性・署名検証・タイムアウト・再送・重複・失敗記録",
+      "description": "Stripe webhook を動くところまで実装するのは 30 分ですが、本番運用 6 ヶ月で受ける再送や失敗はまた別の設計が要ります。 冪等性・署名検証・5 秒タイムアウト・再送耐性・重複キー選定・失敗 audit の 6 落とし穴を、Xiora の billing-core-service (FastAPI) 実装事例を根拠に整理します。",
+      "url": "/insights/stripe-webhook-6-pitfalls.html",
+      "insight_cat": "Engineering",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "SaaS Billing Playbook"
+    },
+    {
       "id": "2026-07-19-subsidy-ai-draft-3-stages",
       "date": "2026-07-19",
       "type": "insight",
