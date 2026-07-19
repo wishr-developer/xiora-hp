@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>AI エージェントに何をやらせるかを決める 4 軸判断 framework — 時間・可逆性・失敗コスト・データ整備度 | Xiora Insights</title>
+<meta content="AI エージェント導入時に「どの業務を任せ、どれを人間に残すか」を機械的に判断する 4 軸 framework (時間・可逆性・失敗コスト・データ整備度) を、Xiora が 24/7 AI Brain の運用で得た知見から整理します。" name="description"/>
+<link href="https://xiora-official.com/insights/ai-agent-task-selection-4-axes.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/ai-agent-task-selection-4-axes.html" property="og:url"/>
+<meta content="AI エージェントに何をやらせるかを決める 4 軸判断 framework — 時間・可逆性・失敗コスト・データ整備度 | Xiora" property="og:title"/>
+<meta content="AI エージェント導入時に「どの業務を任せ、どれを人間に残すか」を機械的に判断する 4 軸 framework (時間・可逆性・失敗コスト・データ整備度) を、Xiora が 24/7 AI Brain の運用で得た知見から整理します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="AI エージェントに何をやらせるかを決める 4 軸判断 framework — 時間・可逆性・失敗コスト・データ整備度 | Xiora" name="twitter:title"/>
+<meta content="AI エージェント導入時に「どの業務を任せ、どれを人間に残すか」を機械的に判断する 4 軸 framework (時間・可逆性・失敗コスト・データ整備度) を、Xiora が 24/7 AI Brain の運用で得た知見から整理します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI エージェントに何をやらせるかを決める 4 軸判断 framework — 時間・可逆性・失敗コスト・データ整備度",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "AI エージェント導入時に「どの業務を任せ、どれを人間に残すか」を機械的に判断する 4 軸 framework (時間・可逆性・失敗コスト・データ整備度) を、Xiora が 24/7 AI Brain の運用で得た知見から整理します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-19",
+  "mainEntityOfPage": "https://xiora-official.com/insights/ai-agent-task-selection-4-axes.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Kutsuzawa Reo)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<script defer="" src="../assets/js/main.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">AI エージェントに何をやらせるかを決める 4 軸判断 framework — 時間・可逆性・失敗コスト・データ整備度</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Business</span>
+<time datetime="2026-07-19">2026.07.19</time>
+</div>
+<h1 class="insight-title">AI エージェントに何をやらせるかを決める 4 軸判断 framework — 時間・可逆性・失敗コスト・データ整備度</h1>
+<p class="insight-lead">AI エージェント導入時に「どの業務を任せ、どれを人間に残すか」を機械的に判断する 4 軸 framework (時間・可逆性・失敗コスト・データ整備度) を、Xiora が 24/7 AI Brain の運用で得た知見から整理します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<p>「AI エージェントを社内に入れよう」と決めた瞬間、次に発生する最も難しい問いは「どの業務を任せ、どの業務は人間に残すか」です。 生成 AI 導入で失敗する企業の多くは、この選定を勘や声の大きい人の意見で決めています。 その結果、任せてはいけない業務 (契約締結、顧客への公開謝罪、返金確定) を AI に渡してしまい、事故を起こす。 逆に任せてもよかった業務 (定型メール下書き、議事録要約、SQL 生成) を「不安だから」と全部人手に残して、ROI が出ない。 この選定は実は難しくなく、4 つの軸で機械的に判定できます。 本稿では、Xiora が 24/7 AI Brain と関連ハンドラを運用する中で標準化した 4 軸 framework を共有します。</p>
+<h2 id="軸-1-時間-その業務は毎日-毎週-月次-単発のどれか">軸 1: 時間 — その業務は「毎日 / 毎週 / 月次 / 単発」のどれか</h2>
+<p>自動化 ROI の分母は「頻度」です。 毎日 20 回発生する業務を 30% 短縮するのと、年 1 回発生する業務を 80% 短縮するのでは、投資回収期間が桁違いです。 Anthropic の agent design guidance でも、繰り返し発生する定型タスクこそエージェントの設計対象に選ぶべきと明記されています (<a href="https://www.anthropic.com/research/building-effective-agents">Anthropic — Building effective agents</a>)。</p>
+<p>実務的な threshold は次の通りです。 (1) 毎日発生・所要 10 分以上 → 即自動化候補、(2) 毎週発生・所要 30 分以上 → 自動化候補、(3) 月次・所要 2 時間以上 → 自動化ペイライン、(4) 単発・所要 1 日以下 → 人間実施、(5) 単発・所要 1 週間超 → AI 補助 (下書き) のみ。 「AI に頼るほどでもない毎日 5 分の業務」も、20 業務積み上がれば 1.5 時間/日になります。 業務棚卸しの粒度は、「メールを書く」ではなく「顧客からの見積依頼メールに一次返信する」レベルまで分解して評価します。 頻度が測れない業務は、まず 1 週間のログを取ることから始める方が安全です。</p>
+<h2 id="軸-2-可逆性-失敗した時に取り消せるか">軸 2: 可逆性 — 失敗した時に取り消せるか</h2>
+<p>エージェントに副作用のある action を渡す場合、原則として「失敗した時に元に戻せるか」を評価します。 DB への UPDATE は backup と transaction で復元可能、ファイル生成も削除して再生成できる。 一方、外部メール送信、Stripe 決済確定、公式 SNS 投稿、契約書電子署名は取り消し不能です。 a16z のエージェント設計解説でも、副作用の伴う action は「confirmation ゲート + 監査ログ」を挟むべきという整理がなされています (<a href="https://a16z.com/ai-agents-infrastructure/">a16z — The Rise of AI Agent Infrastructure</a>)。</p>
+<p>判定 rubric は 3 段階です。 (A) フル可逆 (local ファイル生成、下書き作成、SQL SELECT、内部 DB のシャドウ書き込み) → エージェント単独 OK。 (B) 条件付き可逆 (顧客向けメール下書き保存、社内 Slack 投稿、backup 前提の DB 書換) → 人間 approval を挟めば OK。 (C) 不可逆 (メール送信、決済確定、公開投稿、契約締結、KYC 提出) → 人間 gate を要件化、AI は下書きまで。 Xiora の運用では、この (C) を harness の permission layer で hard block する設計を採用しています。 「不可逆 action には人間の明示承認を要件化する」というルールを設定ファイルに書いておくと、エージェントの判断ミスによる暴走を構造的に抑制しやすくなります。</p>
+<h2 id="軸-3-失敗コスト-業務が失敗した時の総ダメージ">軸 3: 失敗コスト — 業務が失敗した時の総ダメージ</h2>
+<p>同じ「メール返信」でも、社内議事録の共有と、顧客からのクレーム対応では失敗コストが 100 倍違います。 失敗コストは 3 種類に分解して評価します。 (1) 金銭損失 (返金・違約金・機会損失)、(2) 関係損失 (顧客離脱・取引先信頼失墜・従業員士気低下)、(3) 法的リスク (景表法・薬機法・個人情報保護法・下請法違反)。 Nielsen Norman Group の生成 AI UX 研究では、ユーザーは AI の「小さな失敗」より「重要な文脈での失敗」に対して不信を抱くと報告されています (<a href="https://www.nngroup.com/articles/generative-ui/">Nielsen Norman Group — Generative UI and Outcome-Oriented Design</a>)。</p>
+<p>実装上は各業務に「失敗コスト score (1-5)」を割り振り、score が 4 以上のものは自動送信 gate を設けます。 例えば、Xiora 側の運用では「顧客への謝罪メール」「返金の確定」「請求書送付」「契約書 draft の外部共有」を score 5、「社内議事録共有」「内部 dashboards 更新」を score 1-2 と扱っています。 score 3 (中間) の業務は「AI が生成 → 3 秒待機 → デフォルト送信、ただしオペレータが即座にキャンセル可能」という pattern で運用すると、速度と安全性のバランスが取りやすくなります。 失敗コストを可視化するだけで、「なぜこの業務は人間が最終承認するのか」を組織で合意しやすくなります。</p>
+<h2 id="軸-4-データ整備度-ai-が判断に使える-input-が揃っているか">軸 4: データ整備度 — AI が判断に使える input が揃っているか</h2>
+<p>エージェントの判断品質は入力データの品質で決まります。 判断根拠となる文書・履歴・マスタが structured で comprehensive に揃っていなければ、モデルは幻覚 (hallucination) で埋め合わせます。 Google DeepMind の Gemini 技術報告でも、モデル自体の性能を上回る要素として「retrieval と context の設計」が重要と繰り返し強調されています (<a href="https://deepmind.google/technologies/gemini/">Google DeepMind — Gemini research</a>)。</p>
+<p>データ整備度の評価は 3 つの問いで実施できます。 (Q1) この業務判断に必要な情報は、いま人間が参照している source が全て digital で存在するか (紙・口伝・個人の Google Docs のみ、は不可)。 (Q2) その source は AI が読み取れる形式か (PDF スキャンのみ・パスワード付きは要 preprocessing)。 (Q3) 判断に必要な最新情報は API / DB で取得できるか (毎回人間が Slack で聞いている、は不可)。 3 つとも Yes なら AI 化 OK、1 つでも No なら「先にデータ基盤の整備」が前段作業になります。 データが揃っていない状態で AI を先行導入すると、幻覚と手戻りで「AI 使わない方が速かった」という組織記憶が残り、二度目の導入がさらに難しくなります。 これは実際に多くの企業で観察されている失敗パターンです。</p>
+<h2 id="軸の判断-matrix">4 軸の判断 matrix</h2>
+<p>上記 4 軸で業務を評価し、次の 4 象限に振り分けます。</p>
+<ul class="article-list">
+<li>象限 1「即 AI 化」 = 高頻度 × 可逆 × 低失敗コスト × データ整備 済。 例: SQL 生成、議事録要約、社内向け Slack 定型返信、内部 dashboard 更新、TypeScript テスト生成。 エージェント単独で走らせて OK。</li>
+<li>象限 2「実験フェーズ」 = 高頻度 × 可逆 × 中失敗コスト × データ整備 途中。 例: 顧客向けメール下書き、コード PR 提案、SNS 投稿ドラフト。 人間 approval 付きで運用しつつ、accuracy を計測して閾値超えたら象限 1 に昇格。</li>
+<li>象限 3「人間検証必須」 = 中頻度 × 条件付き可逆 × 高失敗コスト × データ整備 済。 例: 見積書生成、請求書送付、法務レビュー、返品対応。 AI は下書き生成のみ、人間が最終承認して送信。</li>
+<li>象限 4「人間専任」 = 低頻度 × 不可逆 × 高失敗コスト × データ整備 不足。 例: 契約締結、公開謝罪、KYC 提出、価格改定発表、採用の最終決定。 AI は情報整理・叩き台までで、判断と実行は人間。</li>
+</ul>
+<p>新規業務は原則としてこの matrix にプロットしてから実装に進む、という運用にすると、後から「これ AI に任せるべきだったか」の議論が減ります。 matrix は四半期ごとに見直します — データ整備度は時間とともに変化し、象限 4 の業務が徐々に象限 3 へ、象限 2 が象限 1 へ移行していくのが健全な状態です。</p>
+<h2 id="xiora-のケース-4-軸をどう-handler-に落としているか">Xiora のケース — 4 軸をどう handler に落としているか</h2>
+<p>Xiora の 24/7 AI Brain は、この 4 軸を各 handler の permission 設計と escalation gate に反映しています。 例えば kakuyomu editor は「原稿の推敲」= 象限 1 に置いて single-shot 実行、Aiverse の SNS 投稿 handler は「下書き作成 + 承認待ち」= 象限 2、M4 の billing-core-service (Stripe webhook 受信 + 決済処理) は「不可逆 × 高失敗コスト」なので象限 4 相当扱いで、金額変更は永続的に人間 gate を必須にしています。 XAILegalChain (Track Z) の契約書 draft は象限 3、実際の契約締結は象限 4 と分離しています。 全体を貫く permission layer に「outgoing money / delete / KYC / 契約締結」の 4 カテゴリを permanent human gate として明示し、エージェントの判断で解除できない構造にしているのがポイントです。 この設計により、業務追加時に「どの象限に置くか」を最初に決めるだけで、gate の要件が自動で決まる状態にしています。</p>
+<h2 id="お問い合わせ-30-分-無料相談">お問い合わせ / 30 分 無料相談</h2>
+<p>自社の業務棚卸しを 4 軸で評価してみたい、または現在検討中の AI エージェント導入プロジェクトの象限判定を第三者視点で確認したい、という場合は 30 分 無料相談で承ります。 業種・業務内容をヒアリングし、matrix を一緒に作成して、優先度と gate 設計の素案までお渡しします。</p>
+<hr/>
+<h2>お問い合わせ / 無料相談</h2>
+<p>本記事の内容や、貴社の AI 導入・DX についてのご相談は、以下からお気軽にご連絡ください (¥0、初回相談は 30 分無料)。</p>
+<ul class="article-list">
+<li>フォーム: <a href="/contact.html?type=ai-dx&amp;src=insight-ai-agent-task-selection-4-axes">/contact.html</a></li>
+<li>メール: <a href="mailto:info@xiora-official.com?subject=[ai-agent-task-selection-4-axes] 相談">info@xiora-official.com</a></li>
+</ul>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
