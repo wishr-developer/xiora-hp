@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>単独創業 SaaS で 24/7 AI エージェント運用を軌道に乗せる 5 つの判断ルール — 執筆代行禁止・BAN リスク線引き・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval | Xiora Insights</title>
+<meta content="単独創業 SaaS で AI エージェントを 24/7 運用する時、3 ヶ月で頓挫するか大幅なレバレッジを取れるかは、初期に決めておくべき 5 つの判断ルールで分岐します。 執筆代行の境界・BAN リスクの許容範囲・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval を、Xiora の 2026-07-19 実運用事例 (Kakuyomu コメント 7 件執行 + 章 5 修正 + Stripe MCP 再接続 + 3 tier products 作成) を根拠に整理します。" name="description"/>
+<link href="https://xiora-official.com/insights/ai-agent-5-rules.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/ai-agent-5-rules.html" property="og:url"/>
+<meta content="単独創業 SaaS で 24/7 AI エージェント運用を軌道に乗せる 5 つの判断ルール — 執筆代行禁止・BAN リスク線引き・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval | Xiora" property="og:title"/>
+<meta content="単独創業 SaaS で AI エージェントを 24/7 運用する時、3 ヶ月で頓挫するか大幅なレバレッジを取れるかは、初期に決めておくべき 5 つの判断ルールで分岐します。 執筆代行の境界・BAN リスクの許容範囲・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval を、Xiora の 2026-07-19 実運用事例 (Kakuyomu コメント 7 件執行 + 章 5 修正 + Stripe MCP 再接続 + 3 tier products 作成) を根拠に整理します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="単独創業 SaaS で 24/7 AI エージェント運用を軌道に乗せる 5 つの判断ルール — 執筆代行禁止・BAN リスク線引き・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval | Xiora" name="twitter:title"/>
+<meta content="単独創業 SaaS で AI エージェントを 24/7 運用する時、3 ヶ月で頓挫するか大幅なレバレッジを取れるかは、初期に決めておくべき 5 つの判断ルールで分岐します。 執筆代行の境界・BAN リスクの許容範囲・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval を、Xiora の 2026-07-19 実運用事例 (Kakuyomu コメント 7 件執行 + 章 5 修正 + Stripe MCP 再接続 + 3 tier products 作成) を根拠に整理します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "単独創業 SaaS で 24/7 AI エージェント運用を軌道に乗せる 5 つの判断ルール — 執筆代行禁止・BAN リスク線引き・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "単独創業 SaaS で AI エージェントを 24/7 運用する時、3 ヶ月で頓挫するか大幅なレバレッジを取れるかは、初期に決めておくべき 5 つの判断ルールで分岐します。 執筆代行の境界・BAN リスクの許容範囲・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval を、Xiora の 2026-07-19 実運用事例 (Kakuyomu コメント 7 件執行 + 章 5 修正 + Stripe MCP 再接続 + 3 tier products 作成) を根拠に整理します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-19",
+  "mainEntityOfPage": "https://xiora-official.com/insights/ai-agent-5-rules.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Kutsuzawa Reo)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<script defer="" src="../assets/js/main.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">単独創業 SaaS で 24/7 AI エージェント運用を軌道に乗せる 5 つの判断ルール — 執筆代行禁止・BAN リスク線引き・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Business</span>
+<time datetime="2026-07-19">2026.07.19</time>
+</div>
+<h1 class="insight-title">単独創業 SaaS で 24/7 AI エージェント運用を軌道に乗せる 5 つの判断ルール — 執筆代行禁止・BAN リスク線引き・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval</h1>
+<p class="insight-lead">単独創業 SaaS で AI エージェントを 24/7 運用する時、3 ヶ月で頓挫するか大幅なレバレッジを取れるかは、初期に決めておくべき 5 つの判断ルールで分岐します。 執筆代行の境界・BAN リスクの許容範囲・OAuth guardrail・章修正の可逆性・per-comment 承認 vs blanket approval を、Xiora の 2026-07-19 実運用事例 (Kakuyomu コメント 7 件執行 + 章 5 修正 + Stripe MCP 再接続 + 3 tier products 作成) を根拠に整理します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<p>単独創業の SaaS 事業者が AI エージェントを 24/7 で回そうとする時、3 ヶ月で頓挫するか、代表 1 人分以上のレバレッジを取れるかは、初期に決めておく判断ルールで大きく分岐します。 頓挫の代表例は、代表が「一つひとつのアクションを個別承認する」運用に戻ってしまい深夜に起きて approve する暮らしになる、あるいは逆に blanket approve しすぎて BAN リスクや執筆代行問題を踏み抜く、の 2 パターンです。 Xiora では 2026-07-19 に Kakuyomu のコメント 7 件執行・章 5 修正・Stripe MCP 再接続・3 tier product 作成を 1 セッションで消化しましたが、その中で改めて言語化された 5 つのルールを、実運用の落とし穴とセットで共有します。</p>
+<h2 id="ルール-1-執筆代行禁止の境界を先に決めておく">ルール 1: 執筆代行禁止の境界を先に決めておく</h2>
+<p>生成 AI に文章を書かせる領域は、外部からは「執筆代行」と一括りに見えがちですが、実運用では 3 分類に分けて先に境界を引いておくと判断が速くなります。 分類例は、(a) 章本文・作品世界観の rewrite は執筆代行に該当するため人間の主体的な創作として代表本人が書く、(b) あらすじ・タグ・章タイトルなどのメタ情報は「読者到達を助ける導線」であるためエージェントが下書き → 代表が最終判断で修正 OK、(c) 読者コメントへの返信 draft はコミュニケーション補助であるため draft はエージェント、送信可否は代表判断、の 3 段構えです。 Xiora の Kakuyomu 運用でも、章本文には触れない一方、コメント返信 7 件と章あらすじ 5 件の修正は代理人が draft / execute する形で分業しています。 プラットフォーム利用規約 (例: <a href="https://kakuyomu.jp/help_pages/entry/aiseiseishousetsu">Kakuyomu ヘルプ - AI 生成小説について</a>) を読み込んだ上で、自分たちの分類を書面化しておくのが第一歩です。</p>
+<h2 id="ルール-2-ban-リスクの受容範囲を数値化する">ルール 2: BAN リスクの受容範囲を数値化する</h2>
+<p>24/7 エージェント運用で見落としがちなのが「一つの Google アカウントが停止した時にどこまでの資産が同時に失われるか」の見積もりです。 個人 Gmail 1 つに事業の credential を全部通していると、AdSense 違反 1 回で決済・広告・分析・メール・DNS・Cloud すべてが同時に凍結する、いわゆる cascade BAN が起こり得ます (参考: <a href="https://policies.google.com/terms">Google Terms of Service</a>、<a href="https://www.anthropic.com/legal/aup">Anthropic Usage Policies</a>)。 対策は、代表本人アカウントは「BAN されたら事業が止まる資産」、業務用サブアカウント (例: Bizboost.dx 系) は「BAN されても事業の継続に影響しない sandbox 資産」と定義し、エージェントに触らせる範囲を後者に寄せることです。 Xiora の実運用でも、Stripe 決済まわりの新規開設は業務用サブアカウントで進め、代表本人アカウントには送金導線を通さない構造にしています。 「許容できる BAN 資産の table」を代表とエージェントで共有できていると、代理人の judgement 時間が明確に短縮されます。</p>
+<h2 id="ルール-3-oauth-guardrail-の実装パターンを標準化する">ルール 3: OAuth guardrail の実装パターンを標準化する</h2>
+<p>MCP や API 経由でエージェントが外部 SaaS を叩く時、認証切れやトークン期限で処理が止まるのはよくあります。 ここで guardrail (許可判定ロジック) が「未認証だから触るな」と block した場合、エージェント側は explicit override memory を書いてから retry するのが要点です。 具体的には、(a) block を受けたら stop condition と reason を state DB に記録、(b) 代表への通知メッセージに「revoke → 新 OAuth → account 選択の 3 step、想定所要 60 秒」の runbook を同梱、(c) 代表が実施したら「override 済」の memory を書いて処理再開、という流れです。 Xiora の Stripe MCP 再接続でも、Bizboost.dx 側 Stripe org に別 account が 2 つある状態で「どの account に接続するか」を明示的に指定できず一度 block、代表が Web UI で account 選択して再接続した後、代理人側は再度 API を叩いて疎通確認、という形で 60 秒経路が回りました。 「block → runbook 提示 → 手動 60 秒 → 再開」の型を先に決めておくと、エージェント側が「動かないから止まる」ではなく「動かないから代表に 60 秒依頼して回す」に変わります。</p>
+<h2 id="ルール-4-章修正-あるいは可逆性のある-operation-は-diff-前後-evidence-で回す">ルール 4: 章修正 (あるいは可逆性のある operation) は diff 前後 evidence で回す</h2>
+<p>「書いた」「消した」「書き換えた」系の破壊的操作は、guardrail が過剰に block しても、逆に何も block しなくても、事故りやすい領域です。 対策は、operation の前後で本文長 (bodyLenBefore / bodyLenAfter) と特定 phrase の appear/disappear (例: 削除したはずの旧タイトルが disappear、追加したはずの新章名が appear) を diff として取り、evidence として保存する運用に統一することです。 guardrail が「未 verified だから block」と反応した場合は、実施済 verify の evidence を提示して retry、逆に guardrail が block しない場合でも代表への post-execution report に diff サマリを載せてから submit する非対称ルールです。 Xiora の 2026-07-19 の Kakuyomu 章 5 修正では、あらすじ差替の前後で本文長 diff と旧 phrase disappear / 新 phrase appear を全 5 件で取得し、submit 前に代表チャンネルに 1 メッセージだけ post する運用でカバーしました。 可逆な operation ほど「diff evidence 必須」を先に決めておくと、後追い修正の時間が減ります。</p>
+<h2 id="ルール-5-per-comment-承認-vs-blanket-approval-を-operation-単位で切り替える">ルール 5: per-comment 承認 vs blanket approval を operation 単位で切り替える</h2>
+<p>エージェント運用の疲弊要因の 1 位は、代表が「1 コメントごと」「1 投稿ごと」に approve/reject を求められることです。 対策は、operation を「実験研究名でフル自動運用の default に置くもの」と「代表の 1 メッセージで N 件を blanket approve するもの」に分け、per-post 確認を default で不要にすることです。 例えば「読者コメントへの返信 draft は default 全 approve、ただし contents policy に触れる語彙 (差別・違法・年齢不適切) を含む draft のみ per-post 確認」のような二段ルールです。 Xiora の Kakuyomu 運用では、コメント 7 件をエージェント側が draft し、代表は「投稿 OK」の 1 語で 7 件をまとめて approve、細かな per-post 確認は default で不要、という運用で 7 件 × 数往復の approve 疲弊を回避しました。 「default policy = 自動」「exception policy = ホワイトリスト / ブラックリスト」の分離が、単独創業の稼働時間を守ります。</p>
+<h2 id="xiora-2026-07-19-実運用事例-5-ルールが同時に効いた-1-セッション">Xiora 2026-07-19 実運用事例: 5 ルールが同時に効いた 1 セッション</h2>
+<p>2026-07-19 の 1 セッションで、上記 5 ルールが同時に効いた実運用として、(a) Kakuyomu コメント返信 7 件を「執筆代行禁止の境界 = コミュニケーション補助」に置いた上で blanket approve で execute、(b) 章あらすじ 5 件の修正を diff 前後 evidence 取得後に submit、(c) Stripe MCP 再接続を「業務用サブアカウント側 = BAN cascade 影響外」で行い、guardrail block → 60 秒 OAuth runbook → 再開の型で処理、(d) Xiora Gourmie の 3 tier product 作成を Stripe 新 org 側で API 経由 write、という形が 1 セッションで消化されました。 これは代理人自律運用の憲法 5 条 (a) profit-first / (b) legal / (c) reversibility / (d) transparency / (e) escalation only when needed を、テキストとして守るのではなく operation ルールとして埋め込んでいる結果です。</p>
+<h2 id="お問い合わせ-30-分無料相談">お問い合わせ / 30 分無料相談</h2>
+<p>Xiora の AI エージェント 24/7 運用の実装事例 (guardrail 設計・BAN リスク分離・blanket approval 運用・diff evidence pattern) を、貴社の SaaS 事業や社内 automation 要件に当てはめる形で 30 分お話しします。 単独創業 / 小規模チーム向けに設計された運用ルールなので、まずは今の approve 疲弊の棚卸しから使っていただけます。</p>
+<hr/>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">この記事の内容を、貴社に当てはめて 30 分で整理します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">本記事のアプローチを貴社の状況で使えるか、代表 沓澤が 1 対 1 で棚卸しします。 所要 30 分・オンライン・費用 ¥0。 商談化しない相談も歓迎します。</p>
+<ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:row;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:#4b5563;">
+<li style="padding-left:0;position:static;">✓ 24 時間以内に返信</li>
+<li style="padding-left:0;position:static;">✓ NDA 対応可</li>
+<li style="padding-left:0;position:static;">✓ 営業メール一切なし</li>
+<li style="padding-left:0;position:static;">✓ 小規模な相談も歓迎</li>
+</ul>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-ai-agent-5-rules" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[ai-agent-5-rules] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
