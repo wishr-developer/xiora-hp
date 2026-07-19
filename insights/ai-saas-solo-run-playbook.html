@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>AI エージェント SaaS を個人開発者が 1 人で運用する方法 — Xiora Autonomous Company OS の実運用事例 | Xiora Insights</title>
+<meta content="AI エージェント SaaS を個人開発者が 1 人で運用する時に効く 7 つの実装判断 (agent 分割・permanent human gate・zero-spend policy・reo-brief.sh・handler queue・可逆性 diff・24/7 monitor) を、Xiora の Autonomous Company OS 実装事例と runbook で解説します。" name="description"/>
+<link href="https://xiora-official.com/insights/ai-saas-solo-run-playbook.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/ai-saas-solo-run-playbook.html" property="og:url"/>
+<meta content="AI エージェント SaaS を個人開発者が 1 人で運用する方法 — Xiora Autonomous Company OS の実運用事例 | Xiora" property="og:title"/>
+<meta content="AI エージェント SaaS を個人開発者が 1 人で運用する時に効く 7 つの実装判断 (agent 分割・permanent human gate・zero-spend policy・reo-brief.sh・handler queue・可逆性 diff・24/7 monitor) を、Xiora の Autonomous Company OS 実装事例と runbook で解説します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="AI エージェント SaaS を個人開発者が 1 人で運用する方法 — Xiora Autonomous Company OS の実運用事例 | Xiora" name="twitter:title"/>
+<meta content="AI エージェント SaaS を個人開発者が 1 人で運用する時に効く 7 つの実装判断を、Xiora の Autonomous Company OS 実装事例と runbook で解説します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI エージェント SaaS を個人開発者が 1 人で運用する方法 — Xiora Autonomous Company OS の実運用事例",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "AI エージェント SaaS を個人開発者が 1 人で運用する時に効く 7 つの実装判断を、Xiora の Autonomous Company OS 実装事例と runbook で解説します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-22",
+  "mainEntityOfPage": "https://xiora-official.com/insights/ai-saas-solo-run-playbook.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Kutsuzawa Reo)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">AI エージェント SaaS を個人開発者が 1 人で運用する方法 — Xiora Autonomous Company OS の実運用事例</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Practice</span>
+<time datetime="2026-07-22">2026.07.22</time>
+</div>
+<h1 class="insight-title">AI エージェント SaaS を個人開発者が 1 人で運用する方法 — Xiora Autonomous Company OS の実運用事例</h1>
+<p class="insight-lead">「AI エージェント SaaS を、開発者 1 人で 24 時間動かせるのか」という問いへの、Xiora の実装からの回答です。 agent 分割・permanent human gate・zero-spend policy・reo-brief.sh・handler queue・可逆性 diff・24/7 monitor の 7 つの判断を、runbook と実際のコマンドで整理しました。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2 id="この記事は何か">この記事は何か</h2>
+<p>この記事は、個人開発者 1 人で「AI エージェントが動く SaaS」を 24 時間運用する時に、実装として効いた 7 つの判断をまとめた記事です。</p>
+<p>私 (沓澤 怜士 / Xiora 代表) は Xiora という単独創業スタートアップを 2026 年 1 月から回しています。従業員はゼロ、業務委託もゼロ、外部社員もゼロです。それでも、以下のプロダクトが本記事執筆時点で並行稼働しています。</p>
+<ul class="article-list">
+<li><strong>XCloud Connect</strong> — 飲食店向け QR モバイルオーダー (Live 稼働、Stripe セルフサーブ)</li>
+<li><strong>XCloud Flow</strong> — スクール向け予約 SaaS (Live 稼働)</li>
+<li><strong>Aiverse Studio</strong> — AI 配信 SaaS (M1a waitlist 受付中、料金 tier 確定済)</li>
+<li><strong>Gourmie</strong> — 飲食コンシェルジュ (β 運用中、3 tier 商品確定)</li>
+<li><strong>Kigen</strong> — 有効期限管理 iOS アプリ (App Store live)</li>
+</ul>
+<p>「開発者 1 人ではプロダクトは 1 個しか回せない」とよく言われます。私も 2 年前まではそう思っていました。しかし Xiora では、AI エージェントを「同僚として使う」設計に切り替えた結果、5 プロダクト並行運用まで持ってこれました。この記事は、そこで効いた 7 つの判断を、実際の実装から共有します。</p>
+<p><strong>免責</strong>: 本記事は情報提供を目的としており、事業の成功や運用効率の改善を約束するものではありません。実装や運用の判断はご自身の状況に応じて行ってください。</p>
+<h2 id="1-agent-を-役割単位に分割する">1. AI エージェントを「役割単位」に分割する</h2>
+<p>最初にやるべきは、AI エージェントを「1 個の巨大なエージェント」にしないことです。Xiora では、以下のように役割単位で 12 のエージェントに分けています (SoT は <code>registry/organization/ai-employees.yaml</code>)。</p>
+<ul class="article-list">
+<li>CEO AI (Reo の proxy と escalation format 化)</li>
+<li>CTO AI (技術方針と code review の一次判定)</li>
+<li>Product AI (プロダクト仕様の gap 検出)</li>
+<li>Sales AI (見込み顧客への follow-up draft)</li>
+<li>Support AI (問い合わせ返信 draft)</li>
+<li>Marketing AI (SEO 記事と LP コピー draft)</li>
+<li>Legal AI (規約・特商法・プラポリの更新監視)</li>
+<li>Finance AI (月次売上・コスト集計 draft)</li>
+<li>Ops AI (インフラ監視と一次通知)</li>
+<li>Data AI (KPI dashboard の更新)</li>
+<li>Writer AI (blog draft、本記事も Writer AI + 私が最終編集)</li>
+<li>QA AI (全 draft の憲法遵守 regex 検証)</li>
+</ul>
+<p>この分割のメリットは 3 つあります。1 つ目は、各エージェントに与える憲法とツール権限を最小に絞れること。2 つ目は、失敗した時にどのエージェントが問題を起こしたかがログで即断できること。3 つ目は、エージェント間の依存を明示的な queue にできることで、暴走を防げることです。</p>
+<p>「1 個の巨大なエージェントに全部やらせる」設計は、6 ヶ月動かすと私の経験では崩れました。2025 年に一度この設計を試して、3 週間で運用不能になった記録があります。役割単位に分けた 2026 年版は、7 ヶ月動き続けています。</p>
+<h2 id="2-permanent-human-gate-を-5-個に絞る">2. Permanent human gate を「5 個だけ」に絞る</h2>
+<p>「AI エージェントが自律で動く SaaS」で最大の恐怖は、「勝手に課金される」「勝手にデータが消される」「勝手に契約される」ことです。Xiora ではこれを、5 個の永続 human gate に集約しています。</p>
+<ol type="1">
+<li><strong>billing</strong> — Stripe live mode の課金 / 返金操作</li>
+<li><strong>delete</strong> — DB / storage の破壊的削除</li>
+<li><strong>permission</strong> — OAuth スコープ拡大・admin 権限付与</li>
+<li><strong>contract</strong> — 対外契約の締結・変更</li>
+<li><strong>KYC</strong> — 本人確認を伴う登録 (Stripe / GBP など)</li>
+</ol>
+<p>この 5 個だけが Reo (私) の 1 タップ承認必須で、それ以外はすべて AI エージェントが自律実行します。「絞りすぎでは」と思われがちですが、SaaS 運用で本当に不可逆な操作はこの 5 個に集約されます。逆に、この 5 個以外を人間 gate にすると、「AI エージェントを使う意味がない」状態に陥ります。</p>
+<p>Xiora の運用ルールとして、「この 5 gate 以外は AI エージェント自律実行 + 結果報告」と明示的にドキュメント化しました (<code>docs/PROJECT_GUIDELINES.md</code>)。この明示化がないと、エージェントは「念のため確認します」に流れ、結局人間が全部さばく羽目になります。</p>
+<h2 id="3-zero-spend-policy-収益化まで固定費ゼロ">3. Zero-spend policy — 収益化まで固定費ゼロ</h2>
+<p>個人開発者が SaaS を続けられない最大の理由は、「使ってから稼ぐ」順番になることです。Xiora は逆で、「稼いでから使う」を鉄則にしています。</p>
+<p>具体的なルールはこちらです。</p>
+<ul class="article-list">
+<li><strong>新規ドメイン購入禁止</strong> — <code>xiora-official.com</code> に subdomain で集約 (<code>connect.xiora-official.com</code>、<code>flow.xiora-official.com</code>、<code>aiverse.xiora-official.com</code>)</li>
+<li><strong>SaaS は Free tier で開始</strong> — Vercel Hobby、Supabase Free、Cloudflare Free、GitHub Free</li>
+<li><strong>LLM は Ollama L1_LOCAL 優先</strong> — Claude API と GPT-4o は「Ollama で品質が足りない時のみ」に使用</li>
+<li><strong>弁護士 spot は Stage 2 flip 直前まで先送り</strong> — Aiverse Studio の billing live 前だけ 1 回</li>
+<li><strong>SaaS の paid tier は「その SaaS が売上を生むこと」が確定した時のみ</strong></li>
+</ul>
+<p>この方針で、Xiora の月次固定費は現時点で 3,000 円台です (ConoHa VPS + ドメイン更新分担のみ)。5 プロダクトを回してもこの金額に収まっているのは、この rule の副産物です。</p>
+<p>「Free tier だけで SaaS が回るのか」とよく聞かれます。私の答えは「MVP から MRR ¥100k までは、ほぼ Free tier だけで回る」です。それ以降は売上比例で paid tier に切り替える (例: Supabase Pro を売上 ¥50k/月 到達時に検討)、という順番を守ります。</p>
+<h2 id="4-reo-brief-sh-15-分の-daily-standup">4. reo-brief.sh — 15 分の daily standup を script 化する</h2>
+<p>「AI エージェントが 24 時間動く」ことのデメリットは、「起きた時に何が起きたか分からない」ことです。Xiora ではこれを、<code>bash brain/scripts/reo-brief.sh</code> という 1 コマンドで解決しました。</p>
+<p>このスクリプトは、私が朝起きて最初に叩くコマンドで、以下を 1 画面に集約します。</p>
+<ul class="article-list">
+<li>前日の課題発見件数 (Sentry / uptime / KPI 異常)</li>
+<li>Reo 承認待ちの proposal 数 (5 gate に該当するもの)</li>
+<li>24 時間のインシデント履歴</li>
+<li>Stripe API 経由の売上変動 (24h / 7d / 30d)</li>
+<li>AI エージェント別の task 消化数と失敗率</li>
+</ul>
+<p>朝の把握が 5 分で終わり、承認判断を 5-10 個タップして、残り 23 時間 55 分は AI に任せる。これが基本の 1 日です。この 15 分の daily standup が script 化されていない状態で AI エージェント SaaS を回すと、「常にコンソールを気にする」ようになり、結局人間が張り付いた状態に戻ります。</p>
+<h2 id="5-handler-queue-24-7-brain-の-8-stage-cycle">5. Handler queue — 24/7 brain の 8 stage cycle</h2>
+<p>Xiora の頭脳部分は <code>brain/</code> 配下の runtime です。cron / launchd で常駐し、以下の 8 stage を延々と回します。</p>
+<ol type="1">
+<li><strong>課題発見</strong> — 監視データから異常検知</li>
+<li><strong>分析</strong> — 該当プロダクトのログ / メトリクスを取得、根本原因を推定</li>
+<li><strong>提案 draft</strong> — 修正案を Reo の承認待ち queue に投入</li>
+<li><strong>Reo 承認</strong> — 5 gate に該当する場合のみ (それ以外は自動 approve)</li>
+<li><strong>実装</strong> — 承認された修正を自動実行 (git commit / deploy)</li>
+<li><strong>検証</strong> — 修正後の指標を再取得、悪化していれば rollback 提案</li>
+<li><strong>展開</strong> — 他プロダクトへの横展開判断</li>
+<li><strong>再投資</strong> — 得られた知見を憲法 / runbook に反映</li>
+</ol>
+<p>この cycle が延々と回ることで、私が寝ている間にも改善が積み上がる状態を作っています。実装は 12+ handler (Stripe webhook handler、Aiverse handler、CI/CD alert handler など) に分割されていて、追加や差替えが単発 commit で完結します。</p>
+<p>個人開発者が真似する時、いきなり 8 stage を全部作る必要はありません。まず <strong>stage 1 (課題発見) と stage 3 (提案 draft)</strong> の 2 つだけ実装し、あとは手動で回すのが現実的です。私も最初の 3 ヶ月はこの 2 stage だけでした。</p>
+<h2 id="6-可逆性-diff-write-操作の-3-tier-分類">6. 可逆性 diff — Write 操作の 3 tier 分類</h2>
+<p>AI エージェントが write 操作 (git push、deploy、DB 書き込みなど) を自律実行する時、事前に判断すべきなのは「その操作は失敗しても巻き戻せるか」です。Xiora では write 操作を 3 tier に分類しています。</p>
+<ul class="article-list">
+<li><strong>Tier 1 (完全可逆)</strong> — git commit (revert 可)、ファイル生成 (削除可)、cache 書き込み (無視可) → AI 自律実行 OK</li>
+<li><strong>Tier 2 (半可逆)</strong> — deploy (前バージョンに rollback 可)、DB migration の up (down 可) → AI 自律実行 OK、ただし監視 alert 発火時は即 rollback</li>
+<li><strong>Tier 3 (不可逆)</strong> — Stripe live 課金、DB 破壊 (delete)、契約締結、Twitter DM 送信 → 5 gate に該当、Reo 承認必須</li>
+</ul>
+<p>この分類を、各 handler の設定 YAML に明示的に書きます。<code>handler.action.tier = 1|2|3</code> という形で。Tier 3 に該当する action を実行しようとした時、エージェントは自動で Reo の承認待ち queue に投入されます。</p>
+<p>「面倒な分類」に見えますが、これをやると「エージェントに何を任せてよいか」を毎回考えなくてよくなります。個人開発者の頭のキャパシティを空ける、というのが最大の効果です。</p>
+<h2 id="7-24-7-monitor-cost-guard-と-alert-三段階">7. 24/7 monitor — Cost guard と alert の三段階</h2>
+<p>最後は、24 時間動く AI エージェントの「コスト暴走」と「サイレント障害」への対策です。Xiora では以下の三段階の monitor を仕込んでいます。</p>
+<ul class="article-list">
+<li><strong>Cost guard</strong> — LLM API の日次上限 (Claude API $5/日、OpenAI $5/日) を script で監視、超えたら Ollama fallback に自動切替</li>
+<li><strong>Health monitor</strong> — 各 SaaS の /health エンドポイントを 5 分間隔で叩く。3 回連続失敗で Slack alert</li>
+<li><strong>KPI drift monitor</strong> — 日次 KPI (会員登録、決済数、離脱率) が過去 7 日 median から 2σ 以上乖離したら alert</li>
+</ul>
+<p>この 3 個の monitor を仕込むだけで、「AI エージェントが暴走してコストが吹き飛ぶ」「サイレントに SaaS が落ちる」の 2 大恐怖から解放されます。<strong>逆に、この 3 個がない状態で AI エージェント SaaS を運用するのは、個人開発者にはリスクが高すぎます</strong>。</p>
+<p>実装は各 SaaS の共通基盤 (Xiora Platform 層) に集約していて、新プロダクトを追加する時は「/health を実装するだけ」で monitor に組み込まれます。この共通基盤の独立性が、5 プロダクト並行運用を可能にした最大の理由です。</p>
+<h2 id="7-step-の実装順序">7 step の実装順序 (要約)</h2>
+<p>今日から同じ構成で AI エージェント SaaS を始めるなら、私は以下の順で作ります。</p>
+<ol type="1">
+<li><strong>Zero-spend policy を最初に決める</strong> — Free tier リストを作り、収益化まで積まないと明示</li>
+<li><strong>Permanent human gate を 5 個に絞る</strong> — 5 gate 以外は AI 自律の宣言</li>
+<li><strong>1 プロダクトで先に売上を作る</strong> — 私の場合は XCloud Connect (5 分導入デモ)</li>
+<li><strong>役割単位でエージェント分割</strong> — 最初は 3 個 (CEO / CTO / Marketing) で十分</li>
+<li><strong>reo-brief.sh を実装</strong> — 15 分 standup の script 化</li>
+<li><strong>handler queue の 8 stage を、まず stage 1 と 3 だけ実装</strong></li>
+<li><strong>Cost guard + Health monitor + KPI drift monitor の 3 monitor を仕込む</strong></li>
+</ol>
+<p>この 7 step で、個人開発者 1 人でも 3-5 プロダクト並行運用が現実的になります。私は 6 ヶ月でここまで来ましたが、後から始める人は「私の失敗の記録」を踏み台に、もう少し速く到達できると考えています。</p>
+<h2 id="次の一手">次の一手</h2>
+<p>Xiora の実プロダクトは以下から触れます。「AI エージェント SaaS を回す side」を見るには、まず XCloud Connect の 5 分デモを体験するのが最も早いです。</p>
+<ul class="article-list">
+<li><strong>XCloud Connect (Live)</strong> — https://connect.xiora-official.com/</li>
+<li><strong>XCloud Flow (Live)</strong> — https://flow.xiora-official.com/</li>
+<li><strong>Aiverse Studio (M1a waitlist)</strong> — https://aiverse.xiora-official.com/pricing</li>
+<li><strong>Xiora コーポレートサイト</strong> — https://xiora-official.com/</li>
+</ul>
+<p>受託開発、AI 導入コンサル、内製 AI エージェント運用相談のお問い合わせは info@xiora-official.com までお願いします。Xiora の中の運用事例は、insights ブログ (https://xiora-official.com/insights/) にも随時公開しています。</p>
+<p><strong>筆者</strong>: Xiora 代表 沓澤 怜士 (Kutsuzawa Reo)<br/>
+<strong>連絡</strong>: info@xiora-official.com<br/>
+<strong>免責</strong>: 本記事は情報提供を目的としており、事業の成功や運用効率の改善を約束するものではありません。実装や運用の判断はご自身の状況に応じて行ってください。</p>
+<p>#AI #SaaS #個人開発 #AIエージェント #スタートアップ #自動化 #Xiora</p>
+<hr/>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">この記事の内容を、貴社の SaaS 運用に当てはめて 30 分で整理します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">7 判断のうち、どこから着手すべきかを、代表 沓澤が 1 対 1 で棚卸しします。 所要 30 分・オンライン・費用 ¥0。 商談化しない相談も歓迎します。</p>
+<ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:row;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:#4b5563;">
+<li style="padding-left:0;position:static;">✓ 24 時間以内に返信</li>
+<li style="padding-left:0;position:static;">✓ NDA 対応可</li>
+<li style="padding-left:0;position:static;">✓ 営業メール一切なし</li>
+<li style="padding-left:0;position:static;">✓ 小規模な相談も歓迎</li>
+</ul>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-ai-saas-solo-run-playbook" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[ai-saas-solo-run-playbook] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+<hr/>
+<h2 id="関連プロダクト">関連 Xiora プロダクト</h2>
+<p>本記事のトピックに直接関わる Xiora 自社プロダクトです。 いずれも公開情報、¥0 で概要確認できます。</p>
+<ul class="article-list">
+  <li class="article-list-item"><a href="/products/agent-factory.html"><strong>Agent Factory — AI エージェント構築 SaaS</strong></a> — 1 人開発を支える agent 群を SaaS 化</li>
+  <li class="article-list-item"><a href="/products/autonomous-company.html"><strong>Autonomous Company OS</strong></a> — Xiora 実運用の 4 層アーキテクチャ + runbook 提供</li>
+</ul>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+<script defer src="../assets/js/main.js"></script>
+</body>
+</html>
