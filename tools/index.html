@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Xiora が実際に使っている / 推奨する Tool 一覧 (AI / SaaS / VPS / 書籍) | Xiora Tools</title>
+<meta content="Xiora が単独創業 SaaS 会社の運用で実際に使っている、AI エージェント / SaaS / VPS / 書籍 / 開発ツールの一覧。 選定理由と使い所を分野別に整理しています。 一部リンクにはアフィリエイトを含みます。" name="description"/>
+<link href="https://xiora-official.com/tools/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://xiora-official.com/tools/" property="og:url"/>
+<meta content="Xiora が実際に使っている / 推奨する Tool 一覧 | Xiora" property="og:title"/>
+<meta content="Xiora の日々の運用で使っている AI / SaaS / VPS / 書籍 / gear の一覧。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Xiora が実際に使っている / 推奨する Tool 一覧 | Xiora" name="twitter:title"/>
+<meta content="Xiora の日々の運用で使っている AI / SaaS / VPS / 書籍 / gear の一覧。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="Xiora" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<script defer="" src="../assets/js/main.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Tools</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Tools</span>
+<time datetime="2026-07-19">2026.07.19</time>
+</div>
+<h1 class="insight-title">Xiora が実際に使っている / 推奨する Tool 一覧</h1>
+<p class="insight-lead">Xiora が単独創業 SaaS 会社の運用で実際に使っている、AI エージェント / SaaS / VPS / 書籍 / 開発ツールの一覧です。 選定理由と使い所を分野別に整理しています。 情報は 2026-07-19 時点のものです。 一部リンクにはアフィリエイトを含みます。</p>
+</header>
+<div class="article-rich reveal">
+
+<h2 id="ai-agent">AI エージェント / LLM 基盤</h2>
+<ul>
+  <li><strong>Anthropic Claude (API + Claude Code)</strong> — Xiora の brain runtime と代理人層の主軸。 24/7 handler の実行 / draft 生成 / コードレビューに使用。 <a href="https://www.anthropic.com/" rel="nofollow noopener" target="_blank">公式サイト</a>。</li>
+  <li><strong>Ollama (self-hosted)</strong> — VPS 上でローカル LLM を動かす際の runtime。 コスト最適化と egress 縮小に有効。 <a href="https://ollama.com/" rel="nofollow noopener" target="_blank">公式サイト</a>。</li>
+  <li><strong>Model Context Protocol (MCP)</strong> — Stripe / Gmail / GitHub 等の外部 SaaS を Claude から直接叩くための共通プロトコル。 <a href="https://modelcontextprotocol.io/" rel="nofollow noopener" target="_blank">公式仕様</a>。</li>
+</ul>
+
+<h2 id="saas">SaaS / 決済 / 分析</h2>
+<ul>
+  <li><strong>Stripe</strong> — 決済 / Subscriptions / Webhook。 Xiora の billing-core-service の中心。 <a href="https://stripe.com/jp" rel="nofollow noopener" target="_blank">公式サイト</a>。</li>
+  <li><strong>GA4 + BigQuery</strong> — サイト計測 / 意思決定基盤。 GA4 は無料、BigQuery は従量。 <a href="https://analytics.google.com/" rel="nofollow noopener" target="_blank">GA4</a>。</li>
+  <li><strong>Notion</strong> — ナレッジ / task / 内部ドキュメント。 <a href="https://www.notion.so/" rel="nofollow noopener" target="_blank">公式サイト</a>。</li>
+</ul>
+
+<h2 id="hosting-vps">Hosting / VPS / エッジ</h2>
+<ul>
+  <li><strong>ConoHa VPS</strong> — Xiora の Edge Gateway が動く VPS。 東京リージョン / 従量。 <a href="https://www.conoha.jp/vps/" rel="nofollow noopener" target="_blank">公式サイト</a>。</li>
+  <li><strong>Vercel</strong> — Next.js アプリのデプロイ / Preview。 Xiora HP や Nexa の一部が稼働。 <a href="https://vercel.com/" rel="nofollow noopener" target="_blank">公式サイト</a>。</li>
+  <li><strong>Railway</strong> — Docker container 単位で小規模サービスをデプロイ。 <a href="https://railway.app/" rel="nofollow noopener" target="_blank">公式サイト</a>。</li>
+</ul>
+
+<h2 id="books-tech">技術書 (Amazon)</h2>
+<p>Xiora の運用で参照している技術領域の書籍検索です。 商品固定 link は絶版・在庫切れリスクがあるため、検索リンクにしています。</p>
+<ul>
+  <li><a href="https://www.amazon.co.jp/s?k=Next.js+%E5%AE%9F%E8%B7%B5&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">Next.js 実装本 を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=Stripe+%E6%B1%BA%E6%B8%88+%E5%AE%9F%E8%A3%85&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">Stripe 決済実装本 を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=GA4+BigQuery&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">GA4 × BigQuery 本 を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=RAG+%E5%AE%9F%E8%A3%85&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">RAG 実装本 を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=LLM+%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3+%E5%AE%9F%E8%A3%85&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">LLM アプリ実装本 を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=SRE+%E5%AE%9F%E8%B7%B5&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">SRE 実践本 を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=%E4%B8%80%E4%BA%BA+SaaS+%E8%B5%B7%E6%A5%AD&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">個人開発 SaaS / 起業本 を Amazon で見る</a></li>
+</ul>
+
+<h2 id="books-business">経営 / 補助金 / 法令 (Amazon)</h2>
+<ul>
+  <li><a href="https://www.amazon.co.jp/s?k=%E6%8C%81%E7%B6%9A%E5%8C%96%E8%A3%9C%E5%8A%A9%E9%87%91&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">持続化補助金 実務書 を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=%E4%BA%8B%E6%A5%AD%E8%A8%88%E7%94%BB%E6%9B%B8+%E6%9B%B8%E3%81%8D%E6%96%B9&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">事業計画書の書き方 を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=%E6%99%AF%E8%A1%A8%E6%B3%95+%E5%AE%9F%E5%8B%99&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">景品表示法の実務 を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=%E8%96%AC%E6%A9%9F%E6%B3%95+%E5%BA%83%E5%91%8A&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">薬機法広告実務 を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD+DX&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">中小企業 DX 実務書 を Amazon で見る</a></li>
+</ul>
+
+<h2 id="gear">開発 gear (Amazon)</h2>
+<ul>
+  <li><a href="https://www.amazon.co.jp/s?k=Mac+%E5%A4%96%E4%BB%98%E3%81%91%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC+4K&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">Mac 用 4K 外付けモニター を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=HHKB+%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">HHKB / メカニカルキーボード を Amazon で見る</a></li>
+  <li><a href="https://www.amazon.co.jp/s?k=USB+C+%E3%83%89%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3&tag=xiora-22" rel="sponsored nofollow noopener" target="_blank">USB-C ドッキングステーション を Amazon で見る</a></li>
+</ul>
+
+<hr/>
+<h2 id="disclosure">アフィリエイトの取り扱いについて</h2>
+<p>本ページのリンクには一部アフィリエイトを含みます。 Amazon.co.jp のアソシエイトとして、当メディアは適格販売により収入を得ています。 掲載しているツールは Xiora が実際に使用中 or 過去に評価したものを中心に紹介していますが、掲載順やコミッション有無で内容の順序は変えていません。 購入判断はご自身の状況に応じて行ってください。</p>
+<p>掲載ツールの選定基準・使用歴の詳細は、随時 <a href="/insights/">Insights</a> で個別に解説していきます。</p>
+
+</div>
+<a class="article-back" href="/">← Home へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
