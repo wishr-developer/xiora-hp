@@ -139,6 +139,21 @@
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
+    <loc>https://xiora-official.com/insights/llm-selection-checklist-20.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/stripe-connect-ai-marketplace-5-steps.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/ai-saas-solo-run-playbook.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/koshigaya-it-ai-4-axes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>

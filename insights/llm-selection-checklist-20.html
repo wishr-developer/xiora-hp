@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>LLM 選定 checklist 20 項目 — Ollama / Claude / GPT-4o / Gemini の実運用比較 | Xiora Insights</title>
+<meta content="LLM を SaaS 実装で選ぶ時にチェックすべき 20 項目 (性能・コスト・遅延・privacy・ローカル可用性・tool use・context window など) を、Ollama / Claude / GPT-4o / Gemini の 4 モデル群で Xiora 実運用データを元に比較します。" name="description"/>
+<link href="https://xiora-official.com/insights/llm-selection-checklist-20.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/llm-selection-checklist-20.html" property="og:url"/>
+<meta content="LLM 選定 checklist 20 項目 — Ollama / Claude / GPT-4o / Gemini の実運用比較 | Xiora" property="og:title"/>
+<meta content="LLM を SaaS 実装で選ぶ時にチェックすべき 20 項目を、Ollama / Claude / GPT-4o / Gemini の 4 モデル群で Xiora 実運用データを元に比較します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="LLM 選定 checklist 20 項目 — Ollama / Claude / GPT-4o / Gemini の実運用比較 | Xiora" name="twitter:title"/>
+<meta content="LLM を SaaS 実装で選ぶ時にチェックすべき 20 項目を、Ollama / Claude / GPT-4o / Gemini の 4 モデル群で Xiora 実運用データを元に比較します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LLM 選定 checklist 20 項目 — Ollama / Claude / GPT-4o / Gemini の実運用比較",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "LLM を SaaS 実装で選ぶ時にチェックすべき 20 項目を、Ollama / Claude / GPT-4o / Gemini の 4 モデル群で Xiora 実運用データを元に比較します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-29",
+  "mainEntityOfPage": "https://xiora-official.com/insights/llm-selection-checklist-20.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Kutsuzawa Reo)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">LLM 選定 checklist 20 項目 — Ollama / Claude / GPT-4o / Gemini の実運用比較</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Engineering</span>
+<time datetime="2026-07-29">2026.07.29</time>
+</div>
+<h1 class="insight-title">LLM 選定 checklist 20 項目 — Ollama / Claude / GPT-4o / Gemini の実運用比較</h1>
+<p class="insight-lead">LLM を SaaS 実装で本番採用する時、性能ベンチマークだけでは選べません。Xiora が 6 ヶ月の実運用で蓄積した 20 項目の checklist を、Ollama (Llama / Qwen 系) / Claude / GPT-4o / Gemini の 4 モデル群でスコアリングしました。「用途別にどう組み合わせるか」の判断材料として使ってください。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2 id="この記事は何か">この記事は何か</h2>
+<p>「どの LLM を SaaS に組み込むべきか」という質問を月 5-10 件受けています。多くの場合、Claude / GPT-4o / Gemini の 3 択で悩まれていて、Ollama (ローカル LLM) は「性能が足りない」と外されがちです。</p>
+<p>Xiora では、この選定を性能ベンチマークではなく <strong>20 項目の checklist</strong>で機械的に判定する運用にしています。用途 (chat / RAG / エージェント / 分類 / 要約 / 生成) ごとに 20 項目のスコアを付け、合計点で自動選定します。この記事では、その 20 項目と、Ollama / Claude / GPT-4o / Gemini の 4 モデル群の傾向を、Xiora の実運用データから共有します。</p>
+<p><strong>注意</strong>: LLM のバージョンや価格は 3-6 ヶ月で大きく変わります。本記事のスコアは 2026 年 7 月時点の Xiora 実運用ベースです。実装前に各モデルの最新価格・仕様をご確認ください。また特定モデルの優劣を主張する意図はなく、「用途とのマッチング指標」を提供する意図です。</p>
+<h2 id="20-項目の-checklist">20 項目の checklist</h2>
+<p>Xiora の LLM 選定 checklist は、以下の 20 項目を各 5 段階 (0-4) でスコアリングします。合計 80 点満点。用途ごとに重み付けを変えて最終選定します。</p>
+<h3 id="コスト-4-項目">コスト (4 項目)</h3>
+<ol type="1">
+<li><strong>Input token 単価</strong> — 100 万 token あたりの入力コスト</li>
+<li><strong>Output token 単価</strong> — 100 万 token あたりの出力コスト</li>
+<li><strong>月次コスト予測可能性</strong> — 使用量の月次上限を予測できるか</li>
+<li><strong>Cost guard の実装しやすさ</strong> — 日次上限を script で監視できるか</li>
+</ol>
+<h3 id="性能-5-項目">性能 (5 項目)</h3>
+<ol start="5" type="1">
+<li><strong>日本語 (business) 品質</strong> — 敬語・専門用語・レポート体の品質</li>
+<li><strong>日本語 (casual) 品質</strong> — Chat / SNS / 口語の品質</li>
+<li><strong>コード生成品質</strong> — TypeScript / Python の実装精度</li>
+<li><strong>長文 (10k+ token) 一貫性</strong> — 長文の主張の一貫性</li>
+<li><strong>指示追従性</strong> — システムプロンプトの厳密な遵守</li>
+</ol>
+<h3 id="性能-補助-3-項目">性能 (補助) (3 項目)</h3>
+<ol start="10" type="1">
+<li><strong>Context window の実効長</strong> — 公称値でなく実運用で使い切れる長さ</li>
+<li><strong>Structured output 対応</strong> — JSON mode / Function calling の安定性</li>
+<li><strong>Tool use / MCP 対応</strong> — 外部 tool を呼ぶ精度と失敗リカバリ</li>
+</ol>
+<h3 id="運用-4-項目">運用 (4 項目)</h3>
+<ol start="13" type="1">
+<li><strong>Latency (first token)</strong> — 最初の token までの遅延</li>
+<li><strong>Latency (total)</strong> — 完了までの遅延</li>
+<li><strong>Rate limit の緩さ</strong> — 個人 / 小規模でのレート制限のヒットしにくさ</li>
+<li><strong>Availability (障害履歴)</strong> — 過去 6 ヶ月の可用性</li>
+</ol>
+<h3 id="privacy-権利-4-項目">Privacy / 権利 (4 項目)</h3>
+<ol start="17" type="1">
+<li><strong>Privacy (学習利用の除外可否)</strong> — 送ったデータが学習に使われないか</li>
+<li><strong>Local 実行可否</strong> — 完全ローカル (Ollama) で動くか</li>
+<li><strong>コスト予測なし提供可否</strong> — Free tier で開発期間中無料か</li>
+<li><strong>商用利用ライセンス</strong> — SaaS 組み込みの明示的許諾があるか</li>
+</ol>
+<h2 id="4-モデル群の傾向">4 モデル群の傾向 (Xiora 実運用データ 2026 年 7 月時点)</h2>
+<p>各モデル群を、上記 20 項目の傾向で整理します。数値は Xiora の実運用ワークロード (SaaS handler / SEO 記事 draft / エージェント意思決定 / RAG 応答) をもとにした相対評価で、他社ワークロードでは順位が変わる可能性があります。</p>
+<h3 id="ollama">Ollama (Llama 系 / Qwen 系 / Gemma 系)</h3>
+<p>強み: Local 実行可否 4/4、Privacy 4/4、コスト 4/4 (推論時の追加課金ゼロ)。Xiora の handler runtime (L1_LOCAL タスク) では、日次 60-70% のリクエストを Ollama で処理しています。「情報を外に出さない」要件と「大量の分類 / 要約」用途に向いています。</p>
+<p>弱み: 指示追従性が Claude / GPT-4o と比べて弱く、複雑なシステムプロンプトの厳密遵守は不安定。Tool use / MCP 対応も、外部 API 呼び出しの成功率が Claude / GPT-4o より 10-20% 低い傾向。長文一貫性は 7B クラスだと 3k token あたりから崩れる傾向がありました。</p>
+<p><strong>Xiora の使い方</strong>: 分類、要約、下書き生成、SaaS 内部 log 分析、翻訳の一次パスに使用。エージェント意思決定や外部 API 連携には使わず、その先で Claude / GPT-4o に escalation。</p>
+<h3 id="claude">Claude (Sonnet / Opus 系)</h3>
+<p>強み: 指示追従性 4/4、長文一貫性 4/4、コード生成品質 4/4、Tool use / MCP 対応 4/4。Xiora の brain runtime のエージェント意思決定は、Claude 系がデフォルトです。日本語 (business) の品質も安定して高い印象。</p>
+<p>弱み: コスト単価が Ollama と比べて 2-3 桁高い (Ollama の推論はほぼ電気代のみ)。Rate limit は個人 / 小規模で厳しめのケースがあり、大量並列は tier upgrade が必要になることがあります。</p>
+<p><strong>Xiora の使い方</strong>: エージェントの中核判断、コード生成、複雑な RAG 応答、Reo との対話。日次コスト予算 $5-10 を上限に script で監視、超えたら Ollama fallback。</p>
+<h3 id="gpt-4o">GPT-4o</h3>
+<p>強み: 汎用性能が全項目でバランス、Structured output (JSON mode) の安定性、豊富な integration ecosystem。日本語も指示追従も安定しています。</p>
+<p>弱み: 長文 (30k+ token) の一貫性は Claude Opus 系よりやや落ちる傾向。コスト単価は Claude と近い水準で、Ollama より高価。</p>
+<p><strong>Xiora の使い方</strong>: Claude と用途を分けて、「Structured output が重要」「JSON schema 厳密遵守」の用途で採用。SaaS の webhook payload 変換など。</p>
+<h3 id="gemini">Gemini</h3>
+<p>強み: 超長文 (100k+ token) の context 処理、マルチモーダル (画像 / 音声 / 動画) の統合、Free tier の余裕。実運用でも長文の要約と映像プレビュー分析で採用しています。</p>
+<p>弱み: 日本語 (business) 品質は Claude / GPT-4o と比べてやや振れ幅がある印象。指示追従性はプロンプト設計次第で改善するが、Claude ほどの安定性は感じにくい傾向。</p>
+<p><strong>Xiora の使い方</strong>: 長文分析 (10k+ token の議事録 / 論文要約)、マルチモーダル (Aiverse Studio の映像フレーム分析)、Free tier で開発期間中の一次実装。</p>
+<h2 id="用途別の推奨組み合わせ-xiora-運用ベース">用途別の推奨組み合わせ (Xiora 運用ベース)</h2>
+<p>実運用では 1 モデルに固定せず、用途別にルーティングするのが最もコスト効率が高いです。Xiora の router 設定を共有します。</p>
+<ul class="article-list">
+<li><strong>分類 / 要約 / 翻訳一次パス</strong> — Ollama (Llama 系) 優先、失敗時は Claude Haiku に fallback</li>
+<li><strong>エージェント意思決定 / コード生成</strong> — Claude Sonnet 優先、コスト超過時は Ollama fallback (品質低下は許容)</li>
+<li><strong>Structured output / JSON schema 厳密</strong> — GPT-4o 優先、失敗時は Claude Sonnet</li>
+<li><strong>長文 (10k+ token) 分析 / マルチモーダル</strong> — Gemini 優先、Free tier 上限到達時は Claude Opus に切替</li>
+<li><strong>Reo との対話 UI</strong> — Claude Sonnet 固定 (安定性優先)</li>
+</ul>
+<p>このルーティングを YAML (<code>brain/config/llm-router.yaml</code>) に持たせ、handler は「用途 tag」だけ指定すれば適切なモデルが選ばれる設計にしました。切り替えロジックが handler ごとに散らばると、モデル価格改定のたびに全 handler 修正が発生します。</p>
+<h2 id="cost-guard-の-3-段階">Cost guard の 3 段階 (script レベルの実装)</h2>
+<p>LLM を SaaS で採用する時、最大の恐怖は「コスト暴走」です。Xiora では以下の 3 段階で監視しています。</p>
+<ol type="1">
+<li><strong>Pre-call check</strong> — 各 handler は API 呼び出し前に、日次累積コストを DB から読んで上限 (例: Claude $5/日) を超えていないか確認。超えていたら Ollama に fallback。</li>
+<li><strong>Post-call log</strong> — 各 API 呼び出し後、実際の usage token 数と概算コストを DB に記録。日次集計で drift を検知。</li>
+<li><strong>Nightly reconcile</strong> — 日次バッチで各プロバイダーの usage API を叩き、DB 記録と実 usage の乖離を検知。5% 以上ズレたら alert。</li>
+</ol>
+<p>この 3 段階があると、「気付いたら Claude API 課金が $500/月」という事故を予防できます。私は 2024 年に 1 度この事故を起こしていて、そこから 3 段階監視を仕込みました。</p>
+<h2 id="選定手順-要約">選定手順 (要約)</h2>
+<p>新規 SaaS に LLM を組み込む時、以下の順で判断するのが最短です。</p>
+<ol type="1">
+<li><strong>用途を分ける</strong> — chat / 分類 / 要約 / エージェント / RAG / コード生成の 6 カテゴリで分類</li>
+<li><strong>Privacy 要件を先に決める</strong> — Local 必須 (医療 / 法務) なら Ollama 一択</li>
+<li><strong>用途別に 20 項目 checklist をスコアリング</strong> — 各項目 0-4 で採点</li>
+<li><strong>用途別に第 1 候補 + fallback を決める</strong> — 単一モデルに寄せない</li>
+<li><strong>Cost guard の 3 段階を実装</strong> — 日次上限 + post-call log + nightly reconcile</li>
+</ol>
+<p>この 5 手順を最初に固めておくと、LLM 価格改定やモデル更新のたびに右往左往する状態を避けられます。</p>
+<h2 id="次の一手">次の一手</h2>
+<p>Xiora では、LLM router と cost guard の実装ノウハウを内部で <code>brain/config/llm-router.yaml</code> に集約しています。同じ運用を検討中の SaaS 開発者向けに、無料相談も受付中です。</p>
+<ul class="article-list">
+<li><strong>Xiora コーポレートサイト</strong> — https://xiora-official.com/</li>
+<li><strong>Aiverse Studio (M1a waitlist)</strong> — https://aiverse.xiora-official.com/pricing</li>
+<li><strong>XCloud Connect (Live)</strong> — https://connect.xiora-official.com/</li>
+<li><strong>XCloud Flow (Live)</strong> — https://flow.xiora-official.com/</li>
+</ul>
+<p>LLM 選定 / router 実装 / cost guard の相談は info@xiora-official.com までお問い合わせください。</p>
+<p><strong>筆者</strong>: Xiora 代表 沓澤 怜士 (Kutsuzawa Reo)<br/>
+<strong>連絡</strong>: info@xiora-official.com<br/>
+<strong>免責</strong>: 本記事は情報提供を目的としており、特定モデルの優劣を主張するものではありません。LLM の性能と価格は頻繁に更新されるため、採用前に各プロバイダーの最新情報および貴社ワークロードでの独自評価をお願いします。</p>
+<p>#LLM #Ollama #Claude #GPT4o #Gemini #AI #SaaS #Xiora</p>
+<hr/>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">貴社の LLM 選定、20 項目 checklist で 30 分で整理します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">用途別に「どのモデル + どんな fallback」が最適かを、代表 沓澤が 1 対 1 で棚卸しします。 所要 30 分・オンライン・費用 ¥0。 商談化しない相談も歓迎します。</p>
+<ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:row;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:#4b5563;">
+<li style="padding-left:0;position:static;">✓ 24 時間以内に返信</li>
+<li style="padding-left:0;position:static;">✓ NDA 対応可</li>
+<li style="padding-left:0;position:static;">✓ 営業メール一切なし</li>
+<li style="padding-left:0;position:static;">✓ 小規模な相談も歓迎</li>
+</ul>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-llm-selection-checklist-20" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[llm-selection-checklist-20] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+<hr/>
+<h2 id="関連プロダクト">関連 Xiora プロダクト</h2>
+<p>本記事のトピックに直接関わる Xiora 自社プロダクトです。 いずれも公開情報、¥0 で概要確認できます。</p>
+<ul class="article-list">
+  <li class="article-list-item"><a href="/products/agent-factory.html"><strong>Agent Factory — AI エージェント構築 SaaS</strong></a> — LLM router 設計込み</li>
+  <li class="article-list-item"><a href="/products/xiora-brain.html"><strong>Xiora Brain — 24/7 runtime</strong></a> — Ollama fallback 込みの handler queue</li>
+</ul>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+<script defer src="../assets/js/main.js"></script>
+</body>
+</html>

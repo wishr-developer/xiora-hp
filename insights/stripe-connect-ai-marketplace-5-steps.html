@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Stripe Connect で AI エージェント マーケットプレイスを構築する 5 step — Aiverse Studio 実装事例 | Xiora Insights</title>
+<meta content="Stripe Connect (Express / Standard / Custom) を使って AI エージェント マーケットプレイスを構築する時の 5 step (アカウント種別選定・オンボーディング設計・split 手数料・KYC / 特商法連携・payout 監視) を、Aiverse Studio と XCloud Connect の実装事例で解説します。" name="description"/>
+<link href="https://xiora-official.com/insights/stripe-connect-ai-marketplace-5-steps.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/stripe-connect-ai-marketplace-5-steps.html" property="og:url"/>
+<meta content="Stripe Connect で AI エージェント マーケットプレイスを構築する 5 step — Aiverse Studio 実装事例 | Xiora" property="og:title"/>
+<meta content="Stripe Connect (Express / Standard / Custom) を使って AI エージェント マーケットプレイスを構築する時の 5 step を、Aiverse Studio と XCloud Connect の実装事例で解説します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Stripe Connect で AI エージェント マーケットプレイスを構築する 5 step — Aiverse Studio 実装事例 | Xiora" name="twitter:title"/>
+<meta content="Stripe Connect の 5 step を、Aiverse Studio と XCloud Connect の実装事例で解説します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stripe Connect で AI エージェント マーケットプレイスを構築する 5 step — Aiverse Studio 実装事例",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "Stripe Connect の 5 step を、Aiverse Studio と XCloud Connect の実装事例で解説します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-25",
+  "mainEntityOfPage": "https://xiora-official.com/insights/stripe-connect-ai-marketplace-5-steps.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Kutsuzawa Reo)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Stripe Connect で AI エージェント マーケットプレイスを構築する 5 step</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Engineering</span>
+<time datetime="2026-07-25">2026.07.25</time>
+</div>
+<h1 class="insight-title">Stripe Connect で AI エージェント マーケットプレイスを構築する 5 step — Aiverse Studio 実装事例</h1>
+<p class="insight-lead">AI エージェントや AI クリエイターが売り手になる「マーケットプレイス型 SaaS」を Stripe Connect で構築する時、実装で迷う 5 つの判断 (アカウント種別・オンボーディング・split 手数料・KYC / 特商法・payout 監視) を、Xiora の Aiverse Studio 実装事例をもとに整理します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2 id="この記事は何か">この記事は何か</h2>
+<p>「AI エージェント側 (クリエイター / developer) が売り手、消費者側が買い手になるマーケットプレイス」を作りたい、というご相談を月 3-5 件受けています。共通してぶつかるのが、Stripe の「単純 Charges」ではなく「Stripe Connect」を使う判断と、その先の 5 つの選択肢です。</p>
+<p>この記事では、Xiora が Aiverse Studio (AI 配信 SaaS) を Phase 2 (Hub 化) で Stripe Connect を導入する準備段階で整理した、5 step の実装判断を共有します。ドキュメント上の理論だけでなく、実際に <code>services/shared/billing-core/</code> と <code>billing-core-service/</code> (FastAPI) で走らせている実装ベースの話です。</p>
+<p><strong>免責</strong>: 本記事は情報提供を目的としており、Stripe 側の仕様変更に追随する責任は読者側にあります。実際の実装前に Stripe 公式ドキュメント (https://docs.stripe.com/connect) の該当ページをご確認ください。また特商法・電子契約法などの法規制については、事業内容に応じた法務レビューを受けることを推奨します。</p>
+<h2 id="1-アカウント種別を-3-つから選ぶ">Step 1 — Stripe Connect のアカウント種別を 3 つから選ぶ</h2>
+<p>Stripe Connect には 3 つのアカウント種別があり、選定を誤るとオンボーディング体験と分配ロジックが後戻り不能になります。</p>
+<ul class="article-list">
+<li><strong>Standard</strong> — 売り手が自分の Stripe ダッシュボードを持つ。Stripe UX と手数料構造を売り手が直接負う。プラットフォーム側の実装コストが最小。</li>
+<li><strong>Express</strong> — Stripe ダッシュボードは簡略版、プラットフォーム側が UX を包む。売り手体験を統一しやすい。手数料と payout もプラットフォームで抽象化。</li>
+<li><strong>Custom</strong> — Stripe UX を全く見せず、すべてプラットフォーム側で構築。フル制御と引き換えに、KYC / 通知 / エラー UI を自前で用意する必要あり。</li>
+</ul>
+<p>Xiora の判断は「AI クリエイター側の技術理解度」と「サービス初期段階での実装工数」で決めました。Aiverse Studio (Phase 2) では <strong>Express を選択予定</strong>です。理由は 3 つ:</p>
+<ol type="1">
+<li>クリエイターは Stripe のマーケットプレイス UX に不慣れなので、Custom で全部作ると初期リリースが 2-3 ヶ月遅延する</li>
+<li>Standard だと売り手側の手数料設定が Xiora ブランドとズレる恐れ</li>
+<li>Express なら Stripe が提供する Hosted onboarding で KYC 一次通過を任せられる</li>
+</ol>
+<p>「Custom じゃないと自由度が足りない」という誤解が多いですが、Aiverse Studio の Phase 2 レベルでは Express で十分でした。Custom は「AI 側にも独自の payout ロジック (例: パフォーマンスベースの上乗せ) を組み込みたい」段階で検討します。</p>
+<h2 id="2-オンボーディング設計">Step 2 — オンボーディング設計 (Hosted vs Embedded)</h2>
+<p>アカウント種別を選んだら、オンボーディング flow を Hosted (Stripe が提供する画面遷移) か Embedded (自社サイトに埋め込み) から選びます。Aiverse Studio では <strong>Hosted onboarding + 完了後 redirect back</strong>を採用しました。理由:</p>
+<ul class="article-list">
+<li>Hosted は Stripe 側で KYC UI を最新に保ってくれる (法規制対応の追随を Stripe に任せられる)</li>
+<li>Embedded は柔軟だが、Stripe の UI 更新のたびに CSS 追随が必要</li>
+<li>Aiverse Studio では「AI クリエイター が最短 10 分で登録完了する」ことが最優先</li>
+</ul>
+<p>実装は <code>POST /v1/account_links</code> で <code>type=account_onboarding</code>、<code>return_url</code> に自社サイトの「登録完了しました」ページを指定するだけです。5-10 行の実装で終わります。</p>
+<p><strong>落とし穴</strong>: オンボーディング完了後、Stripe から返ってきた <code>account.id</code> をそのまま「登録済み」フラグにしないでください。Stripe は「オンボーディング画面は通過したが KYC の追加書類要求で pending 状態」というケースを頻繁に返します。判定は <code>capabilities.card_payments</code> と <code>capabilities.transfers</code> がともに <code>active</code> になっていることを webhook (<code>account.updated</code>) で確認します。</p>
+<h2 id="3-split-手数料の設計">Step 3 — Split 手数料の設計 (Destination Charges vs Direct Charges)</h2>
+<p>マーケットプレイスの中心的判断が、「決済フローを Destination Charges にするか Direct Charges にするか」です。この選定で、日本の税務処理と Stripe 手数料の帰属が大きく変わります。</p>
+<ul class="article-list">
+<li><strong>Destination Charges</strong> — プラットフォーム (Xiora) が売上主体、その一部を売り手に送金。Stripe 手数料はプラットフォーム負担、売上計上もプラットフォーム側。</li>
+<li><strong>Direct Charges</strong> — 売り手が売上主体、プラットフォームは「application_fee」として手数料を受け取る。Stripe 手数料は売り手負担、売上計上は売り手側。</li>
+</ul>
+<p>Aiverse Studio の Phase 2 では <strong>Direct Charges + application_fee 15%</strong>を選定予定です。理由:</p>
+<ol type="1">
+<li>「AI クリエイターが売り手」を明示することで、消費者の期待値と課税処理が一致する</li>
+<li>Xiora 側の売上は「プラットフォーム手数料」として明確に計上できる (経理と会計が簡潔)</li>
+<li>特商法表記が売り手ごとに独立するため、Aiverse プラットフォーム全体で誇大表現の連帯責任リスクを分散できる</li>
+</ol>
+<p>ただし Direct Charges は、売り手ごとの Stripe アカウントが KYC 完了していないと使えません。Step 2 の Hosted onboarding + capabilities.transfers 確認が前提です。</p>
+<p><strong>実運用の Tip</strong>: application_fee の割合は「初期は 10-15%、成熟後は 15-25%」に段階的に上げる設計を最初から YAML に持たせておくと、後で楽です。Xiora では <code>services/shared/billing-core/config/fee-tiers.yaml</code> に階段を持たせています。</p>
+<h2 id="4-kyc-特商法連携">Step 4 — KYC と特商法表記の連携</h2>
+<p>ここが日本で一番ハマるところです。Stripe Connect の KYC は「Stripe に対する KYC」であって、日本の特商法表記 (販売業者名 / 責任者名 / 所在地 / 電話番号 / メールアドレス) をそのまま満たすわけではありません。</p>
+<p>Xiora では以下の連携設計にしています。</p>
+<ul class="article-list">
+<li>Stripe onboarding 完了時に、KYC で取得済みの「事業者名 / 所在地」を webhook (<code>account.updated</code>) で受信</li>
+<li>この情報を Aiverse Studio の「販売者ページ」に自動反映 (特商法表記の自動生成)</li>
+<li>販売者ページの URL を、決済画面に必須表示 (Stripe Checkout の「販売者情報を見る」リンク)</li>
+<li>販売者側で「電話番号を非公開にしたい」場合は、Xiora 側の代理電話番号を表示するオプションを提供 (プラットフォーム連帯責任)</li>
+</ul>
+<p>この連携がないと、「Stripe onboarding は通ったのに、特商法上の表示不備で消費者庁指導」というリスクが発生します。Aiverse Studio の Phase 2 実装では、この連携を「販売開始の前提 gate」にしています (販売者は特商法表記が反映されるまで販売開始できない)。</p>
+<p>また、Stripe の KYC 情報を特商法表記に流用する部分は、事業内容に応じた法務レビューを受けています。汎用の実装ではなく、事業固有の設計判断が必要な部分です。</p>
+<h2 id="5-payout-監視-と-失敗リカバリ">Step 5 — Payout 監視と失敗リカバリ</h2>
+<p>マーケットプレイスの運用で最も見落とされやすいのが、payout (売り手への送金) の監視です。Aiverse Studio では以下の 3 段階監視を設計しました。</p>
+<ul class="article-list">
+<li><strong>Payout 予定監視</strong> — 各売り手の payout schedule を Stripe API で日次取得、想定 payout 額と実 payout 額の乖離を検知</li>
+<li><strong>Payout 失敗 alert</strong> — <code>payout.failed</code> webhook を受信、失敗理由 (口座凍結 / 口座番号誤り / KYC 期限切れ) ごとに対応 runbook を Slack 通知</li>
+<li><strong>売り手側 dashboard 表示</strong> — 売り手が自分の payout 状態を確認できる画面を Xiora 側でも用意 (Stripe Express ダッシュボードへの link に加えて自社版)</li>
+</ul>
+<p>「payout は Stripe が自動でやってくれるから監視不要」と思いがちですが、実運用では 3-5% の売り手で payout 失敗が観測されます (Xiora の運用ログベース)。多くは口座名義とパスポート表記の相違、または KYC 更新書類の期限切れです。この 3-5% を放置すると、売り手から「お金がいつ入るか分からない」というクレームが発生し、マーケットプレイスの信頼を失いやすくなります。</p>
+<p>Xiora の対応方針は「payout 失敗を検知した 24 時間以内に、原因と復旧手順を売り手に日本語で通知する」です。この文言テンプレートも Slack alert に含めています。</p>
+<h2 id="実装の順序-要約">実装の順序 (要約)</h2>
+<p>これから Stripe Connect で AI エージェント マーケットプレイスを構築するなら、以下の順で作るのが最短です。</p>
+<ol type="1">
+<li>アカウント種別を Express / Custom / Standard から選定 (Aiverse Studio は Express)</li>
+<li>Hosted onboarding で 5-10 行実装、<code>account.updated</code> webhook で capabilities 確認</li>
+<li>Destination or Direct Charges を選定、application_fee は YAML で階段管理</li>
+<li>KYC 情報と特商法表記を webhook 経由で連携、法務レビューを 1 回入れる</li>
+<li>Payout の 3 段階監視 (予定 / 失敗 / 売り手 dashboard) を実装</li>
+</ol>
+<p>この 5 step が終わると、AI エージェント側の売り手を安全に受け入れられるマーケットプレイス基盤が動きます。Aiverse Studio の Phase 2 (Hub) では、この基盤の上に「AI クリエイターディレクトリ + ファンクラブ課金」を載せる予定です。</p>
+<h2 id="次の一手">次の一手</h2>
+<p>Aiverse Studio の M1a (waitlist) は現在受付中です。Phase 2 (Hub + Stripe Connect) の開発進捗を追いたい方は、ぜひ waitlist にご登録ください。</p>
+<ul class="article-list">
+<li><strong>Aiverse Studio (M1a waitlist)</strong> — https://aiverse.xiora-official.com/pricing</li>
+<li><strong>XCloud Connect (Live、Stripe セルフサーブ稼働)</strong> — https://connect.xiora-official.com/</li>
+<li><strong>XCloud Flow (Live)</strong> — https://flow.xiora-official.com/</li>
+<li><strong>Xiora コーポレートサイト</strong> — https://xiora-official.com/</li>
+</ul>
+<p>Stripe Connect の実装相談、AI マーケットプレイスの設計レビュー、KYC / 特商法連携の運用設計は info@xiora-official.com までお問い合わせください。</p>
+<p><strong>筆者</strong>: Xiora 代表 沓澤 怜士 (Kutsuzawa Reo)<br/>
+<strong>連絡</strong>: info@xiora-official.com<br/>
+<strong>免責</strong>: 本記事は情報提供を目的としており、Stripe の仕様変更や法規制の変更に追随する責任は読者側にあります。実装前に Stripe 公式ドキュメントおよび顧問弁護士 / 顧問税理士のレビューを受けることを推奨します。</p>
+<p>#Stripe #StripeConnect #AI #マーケットプレイス #SaaS #個人開発 #Xiora</p>
+<hr/>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">貴社の Stripe Connect 実装、30 分で判断軸を整理します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">アカウント種別 / Charges タイプ / KYC 連携をどう選ぶかを、代表 沓澤が 1 対 1 で棚卸しします。 所要 30 分・オンライン・費用 ¥0。 商談化しない相談も歓迎します。</p>
+<ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:row;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:#4b5563;">
+<li style="padding-left:0;position:static;">✓ 24 時間以内に返信</li>
+<li style="padding-left:0;position:static;">✓ NDA 対応可</li>
+<li style="padding-left:0;position:static;">✓ 営業メール一切なし</li>
+<li style="padding-left:0;position:static;">✓ 小規模な相談も歓迎</li>
+</ul>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-stripe-connect-ai-marketplace-5-steps" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[stripe-connect-ai-marketplace-5-steps] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+<hr/>
+<h2 id="関連プロダクト">関連 Xiora プロダクト</h2>
+<p>本記事のトピックに直接関わる Xiora 自社プロダクトです。 いずれも公開情報、¥0 で概要確認できます。</p>
+<ul class="article-list">
+  <li class="article-list-item"><a href="/products/aiverse-studio.html"><strong>Aiverse Studio — AI 配信 SaaS</strong></a> — Phase 2 で Stripe Connect 導入予定</li>
+  <li class="article-list-item"><a href="/products/xcloud-connect.html"><strong>XCloud Connect — 飲食店 QR オーダー</strong></a> — Stripe セルフサーブ稼働中</li>
+</ul>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+<script defer src="../assets/js/main.js"></script>
+</body>
+</html>
