@@ -2,38 +2,14 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
-      "id": "2026-08-08-monthly-100k-ai-side-income-5-paths",
-      "date": "2026-08-08",
+      "id": "2026-08-22-xcloud-connect-3month-implicit-demo-tenant-record",
+      "date": "2026-08-22",
       "type": "insight",
       "kind": "release",
-      "title": "一般人が月 ¥10 万 AI 副業で稼ぐ 5 path — Xiora の 事例で見る現実的な選択肢",
-      "description": "AI 副業 で 月 ¥10 万 の 追加 収入 を狙う 5 path を、Xiora の 実運用 record を 引き合いに 現実的な 難易度・時間・単価で 情報整理します。",
-      "url": "/insights/monthly-100k-ai-side-income-5-paths.html",
+      "title": "XCloud Connect 導入 3 ヶ月 の record — implicit demo tenant + Restaurant OS 事例",
+      "description": "Xiora XCloud Connect の 導入 3 ヶ月 record を、implicit demo tenant と Restaurant OS の 実運用 shadow 事例で 情報整理します。",
+      "url": "/insights/xcloud-connect-3month-implicit-demo-tenant-record.html",
       "insight_cat": "Practice",
-      "author": "沓澤 怜士 (Xiora)",
-      "build_cat": "2026-08 Batch"
-    },
-    {
-      "id": "2026-08-12-xiora-ocean-llm-unique-4-datasets",
-      "date": "2026-08-12",
-      "type": "insight",
-      "kind": "release",
-      "title": "Xiora Ocean LLM の 独自 dataset — Xiora unique な 4 種 data moat の 構造",
-      "description": "Xiora の 独自 LLM「Ocean」が 学習に 使う 業種特化 4 種 dataset (医薬品期限 / 飲食口コミ / SES 契約 / 情シス代行) の 由来と moat 構造を、実運用の 蓄積プロセスと あわせて 情報整理します。",
-      "url": "/insights/xiora-ocean-llm-unique-4-datasets.html",
-      "insight_cat": "Research",
-      "author": "沓澤 怜士 (Xiora)",
-      "build_cat": "2026-08 Batch"
-    },
-    {
-      "id": "2026-08-15-xiora-trader-21-strategy-630-combination-result",
-      "date": "2026-08-15",
-      "type": "insight",
-      "kind": "release",
-      "title": "Xiora Trader Backtest — 21 strategy × 30 銘柄 の 630 組合せ の 情報整理",
-      "description": "Xiora Trader が backtest する 21 テクニカル strategy × 30 銘柄 (n225 / topix500 / spx500) の 630 組合せ について、Sharpe / max drawdown / win rate の 統計を 情報として整理します。",
-      "url": "/insights/xiora-trader-21-strategy-630-combination-result.html",
-      "insight_cat": "Research",
       "author": "沓澤 怜士 (Xiora)",
       "build_cat": "2026-08 Batch"
     },
@@ -50,16 +26,76 @@
       "build_cat": "2026-08 Batch"
     },
     {
-      "id": "2026-08-22-xcloud-connect-3month-implicit-demo-tenant-record",
-      "date": "2026-08-22",
+      "id": "2026-08-15-xiora-trader-21-strategy-630-combination-result",
+      "date": "2026-08-15",
       "type": "insight",
       "kind": "release",
-      "title": "XCloud Connect 導入 3 ヶ月 の record — implicit demo tenant + Restaurant OS 事例",
-      "description": "Xiora XCloud Connect の 導入 3 ヶ月 record を、implicit demo tenant と Restaurant OS の 実運用 shadow 事例で 情報整理します。",
-      "url": "/insights/xcloud-connect-3month-implicit-demo-tenant-record.html",
+      "title": "Xiora Trader Backtest — 21 strategy × 30 銘柄 の 630 組合せ の 情報整理",
+      "description": "Xiora Trader が backtest する 21 テクニカル strategy × 30 銘柄 (n225 / topix500 / spx500) の 630 組合せ について、Sharpe / max drawdown / win rate の 統計を 情報として整理します。",
+      "url": "/insights/xiora-trader-21-strategy-630-combination-result.html",
+      "insight_cat": "Research",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "2026-08 Batch"
+    },
+    {
+      "id": "2026-08-12-xiora-ocean-llm-unique-4-datasets",
+      "date": "2026-08-12",
+      "type": "insight",
+      "kind": "release",
+      "title": "Xiora Ocean LLM の 独自 dataset — Xiora unique な 4 種 data moat の 構造",
+      "description": "Xiora の 独自 LLM「Ocean」が 学習に 使う 業種特化 4 種 dataset (医薬品期限 / 飲食口コミ / SES 契約 / 情シス代行) の 由来と moat 構造を、実運用の 蓄積プロセスと あわせて 情報整理します。",
+      "url": "/insights/xiora-ocean-llm-unique-4-datasets.html",
+      "insight_cat": "Research",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "2026-08 Batch"
+    },
+    {
+      "id": "2026-08-08-monthly-100k-ai-side-income-5-paths",
+      "date": "2026-08-08",
+      "type": "insight",
+      "kind": "release",
+      "title": "一般人が月 ¥10 万 AI 副業で稼ぐ 5 path — Xiora の 事例で見る現実的な選択肢",
+      "description": "AI 副業 で 月 ¥10 万 の 追加 収入 を狙う 5 path を、Xiora の 実運用 record を 引き合いに 現実的な 難易度・時間・単価で 情報整理します。",
+      "url": "/insights/monthly-100k-ai-side-income-5-paths.html",
       "insight_cat": "Practice",
       "author": "沓澤 怜士 (Xiora)",
       "build_cat": "2026-08 Batch"
+    },
+    {
+      "id": "2026-08-05-smb-dx-books-5-2026",
+      "date": "2026-08-05",
+      "type": "insight",
+      "kind": "release",
+      "title": "中小企業 DX 担当 が 手元に置く 書籍 5 選 — 業務改善 / システム選定 / 現場定着 (2026)",
+      "description": "中小企業 DX 担当 が 業務改善 / システム選定 / 現場定着 / 稟議通し / KPI 設計 の 5 領域で 判断根拠に据える 書籍 5 冊を、章単位で 情報整理します。 Xiora の SMB 支援 案件で 実際に紹介した書籍です。",
+      "url": "/insights/smb-dx-books-5-2026.html",
+      "insight_cat": "Books",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Books Playbook"
+    },
+    {
+      "id": "2026-08-01-blender-3dcg-books-5-2026",
+      "date": "2026-08-01",
+      "type": "insight",
+      "kind": "release",
+      "title": "Blender / 3DCG 学習 書籍 5 選 — モデリング / シェーダ / アニメの一次資料 (2026)",
+      "description": "Blender / 3DCG を 独学で 実務水準まで押し上げる 書籍 5 冊を、モデリング / シェーダ / アニメ / リギング / 合成 の 5 章に対応させて 情報整理します。 Xiora の 動画・映像 subrepo 検証で 開いた章を抜粋します。",
+      "url": "/insights/blender-3dcg-books-5-2026.html",
+      "insight_cat": "Books",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Books Playbook"
+    },
+    {
+      "id": "2026-07-29-solo-founder-books-5-2026",
+      "date": "2026-07-29",
+      "type": "insight",
+      "kind": "release",
+      "title": "単独創業者が判断根拠に据える書籍 5 選 — 資金 / 顧客 / 法務 / 採用 / 精神衛生 (2026)",
+      "description": "単独創業 SaaS が 資金 / 顧客獲得 / 法務基礎 / 一人 採用戦略 / 精神衛生 の 5 領域で 判断根拠に据える 書籍 5 冊を、章単位で 情報整理します。 Xiora 代表の 実務参照履歴を根拠に選定します。",
+      "url": "/insights/solo-founder-books-5-2026.html",
+      "insight_cat": "Books",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Books Playbook"
     },
     {
       "id": "2026-07-29-llm-selection-checklist-20",
@@ -74,6 +110,18 @@
       "build_cat": "LLM Ops Playbook"
     },
     {
+      "id": "2026-07-25-video-creator-kobo-5-2026",
+      "date": "2026-07-25",
+      "type": "insight",
+      "kind": "release",
+      "title": "動画クリエイター向け 楽天 Kobo 5 冊 — 編集 / 演出 / 収益化の一次資料 (2026)",
+      "description": "動画クリエイター が 編集 / 演出 / SNS 運用 / 収益化 の 判断根拠に据える 楽天 Kobo 5 冊 を、章単位の用途明示付きで 情報整理します。 Xiora の Content Engine 運用で 実際に開いた章を 抜粋します。",
+      "url": "/insights/video-creator-kobo-5-2026.html",
+      "insight_cat": "Books",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Books Playbook"
+    },
+    {
       "id": "2026-07-25-stripe-connect-ai-marketplace-5-steps",
       "date": "2026-07-25",
       "type": "insight",
@@ -84,6 +132,18 @@
       "insight_cat": "Engineering",
       "author": "沓澤 怜士 (Xiora)",
       "build_cat": "SaaS Billing Playbook"
+    },
+    {
+      "id": "2026-07-22-ai-dev-books-5-2026",
+      "date": "2026-07-22",
+      "type": "insight",
+      "kind": "release",
+      "title": "Xiora が実運用で参照する AI 開発書籍 5 選 — 単独創業 SaaS の一次資料 (2026)",
+      "description": "Xiora が 2026 年に 24/7 AI エージェント運用と Solo SaaS 実装で参照した書籍 5 冊を、章単位で用途を明示しながら紹介します。 LLM 実装 / エージェント設計 / データ基盤 / 認可 / SRE の 5 領域について、実装判断に効いた章を情報整理します。",
+      "url": "/insights/ai-dev-books-5-2026.html",
+      "insight_cat": "Books",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Books Playbook"
     },
     {
       "id": "2026-07-22-ai-saas-solo-run-playbook",
@@ -335,6 +395,17 @@
       "news_cat": "Product"
     },
     {
+      "id": "insight-ai-implementation-architecture",
+      "date": "2026-05-18",
+      "type": "insight",
+      "kind": "engineering",
+      "insight_cat": "AI",
+      "title": "AI を事業に実装するための、最小構成アーキテクチャ",
+      "description": "ChatGPT を「使う」段階から、AI を業務フローと売上に組み込む段階へ。Xiora が現場で繰り返し採用している、最小構成の AI 実装アーキテクチャを公開します。",
+      "url": "/insights/ai-implementation-architecture.html",
+      "author": "Xiora Engineering"
+    },
+    {
       "id": "2026-05-15-xbeauty-launch",
       "date": "2026-05-15",
       "type": "news",
@@ -346,6 +417,18 @@
       "news_cat": "Business"
     },
     {
+      "id": "insight-rag-architecture-for-smb",
+      "date": "2026-05-12",
+      "type": "insight",
+      "kind": "research",
+      "insight_cat": "AI",
+      "title": "中小企業のための、現実的な RAG アーキテクチャ",
+      "description": "全社ドキュメントを一気に検索可能にする ── 言うのは簡単ですが、本番運用するには「データ品質」「権限」「コスト」の現実があります。SMB 向けに私たちが選ぶ構成を整理しました。",
+      "url": "/insights/rag-architecture-for-smb.html",
+      "build_cat": "AI Research",
+      "author": "Xiora Engineering"
+    },
+    {
       "id": "2026-05-10-xcloud-flow-release",
       "date": "2026-05-10",
       "type": "news",
@@ -354,6 +437,18 @@
       "description": "受講管理・予約・決済・受講進捗分析を一つの管理画面に集約する、スクール運営 SaaS を正式リリース。",
       "url": "/news/2026-05-10-xcloud-flow-release.html",
       "news_cat": "Product"
+    },
+    {
+      "id": "insight-from-poc-to-production",
+      "date": "2026-05-04",
+      "type": "insight",
+      "kind": "engineering",
+      "insight_cat": "DX",
+      "title": "AI PoC を、本番運用に乗せるための 5 つの設計判断",
+      "description": "AI PoC は驚くほど簡単に動きますが、業務に乗せた瞬間に壊れます。Xiora が現場で繰り返し問われる、PoC → 本番運用のギャップを埋める設計判断を 5 つに絞ってまとめました。",
+      "url": "/insights/from-poc-to-production.html",
+      "build_cat": "Engineering Notes",
+      "author": "Xiora Engineering"
     },
     {
       "id": "2026-05-01-site-renewal",
@@ -394,41 +489,6 @@
       "description": "対応業種を医療・店舗・専門士業・産業テクノロジーの 4 カテゴリに整理し、事業ページを構成し直しました。",
       "url": "/news/2026-02-10-industries-update.html",
       "news_cat": "Update"
-    },
-    {
-      "id": "insight-ai-implementation-architecture",
-      "date": "2026-05-18",
-      "type": "insight",
-      "kind": "engineering",
-      "insight_cat": "AI",
-      "title": "AI を事業に実装するための、最小構成アーキテクチャ",
-      "description": "ChatGPT を「使う」段階から、AI を業務フローと売上に組み込む段階へ。Xiora が現場で繰り返し採用している、最小構成の AI 実装アーキテクチャを公開します。",
-      "url": "/insights/ai-implementation-architecture.html",
-      "author": "Xiora Engineering"
-    },
-    {
-      "id": "insight-rag-architecture-for-smb",
-      "date": "2026-05-12",
-      "type": "insight",
-      "kind": "research",
-      "insight_cat": "AI",
-      "title": "中小企業のための、現実的な RAG アーキテクチャ",
-      "description": "全社ドキュメントを一気に検索可能にする ── 言うのは簡単ですが、本番運用するには「データ品質」「権限」「コスト」の現実があります。SMB 向けに私たちが選ぶ構成を整理しました。",
-      "url": "/insights/rag-architecture-for-smb.html",
-      "build_cat": "AI Research",
-      "author": "Xiora Engineering"
-    },
-    {
-      "id": "insight-from-poc-to-production",
-      "date": "2026-05-04",
-      "type": "insight",
-      "kind": "engineering",
-      "insight_cat": "DX",
-      "title": "AI PoC を、本番運用に乗せるための 5 つの設計判断",
-      "description": "AI PoC は驚くほど簡単に動きますが、業務に乗せた瞬間に壊れます。Xiora が現場で繰り返し問われる、PoC → 本番運用のギャップを埋める設計判断を 5 つに絞ってまとめました。",
-      "url": "/insights/from-poc-to-production.html",
-      "build_cat": "Engineering Notes",
-      "author": "Xiora Engineering"
     },
     {
       "id": "labs-line-ai-assistant",
