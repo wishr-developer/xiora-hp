@@ -1,0 +1,52 @@
+{
+  "test_id": "insights-cta-copy-2026-07-20",
+  "hypothesis": "「30 分無料で相談する」+ 無料 badge の variant B は 現状 A (「今すぐ相談する」) より mini-CTA CVR が 高い",
+  "variants": {
+    "a": {
+      "label": "control",
+      "cta_text": "今すぐ相談する →",
+      "badge": null,
+      "weight": 0.5
+    },
+    "b": {
+      "label": "experiment_free_badge",
+      "cta_text": "30 分無料で相談する →",
+      "badge": "無料",
+      "weight": 0.5
+    }
+  },
+  "assignment": {
+    "method": "cookie",
+    "cookie_name": "xiora_ab_variant",
+    "cookie_days": 30,
+    "override_query": "?variant=a|b"
+  },
+  "events": {
+    "exposure": "xiora_ab_exposure",
+    "conversion": "xiora_cta_click_mini"
+  },
+  "sample_size": {
+    "min_per_variant": 200,
+    "max_test_days": 30,
+    "power": 0.8,
+    "baseline_cvr_estimate": 0.02,
+    "min_detectable_effect": 0.005,
+    "notes": "baseline 2% + MDE 0.5% で 各 variant 約 800 exposure 必要 (n = 16*p*(1-p)/MDE^2)。 mini_per_variant=200 は 中間 checkpoint、正式決定は 30 日後 800 到達で判定"
+  },
+  "significance": {
+    "test": "chi_square",
+    "alpha": 0.05,
+    "correction": "none",
+    "winner_action": "auto_fix_to_variant_after_30d_if_significant"
+  },
+  "ga4_query": {
+    "explorations_type": "free_form",
+    "dimensions": ["event_params.variant", "event_params.article_slug"],
+    "metrics": ["event_count"],
+    "filter": "event_name IN (xiora_ab_exposure, xiora_cta_click_mini)"
+  },
+  "kill_switch": {
+    "trigger": "either variant CVR < 0.005 for 7 days",
+    "action": "revert both variants to control A, log incident"
+  }
+}
