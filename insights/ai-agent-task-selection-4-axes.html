@@ -100,6 +100,15 @@
 <h2 id="軸-2-可逆性-失敗した時に取り消せるか">軸 2: 可逆性 — 失敗した時に取り消せるか</h2>
 <p>エージェントに副作用のある action を渡す場合、原則として「失敗した時に元に戻せるか」を評価します。 DB への UPDATE は backup と transaction で復元可能、ファイル生成も削除して再生成できる。 一方、外部メール送信、Stripe 決済確定、公式 SNS 投稿、契約書電子署名は取り消し不能です。 a16z のエージェント設計解説でも、副作用の伴う action は「confirmation ゲート + 監査ログ」を挟むべきという整理がなされています (<a href="https://a16z.com/ai-agents-infrastructure/">a16z — The Rise of AI Agent Infrastructure</a>)。</p>
 <p>判定 rubric は 3 段階です。 (A) フル可逆 (local ファイル生成、下書き作成、SQL SELECT、内部 DB のシャドウ書き込み) → エージェント単独 OK。 (B) 条件付き可逆 (顧客向けメール下書き保存、社内 Slack 投稿、backup 前提の DB 書換) → 人間 approval を挟めば OK。 (C) 不可逆 (メール送信、決済確定、公開投稿、契約締結、KYC 提出) → 人間 gate を要件化、AI は下書きまで。 Xiora の運用では、この (C) を harness の permission layer で hard block する設計を採用しています。 「不可逆 action には人間の明示承認を要件化する」というルールを設定ファイルに書いておくと、エージェントの判断ミスによる暴走を構造的に抑制しやすくなります。</p>
+<!-- mini-cta-cvr-2026-07-19 START -->
+<aside aria-label="Xiora AI エージェントを試す" style="margin:32px 0;padding:16px 20px;border-left:3px solid #111827;background:#f9fafb;border-radius:0 8px 8px 0;">
+<p style="margin:0 0 6px;font-size:13px;color:#6b7280;letter-spacing:0.08em;font-family:'Inter',sans-serif;">・ TRY XIORA</p>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#111827;">
+Xiora の AI エージェント運用ノウハウを、貴社の SaaS / 業務自動化に当てはめる 30 分無料相談。
+<a href="/contact.html?type=ai-dx&amp;src=insight-ai-agent-task-selection-4-axes-mini&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=cvr-mini-2026-07&amp;utm_content=ai-agent-task-selection-4-axes" style="color:#111827;text-decoration:underline;font-weight:500;">今すぐ相談する →</a>
+</p>
+</aside>
+<!-- mini-cta-cvr-2026-07-19 END -->
 <h2 id="軸-3-失敗コスト-業務が失敗した時の総ダメージ">軸 3: 失敗コスト — 業務が失敗した時の総ダメージ</h2>
 <p>同じ「メール返信」でも、社内議事録の共有と、顧客からのクレーム対応では失敗コストが 100 倍違います。 失敗コストは 3 種類に分解して評価します。 (1) 金銭損失 (返金・違約金・機会損失)、(2) 関係損失 (顧客離脱・取引先信頼失墜・従業員士気低下)、(3) 法的リスク (景表法・薬機法・個人情報保護法・下請法違反)。 Nielsen Norman Group の生成 AI UX 研究では、ユーザーは AI の「小さな失敗」より「重要な文脈での失敗」に対して不信を抱くと報告されています (<a href="https://www.nngroup.com/articles/generative-ui/">Nielsen Norman Group — Generative UI and Outcome-Oriented Design</a>)。</p>
 <p>実装上は各業務に「失敗コスト score (1-5)」を割り振り、score が 4 以上のものは自動送信 gate を設けます。 例えば、Xiora 側の運用では「顧客への謝罪メール」「返金の確定」「請求書送付」「契約書 draft の外部共有」を score 5、「社内議事録共有」「内部 dashboards 更新」を score 1-2 と扱っています。 score 3 (中間) の業務は「AI が生成 → 3 秒待機 → デフォルト送信、ただしオペレータが即座にキャンセル可能」という pattern で運用すると、速度と安全性のバランスが取りやすくなります。 失敗コストを可視化するだけで、「なぜこの業務は人間が最終承認するのか」を組織で合意しやすくなります。</p>

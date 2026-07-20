@@ -106,6 +106,15 @@
 <p>「なぜ失敗したか」を後から追えなければ、連携は属人化します。 最低限、<code>request_id / endpoint / status_code / latency_ms / error_code / attempt</code> の 6 項目を構造化ログで残し、外部 API のコスト (呼び出し数 × 単価) も日次で集計します。 Xiora では <code>xioraai-postgres</code> の共通テーブルに集約し、ダッシュボードで異常値 (エラー率急増・latency spike) を可視化しています。</p>
 <h3 id="運用責任-ownership">4. 運用責任 (Ownership)</h3>
 <p>技術面が完璧でも、運用の窓口が決まっていない連携は障害時に沈黙します。 SaaS ごとに「SLA / 障害時の一次対応者 / secret rotation の担当と周期 / breaking change 通知の受信先」を最低限ドキュメント化しておきます。 Xiora では ConoHa API password / Google refresh_token / Stripe restricted key を 90 日で rotation する運用にしています。</p>
+<!-- mini-cta-cvr-2026-07-19 START -->
+<aside aria-label="Xiora AI エージェントを試す" style="margin:32px 0;padding:16px 20px;border-left:3px solid #111827;background:#f9fafb;border-radius:0 8px 8px 0;">
+<p style="margin:0 0 6px;font-size:13px;color:#6b7280;letter-spacing:0.08em;font-family:'Inter',sans-serif;">・ TRY XIORA</p>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#111827;">
+Xiora の AI エージェント運用ノウハウを、貴社の SaaS / 業務自動化に当てはめる 30 分無料相談。
+<a href="/contact.html?type=ai-dx&amp;src=insight-api-integration-design-mini&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=cvr-mini-2026-07&amp;utm_content=api-integration-design" style="color:#111827;text-decoration:underline;font-weight:500;">今すぐ相談する →</a>
+</p>
+</aside>
+<!-- mini-cta-cvr-2026-07-19 END -->
 <h2 id="webhook-受信の-5-論点">Webhook 受信の 5 論点</h2>
 <p>こちらから叩く API と対になるのが、SaaS 側から呼ばれる Webhook です。 実装時に押さえるべきは以下の 5 点です。</p>
 <ol type="1">

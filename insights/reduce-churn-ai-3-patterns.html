@@ -101,6 +101,15 @@
 <h2 id="pattern-b-解約-signal-検知">Pattern B: 解約 signal 検知</h2>
 <p>解約は突然起きるように見えますが、実際には「使用頻度の低下」「login 頻度の低下」「特定機能の未使用期間」「support ticket の否定的な sentiment」といった前兆が観測されるケースが多いと報告されています (<a href="https://openviewpartners.com/blog/saas-customer-churn/">出典</a>)。 これらを組み合わせて early warning score を計算するのが Pattern B です。</p>
 <p>実装可能な最小構成として、次の閾値をベースラインとして使えます。 (1) WoW ログイン日数が -30% 以下、(2) core feature の unused 期間が 14 日以上、(3) support ticket の直近 3 件の sentiment がすべて negative、(4) 契約更新まで 30 日以内。 いずれか 2 つ以上 hit した account を「high risk」として daily batch で抽出し、CS チームまたは founder 本人にアラートを送る運用です。 sentiment 判定は OpenAI や Anthropic の分類 API を使えば実装コストは軽微です。 閾値の数値そのものより、weekly cadence で hit した account を人間が実際にレビューするサイクル自体が効いてくる傾向があります。</p>
+<!-- mini-cta-cvr-2026-07-19 START -->
+<aside aria-label="Xiora AI エージェントを試す" style="margin:32px 0;padding:16px 20px;border-left:3px solid #111827;background:#f9fafb;border-radius:0 8px 8px 0;">
+<p style="margin:0 0 6px;font-size:13px;color:#6b7280;letter-spacing:0.08em;font-family:'Inter',sans-serif;">・ TRY XIORA</p>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#111827;">
+Xiora の AI エージェント運用ノウハウを、貴社の SaaS / 業務自動化に当てはめる 30 分無料相談。
+<a href="/contact.html?type=ai-dx&amp;src=insight-reduce-churn-ai-3-patterns-mini&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=cvr-mini-2026-07&amp;utm_content=reduce-churn-ai-3-patterns" style="color:#111827;text-decoration:underline;font-weight:500;">今すぐ相談する →</a>
+</p>
+</aside>
+<!-- mini-cta-cvr-2026-07-19 END -->
 <h2 id="pattern-c-qa-ai-セルフサーブ拡張">Pattern C: Q&amp;A AI + セルフサーブ拡張</h2>
 <p>24/7 の一次回答を AI が担当し、明確に判断できない質問だけを人にエスカレーションするパターンです。 Zendesk CX Trends 2024 では、AI で解決される問い合わせの割合が拡大していると報告されています (<a href="https://www.zendesk.com/blog/customer-experience-trends-report/">出典</a>)。 SMB 向け SaaS で夜間 / 週末の一次対応が重い場合、投資対効果が出やすい領域です。</p>
 <p>実装アーキテクチャは 3 段構成が扱いやすいです。 まず、ヘルプ記事 / FAQ / 過去チケットを chunk 化し、pgvector か Supabase Vector に格納します。 次に、ユーザーからの質問を hybrid search (ベクトル + BM25) で 20 件程度検索し、rerank モデルで上位 5 件に絞り込みます。 最後に、その 5 件を context に LLM で回答を生成し、confidence score が閾値未満の場合は人間にエスカレーションします。 「回答できないときはできないと言い、人にパスする」という設計が、信頼を失わない鍵となります。 出典 URL を返答に含めることで、ユーザー自身が原典を確認できる形にしておくと、体感の信頼度が上がる傾向があります。</p>

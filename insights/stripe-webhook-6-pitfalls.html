@@ -98,6 +98,15 @@
 <p>Stripe webhook は、ネットワーク障害・受信側タイムアウト・5xx 応答などを契機に同じ event を複数回送ってきます。 これに対して DB を毎回書き換えると、決済 1 回に対して subscription が 2 回 activate する / invoice が 2 回発行される、といった不整合が起こります。 対策は、Stripe が発行する <code>event.id</code> (例: <code>evt_1P...</code>) を DB カラムの UNIQUE 制約で守り、INSERT-or-skip pattern で書くことです。 Xiora の billing-core-service では <code>BillingEvent.event_id</code> を UNIQUE にし、webhook ハンドラで最初に INSERT を試み、<code>IntegrityError</code> を捕まえた場合は 200 で <code>duplicate=true</code> を返すだけにしています。 SELECT で存在確認 → INSERT に切り替えると、2 プロセス同時受信のレースで UNIQUE 違反を潰しきれないため、順序として INSERT を先に置くのがポイントです。</p>
 <h2 id="落とし穴-2-署名検証は-sdk-の-constructevent-系関数を通す">落とし穴 2: 署名検証は SDK の constructEvent 系関数を通す</h2>
 <p>Stripe webhook エンドポイントは公開 URL のため、第三者からもリクエストが届きます。 「payload の中身に customer_id が含まれていれば信じる」実装は、payload を偽造されれば被害に直結します。 Stripe は各 event のリクエストヘッダに <code>Stripe-Signature</code> を付けており、受信側は endpoint secret (<code>whsec_...</code>) と HMAC 突合で「Stripe が発行した payload か」を検証できます (<a href="https://docs.stripe.com/webhooks/signature">Stripe Docs — Verify webhook signatures</a>)。 実装は、Python なら <code>stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)</code>、Node.js なら <code>stripe.webhooks.constructEvent(...)</code> を通すのが基本形です。 endpoint secret はコードに埋めず環境変数 (Vault / <code>.env</code>) に置き、test / live で別 secret を用意すると、テスト payload の混入も見分けられます。 Xiora では未設定時は 503 で fail-secure に落とし、「動くけど検証していない」状態を作らない設計にしています。</p>
+<!-- mini-cta-cvr-2026-07-19 START -->
+<aside aria-label="Xiora AI エージェントを試す" style="margin:32px 0;padding:16px 20px;border-left:3px solid #111827;background:#f9fafb;border-radius:0 8px 8px 0;">
+<p style="margin:0 0 6px;font-size:13px;color:#6b7280;letter-spacing:0.08em;font-family:'Inter',sans-serif;">・ TRY XIORA</p>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#111827;">
+Xiora の AI エージェント運用ノウハウを、貴社の SaaS / 業務自動化に当てはめる 30 分無料相談。
+<a href="/contact.html?type=ai-dx&amp;src=insight-stripe-webhook-6-pitfalls-mini&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=cvr-mini-2026-07&amp;utm_content=stripe-webhook-6-pitfalls" style="color:#111827;text-decoration:underline;font-weight:500;">今すぐ相談する →</a>
+</p>
+</aside>
+<!-- mini-cta-cvr-2026-07-19 END -->
 <h2 id="落とし穴-3-5-秒タイムアウトを前提に重処理は-queue-に押し出す">落とし穴 3: 5 秒タイムアウトを前提に、重処理は queue に押し出す</h2>
 <p>Stripe 公式は、webhook に対してタイムリーに 2xx を返すことを求めており、応答が遅い / 失敗するとリトライ対象になります (<a href="https://docs.stripe.com/webhooks#quick-start">Stripe Docs — Handle webhook events</a>)。 現場では 5 秒以内に 200 を返す設計にしておくと、ネットワーク揺らぎ込みで収まります。 webhook ハンドラの中で Clerk のユーザーメタデータ更新・welcome メール送信・Slack 通知・BigQuery 書き込みまで同期でやると、外部 API が 1 つ詰まった瞬間に 5 秒を超え、Stripe がリトライを始め、多重処理のリスクが積み上がります。 対策は、webhook 側は「署名検証 + event の DB 記録 + state の UPSERT」までに絞り、重処理は別 consumer (Celery / RQ / background worker / SQS など) に押し出すことです。 Xiora の billing-core-service も同じ設計で、Nexa の Clerk メタデータ更新や Gourmie の plan flip は別 PR の consumer 側で拾う責務分割にしています。</p>
 <h2 id="落とし穴-4-再送への耐性は同じ-event-を-2-回処理しても壊れないを-test-で押さえる">落とし穴 4: 再送への耐性は「同じ event を 2 回処理しても壊れない」を test で押さえる</h2>
