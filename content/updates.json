@@ -2,6 +2,66 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "2026-08-08-monthly-100k-ai-side-income-5-paths",
+      "date": "2026-08-08",
+      "type": "insight",
+      "kind": "release",
+      "title": "一般人が月 ¥10 万 AI 副業で稼ぐ 5 path — Xiora の 事例で見る現実的な選択肢",
+      "description": "AI 副業 で 月 ¥10 万 の 追加 収入 を狙う 5 path を、Xiora の 実運用 record を 引き合いに 現実的な 難易度・時間・単価で 情報整理します。",
+      "url": "/insights/monthly-100k-ai-side-income-5-paths.html",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "2026-08 Batch"
+    },
+    {
+      "id": "2026-08-12-xiora-ocean-llm-unique-4-datasets",
+      "date": "2026-08-12",
+      "type": "insight",
+      "kind": "release",
+      "title": "Xiora Ocean LLM の 独自 dataset — Xiora unique な 4 種 data moat の 構造",
+      "description": "Xiora の 独自 LLM「Ocean」が 学習に 使う 業種特化 4 種 dataset (医薬品期限 / 飲食口コミ / SES 契約 / 情シス代行) の 由来と moat 構造を、実運用の 蓄積プロセスと あわせて 情報整理します。",
+      "url": "/insights/xiora-ocean-llm-unique-4-datasets.html",
+      "insight_cat": "Research",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "2026-08 Batch"
+    },
+    {
+      "id": "2026-08-15-xiora-trader-21-strategy-630-combination-result",
+      "date": "2026-08-15",
+      "type": "insight",
+      "kind": "release",
+      "title": "Xiora Trader Backtest — 21 strategy × 30 銘柄 の 630 組合せ の 情報整理",
+      "description": "Xiora Trader が backtest する 21 テクニカル strategy × 30 銘柄 (n225 / topix500 / spx500) の 630 組合せ について、Sharpe / max drawdown / win rate の 統計を 情報として整理します。",
+      "url": "/insights/xiora-trader-21-strategy-630-combination-result.html",
+      "insight_cat": "Research",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "2026-08 Batch"
+    },
+    {
+      "id": "2026-08-19-xiora-career-6-sku-3-university-partnership-plan",
+      "date": "2026-08-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "Xiora Career 就活支援 — 6 SKU × 埼玉県内 3 大学 提携 想定 の 情報整理",
+      "description": "Xiora Career (Nexa University 系列) の 就活・転職・資格・投資リテラシー・面接AI・自己分析 6 SKU と、埼玉県内 3 大学 との 提携 想定 について 情報整理します。",
+      "url": "/insights/xiora-career-6-sku-3-university-partnership-plan.html",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "2026-08 Batch"
+    },
+    {
+      "id": "2026-08-22-xcloud-connect-3month-implicit-demo-tenant-record",
+      "date": "2026-08-22",
+      "type": "insight",
+      "kind": "release",
+      "title": "XCloud Connect 導入 3 ヶ月 の record — implicit demo tenant + Restaurant OS 事例",
+      "description": "Xiora XCloud Connect の 導入 3 ヶ月 record を、implicit demo tenant と Restaurant OS の 実運用 shadow 事例で 情報整理します。",
+      "url": "/insights/xcloud-connect-3month-implicit-demo-tenant-record.html",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "2026-08 Batch"
+    },
+    {
       "id": "2026-07-29-llm-selection-checklist-20",
       "date": "2026-07-29",
       "type": "insight",

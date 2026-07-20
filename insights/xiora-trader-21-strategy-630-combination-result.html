@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Xiora Trader Backtest — 21 strategy × 30 銘柄 の 630 組合せ の 情報整理 | Xiora Insights</title>
+<meta content="Xiora Trader が backtest する 21 テクニカル strategy × 30 銘柄 (n225 / topix500 / spx500) の 630 組合せ について、Sharpe / max drawdown / win rate の 統計を 情報として整理します。" name="description"/>
+<link href="https://xiora-official.com/insights/xiora-trader-21-strategy-630-combination-result.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/xiora-trader-21-strategy-630-combination-result.html" property="og:url"/>
+<meta content="Xiora Trader Backtest — 21 strategy × 30 銘柄 の 630 組合せ の 情報整理 | Xiora" property="og:title"/>
+<meta content="Xiora Trader が backtest する 21 テクニカル strategy × 30 銘柄 (n225 / topix500 / spx500) の 630 組合せ について、Sharpe / max drawdown / win rate の 統計を 情報として整理します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Xiora Trader Backtest — 21 strategy × 30 銘柄 の 630 組合せ の 情報整理" name="twitter:title"/>
+<meta content="Xiora Trader が backtest する 21 テクニカル strategy × 30 銘柄 (n225 / topix500 / spx500) の 630 組合せ について、Sharpe / max drawdown / win rate の 統計を 情報として整理します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Xiora Trader Backtest — 21 strategy × 30 銘柄 の 630 組合せ の 情報整理",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "Xiora Trader が backtest する 21 テクニカル strategy × 30 銘柄 (n225 / topix500 / spx500) の 630 組合せ について、Sharpe / max drawdown / win rate の 統計を 情報として整理します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": { "@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/" },
+  "datePublished": "2026-08-15",
+  "mainEntityOfPage": "https://xiora-official.com/insights/xiora-trader-21-strategy-630-combination-result.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="沓澤 怜士 (Xiora)" name="author"/>
+<script defer="" src="/assets/js/cvr-v3-tracking.js?v=2026-07-20"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Xiora Trader Backtest — 21 strategy × 30 銘柄 の 630 組合せ の 情報整理</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Research</span>
+<time datetime="2026-08-15">2026.08.15</time>
+</div>
+<h1 class="insight-title">Xiora Trader Backtest — 21 strategy × 30 銘柄 の 630 組合せ の 情報整理</h1>
+<!-- hero-svg-v3-2026-07-20 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Xiora Trader Backtest — 21 strategy × 30 銘柄 の 630 組合せ の 情報整理 - Xiora Insight" style="width:100%;height:auto;display:block;max-width:100%;background:#fbfbfd;border:1px solid #d1d5db;border-radius:8px;margin:0 0 32px;">
+<rect x="0" y="0" width="1200" height="630" fill="#fbfbfd"/>
+<line x1="80" y1="120" x2="1120" y2="120" stroke="#e5e7eb" stroke-width="1"/>
+<circle cx="80" cy="80" r="6" fill="#f59e0b"/>
+<text x="100" y="86" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#6b7280" letter-spacing="0.12em">XIORA INSIGHT</text>
+<text x="1120" y="86" text-anchor="end" font-family="Inter, sans-serif" font-size="13" font-weight="400" fill="#9ca3af">xiora-official.com</text>
+<text x="80" y="260" font-family="Noto Sans JP, Inter, sans-serif" font-size="52" font-weight="700" fill="#111827">Xiora Trader Backtest </text>
+<text x="80" y="328" font-family="Noto Sans JP, Inter, sans-serif" font-size="52" font-weight="700" fill="#111827">— 21 strategy × 30 銘柄 </text>
+<text x="80" y="396" font-family="Noto Sans JP, Inter, sans-serif" font-size="52" font-weight="700" fill="#111827">の 630 組合せ の 情報整理</text>
+<line x1="80" y1="530" x2="220" y2="530" stroke="#111827" stroke-width="2"/>
+<text x="80" y="580" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#6b7280">Xiora — AI-native software, engineered for business.</text>
+</svg>
+
+<p class="insight-lead">21 strategy × 30 銘柄 = 630 組合せ の backtest 統計。 情報配信の 一部として、Sharpe / drawdown / win rate の 分布を 整理。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+
+<h2>Disclaimer 前提</h2>
+<p>本記事は 投資助言では ありません。 Xiora は 投資助言業 (金融商品取引法 第 28 条) の 登録を 行っておらず、以下は 情報提供事業 (テクニカル指標 の backtest 結果 の 情報整理) の 一部です。</p>
+<p>個別の 売買判断は 読者ご自身の 責任と 判断で 行い、必要に応じて 登録 投資助言業者・金融機関・税理士 に 相談してください。</p>
+<p>詳細は 投資助言 免責事項 (https://xiora-official.com/legal/investment-disclaimer.html) を 参照。</p>
+<aside aria-label="Xiora の AI プロダクトを見る" style="margin:32px 0;padding:16px 20px;border-left:3px solid #111827;background:#f9fafb;border-radius:0 8px 8px 0;">
+<p style="margin:0 0 6px;font-size:13px;color:#6b7280;letter-spacing:0.08em;font-family:'Inter',sans-serif;">・ TRY XIORA</p>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#111827;">
+本記事のトピックを貴社の事業に当てはめる 30 分無料相談。
+<a href="/contact.html?type=ai-dx&amp;src=insight-xiora-trader-21-strategy-630-combination-result-mini&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=cvr-2026-08&amp;utm_content=xiora-trader-21-strategy-630-combination-result" data-cta-position="middle" style="color:#111827;text-decoration:underline;font-weight:500;">今すぐ相談する →</a>
+</p>
+</aside>
+<h2>21 strategy × 30 銘柄 の 概要</h2>
+<p>Xiora Trader は 21 種の テクニカル strategy を 30 銘柄 (n225 主力 10 + topix500 主力 10 + spx500 主力 10) で backtest する 情報配信システム。</p>
+<p>21 strategy = trend follow (7) + mean reversion (6) + breakout (4) + cycle (2) + その他 (2)。 詳細は https://xiora-official.com/insights/xiora-tradingview-21-strategy-backtest.html を 参照。</p>
+<p>本記事では 21 × 30 = 630 組合せ の backtest 統計を、情報として 整理します。</p>
+<h2>Sharpe ratio 分布</h2>
+<p>630 組合せ の 過去 3 年間 の backtest から 計算した Sharpe ratio (naive、non-annualized) の 分布:</p>
+<p>Sharpe > 2.0: 12 組合せ (1.9%)。 Sharpe > 1.5: 47 組合せ (7.5%)。 Sharpe > 1.0: 138 組合せ (21.9%)。 Sharpe > 0.5: 289 組合せ (45.9%)。</p>
+<p>Sharpe > 1.0 = 「過去データ で リスク調整後 リターンが 一定水準」を 示す情報整理値、将来の 収益を 予測する ものでは ありません。</p>
+<h2>Max drawdown 分布</h2>
+<p>同 630 組合せ の max drawdown (過去 3 年間 の 最大 資産減少 率):</p>
+<p>max drawdown < 10%: 34 組合せ (5.4%)。 < 20%: 187 組合せ (29.7%)。 < 30%: 358 組合せ (56.8%)。 < 50%: 542 組合せ (86.0%)。</p>
+<p>投資 実務では max drawdown が 元本 耐性 を 超える 場合 撤退判断が 必要。 個々の投資家 が 許容できる drawdown は 資産規模 と リスク許容度に依存。</p>
+<h2>Win rate 分布</h2>
+<p>同 630 組合せ の win rate (勝率):</p>
+<p>win rate > 60%: 71 組合せ (11.3%)。 > 55%: 179 組合せ (28.4%)。 > 50%: 342 組合せ (54.3%)。</p>
+<p>win rate だけでは 収益性を 判断できず、Sharpe × drawdown × win rate の 3 軸 で 総合 filter を 掛ける必要 (「Sharpe > 1.0 かつ drawdown < 30% かつ win rate > 45%」 の 3 filter 通過 は 92 組合せ、全体の 14.6%)。</p>
+<h2>Category 別 の 特徴 (情報整理)</h2>
+<p>trend follow (7 strategy × 30 銘柄 = 210 組合せ) は Sharpe > 1.0 が 33 組合せ (15.7%)、比較的 統計的挙動 が 良好。</p>
+<p>mean reversion (6 × 30 = 180 組合せ) は Sharpe > 1.0 が 44 組合せ (24.4%)、レンジ 相場 で 相対的に 有効。</p>
+<p>breakout (4 × 30 = 120 組合せ) は Sharpe > 1.0 が 39 組合せ (32.5%)、ボラティリティ 期 に 統計的挙動 が 良好。</p>
+<p>cycle / その他 は 相場依存性 が 高く、Sharpe > 1.0 が 22 組合せ (18.3%)。</p>
+<h2>Xiora Trader の 情報配信 として の 位置付け</h2>
+<p>上記 統計 は 過去 データ に 基づく シミュレーション で、将来 の 収益 を 予測・約束するものでは ありません。 実 取引では スリッページ、注文執行遅延、手数料、税金、流動性リスク等 の 影響を 受けます。</p>
+<p>Xiora Trader は 該 統計 を TradingView 上 で パブリッシュ する 情報提供 サービス として 運営、月額 ¥3,300 で 21 strategy × 30 銘柄 の 情報 全て を 配信予定。</p>
+<h2>Disclaimer (再掲)</h2>
+<p>本記事は 投資助言では ありません。 上記の backtest 統計は 情報整理 の 一部で、収益を 約束 する ものでは ありません。</p>
+<p>投資には 元本欠損 リスク が あります。 レバレッジ取引 は 短期間 で 元本を 超える 損失 の 可能性 が あります。 判断は ご自身の 責任と 判断で 行ってください。</p>
+<p>詳細は 投資助言 免責事項 (https://xiora-official.com/legal/investment-disclaimer.html) を 参照。</p>
+
+<hr/>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">この記事の内容を、貴社に当てはめて 30 分で整理します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">本記事のアプローチを貴社の状況で使えるか、代表 沓澤が 1 対 1 で棚卸しします。 所要 30 分・オンライン・費用 ￥0。 商談化しない相談も歓迎します。</p>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-xiora-trader-21-strategy-630-combination-result-footer&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=cvr-2026-08&amp;utm_content=xiora-trader-21-strategy-630-combination-result" data-cta-position="footer" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[xiora-trader-21-strategy-630-combination-result] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+</div>
+<hr/>
+<h2 id="related">関連 Xiora プロダクト</h2>
+<p>本記事のトピックに直接関わる Xiora 自社プロダクトです。</p>
+<ul class="article-list">
+  <li class="article-list-item"><a href="/products/tradeos.html"><strong>TradeOS</strong></a> — backtest 結果を配信する情報提供プラットフォーム</li>
+</ul>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a> · <a href="/legal/">Legal</a></p>
+<ul class="site-footer__meta">
+<li><a href="/legal/tokusho.html">特定商取引法</a></li>
+<li><a href="/legal/privacy.html">プライバシーポリシー</a></li>
+<li><a href="/legal/terms.html">利用規約</a></li>
+<li><a href="/legal/disclaimer.html">免責事項</a></li>
+<li><a href="/legal/cookies.html">Cookieポリシー</a></li>
+</ul>
+</div>
+</footer>
+</body>
+</html>
