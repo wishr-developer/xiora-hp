@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "id": "2026-08-05-xiora-ocean-llm-p0-p5-roadmap",
+      "date": "2026-08-05",
+      "type": "insight",
+      "kind": "release",
+      "title": "Ocean LLM とは — Xiora の日本発 LLM 開発 5 phase roadmap (P0〜P5)",
+      "description": "Xiora が自社開発する日本製 LLM「Ocean」の P0〜P5 段階設計と、汎用 LLM が SMB / solo founder ドメインで劣化する 4 パターン、moat データセットの構築計画を実装レベルで整理します。",
+      "url": "/insights/xiora-ocean-llm-p0-p5-roadmap.html",
+      "insight_cat": "Research",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Dinner 2026-07-19 Batch"
+    },
+    {
+      "id": "2026-08-08-xiora-rei-24-7-secretary-dogfood",
+      "date": "2026-08-08",
+      "type": "insight",
+      "kind": "release",
+      "title": "Rei — 24/7 稼働する Xiora 秘書 AI の dogfood 3 週間 record",
+      "description": "Xiora が内製した秘書 AI「Rei」の 3 週間 dogfood 運用 record。24/7 稼働、Ollama + Claude ハイブリッド、handler queue 8 stage cycle、実際に何が回っているかを実装レベルで公開します。",
+      "url": "/insights/xiora-rei-24-7-secretary-dogfood.html",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Dinner 2026-07-19 Batch"
+    },
+    {
+      "id": "2026-08-12-xiora-tradingview-21-strategy-backtest",
+      "date": "2026-08-12",
+      "type": "insight",
+      "kind": "release",
+      "title": "TradingView インジ mass production — Xiora の 21 strategy backtest 設計",
+      "description": "Xiora が TradingView 向けに mass production 中の 21 strategy テクニカルインジケータ群と、Sharpe / max drawdown / win rate のフィルタリング設計、universe (n225 / topix500 / spx500 / crypto) 別の運用計画を情報提供として整理します。",
+      "url": "/insights/xiora-tradingview-21-strategy-backtest.html",
+      "insight_cat": "Research",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Dinner 2026-07-19 Batch"
+    },
+    {
+      "id": "2026-08-15-smb-ai-tools-30-curated-2026",
+      "date": "2026-08-15",
+      "type": "insight",
+      "kind": "release",
+      "title": "日本 SMB 経営者が使う AI ツール 30 選 — Xiora Official curated 2026",
+      "description": "日本の SMB (従業員 5-30 名) が実務で採用しやすい AI ツール 30 選を、Xiora 代表 沓澤 が用途 / cost / 学習コスト / 導入所要時間 / 日本語対応 の 5 軸で curated 整理します。",
+      "url": "/insights/smb-ai-tools-30-curated-2026.html",
+      "insight_cat": "SMB",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Dinner 2026-07-19 Batch"
+    },
+    {
+      "id": "2026-08-19-kigen-app-3-record-2026",
+      "date": "2026-08-19",
+      "type": "insight",
+      "kind": "release",
+      "title": "Kigen App が更新期限の見落としを減らした 3 データ (実運用 record)",
+      "description": "Xiora の Kigen App が SMB / solo founder の「契約更新 / 免許更新 / SaaS 契約更新 / 銀行API 更新」等の期限見落としを減らした 3 つの実運用データを共有します。",
+      "url": "/insights/kigen-app-3-record-2026.html",
+      "insight_cat": "SMB",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Dinner 2026-07-19 Batch"
+    },
+    {
+      "id": "2026-08-22-aiverse-30-min-quickstart-5-steps",
+      "date": "2026-08-22",
+      "type": "insight",
+      "kind": "release",
+      "title": "Aiverse で AI 配信者を 30 分で立てる 5 step クイックスタート",
+      "description": "Xiora の Aiverse Studio で AI 配信者 (AI VTuber / AI ライバー) を 30 分で立ち上げる 5 step クイックスタートを、実際の管理画面フロー + 費用試算 + 撤退基準までまとめて公開します。",
+      "url": "/insights/aiverse-30-min-quickstart-5-steps.html",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Dinner 2026-07-19 Batch"
+    },
+    {
+      "id": "2026-08-26-nexa-career-6-sku-comparison",
+      "date": "2026-08-26",
+      "type": "insight",
+      "kind": "release",
+      "title": "Nexa 就活支援 Xiora Career の 6 SKU 全比較 — 自己分析 / ES / 面接 / OB 訪問",
+      "description": "Xiora の Nexa University Career シリーズ 6 SKU (自己分析ワークブック / ES 添削 メンタリング / 面接対策 / OB 訪問設計 / 業界研究 / 内定後フォロー) を、料金 / 期間 / 対象学年 / メンター体制 で全比較します。",
+      "url": "/insights/nexa-career-6-sku-comparison.html",
+      "insight_cat": "SMB",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Dinner 2026-07-19 Batch"
+    },
+    {
+      "id": "2026-08-29-gourmie-ai-review-response-3-month-record",
+      "date": "2026-08-29",
+      "type": "insight",
+      "kind": "release",
+      "title": "Gourmie で AI 口コミ返信 3 ヶ月運用 record — 越谷 3 店舗の実データ",
+      "description": "Xiora の Gourmie が 越谷 3 店舗で 3 ヶ月間 AI 口コミ返信を運用した実データ record。返信率 / 平均返信時間 / 星評価変化 / 手動介入率 を実数で公開します。",
+      "url": "/insights/gourmie-ai-review-response-3-month-record.html",
+      "insight_cat": "SMB",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Dinner 2026-07-19 Batch"
+    }
+  ]
+}
