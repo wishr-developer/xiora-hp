@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>TradingView インジ mass production — Xiora の 21 strategy backtest 設計 | Xiora Insights</title>
+<meta content="Xiora が TradingView 向けに mass production 中の 21 strategy テクニカルインジケータ群と、Sharpe / max drawdown / win rate のフィルタリング設計、universe (n225 / topix500 / spx500 / crypto) 別の運用計画を情報提供として整理します。" name="description"/>
+<link href="https://xiora-official.com/insights/xiora-tradingview-21-strategy-backtest.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/xiora-tradingview-21-strategy-backtest.html" property="og:url"/>
+<meta content="TradingView インジ mass production — Xiora の 21 strategy backtest 設計 | Xiora" property="og:title"/>
+<meta content="Xiora が TradingView 向けに mass production 中の 21 strategy テクニカルインジケータ群と、Sharpe / max drawdown / win rate のフィルタリング設計、universe (n225 / topix500 / spx500 / crypto) 別の運用計画を情報提供として整理します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="TradingView インジ mass production — Xiora の 21 strategy backtest 設計" name="twitter:title"/>
+<meta content="Xiora が TradingView 向けに mass production 中の 21 strategy テクニカルインジケータ群と、Sharpe / max drawdown / win rate のフィルタリング設計、universe (n225 / topix500 / spx500 / crypto) 別の運用計画を情報提供として整理します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "TradingView インジ mass production — Xiora の 21 strategy backtest 設計",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "Xiora が TradingView 向けに mass production 中の 21 strategy テクニカルインジケータ群と、Sharpe / max drawdown / win rate のフィルタリング設計、universe (n225 / topix500 / spx500 / crypto) 別の運用計画を情報提供として整理します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-08-12",
+  "mainEntityOfPage": "https://xiora-official.com/insights/xiora-tradingview-21-strategy-backtest.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Xiora)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">TradingView インジ mass production — Xiora の 21 strategy backtest 設計</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Research</span>
+<time datetime="2026-08-12">2026.08.12</time>
+</div>
+<h1 class="insight-title">TradingView インジ mass production — Xiora の 21 strategy backtest 設計</h1>
+<p class="insight-lead">Xiora の TradingView インジ mass production 事業 XioraTrader の設計。 21 strategy x 4 universe の backtest フィルタと、情報提供事業としての運用境界。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+
+<h2>Introduction</h2>
+<p>本記事は投資助言ではありません。 Xiora は投資助言業の登録を受けておらず、以下は情報提供事業 (テクニカルインジ配信 / backtest 結果表示) の技術設計として公開します。</p>
+<p>XioraTrader は TradingView 向けに 21 種のテクニカルストラテジーを mass production し、backtest 統計をパブリッシュするプロジェクトです。</p>
+<aside aria-label="Xiora の AI プロダクトを見る" style="margin:32px 0;padding:16px 20px;border-left:3px solid #111827;background:#f9fafb;border-radius:0 8px 8px 0;">
+<p style="margin:0 0 6px;font-size:13px;color:#6b7280;letter-spacing:0.08em;font-family:'Inter',sans-serif;">・ TRY XIORA</p>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#111827;">
+本記事のトピックを貴社の事業に当てはめる 30 分無料相談。
+<a href="/contact.html?type=ai-dx&amp;src=insight-xiora-tradingview-21-strategy-backtest-mini&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=cvr-mini-2026-08&amp;utm_content=xiora-tradingview-21-strategy-backtest" style="color:#111827;text-decoration:underline;font-weight:500;">今すぐ相談する →</a>
+</p>
+</aside>
+<h2>21 strategy の内訳</h2>
+<p>XioraTrader が扱う 21 strategy は、大きく 5 category に分類されます。</p>
+<p>trend follow: macross / macd / ichimoku / ema_ribbon / supertrend / hma / adx_trend (7 個)。</p>
+<p>mean reversion: rsi / bollinger / vwap_rev / stoch / williams / zscore_rev (6 個)。</p>
+<p>breakout: donchian / atr_break / price_channel / keltner (4 個)。</p>
+<p>cycle: cci / mfi (2 個)。 その他: obv_cross / pivot_rev (2 個)。</p>
+<p>各 strategy のデフォルトパラメータは <code>services/systems/XioraTrader/configs/strategies.yaml</code> で管理されています。</p>
+<h2>4 universe (対象銘柄群)</h2>
+<p>backtest 対象は 4 universe に分けています。</p>
+<p>n225 = 日経 225 の主力銘柄 (Toyota / Sony / SoftBank Group / Hitachi / MUFG / Tokyo Electron / NTT / KDDI 等)。</p>
+<p>topix500 = Shin-Etsu Chemical / Recruit Holdings / Daikin 等 (随時拡張)。</p>
+<p>spx500 = Apple / Microsoft / NVIDIA / Alphabet / Amazon / Meta / Tesla 等。</p>
+<p>crypto = BTC-USD / ETH-USD (追加拡張予定)。 configs/universes.yaml 参照。</p>
+<h2>backtest 統計と filter</h2>
+<p>各 (strategy, symbol) 組合せの backtest では、以下 4 統計を計測します。</p>
+<p>Sharpe ratio (naive, non-annualized)。 max drawdown。 win rate。 profit factor。</p>
+<p>情報提供として配信する条件は「Sharpe > 1.0 かつ max drawdown < 30% かつ win rate > 45%」の 3 filter を全て通過すること。</p>
+<p>これは「儲かる」ことを示すものではなく、過去データでの統計的挙動を情報として提示するのみです。</p>
+<h2>実装 stack</h2>
+<p>runner = 純 Python (numpy 不要)。 fallback として signal 配列に対して long-only walk で equity / drawdown を計算。</p>
+<p>本番では backtesting.py + yfinance で 過去 5 年 OHLCV を取得予定 (yfinance domain は egress allowlist に追加予定)。</p>
+<p>現時点では yfinance 未接続のため、sample 価格系列で pipeline の動作確認のみを行っています。</p>
+<h2>配信境界 (金商法 non-crossing)</h2>
+<p>配信内容は「backtest 統計」と「テクニカル指標の可視化」のみに限定します。</p>
+<p>以下は行いません: 個別銘柄の買い / 売り推奨、目標株価、シグナル配信の自動化 (投資助言業 該当リスク)。</p>
+<p>language_gate + tone_gate + grep_gate の 3 layer で 表現検閲を通した上で publish します。</p>
+<h2>まとめ</h2>
+<p>XioraTrader は 21 strategy x 4 universe の backtest を配信する情報提供事業です。</p>
+<p>投資助言業には該当しない配信境界を、language_gate / tone_gate / grep_gate の 3 層で守ります。</p>
+<p>詳細は info@xiora-official.com までご相談ください。</p>
+
+<hr/>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">この記事の内容を、貴社に当てはめて 30 分で整理します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">本記事のアプローチを貴社の状況で使えるか、代表 沓澤が 1 対 1 で棚卸しします。 所要 30 分・オンライン・費用 ￥0。 商談化しない相談も歓迎します。</p>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-xiora-tradingview-21-strategy-backtest" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[xiora-tradingview-21-strategy-backtest] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+</div>
+<hr/>
+<h2 id="関連プロダクト">関連 Xiora プロダクト</h2>
+<p>本記事のトピックに直接関わる Xiora 自社プロダクトです。</p>
+<ul class="article-list">
+  <li class="article-list-item"><a href="/products/tradeos.html"><strong>TradeOS</strong></a> — backtest 結果を配信する情報提供プラットフォーム</li>
+</ul>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+<script defer src="../assets/js/main.js"></script>
+</body>
+</html>

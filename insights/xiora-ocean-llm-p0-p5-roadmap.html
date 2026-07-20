@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Ocean LLM とは — Xiora の日本発 LLM 開発 5 phase roadmap (P0〜P5) | Xiora Insights</title>
+<meta content="Xiora が自社開発する日本製 LLM「Ocean」の P0〜P5 段階設計と、汎用 LLM が SMB / solo founder ドメインで劣化する 4 パターン、moat データセットの構築計画を実装レベルで整理します。" name="description"/>
+<link href="https://xiora-official.com/insights/xiora-ocean-llm-p0-p5-roadmap.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/xiora-ocean-llm-p0-p5-roadmap.html" property="og:url"/>
+<meta content="Ocean LLM とは — Xiora の日本発 LLM 開発 5 phase roadmap (P0〜P5) | Xiora" property="og:title"/>
+<meta content="Xiora が自社開発する日本製 LLM「Ocean」の P0〜P5 段階設計と、汎用 LLM が SMB / solo founder ドメインで劣化する 4 パターン、moat データセットの構築計画を実装レベルで整理します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Ocean LLM とは — Xiora の日本発 LLM 開発 5 phase roadmap (P0〜P5)" name="twitter:title"/>
+<meta content="Xiora が自社開発する日本製 LLM「Ocean」の P0〜P5 段階設計と、汎用 LLM が SMB / solo founder ドメインで劣化する 4 パターン、moat データセットの構築計画を実装レベルで整理します。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Ocean LLM とは — Xiora の日本発 LLM 開発 5 phase roadmap (P0〜P5)",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "Xiora が自社開発する日本製 LLM「Ocean」の P0〜P5 段階設計と、汎用 LLM が SMB / solo founder ドメインで劣化する 4 パターン、moat データセットの構築計画を実装レベルで整理します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-08-05",
+  "mainEntityOfPage": "https://xiora-official.com/insights/xiora-ocean-llm-p0-p5-roadmap.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Xiora)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Ocean LLM とは — Xiora の日本発 LLM 開発 5 phase roadmap (P0〜P5)</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Research</span>
+<time datetime="2026-08-05">2026.08.05</time>
+</div>
+<h1 class="insight-title">Ocean LLM とは — Xiora の日本発 LLM 開発 5 phase roadmap (P0〜P5)</h1>
+<p class="insight-lead">Ocean LLM = Xiora 自社の日本製 LLM。 P0〜P5 5 phase roadmap と moat データセット、SMB / solo founder ドメインで汎用 LLM が滑る 4 パターンをまとめました。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+
+<h2>Introduction</h2>
+<p>Xiora は 2026 年 7 月時点で 5 プロダクトを 24/7 運用しており、そのバックエンドで動く LLM は Claude API と Ollama の 2 系統に依存しています。</p>
+<p>このアーキテクチャは短期的には問題なく動くのですが、long-term では 3 つの構造課題を抱えています。</p>
+<p>1. Claude API の値上げ / 契約変更のリスク。 2. 日本 SMB × solo founder 特化タスクで汎用 LLM が劣化する。 3. moat が 浅い — 誰でも同じ substrate を使える。</p>
+<p>本記事では、Xiora が 2026-08 から着手する自社 LLM「Ocean」の設計思想と、P0〜P5 の 5 phase roadmap を実装レベルで公開します。</p>
+<aside aria-label="Xiora の AI プロダクトを見る" style="margin:32px 0;padding:16px 20px;border-left:3px solid #111827;background:#f9fafb;border-radius:0 8px 8px 0;">
+<p style="margin:0 0 6px;font-size:13px;color:#6b7280;letter-spacing:0.08em;font-family:'Inter',sans-serif;">・ TRY XIORA</p>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#111827;">
+本記事のトピックを貴社の事業に当てはめる 30 分無料相談。
+<a href="/contact.html?type=ai-dx&amp;src=insight-xiora-ocean-llm-p0-p5-roadmap-mini&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=cvr-mini-2026-08&amp;utm_content=xiora-ocean-llm-p0-p5-roadmap" style="color:#111827;text-decoration:underline;font-weight:500;">今すぐ相談する →</a>
+</p>
+</aside>
+<h2>なぜ日本製 LLM を自社で作るのか</h2>
+<p>汎用 LLM (GPT / Claude / Gemini) は英語圏の一般タスクでは高精度ですが、日本 SMB × solo founder ドメインには 4 パターンの劣化があります。</p>
+<p>1. 商法 / 特商法 / 電特法 / 資金決済法 の条文引用が古い or 混同。</p>
+<p>2. 越谷 / 草加 / 川口 のような地方地名を扱う際、店舗情報 / 商圏データが薄い。</p>
+<p>3. Stripe Japan の特別条項 / インボイス制度 / 適格請求書 発行事業者 の実務が浅い。</p>
+<p>4. 「AI 導入したい」と言う SMB に対して 「SaaS を実装します」という ゴールに直行する提案ができない。</p>
+<p>Ocean は上記 4 領域を moat とするため、日本 SMB / solo founder / AI エージェント運用 の 3 ドメインに特化した学習を行います。</p>
+<h2>P0 - Byte-level tokenizer + skeleton (2026-07)</h2>
+<p>現状の Ocean は P0 phase。 stdlib のみで動く byte-level tokenizer と、model.transformer / model.attention のスケルトンだけを実装しています。</p>
+<p>コード: <code>services/systems/OceanLLM/src/model/tokenizer.py</code>。 SPECIAL_TOKENS 8 種 + BYTE_OFFSET=16 + BYTE_VOCAB=256 で vocab_size=272。</p>
+<p>この段階では学習は行わず、data pipeline (collect → clean → tokenize → package) を穴なく通すことを最優先しています。</p>
+<h2>P1 - SentencePiece BPE + 1 GB 学習コーパス (2026-08)</h2>
+<p>P1 では SentencePiece BPE (vocab_size 32k) に置換し、学習コーパス 1 GB (日本語 Wikipedia + 政府白書 + Xiora 内部運用ログ) で initial train を行います。</p>
+<p>target: perplexity ≦ 40、 tokenizer round-trip の loss ゼロ、 encode/decode 差分 0 byte。</p>
+<h2>P2 - 100M param small model (2026-09)</h2>
+<p>P2 では 100M parameter の small transformer を pretrain します。 configs/model_small_100m.yaml に定義。</p>
+<p>hardware は Mac Studio (M4 Ultra / 128GB unified memory) 1 台で MPS backend、 学習時間目安 5-7 日、 training corpus 5 GB。</p>
+<p>この段階では 汎用 LLM としての実用性はほぼありませんが、pipeline が回るか + eval harness (Xiora 内部 eval suite 50 問) が測定できるかを検証します。</p>
+<h2>P3 - 3B param mid model (2026-10 - 2026-12)</h2>
+<p>P3 では 3B parameter の mid model を pretrain。 configs/model_mid_3b.yaml に定義。</p>
+<p>MoE (Mixture of Experts) を top-2 で導入し、activated param を実効 800M 前後に抑えます。</p>
+<p>target: Xiora eval suite 50 問 のうち 30 問以上を汎用 LLM (llama3.2 3B) と同等以上で解けること。</p>
+<h2>P4 - 70B param large model (2027 前半予定)</h2>
+<p>P4 では 70B parameter の large model を pretrain。 configs/model_large_70b.yaml に定義。</p>
+<p>この段階では自社 GPU クラスタは不要で、Runpod / Vast.ai / TensorDock 等の spot GPU (H100 x 8) を time-boxed で借りて 60-90 日学習する試算です。</p>
+<p>cost 試算 = spot H100 x 8 x $2.5/h x 24h x 60d = $28,800 (約 ￥450 万)。 これは Xiora の M6-M8 milestone 到達後に着手する予定で、それまでは P3 で開発体験を蓄積します。</p>
+<h2>P5 - Fine-tuning + RLHF + safety alignment (2027 後半予定)</h2>
+<p>P5 では 70B base に対して 日本 SMB / solo founder / AI エージェント運用 の 3 ドメインで instruction tuning + RLHF を行います。</p>
+<p>reward model の学習には Xiora 内部で蓄積した Reo 承認 / 却下 データを reward signal として利用予定 (moat)。</p>
+<p>safety alignment では 憲法 5 条 (断定表現 / 助言性 vocab 禁止) を constitutional AI 方式で組み込みます。</p>
+<h2>moat データセットの構築</h2>
+<p>P0-P5 通じて Ocean の moat は「日本 SMB × solo founder ドメインの Reo 意思決定ログ」です。</p>
+<p>現状 brain/state.db に 3-4 週間分の event / task / handler log が蓄積しており、これを SentencePiece 学習コーパスに組み込む予定です。</p>
+<p>他社が同じ substrate を使っても、この moat データセットが無ければ Xiora と同じ判断精度は再現できません。</p>
+<h2>まとめ</h2>
+<p>Ocean LLM は Xiora の 3-year vision の中核で、P0-P5 の 5 phase で段階的に構築します。</p>
+<p>P0-P2 は Mac Studio 単体で完結し、P3 以降で spot GPU を借りる構成です。</p>
+<p>moat は日本 SMB × solo founder ドメイン特化 + Reo 意思決定ログ。 詳細は info@xiora-official.com までご相談ください。</p>
+
+<hr/>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">この記事の内容を、貴社に当てはめて 30 分で整理します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">本記事のアプローチを貴社の状況で使えるか、代表 沓澤が 1 対 1 で棚卸しします。 所要 30 分・オンライン・費用 ￥0。 商談化しない相談も歓迎します。</p>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-xiora-ocean-llm-p0-p5-roadmap" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[xiora-ocean-llm-p0-p5-roadmap] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+</div>
+<hr/>
+<h2 id="関連プロダクト">関連 Xiora プロダクト</h2>
+<p>本記事のトピックに直接関わる Xiora 自社プロダクトです。</p>
+<ul class="article-list">
+  <li class="article-list-item"><a href="/products/agent-factory.html"><strong>Agent Factory</strong></a> — Ocean を substrate に組み込む予定</li>
+</ul>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+<script defer src="../assets/js/main.js"></script>
+</body>
+</html>
