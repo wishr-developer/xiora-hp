@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>動画クリエイター向け Kobo 電子書籍 5 冊 — Xiora video-creator agent 実運用ノートから (2026) | Xiora Insights</title>
+<meta content="Xiora の video-creator エージェントが 2026 年に実運用で参照した Kobo 電子書籍 5 冊を、章単位で用途を明示しながら紹介します。 映像文法 / 編集リズム / カラーグレーディング / モーショングラフィックス / ナラティブの 5 領域について、実際の制作 pipeline 内での参照文脈を共有します。" name="description"/>
+<link href="https://xiora-official.com/insights/video-creator-kobo-5-2026.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/video-creator-kobo-5-2026.html" property="og:url"/>
+<meta content="動画クリエイター向け Kobo 電子書籍 5 冊 (2026) | Xiora" property="og:title"/>
+<meta content="Xiora video-creator agent が実運用で参照した Kobo 電子書籍 5 冊を章単位で紹介。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="ja_JP" property="og:locale"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "動画クリエイター向け Kobo 電子書籍 5 冊 — Xiora video-creator agent 実運用ノートから (2026)",
+  "description": "Xiora の video-creator エージェントが実運用で参照した Kobo 電子書籍 5 冊を、章単位で用途を明示しながら紹介します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Organization", "name": "Xiora" },
+  "publisher": { "@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/" },
+  "datePublished": "2026-07-25",
+  "mainEntityOfPage": "https://xiora-official.com/insights/video-creator-kobo-5-2026.html"
+}
+</script>
+<link href="/assets/css/style.css?v=20260725a" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">動画クリエイター向け Kobo 電子書籍 5 冊 (2026)</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Books</span>
+<time datetime="2026-07-25">2026.07.25</time>
+</div>
+<h1 class="insight-title">動画クリエイター向け Kobo 電子書籍 5 冊 — Xiora video-creator agent 実運用ノートから (2026)</h1>
+<p class="insight-lead">Xiora の video-creator エージェントが 2026 年に実運用で参照した Kobo 電子書籍 5 冊を、章単位で用途を明示しながら紹介します。 映像文法 / 編集リズム / カラーグレーディング / モーショングラフィックス / ナラティブの 5 領域について、実際の制作 pipeline 内での参照文脈を共有します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">X</span>
+<div>
+<span class="insight-author__name">Xiora Official</span><br/>
+<span>Xiora Editorial · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<p class="disclosure" style="font-size:.85rem;color:#666;margin:8px 0 24px;border-left:3px solid #d5d5d5;padding-left:12px;">本記事には楽天アフィリエイトリンクを含みます。 リンク先での購入により Xiora に紹介料が発生する場合があります。 記事内容と紹介商品の選定は独立して行っています。</p>
+
+<p>Xiora の VideoOS プロジェクト内には、映像コンテンツの企画〜編集を補助する video-creator エージェントが動いています。 プロンプトだけで動かすのではなく、映像文法・編集リズム・カラーの一次資料を参照させることで、生成される shot list や編集案の質を上げています。 本記事では、Kobo で入手できる形式で video-creator agent が参照した 5 冊を、章単位の使用文脈と共に共有します。 選定基準は「Kobo で入手可能」「章単位で agent の意思決定に反映しやすい」「2025-2026 時点で参照価値がある」の 3 点です。</p>
+
+<h2 id="1-映像文法">1. 映像文法の基礎書</h2>
+<p>ショットサイズ (ELS/LS/MLS/MS/CU/BCU) と cut の連結ルールは、生成される shot list の粒度を大きく左右します。 「映画技法のリテラシー」系や「Film Directing Shot by Shot」邦訳を、Xiora は shot list 生成 prompt の pre-context として要約参照しています。 特に「continuity editing」「180 度ルール」「eyeline match」の章は、agent が誤った cut 提案をした時の regression 対策として頻繁に開くページです。 楽天 Kobo で「映画技法」または「Film Directing」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fkobosearch%2F%3Fsitem%3D%25E6%2598%25A0%25E7%2594%25BB%25E6%258A%2580%25E6%25B3%2595&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fkobosearch%2F%3Fsitem%3D%25E6%2598%25A0%25E7%2594%25BB%25E6%258A%2580%25E6%25B3%2595">楽天 Kobo で「映画技法」を検索する</a></p>
+
+<h2 id="2-編集リズム">2. 編集リズム / cut の間合いを扱う書籍</h2>
+<p>編集リズムは、動画の視聴継続率に直接影響する変数です。 「In the Blink of an Eye」(Walter Murch) 系の書籍を、Xiora は cut point 提案 prompt の下地として使用しています。 特に「emotion / story / rhythm / eye-trace / 2-D plane / 3-D space」の 6 優先順位 (通称 Rule of Six) は、agent が cut 判断で迷った時に fallback として参照する順序として明文化しています。 楽天 Kobo で「編集」「Walter Murch」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fkobosearch%2F%3Fsitem%3D%25E6%2598%25A0%25E5%2583%258F%25E7%25B7%25A8%25E9%259B%2586&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fkobosearch%2F%3Fsitem%3D%25E6%2598%25A0%25E5%2583%258F%25E7%25B7%25A8%25E9%259B%2586">楽天 Kobo で「映像編集」を検索する</a></p>
+
+<h2 id="3-カラーグレーディング">3. カラーグレーディングの実務書</h2>
+<p>カラーグレーディングは、agent には難しい領域ですが、書籍で用語と論理を与えると LUT 選定の理由付けが安定します。 「Color Correction Handbook」系の書籍を、Xiora は color grading の推奨方針を agent に持たせるための reference として使用しました。 特に「skin tone の Cb/Cr 軸」「shadow/mid/highlight の分離補正」「shot matching」の 3 章は、agent が LUT 候補を絞る時に参照する語彙元です。 楽天 Kobo で「カラーグレーディング」「Color Correction」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fkobosearch%2F%3Fsitem%3D%25E3%2582%25AB%25E3%2583%25A9%25E3%2583%25BC%25E3%2582%25B0%25E3%2583%25AC%25E3%2583%25BC%25E3%2583%2587%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fkobosearch%2F%3Fsitem%3D%25E3%2582%25AB%25E3%2583%25A9%25E3%2583%25BC%25E3%2582%25B0%25E3%2583%25AC%25E3%2583%25BC%25E3%2583%2587%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0">楽天 Kobo で「カラーグレーディング」を検索する</a></p>
+
+<h2 id="4-モーショングラフィックス">4. モーショングラフィックス / Motion Design の書籍</h2>
+<p>UI 動画・タイトル・ロゴアニメーションの品質は、easing / timing / stagger の 3 変数で決まる部分が大きいです。 「Animator's Survival Kit」系 (Richard Williams) の書籍を Kobo で参照可能な範囲で使用し、Xiora の agent には「timing はフレーム単位で書け」「easing は cubic-bezier の値まで指定せよ」というルール化を反映しています。 楽天 Kobo で「アニメーション」「Motion Design」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fkobosearch%2F%3Fsitem%3D%25E3%2582%25A2%25E3%2583%258B%25E3%2583%25A1%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%25B3&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fkobosearch%2F%3Fsitem%3D%25E3%2582%25A2%25E3%2583%258B%25E3%2583%25A1%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%25B3">楽天 Kobo で「アニメーション」を検索する</a></p>
+
+<h2 id="5-ナラティブ-ストーリー">5. ナラティブ / ストーリーテリング</h2>
+<p>3 幕構成・save the cat・ヒーローズジャーニーの語彙は、動画企画 agent が構成を選ぶ時の pre-context として効きます。 「Save the Cat」邦訳版や「The Hero with a Thousand Faces」系を Kobo で参照し、Xiora の企画 agent には「beat sheet で 15 の要点を先に置く」「turning point は分単位で決める」という制約を prompt に反映しています。 楽天 Kobo で「Save the Cat」「ストーリーテリング」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fkobosearch%2F%3Fsitem%3D%25E3%2582%25B9%25E3%2583%2588%25E3%2583%25BC%25E3%2583%25AA%25E3%2583%25BC%25E3%2583%2586%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25B0&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fkobosearch%2F%3Fsitem%3D%25E3%2582%25B9%25E3%2583%2588%25E3%2583%25BC%25E3%2583%25AA%25E3%2583%25BC%25E3%2583%2586%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25B0">楽天 Kobo で「ストーリーテリング」を検索する</a></p>
+
+<h2 id="まとめ">まとめ — Kobo だからこその利点</h2>
+<p>video-creator agent の運用では「章単位で context として渡す」「該当ページを prompt に埋め込む」というワークフローが多く、電子書籍の検索・引用機能が生きます。 Kobo は楽天ポイント連携で継続購入コストを抑えられる点も、書籍横断で参照を回す運用と相性が良いです。 上記 5 冊は 2026-07 時点で楽天 Kobo に少なくとも一部の版が確認できる形で存在します。 リンク先で最新版と価格を確認いただく想定です。</p>
+
+<h2 id="お問い合わせ">Xiora の VideoOS / video-creator agent 相談 (30 分無料)</h2>
+<p>本 5 冊を活用した video-creator agent の運用方針の当てはめを、代表 沓澤が 30 分で棚卸しします。 映像領域での AI エージェント運用の相談も歓迎です。</p>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">映像領域の AI エージェント運用を 30 分で相談します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">上記 5 冊の実装への当てはめと、貴社の video pipeline に応じたエージェント設計の棚卸しを行います。 所要 30 分・オンライン・費用 ¥0。</p>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-video-creator-kobo-5-2026" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[video-creator-kobo-5-2026] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>

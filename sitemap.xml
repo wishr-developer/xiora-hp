@@ -204,12 +204,37 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://xiora-official.com/insights/smb-dx-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/blender-3dcg-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/solo-founder-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/llm-selection-checklist-20.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://xiora-official.com/insights/video-creator-kobo-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/stripe-connect-ai-marketplace-5-steps.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/ai-dev-books-5-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

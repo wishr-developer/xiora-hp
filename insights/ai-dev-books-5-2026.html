@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Xiora が実運用で参照する AI 開発書籍 5 選 — 単独創業 SaaS の一次資料 (2026) | Xiora Insights</title>
+<meta content="Xiora が 2026 年に 24/7 AI エージェント運用と Solo SaaS 実装で実際に参照した書籍 5 冊を、章単位で用途を明示しながら紹介します。 LLM 実装 / エージェント設計 / データ基盤 / 認可 / SRE の 5 領域について、代表 沓澤が現場で開いたページ単位の使用文脈を共有します。" name="description"/>
+<link href="https://xiora-official.com/insights/ai-dev-books-5-2026.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/ai-dev-books-5-2026.html" property="og:url"/>
+<meta content="Xiora が実運用で参照する AI 開発書籍 5 選 (2026) | Xiora" property="og:title"/>
+<meta content="Xiora が 2026 年に AI エージェント運用と Solo SaaS 実装で参照した 5 冊。 章単位で用途を明示。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="ja_JP" property="og:locale"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Xiora が実運用で参照する AI 開発書籍 5 選 — 単独創業 SaaS の一次資料 (2026)",
+  "description": "Xiora が 2026 年に AI エージェント運用と Solo SaaS 実装で参照した書籍 5 冊を、章単位で用途を明示しながら紹介します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Organization", "name": "Xiora" },
+  "publisher": { "@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/" },
+  "datePublished": "2026-07-22",
+  "mainEntityOfPage": "https://xiora-official.com/insights/ai-dev-books-5-2026.html"
+}
+</script>
+<link href="/assets/css/style.css?v=20260722a" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Xiora が実運用で参照する AI 開発書籍 5 選 (2026)</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Books</span>
+<time datetime="2026-07-22">2026.07.22</time>
+</div>
+<h1 class="insight-title">Xiora が実運用で参照する AI 開発書籍 5 選 — 単独創業 SaaS の一次資料 (2026)</h1>
+<p class="insight-lead">Xiora が 2026 年に 24/7 AI エージェント運用と Solo SaaS 実装で実際に参照した書籍 5 冊を、章単位で用途を明示しながら紹介します。 LLM 実装 / エージェント設計 / データ基盤 / 認可 / SRE の 5 領域について、現場で開いたページ単位の使用文脈を共有します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">X</span>
+<div>
+<span class="insight-author__name">Xiora Official</span><br/>
+<span>Xiora Editorial · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<p class="disclosure" style="font-size:.85rem;color:#666;margin:8px 0 24px;border-left:3px solid #d5d5d5;padding-left:12px;">本記事には楽天アフィリエイトリンクを含みます。 リンク先での購入により Xiora に紹介料が発生する場合があります。 記事内容と紹介商品の選定は独立して行っています。</p>
+
+<p>Xiora の日常運用は、単独創業の SaaS スタートアップとして、24/7 動く AI エージェント群 + FastAPI/Next.js 実装 + Stripe/GA4/Vercel の外部 SaaS 統合という組み合わせで回っています。 セッションごとに参照する一次資料の書籍を、本 5 選という形で外に開きます。 選定基準は「章 or 節を特定できるレベルで実装判断に効く」「web 記事の断片では代替しにくい」「2025-2026 時点で内容が陳腐化していない」の 3 点です。 書籍タイトルは、楽天ブックスで検索できる範囲で紹介し、リンク先で最新版・改訂版・在庫状況を確認していただく想定です。</p>
+
+<h2 id="1-llm-実装の一次資料">1. LLM アプリ実装の設計原則を扱う書籍</h2>
+<p>LLM を production に載せる時、「prompt をどこに置き、context をどう組み、tool 実行の境界をどう切るか」の設計判断が最初のボトルネックになります。 Xiora では初期実装時に「Designing Machine Learning Systems」系の書籍を参照し、feature engineering の章 + monitoring の章 + データ品質の章を、AI エージェント運用の evidence 収集ロジック (実 write 前後 diff の保存) に転用しています。 特に「training-serving skew」の議論は、prompt template 更新時の regression 検知に応用でき、LLM 版でも本質は変わらないためです。 楽天ブックスで「機械学習システムデザイン」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E6%25A9%259F%25E6%25A2%25B0%25E5%25AD%25A6%25E7%25BF%2592%25E3%2582%25B7%25E3%2582%25B9%25E3%2583%2586%25E3%2583%25A0%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E6%25A9%259F%25E6%25A2%25B0%25E5%25AD%25A6%25E7%25BF%2592%25E3%2582%25B7%25E3%2582%25B9%25E3%2583%2586%25E3%2583%25A0%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3">楽天ブックスで「機械学習システムデザイン」を検索する</a></p>
+
+<h2 id="2-agent-oriented-な設計を扱う書籍">2. エージェント指向の分散設計を扱う書籍</h2>
+<p>複数の AI エージェントを協調させる時、単一 process 内の関数呼び出しではなく、message-passing / actor / event-sourcing の設計に近い判断が必要になります。 Xiora の brain runtime は、SQLite ベースの state DB + handler 群 + 24/7 loop という構造で、書籍として「エンタープライズ統合パターン (Enterprise Integration Patterns)」系の設計語彙を借りています。 特に「Message Router」「Dead Letter Channel」「Idempotent Receiver」は、Stripe webhook receiver + brain handler + retry 戦略の設計判断で章単位に開くページです。 楽天ブックスで「Enterprise Integration Patterns」もしくは邦訳版で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DEnterprise%2BIntegration%2BPatterns&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DEnterprise%2BIntegration%2BPatterns">楽天ブックスで「Enterprise Integration Patterns」を検索する</a></p>
+
+<h2 id="3-postgres-運用の実務書">3. Postgres / データ基盤の運用書</h2>
+<p>Xiora は Postgres 16 を xioraai-postgres として社内相乗り (schema 分離) で運用しており、schema migration / index 設計 / VACUUM / partial index / JSONB の判断に「Postgres 実践入門」「達人に学ぶ SQL 徹底指南書」系の書籍を章単位で参照しています。 特に window function / CTE / partitioning の 3 章は、GA4 / Stripe / outreach の event stream を集約する社内ダッシュボードで頻繁に開きます。 楽天ブックスで「PostgreSQL 実践」「SQL 徹底指南」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DPostgreSQL%2B%25E5%25AE%259F%25E8%25B7%25B5&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DPostgreSQL%2B%25E5%25AE%259F%25E8%25B7%25B5">楽天ブックスで「PostgreSQL 実践」を検索する</a></p>
+
+<h2 id="4-認可-設計の書籍">4. 認可・OAuth・secret 管理の設計書</h2>
+<p>AI エージェントを外部 SaaS に触らせる時、OAuth 2.0 の grant type 選択 / token 保管 / rotate / revoke / audit log の設計が事故率を大きく左右します。 Xiora の Stripe MCP 再接続 (2026-07-19) では、既存 access token を revoke → 新 OAuth → account 選択の 60 秒 runbook を代表 1 タップで回す形にしましたが、この設計判断は「実践 OAuth 2.0」系の書籍の「Refresh Token 章」「PKCE 章」「Client Credentials 章」を根拠にしています。 楽天ブックスで「OAuth 2.0」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DOAuth%2B2.0&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DOAuth%2B2.0">楽天ブックスで「OAuth 2.0」を検索する</a></p>
+
+<h2 id="5-sre-observability">5. SRE / Observability の運用書</h2>
+<p>単独創業では SRE 専任がいないため、SLO / error budget / postmortem / observability の設計判断を書籍で肩代わりします。 Google の「Site Reliability Engineering」「The Site Reliability Workbook」系の邦訳・原著を、Xiora では monitoring 設計 (Prometheus / Grafana / Loki) の初期判断で章単位に参照しました。 特に「Postmortem Culture」「Toil の定義」「SLI/SLO/SLA の分離」の 3 章は、AI エージェントの 24/7 運用でも本質的に同じ枠組みで使えます。 楽天ブックスで「SRE サイトリライアビリティエンジニアリング」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DSRE%2B%25E3%2582%25B5%25E3%2582%25A4%25E3%2583%2588%25E3%2583%25AA%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2593%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DSRE%2B%25E3%2582%25B5%25E3%2582%25A4%25E3%2583%2588%25E3%2583%25AA%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2593%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3">楽天ブックスで「SRE サイトリライアビリティエンジニアリング」を検索する</a></p>
+
+<h2 id="まとめ">まとめ — 5 冊の使い分け</h2>
+<p>単独創業 SaaS では「web 記事の断片」だけで判断すると、章横断の設計判断で手戻りが起きがちです。 上記 5 冊は「章 or 節を特定できるレベルで実装判断に効く」書籍として、Xiora が実際に参照した実績があるものです。 いずれも楽天ブックスで最新版を確認いただく想定で、電子書籍 (楽天 Kobo) 版がある場合は Kobo 側でもリンクを辿れます。 内容は 2026-07 時点の公開情報に基づく参考情報で、書籍の内容そのものについては各出版社の一次情報を優先ください。</p>
+
+<h2 id="お問い合わせ">Xiora の AI/DX 実装相談 (30 分無料)</h2>
+<p>本記事の 5 冊を貴社の要件で当てはめると何が使えるかを、代表 沓澤が 30 分で棚卸しします。 単独創業 / 小規模チーム向けの実装アドバイスとしてもご活用ください。</p>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">本 5 冊の実装への当てはめを 30 分で整理します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">貴社の AI/DX 要件に応じた書籍の章ピックアップと、実装優先度の初期棚卸しを行います。 所要 30 分・オンライン・費用 ¥0。</p>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-ai-dev-books-5-2026" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[ai-dev-books-5-2026] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
