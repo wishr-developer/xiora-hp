@@ -1,5 +1,19 @@
 {
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
+  "$ocean_draft_reo_approve_only": {
+    "note": "DRAFT (2026-07-19 Ocean rebrand Phase 2): この block を items 配列先頭に move すれば feed に反映されます。Reo approve 前は移動禁止。",
+    "action_for_reo": "1) この $ocean_draft_reo_approve_only key の中身 (id/date/... の 8 field) を items 配列先頭に copy paste 2) $ocean_draft_reo_approve_only key ごと削除 3) python3 scripts/build.py 実行",
+    "id": "2026-08-05-ocean-landing",
+    "date": "2026-08-05",
+    "type": "news",
+    "kind": "release",
+    "title": "Ocean stack 公開 landing を開設 — Xiora の 内部 AI インフラ を可視化",
+    "description": "Xiora の 内部 AI インフラ stack (旧 codename XAI、2026-07-19 に Ocean へ rebrand) の 公開 landing を ocean.xiora-official.com に開設しました。20+ AI 社員 / brain runtime / 12+ handler / 内部ガードレール の 4 層構成を、Xiora の T+30 年 vision Path A/B/C/D と接続して可視化しています。",
+    "url": "/ocean.html",
+    "insight_cat": "Infrastructure",
+    "author": "沓澤 怜士 (Xiora)",
+    "build_cat": "Ocean Stack"
+  },
   "items": [
     {
       "id": "2026-07-29-llm-selection-checklist-20",

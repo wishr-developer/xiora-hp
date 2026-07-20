@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+  Ocean landing page (Phase 2 draft, 2026-07-19, moved to Xiora_HP/ root)
+  ⚠️ Reo approve 待ち — updates.json の draft:true を外して Vercel deploy で public 化
+  内部 codename Ocean (旧 XAI) の 公開 landing
+  Route: /ocean.html (Xiora HP 直下)、canonical https://xiora-official.com/ocean.html
+-->
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Ocean — Xiora の 内部 AI インフラ Stack | Xiora</title>
+<meta content="Ocean は Xiora の 内部 AI インフラ stack。20+ AI 社員 + brain runtime + 12+ handler + 内部ガードレール投入で 24/7 自動運用。Xiora の T+30 年 vision を支える backing stack。" name="description"/>
+<meta content="Ocean,Xiora,AI インフラ,AI 社員,brain runtime,24/7 自動運用" name="keywords"/>
+<link href="https://xiora-official.com/ocean.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://xiora-official.com/ocean.html" property="og:url"/>
+<meta content="Ocean — Xiora の 内部 AI インフラ Stack | Xiora" property="og:title"/>
+<meta content="20+ AI 社員 + brain runtime + 内部ガードレール投入で 24/7 自動運用する Xiora 内部インフラ。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Ocean | Xiora" name="twitter:title"/>
+<meta content="Xiora の 内部 AI インフラ stack。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260719a" rel="stylesheet"/>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="Xiora" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Ocean</span>
+</nav>
+
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-category">Infrastructure</span>
+<time datetime="2026-07-19">2026-07-19</time>
+</div>
+<h1 class="insight-title">Ocean — Xiora の 内部 AI インフラ Stack</h1>
+<p class="insight-lead">
+Ocean は Xiora の 内部 AI インフラ stack (2026-07-19 に旧 codename から rebrand)。
+20+ AI 社員、brain runtime、12+ handler、内部ガードレールを組み合わせて 24/7 自動運用しています。
+本ページは Ocean stack の 公開 status / roadmap を掲載します。
+</p>
+</header>
+
+<section class="insight-section reveal">
+<h2>Ocean とは</h2>
+<p>
+Ocean は Xiora が 自社 SaaS (Kigen / Aiverse Studio / Nexa / Gourmie / XCloud Connect 等) を
+少人数運営で 24 時間動かすための 内部 AI インフラです。
+外部提供 product ではなく、Xiora 内部の backing stack として位置づけられています。
+</p>
+<ul>
+<li><strong>Brain runtime</strong> — 12+ handler で mail / GitHub / Stripe / 監視 event を吸収</li>
+<li><strong>AI 社員 20+</strong> — CEO Proxy / Developer / Research / Legal / Growth の 20 名構成</li>
+<li><strong>Vault + Edge Gateway</strong> — Caddy auto TLS + ConoHa VPS 上で単一 edge に集約</li>
+<li><strong>内部ガードレール</strong> — outgoing money / KYC / delete / permission / contract の永続 human gate</li>
+</ul>
+</section>
+
+<section class="insight-section reveal">
+<h2>Path A / B / C / D (T+30 年 vision と接続)</h2>
+<p>
+Xiora の 長期戦略は 4 パスで整理しています。Ocean はいずれのパスでも実行基盤として機能します。
+</p>
+<ul>
+<li><strong>Path A</strong> — Xiora SaaS 事業の自動運用 (Kigen / Aiverse Studio / Nexa 等)</li>
+<li><strong>Path B</strong> — 越谷・草加・川口 の中小 IT/SaaS 会社への AI 導入支援</li>
+<li><strong>Path C</strong> — Xiora Academy Nexa による Learning 事業</li>
+<li><strong>Path D</strong> — Xiora Career / XioraHire による HR 事業</li>
+</ul>
+</section>
+
+<section class="insight-section reveal">
+<h2>Public status</h2>
+<p>
+Ocean stack の 公開 status は以下の subdomain で確認可能 (Reo approve 後に有効化予定):
+</p>
+<ul>
+<li><code>ocean.xiora-official.com</code> — Ocean stack の 公開 landing (本ページ)</li>
+<li><code>brain.ocean.xiora-official.com</code> — Brain runtime status (auth required)</li>
+</ul>
+<p>
+現状は draft 表示のみです。Reo review 後に 公開粒度 (SLA / uptime のみ、architecture 詳細は非公開) を確定します。
+</p>
+</section>
+
+<section class="insight-section reveal">
+<h2>関連 product</h2>
+<p>Xiora 提供 SaaS 一覧は下記からご覧いただけます。</p>
+<ul>
+<li><a href="/products/kigen.html">Kigen</a> — 期限管理 SaaS</li>
+<li><a href="/products/aiverse.html">Aiverse Studio</a> — AITuber / streaming</li>
+<li><a href="/products/xcloud-connect.html">XCloud Connect</a> — 業務自動化</li>
+<li><a href="/products/gourmie.html">Gourmie</a> — 飲食店 QR order</li>
+</ul>
+</section>
+
+</div>
+</article>
+</main>
+
+<footer class="site-footer">
+<div class="site-footer__inner">
+<p class="site-footer__copy">© Xiora — 沓澤怜士 (Kutsuzawa Reo)</p>
+</div>
+</footer>
+</body>
+</html>
