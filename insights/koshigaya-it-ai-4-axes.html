@@ -98,6 +98,15 @@
 <p>同じ「AI 導入」でも、SES / 準委任 中心の会社と自社 SaaS の会社では、投下先と ペイバック期間の計算式が別物です。 SES / 準委任 側で AI を効かせる代表 tool は、契約書・SOW レビュー、稼働報告書 draft、要件定義書 の骨組み生成、テスト仕様書 の case 網羅の 4 領域で、成果は「作業時間の圧縮」に直結し、稼働単価 × 削減時間 で 3-4 ヶ月でペイします。 自社 SaaS 側で AI を効かせるのは、onboarding の自動 walkthrough、support ticket の一次回答、billing 失敗リカバリ、churn 兆候スコアリングといった ユーザー接点で、成果は MRR / churn / LTV に反映されるため 6-9 ヶ月かけて指標に現れます。 コスト構造も、SES 側は 席あたり ¥3,000-¥6,000/月 の外部 SaaS 費用中心で ROI 計算が簡単、自社 SaaS 側は LLM API 従量 + ベクトル DB + ログ基盤 の組み合わせで初期の月額幅が広くなります。 越谷・草加・川口 の 5-30 名 規模なら、まず SES / 準委任 側で 3-4 ヶ月 キャッシュを作り、その原資で自社 SaaS 側に投下する順序が事故りにくい pattern です。</p>
 <h2 id="判断軸-2-クライアント許可-vs-内部-tool-顧客データを-ai-に入れる時の設計">判断軸 2: クライアント許可 vs 内部 tool — 顧客データを AI に入れる時の設計</h2>
 <p>SES / 準委任 の 5-30 名 会社が最初に踏み抜くのが「クライアントの成果物や顧客データを AI に入れていいのか」の判断です。 業務委託 の秘密保持条項 (NDA) では「開示された情報を第三者に開示しない」が default で、LLM ベンダーが「第三者」に該当するかはグレーになりやすい領域です。 対策は、(a) クライアントに「Zero data retention 設定の AI 経由で処理する」旨を書面通知して個別同意を取る、(b) 個人情報保護法 (APPI) 上の「委託先」該当性を明示 (参考: <a href="https://www.ppc.go.jp/personalinfo/faq/APPI_QA/">個人情報保護委員会 委託 Q&amp;A</a>)、(c) 外国事業者経由なら 越境移転 の同意条項を追加、の 3 点セットです。 技術面は Anthropic / OpenAI いずれも <a href="https://docs.claude.com/en/docs/build-with-claude/privacy-and-security">Zero Data Retention</a> を有効化した Enterprise / Team 契約で「入力データを学習に使わない・30 日以降保持しない」設定が可能で、契約書に URL 付きで明示できます。 内部 tool (社内 ドキュメント検索、勤怠 集計、社内向けコーディング支援) は原則同意不要ですが、社員の個人情報を含む場合は 社内 プライバシーポリシー の 明示同意 を取る運用が安全です。</p>
+<!-- mini-cta-cvr-2026-07-19 START -->
+<aside aria-label="Xiora AI エージェントを試す" style="margin:32px 0;padding:16px 20px;border-left:3px solid #111827;background:#f9fafb;border-radius:0 8px 8px 0;">
+<p style="margin:0 0 6px;font-size:13px;color:#6b7280;letter-spacing:0.08em;font-family:'Inter',sans-serif;">・ TRY XIORA</p>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#111827;">
+Xiora の AI エージェント運用ノウハウを、貴社の SaaS / 業務自動化に当てはめる 30 分無料相談。
+<a href="/contact.html?type=ai-dx&amp;src=insight-koshigaya-it-ai-4-axes-mini&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=cvr-mini-2026-07&amp;utm_content=koshigaya-it-ai-4-axes" style="color:#111827;text-decoration:underline;font-weight:500;">今すぐ相談する →</a>
+</p>
+</aside>
+<!-- mini-cta-cvr-2026-07-19 END -->
 <h2 id="判断軸-3-内製-vs-外部-saas-claude-code-cursor-copilot-5-30-名-では-hybrid-推奨">判断軸 3: 内製 vs 外部 SaaS (Claude Code / Cursor / Copilot) — 5-30 名 では hybrid 推奨</h2>
 <p>「AI 環境を内製すべきか、外部 SaaS を使うべきか」で自社 GPU サーバー を検討する会社がありますが、5-30 名 規模では ほぼ 外部 SaaS + プロンプト内製 の hybrid が正解です。 費用比較は、外部 SaaS が Cursor / GitHub Copilot / Claude Code で 席あたり ¥3,000-¥6,000/月、10 席 で年間 ¥36-72 万に対し、内製 GPU 環境は A100/H100 相当を GCP / AWS で 24/7 稼働させると 月額 ¥30-80 万 が下限で、席数が増えないと逆ザヤになります (参考: <a href="https://cloud.google.com/compute/gpus-pricing">Google Cloud GPU pricing</a>)。 選定失敗事例で多いのは、(a) OSS LLM 運用で保守要員が 1 名専任化、(b) Fine-tuning 投資が base model 更新で半年で陳腐化、(c) 社内ルールが厳しすぎて誰も使わない、の 3 パターンです。 越谷・草加・川口 の 5-30 名 会社では、外部 SaaS を席数分契約し、社内向け プロンプト集 / エージェント設定 を内製する hybrid で、初期投資を月額数万円に抑えつつ効果を 1-2 ヶ月で出せます。</p>
 <h2 id="判断軸-4-poc-vs-本番投入-の-gate-設定-dry-run-shadow-段階公開-の-3-step">判断軸 4: PoC vs 本番投入 の gate 設定 — dry-run → shadow → 段階公開 の 3 step</h2>

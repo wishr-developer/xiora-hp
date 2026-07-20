@@ -100,6 +100,15 @@
 <h2 id="注意項目-2-薬機法-上効能効果の表現を返信内で書かない">注意項目 2: 薬機法 上「効能効果」の表現を返信内で書かない</h2>
 <p>飲食店のメニュー説明では、意外なほど薬機法 (医薬品医療機器等法) に触れる表現が使われがちです。 「腸活メニュー」「疲労回復に効きます」「脂肪燃焼をサポート」「ダイエットに最適」— これらは、その飲食物が身体機能に対して特定の効能を持つと消費者に誤認させる可能性があり、薬機法違反リスクが指摘される表現です。 厚生労働省の「医薬品的な効能効果を標ぼうしない限り医薬品と判断しない食品」の運用通知 (通称 46 通知) が判断基準として参照されます (<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000064047.html">厚生労働省 食薬区分ガイド</a>)。</p>
 <p>問題は、レビュアーが「このメニュー、ダイエット中でも罪悪感なく食べられて疲労回復にも良さそう！」と書いてきたとき、AI がそれを受けて「疲労回復にお役立ていただきありがとうございます」と返信してしまうケースです。 レビュアー本人の感想は事業者の責任ではありませんが、事業者が返信で追認 (endorse) すると、事業者による効能表示とみなされうるリスクが生じます。 AI 側の system prompt には「レビュー本文に効能・効果を示唆する表現があっても、返信ではその効能効果を追認せず、素材や味・満足いただけた事実にのみ言及する」という制約を組み込むのが実務的です。</p>
+<!-- mini-cta-cvr-2026-07-19 START -->
+<aside aria-label="Xiora AI エージェントを試す" style="margin:32px 0;padding:16px 20px;border-left:3px solid #111827;background:#f9fafb;border-radius:0 8px 8px 0;">
+<p style="margin:0 0 6px;font-size:13px;color:#6b7280;letter-spacing:0.08em;font-family:'Inter',sans-serif;">・ TRY XIORA</p>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#111827;">
+Xiora の AI エージェント運用ノウハウを、貴社の SaaS / 業務自動化に当てはめる 30 分無料相談。
+<a href="/contact.html?type=ai-dx&amp;src=insight-restaurant-review-ai-5-caveats-mini&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=cvr-mini-2026-07&amp;utm_content=restaurant-review-ai-5-caveats" style="color:#111827;text-decoration:underline;font-weight:500;">今すぐ相談する →</a>
+</p>
+</aside>
+<!-- mini-cta-cvr-2026-07-19 END -->
 <h2 id="注意項目-3-個人情報個人名の-masking-と他レビューへの言及禁止">注意項目 3: 個人情報・個人名の masking と、他レビューへの言及禁止</h2>
 <p>「〇〇 太郎 様、この度は…」というフルネーム反復や、「先週来られた〇〇様のお連れの方ですね」といった特定は、プライバシー配慮不足として炎上の火種になります。 個人情報保護法上「公開情報の再掲示」自体は直ちに違法ではありませんが、レビュー投稿者にとって「フルネームで返信された」体験は不快になりやすく、他の潜在顧客にも「この店に書いたらフルネームで返される」印象を与えます (<a href="https://www.ppc.go.jp/personalinfo/legal/">個人情報保護委員会 ガイド</a>)。</p>
 <p>安全な運用パターンは、AI 側で以下を強制することです。 (1) レビュアー名は「〇〇様」等の敬称一律表記に置換し、フルネーム反復は行わない、 (2) レビュー本文中に登場する同伴者・従業員・他レビュアーの固有名詞を返信で反復しない、 (3) 位置情報や来店時間帯の具体特定 (「土曜の 19 時にご来店の方ですね」等) を返信に書かない。 これらは prompt engineering よりも、送信直前の post-filter (正規表現でフルネーム候補を検出して敬称に置換する等) で担保する方が漏れが少なくなります。</p>
