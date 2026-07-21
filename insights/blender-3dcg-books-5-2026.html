@@ -69,23 +69,23 @@
 
 <h2 id="1-blender-はじめての本">1. Blender 総合入門書 (基礎トポロジー章が要)</h2>
 <p>「Blender ではじめる」「Blender 3DCG モデリング・マスター」系の総合入門書は、初期の UI 学習だけでなく「エッジフロー」「N-gon 回避」「ミラー・サブディビジョンの効かせ方」など基礎トポロジーの章が実運用に直結します。 Xiora は agent 経由でモデルを生成する時の「acceptable topology のチェックリスト」を本系書籍の章単位で明文化しました。 楽天ブックスで「Blender 入門」で検索できます。</p>
-<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DBlender%2B%25E5%2585%25A5%25E9%2596%2580&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DBlender%2B%25E5%2585%25A5%25E9%2596%2580">楽天ブックスで「Blender 入門」を検索する</a></p>
+<p><a href="/r?a=blender-3dcg-books-5-2026&amp;l=16">楽天ブックスで「Blender 入門」を検索する</a></p>
 
 <h2 id="2-uv-展開">2. UV 展開 / テクスチャベイクの実務書</h2>
 <p>UV は生成 AI との相性で言うと事故りやすい領域で、シームの位置・展開比率・padding の設計を書籍で標準化しておかないと、テクスチャベイクで gap が出ます。 「Substance Painter」「PBR テクスチャ」系の書籍を、Xiora は agent への「UV shell の配置ルール」の下地として参照しました。 楽天ブックスで「Substance Painter」「PBR テクスチャ」で検索できます。</p>
-<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DSubstance%2BPainter&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DSubstance%2BPainter">楽天ブックスで「Substance Painter」を検索する</a></p>
+<p><a href="/r?a=blender-3dcg-books-5-2026&amp;l=17">楽天ブックスで「Substance Painter」を検索する</a></p>
 
 <h2 id="3-テクスチャ-pbr">3. PBR / マテリアル設計の書籍</h2>
 <p>PBR (Physically Based Rendering) は「roughness / metallic / normal / AO」の 4 マップを扱うだけでなく、「値そのものの物理的意味」を理解しないと画が崩れます。 「Physically Based Rendering: From Theory to Implementation」「The PBR Guide」邦訳版系を、Xiora は agent が material 値を提案する際の validation ルール (roughness の 0.02 以下は基本使わない、metallic は 0/1 の 2 値運用に近い等) の根拠として参照しました。 楽天ブックスで「PBR」「Physically Based Rendering」で検索できます。</p>
-<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DPBR%2B%25E3%2583%25AC%25E3%2583%25B3%25E3%2583%2580%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25B0&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DPBR%2B%25E3%2583%25AC%25E3%2583%25B3%25E3%2583%2580%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25B0">楽天ブックスで「PBR レンダリング」を検索する</a></p>
+<p><a href="/r?a=blender-3dcg-books-5-2026&amp;l=18">楽天ブックスで「PBR レンダリング」を検索する</a></p>
 
 <h2 id="4-ライティング-composition">4. ライティング / コンポジションの書籍</h2>
 <p>3 点照明・key/fill/rim の役割・カラーテンパチャの選び方は、映像でも 3DCG でも共通する設計論です。 「Light for Visual Artists」「Painting with Light」系の書籍を、Xiora の agent には「照明配置の初期案は 3 点照明から始めよ」「rim light の色温度は key と 1000K 以上ずらせ」というルール化を反映しています。 楽天ブックスで「ライティング デザイン」「照明設計」で検索できます。</p>
-<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2586%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0%2B%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2586%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0%2B%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3">楽天ブックスで「ライティング デザイン」を検索する</a></p>
+<p><a href="/r?a=blender-3dcg-books-5-2026&amp;l=19">楽天ブックスで「ライティング デザイン」を検索する</a></p>
 
 <h2 id="5-演出-shot-language">5. 演出 / Shot Language の書籍</h2>
 <p>ショットの設計 (アングル / 焦点距離 / カメラ動き) は、モデル・マテリアルの完成度と同等に画のクオリティを決めます。 「Cinematography Theory and Practice」「The Filmmaker's Eye」系の書籍を、Xiora は agent への shot language 語彙付与に使い、レンダー前の camera プリセットの初期候補生成に反映しています。 楽天ブックスで「撮影 演出」「Cinematography」で検索できます。</p>
-<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DCinematography&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DCinematography">楽天ブックスで「Cinematography」を検索する</a></p>
+<p><a href="/r?a=blender-3dcg-books-5-2026&amp;l=20">楽天ブックスで「Cinematography」を検索する</a></p>
 
 <h2 id="まとめ">まとめ — 3D 学習の書籍ドリブン運用</h2>
 <p>3DCG は「YouTube のショート断片」だけでは章横断の設計が身につきにくく、章単位に開ける書籍の存在が学習速度を上げます。 上記 5 冊は Xiora の 3D pipeline で章単位に参照した実績のある書籍で、いずれも楽天ブックスで最新版が確認できます。 内容は 2026-07 時点の公開情報に基づく参考情報で、書籍そのものについては各出版社の一次情報を優先ください。</p>
