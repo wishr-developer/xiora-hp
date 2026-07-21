@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Xiora Vault Setup Guide｜macOS Keychain / iOS Passkey / systemd-creds ¥1,480 | Xiora</title>
+<meta content="Xiora が 全 credential を macOS Keychain / iOS Passkey / systemd-creds で 一元管理している 実 architecture 手順書 + Python / Node / Bash から の 参照 pattern + 実 code snippet。 .env に頼らない secret management を 30 分 で セットアップ 可能。 Markdown 直販 ¥1,480 (税込) · 買切。" name="description"/>
+<meta content="Xiora,Vault,Keychain,Passkey,secret management,macOS,iOS,systemd-creds,.env,rotation,¥1480,直販" name="keywords"/>
+<link href="https://xiora-official.com/products/xiora-vault-setup-guide-2026.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://xiora-official.com/products/xiora-vault-setup-guide-2026.html" property="og:url"/>
+<meta content="Xiora Vault Setup Guide — macOS Keychain / iOS Passkey / systemd-creds ¥1,480" property="og:title"/>
+<meta content=".env に頼らない secret management の 30 分 セットアップ 手順書。 Markdown 24 KB · ¥1,480。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Xiora Vault Setup Guide ¥1,480 | Xiora" name="twitter:title"/>
+<meta content=".env に頼らない secret management を 30 分 で set up。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260702f" rel="stylesheet"/>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Xiora Vault Setup Guide",
+  "description": "Xiora が 全 credential を macOS Keychain / iOS Passkey / systemd-creds で 一元管理している 実 architecture 手順書 + Python / Node / Bash から の 参照 pattern + 実 code snippet。",
+  "brand": { "@type": "Brand", "name": "Xiora" },
+  "sku": "xiora-vault-setup-guide-2026",
+  "url": "https://xiora-official.com/products/xiora-vault-setup-guide-2026.html",
+  "publisher": { "@type": "Organization", "name": "Xiora" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "JPY",
+    "price": "1480",
+    "availability": "https://schema.org/InStock",
+    "url": "https://xiora-official.com/products/xiora-vault-setup-guide-2026.html",
+    "seller": { "@type": "Organization", "name": "Xiora" }
+  }
+}
+</script>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<style>
+  .aos-hero { padding: 96px 0 48px; background: linear-gradient(180deg,#fafafa 0%,#ffffff 100%); }
+  .aos-hero__eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #6b7280; margin: 0 0 18px; font-family: "Inter",sans-serif; }
+  .aos-hero__eyebrow .dot { display:inline-block; width:6px; height:6px; background:#0a0a0a; border-radius:50%; margin-right:8px; vertical-align:middle; }
+  .aos-hero__title { font-size: clamp(30px,4.4vw,50px); font-weight: 700; line-height: 1.28; letter-spacing: -0.01em; margin: 0 0 20px; }
+  .aos-hero__lead { font-size: clamp(15px,1.4vw,17.5px); color: #374151; line-height: 1.9; margin: 0 0 32px; max-width: 720px; }
+  .aos-hero__pricecard { display: inline-flex; align-items: baseline; gap: 12px; border: 1px solid #e5e7eb; background: #ffffff; border-radius: 12px; padding: 18px 24px; margin-bottom: 32px; }
+  .aos-hero__price { font-size: 34px; font-weight: 700; letter-spacing: -0.01em; }
+  .aos-hero__pricenote { font-size: 13px; color: #6b7280; }
+  .aos-hero__actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .aos-hero__actions .btn--primary { padding: 14px 28px; font-size: 15.5px; }
+  .aos-hero__spec { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 24px 0 0; font-size: 12.5px; color: #6b7280; }
+  .aos-hero__spec span { display:inline-flex; align-items:center; gap:6px; }
+  .aos-hero__spec span::before { content:""; display:inline-block; width:4px; height:4px; background:#9ca3af; border-radius:50%; }
+  .aos-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 32px 0; }
+  @media (max-width: 720px) { .aos-tiles { grid-template-columns: 1fr; } }
+  .aos-tile { border: 1px solid #e5e7eb; border-radius: 14px; padding: 28px 24px; background: #ffffff; }
+  .aos-tile__num { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #6b7280; font-family: "Inter",sans-serif; margin: 0 0 12px; }
+  .aos-tile__title { font-size: 17px; font-weight: 600; margin: 0 0 10px; line-height: 1.5; }
+  .aos-tile__desc { font-size: 14px; color: #4b5563; line-height: 1.8; margin: 0; }
+  .aos-toc { border: 1px solid #e5e7eb; border-radius: 14px; padding: 32px 32px; background: #fafafa; }
+  .aos-toc__title { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b7280; margin: 0 0 20px; font-family: "Inter",sans-serif; font-weight: 600; }
+  .aos-toc__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; }
+  @media (max-width: 720px) { .aos-toc__list { grid-template-columns: 1fr; } }
+  .aos-toc__item { display: flex; gap: 12px; align-items: baseline; font-size: 14.5px; line-height: 1.6; }
+  .aos-toc__idx { font-family: "Inter",sans-serif; font-size: 12px; color: #9ca3af; letter-spacing: 0.05em; min-width: 24px; }
+  .aos-toc__label { color: #1f2937; }
+  .aos-faq__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+  .aos-faq__item { border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px 24px; background: #ffffff; }
+  .aos-faq__q { font-size: 15px; font-weight: 600; margin: 0 0 8px; line-height: 1.55; }
+  .aos-faq__q::before { content: "Q. "; color: #6b7280; font-family: "Inter",sans-serif; }
+  .aos-faq__a { font-size: 14px; color: #4b5563; margin: 0; line-height: 1.85; }
+  .aos-legal-link { font-size: 13px; color: #6b7280; margin: 24px 0 0; }
+  .aos-legal-link a { color: #4b5563; text-decoration: underline; }
+  .aos-cta-band { background: #0a0a0a; color: #ffffff; padding: 72px 0; text-align: center; }
+  .aos-cta-band h2 { color: #ffffff; font-size: clamp(22px,2.6vw,32px); margin: 0 0 16px; font-weight: 700; }
+  .aos-cta-band p { color: rgba(255,255,255,0.72); margin: 0 0 32px; font-size: 15px; line-height: 1.8; }
+  .aos-cta-band .btn--primary { background: #ffffff; color: #0a0a0a; padding: 14px 32px; font-size: 15.5px; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a aria-label="Xiora ホーム" class="brand" href="/">
+<svg aria-hidden="true" class="brand__mark" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 23 Q16 5 26.5 23" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"></path><circle cx="16" cy="12.5" fill="currentColor" r="3.2"></circle></svg>
+<span class="brand__name">Xiora</span>
+</a>
+<nav aria-label="メインメニュー" class="site-nav" id="siteNav">
+<a href="/#technology">Technology</a>
+<a aria-current="page" href="/products/">Products</a>
+<a href="/#services">Services</a>
+<a href="/case-studies.html">Case Studies</a>
+<a href="/insights/">Insights</a>
+<a href="/company.html">About</a>
+<a href="/contact.html">Contact</a>
+</nav>
+<button aria-expanded="false" aria-label="メニューを開く" class="nav-toggle" id="navToggle">
+<span></span><span></span>
+</button>
+</div>
+</header>
+<main id="main">
+
+<section class="aos-hero">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/products/">Products</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Xiora Vault Setup Guide</span>
+</nav>
+<p class="aos-hero__eyebrow"><span class="dot"></span>Xiora Direct Sale · 直販 デジタル手順書 · 2026-07-21 販売開始</p>
+<h1 class="aos-hero__title">
+Xiora Vault<br/>Setup Guide.
+</h1>
+<p class="aos-hero__lead">
+Xiora が 実運用中 の secret 一元管理 architecture を そのまま 手順書 化。<br/>
+macOS Keychain / iOS Passkey / systemd-creds / Postfix relay を 統合し、 Python / Node / Bash から の 参照 pattern と 実 code snippet を 提供。 <strong>.env に頼らない secret management</strong> を 30 分 で セットアップ。
+</p>
+<div class="aos-hero__pricecard">
+<span class="aos-hero__price">¥1,480</span>
+<span class="aos-hero__pricenote">税込 · 買切 · Markdown 24 KB · 購入後 即時 ダウンロード</span>
+</div>
+<div class="aos-hero__actions">
+<a class="btn btn--primary" href="https://buy.stripe.com/8x2bJ10s41nZ6A44Hs1ck09" rel="noopener" data-cta="vault-hero-buy">
+今すぐ購入する (Stripe 決済)
+<svg aria-hidden="true" class="btn__arrow" fill="none" height="14" viewbox="0 0 16 16" width="14">
+<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+<a class="btn btn--ghost" href="#toc">目次を見る</a>
+</div>
+<div class="aos-hero__spec">
+<span>15 セクション</span>
+<span>Python / Node / Bash 全対応</span>
+<span>pre-commit hook 込み</span>
+<span>購入後 即時 URL 発行</span>
+</div>
+</div>
+</section>
+
+<section class="section" id="benefits">
+<div class="container container--narrow">
+<header class="section__head">
+<p class="section__label reveal"><span class="dash"></span>Why this guide</p>
+<h2 class="section__title reveal">.env を 廃止 する ため の 30 分 手順書。</h2>
+<p class="section__lead reveal">
+`.env` file は git commit 事故、backup 経由 漏洩、shell history 経由 漏洩 の 5 大 リスク が あります。 Vault は OS カーネル レベル で 保護される 代替 pattern です。
+</p>
+</header>
+<div class="aos-tiles reveal">
+<div class="aos-tile">
+<p class="aos-tile__num">01 · Architecture</p>
+<h3 class="aos-tile__title">macOS / Linux / iOS を 統一 pattern で</h3>
+<p class="aos-tile__desc">
+Vault Sources (Keychain / systemd-creds / Passkey) → Runtime Bindings (Python / Node / Bash) → Application code の 3 段構造 を 全 OS で 統一 して 実装 する 方法。
+</p>
+</div>
+<div class="aos-tile">
+<p class="aos-tile__num">02 · Real snippets</p>
+<h3 class="aos-tile__title">Python / Node / Bash / Swift の 実 コード</h3>
+<p class="aos-tile__desc">
+lru_cache 付き の Python helper、child_process 版 と keytar 版 の Node helper、 Bash source-able helper、Swift の Keychain Services 直呼び 全部込み。 copy-paste で 30 分。
+</p>
+</div>
+<div class="aos-tile">
+<p class="aos-tile__num">03 · Constitution grep</p>
+<h3 class="aos-tile__title">Vault leak を 静的検出する pre-commit</h3>
+<p class="aos-tile__desc">
+Stripe SK / Anthropic API key / OpenAI API key / Gmail app password の pattern grep + gitleaks 併用 の 例。 「Vault key を bypass して 平文 埋め込み」 を 事前 に 検出。
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section--soft" id="toc">
+<div class="container container--narrow">
+<header class="section__head">
+<p class="section__label reveal"><span class="dash"></span>Table of contents</p>
+<h2 class="section__title reveal">15 セクション の 全目次。</h2>
+</header>
+<nav class="aos-toc reveal" aria-label="目次">
+<p class="aos-toc__title">Sections</p>
+<ol class="aos-toc__list">
+<li class="aos-toc__item"><span class="aos-toc__idx">01</span><span class="aos-toc__label">なぜ .env に 頼らないのか — 問題設定</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">02</span><span class="aos-toc__label">Vault Architecture の 全体像 (macOS / Linux / iOS)</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">03</span><span class="aos-toc__label">macOS Keychain へ の credential 保存 手順</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">04</span><span class="aos-toc__label">macOS Keychain の Access Control ACL 設定</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">05</span><span class="aos-toc__label">Vault key naming 規約</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">06</span><span class="aos-toc__label">Python から Vault を 参照する pattern</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">07</span><span class="aos-toc__label">Node.js から Vault を 参照する pattern</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">08</span><span class="aos-toc__label">Bash から Vault を 参照する pattern</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">09</span><span class="aos-toc__label">iOS Passkey / Keychain との 統合</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">10</span><span class="aos-toc__label">Linux systemd-creds への 保存 手順</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">11</span><span class="aos-toc__label">Postfix relay の credential 統合</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">12</span><span class="aos-toc__label">credential 分類 と 命名 例</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">13</span><span class="aos-toc__label">rotation / 削除 の 手順</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">14</span><span class="aos-toc__label">troubleshooting — 5 頻出パターン</span></li>
+<li class="aos-toc__item"><span class="aos-toc__idx">15</span><span class="aos-toc__label">憲法 grep — Vault leak を 静的検出する方法</span></li>
+</ol>
+</nav>
+</div>
+</section>
+
+<section class="section" id="faq">
+<div class="container container--narrow">
+<header class="section__head">
+<p class="section__label reveal"><span class="dash"></span>FAQ</p>
+<h2 class="section__title reveal">よくあるご質問。</h2>
+</header>
+<ul class="aos-faq__list reveal">
+<li class="aos-faq__item">
+<p class="aos-faq__q">実 credential 値 は 含まれていますか?</p>
+<p class="aos-faq__a">いいえ、含まれていません。 本ガイドは pattern のみ を 記述しており、Xiora の 実 credential 値 は 一切 含みません。 実運用 の 値 は 皆様 の 環境 に あわせて 入力してください。</p>
+</li>
+<li class="aos-faq__item">
+<p class="aos-faq__q">macOS 以外 (Windows / Linux) でも 使えますか?</p>
+<p class="aos-faq__a">Linux は systemd-creds を 使う手順を 収録しています (section 10)。 Windows Credential Manager は 本 v1.0 では 未収録 (次版で追加予定)。</p>
+</li>
+<li class="aos-faq__item">
+<p class="aos-faq__q">rotation は どのように 運用しますか?</p>
+<p class="aos-faq__a">section 13 で rotation / 削除 の 具体 手順 を 記述。 新 key を 別名 で 追加 → application 側 参照切替 → 動作確認 → 旧 key 削除 → rename の 4 段 flow。</p>
+</li>
+<li class="aos-faq__item">
+<p class="aos-faq__q">返品 · 返金 は 可能 ですか?</p>
+<p class="aos-faq__a">デジタル コンテンツ の 性質 上、購入後 の 返品 · 返金 は 原則 として お受け しかね ます。 詳細 は <a href="/legal/tokusho.html">特定商取引法 に基づく表記</a> を ご確認 ください。</p>
+</li>
+</ul>
+</div>
+</section>
+
+<section class="aos-cta-band">
+<div class="container container--narrow">
+<h2>Xiora Vault Setup Guide を 入手する。</h2>
+<p>¥1,480 · 買切 · 購入後 即時 ダウンロード。 Stripe 経由 の 安全 な 決済。</p>
+<div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+<a class="btn btn--primary" href="https://buy.stripe.com/8x2bJ10s41nZ6A44Hs1ck09" rel="noopener" data-cta="vault-band-buy">
+今すぐ購入する (¥1,480)
+<svg aria-hidden="true" class="btn__arrow" fill="none" height="14" viewbox="0 0 16 16" width="14">
+<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</a>
+</div>
+</div>
+</section>
+
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="site-footer__bottom">
+<p>© <span id="year"></span> Xiora. All rights reserved.</p>
+<ul class="site-footer__meta">
+<li><a href="/legal/tokusho.html">特定商取引法</a></li>
+<li><a href="/legal/privacy.html">プライバシーポリシー</a></li>
+<li><a href="/legal/terms.html">利用規約</a></li>
+<li><a href="/legal/">Legal Index</a></li>
+<li><a href="/sitemap.html">サイトマップ</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script defer="" src="/assets/js/main.js?v=20260702f"></script>
+</body>
+</html>

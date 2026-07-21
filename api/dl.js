@@ -64,6 +64,30 @@ const PRODUCT_MAP = {
     downloadName: "xiora-rakuten-template-pack-2026.zip",
     expectedAmount: 1980,
   },
+  // 5. Cold Email Template Pack (¥980) — markdown
+  "xiora-cold-email-pack-2026": {
+    lp: "/products/xiora-cold-email-pack-2026.html",
+    filename: "xiora-cold-email-pack-2026-8d6ec2.md",
+    mime: "text/markdown; charset=utf-8",
+    disposition: "attachment",
+    downloadName: "xiora-cold-email-pack-2026.md",
+    expectedAmount: 980,
+  },
+  // 6. Vault Setup Guide (¥1,480) — markdown
+  "xiora-vault-setup-guide-2026": {
+    lp: "/products/xiora-vault-setup-guide-2026.html",
+    filename: "xiora-vault-setup-guide-2026-fdf6ed.md",
+    mime: "text/markdown; charset=utf-8",
+    disposition: "attachment",
+    downloadName: "xiora-vault-setup-guide-2026.md",
+    expectedAmount: 1480,
+  },
+  // 7. Founder Pack Bundle (¥14,800) — redirect to /founder-pack-thanks.html (not direct download)
+  "xiora-founder-pack-bundle-2026": {
+    lp: "/products/xiora-founder-pack-bundle-2026.html",
+    bundleRedirect: "/founder-pack-thanks.html",
+    expectedAmount: 14800,
+  },
 };
 
 // Amount-only fallback map (used when metadata is missing). If two products
@@ -224,6 +248,25 @@ module.exports = async (req, res) => {
     return redirectErr(res, "/products/", "product_mismatch");
   }
   const cfg = PRODUCT_MAP[slug];
+
+  // 4b) Bundle redirect handling — no direct file; forward to the download
+  //     center HTML page which reveals individual asset links after re-verify.
+  if (cfg.bundleRedirect) {
+    const target = `${cfg.bundleRedirect}?session_id=${encodeURIComponent(sessionId)}`;
+    console.log(JSON.stringify({
+      ts: new Date().toISOString(),
+      event: "dl.bundle_redirect",
+      product_slug: slug,
+      resolve_source: source,
+      session_id_prefix: truncate(sessionId, 12),
+    }));
+    res.setHeader("Cache-Control", "private, no-store");
+    res.setHeader("Referrer-Policy", "no-referrer");
+    res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    res.writeHead(302, { Location: target });
+    res.end();
+    return;
+  }
 
   // 5) Load packaged content.
   const content = loadContent(cfg.filename);
