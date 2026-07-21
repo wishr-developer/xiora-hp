@@ -415,6 +415,42 @@
       "sub_cat_short": "Language",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><circle cx=\"30\" cy=\"30\" r=\"14\"></circle><path d=\"M16 30 L44 30 M30 16 L30 44 M20 22 Q30 26 40 22 M20 38 Q30 34 40 38\" opacity=\"0.55\"></path><path d=\"M62 22 L74 22 L74 38 L62 38 Z\"></path><path d=\"M80 26 L96 26 M80 32 L94 32 M80 38 L92 38\" opacity=\"0.55\"></path></g></svg>",
       "card_class": "prod-card--xiora-lingua"
+    },
+    {
+      "id": "xiora-consulting-30min",
+      "name": "Xiora Consulting 30 min Diagnostic",
+      "brand_short": "Xiora Consulting 30 min",
+      "brand_html": "Xiora Consulting<br/><span>30 min Diagnostic</span>",
+      "status": "LIVE · ¥5,000 / 回",
+      "category_ja": "個別 Zoom 診断 (Consulting)",
+      "sub_desc_ja": "Xiora 代表 と Zoom 30 分 の 個別 診断 セッション",
+      "sub_desc_meta": "Xiora 代表 沓澤 怜士 と Zoom で 30 分 の 個別 診断。 24/7 無人 SaaS 運営 / AI エージェント組織化 / Stripe / 楽天 API の 実装 相談。 決済後 24h 以内 に 予約 URL を メール送付。 ¥5,000 税込 · 1 回。",
+      "who": "24/7 無人 SaaS 運営 / AI エージェント組織化 の 具体境界 を 相談 したい 創業者 / 開発者 / SaaS 立ち上げ 担当",
+      "problem": "抽象論 の 相談 では なく、Xiora の 実運用 ログ を 参考 に した 個別 診断 が 30 分 で 欲しい",
+      "ai_use": "Xiora Autonomous Company OS の 実装 pattern を 参考 資料 に、個別 事業 の 論点 整理 を 30 分 で 実施",
+      "url": "/products/xiora-consulting-30min.html",
+      "sub_short_desc": "Xiora 代表 と Zoom 30 分 の 個別 診断 セッション。 SaaS 運営 / AI 組織化 / 実装 相談。 ¥5,000 · 1 回。",
+      "sub_cat_short": "Consulting 30 min",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><circle cx=\"30\" cy=\"30\" r=\"14\"></circle><path d=\"M30 22 L30 30 L36 34\" stroke-linecap=\"round\"></path><rect x=\"60\" y=\"18\" width=\"44\" height=\"28\" rx=\"3\"></rect><path d=\"M100 26 L108 22 L108 42 L100 38 Z\"></path><path d=\"M68 26 L92 26 M68 32 L88 32 M68 38 L84 38\" opacity=\"0.55\"></path></g></svg>",
+      "card_class": "prod-card--consulting-30min"
+    },
+    {
+      "id": "xiora-consulting-60min",
+      "name": "Xiora Consulting 60 min Deep Dive",
+      "brand_short": "Xiora Consulting 60 min",
+      "brand_html": "Xiora Consulting<br/><span>60 min Deep Dive</span>",
+      "status": "LIVE · ¥9,800 / 回",
+      "category_ja": "個別 Zoom 深掘り (Consulting)",
+      "sub_desc_ja": "Xiora 代表 と Zoom 60 分 + code snippet share + 1 週間 F/U",
+      "sub_desc_meta": "Xiora 代表 沓澤 怜士 と Zoom で 60 分。 30 分 Diagnostic の 拡張版 + 実 code snippet (brain/handlers 抜粋) share + 個別 architecture review + 1 週間 の フォローアップ メール Q&A 付き。 ¥9,800 税込 · 1 回。",
+      "who": "実装 まで 落とし込みたい 開発者 / SaaS 事業者 / AI エージェント運用 の architecture review が 欲しい 技術者",
+      "problem": "1 回 の Zoom セッション だけ では 実装 途中 の 質問 に 対応 できない、Xiora の 実 code snippet を 見たい",
+      "ai_use": "Xiora Autonomous Company OS の brain/handlers 抜粋 の 共有 + individual architecture review + 1 週間 メール Q&A の 継続 フォロー",
+      "url": "/products/xiora-consulting-60min.html",
+      "sub_short_desc": "Xiora 代表 と Zoom 60 分 + 実 code snippet share + architecture review + 1 週間 F/U メール Q&A。 ¥9,800 · 1 回。",
+      "sub_cat_short": "Consulting 60 min",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><circle cx=\"30\" cy=\"30\" r=\"16\"></circle><path d=\"M30 18 L30 30 L38 36\" stroke-linecap=\"round\"></path><rect x=\"60\" y=\"14\" width=\"48\" height=\"32\" rx=\"3\"></rect><path d=\"M100 22 L108 18 L108 42 L100 38 Z\"></path><path d=\"M68 22 L98 22 M68 28 L94 28 M68 34 L92 34 M68 40 L88 40\" opacity=\"0.55\"></path></g></svg>",
+      "card_class": "prod-card--consulting-60min"
     }
   ]
 }
