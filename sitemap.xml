@@ -214,17 +214,12 @@
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://xiora-official.com/insights/solo-founder-books-5-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
     <loc>https://xiora-official.com/insights/llm-selection-checklist-20.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://xiora-official.com/insights/video-creator-kobo-5-2026.html</loc>
+    <loc>https://xiora-official.com/insights/solo-founder-books-5-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -234,12 +229,22 @@
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://xiora-official.com/insights/ai-dev-books-5-2026.html</loc>
+    <loc>https://xiora-official.com/insights/video-creator-kobo-5-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://xiora-official.com/insights/ai-saas-solo-run-playbook.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/ai-dev-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/python-data-books-5-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

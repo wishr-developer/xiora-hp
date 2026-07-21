@@ -98,8 +98,8 @@
       "build_cat": "Books Playbook"
     },
     {
-      "id": "2026-07-29-llm-selection-checklist-20",
-      "date": "2026-07-29",
+      "id": "2026-07-30-llm-selection-checklist-20",
+      "date": "2026-07-30",
       "type": "insight",
       "kind": "release",
       "title": "LLM 選定 checklist 20 項目 — Ollama / Claude / GPT-4o / Gemini の実運用比較",
@@ -122,8 +122,8 @@
       "build_cat": "Books Playbook"
     },
     {
-      "id": "2026-07-25-stripe-connect-ai-marketplace-5-steps",
-      "date": "2026-07-25",
+      "id": "2026-07-26-stripe-connect-ai-marketplace-5-steps",
+      "date": "2026-07-26",
       "type": "insight",
       "kind": "release",
       "title": "Stripe Connect で AI エージェント マーケットプレイスを構築する 5 step — Aiverse Studio 実装事例",
@@ -146,8 +146,8 @@
       "build_cat": "Books Playbook"
     },
     {
-      "id": "2026-07-22-ai-saas-solo-run-playbook",
-      "date": "2026-07-22",
+      "id": "2026-07-23-ai-saas-solo-run-playbook",
+      "date": "2026-07-23",
       "type": "insight",
       "kind": "release",
       "title": "AI エージェント SaaS を個人開発者が 1 人で運用する方法 — Xiora Autonomous Company OS の実運用事例",
@@ -156,6 +156,18 @@
       "insight_cat": "Practice",
       "author": "沓澤 怜士 (Xiora)",
       "build_cat": "Autonomous Company OS"
+    },
+    {
+      "id": "2026-07-21-python-data-books-5-2026",
+      "date": "2026-07-21",
+      "type": "insight",
+      "kind": "release",
+      "title": "Python データ分析 実務書 5 選 2026 — Xiora の SaaS 分析 stack から",
+      "description": "Xiora が Solo SaaS の 分析 stack で 実務参照する Python データ分析 書籍 5 冊を、Pandas / NumPy / scikit-learn / Jupyter / SQL の 5 領域で 章単位に用途を明示して 情報整理します。",
+      "url": "/insights/python-data-books-5-2026.html",
+      "insight_cat": "Engineering",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "2026-07 Batch"
     },
     {
       "id": "2026-07-19-koshigaya-it-ai-4-axes",
