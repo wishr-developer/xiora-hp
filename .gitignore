@@ -41,6 +41,9 @@ tmp/
 *.tgz
 *.rar
 *.7z
+# Exception: direct-sale digital packages must ship in dl/
+!dl/aos-toolkit-2026-08f759.zip
+!dl/rakuten-template-pack-2026-37b2c9.zip
 
 # Backup
 *.bak

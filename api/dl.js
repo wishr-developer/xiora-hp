@@ -1,49 +1,104 @@
-// Xiora HP — Post-purchase digital delivery verifier
+// Xiora HP — Post-purchase digital delivery verifier (multi-product)
 // Vercel Serverless Function (Node.js 20 runtime, zero external deps).
 //
 // Request:  GET /api/dl?session_id=<stripe_checkout_session_id>
 // Behavior:
 //   1. Verify the Stripe Checkout Session via GET /v1/checkout/sessions/<id>
+//      (with line_items expanded so we can inspect the purchased Price/Product).
 //   2. Require payment_status === "paid"
-//   3. Match session metadata.product_slug (or amount_total) against expected
-//   4. Return the packaged HTML content (dl/xiora-aos-guide-2026.html)
-//   5. On any failure → 302 redirect to product LP with ?err=<code>
+//   3. Resolve which product was bought (via metadata.product_slug on session,
+//      line_items[0].price.metadata.xiora_product, or amount fallback)
+//   4. Look up product config in PRODUCT_MAP and serve the packaged file:
+//        - HTML  -> serve inline text/html (Content-Disposition: inline)
+//        - ZIP   -> stream application/zip (Content-Disposition: attachment)
+//        - MD    -> text/markdown (attachment)
+//   5. On any failure -> 302 redirect to product LP with ?err=<code>
 //
 // Env vars (set on Vercel):
-//   STRIPE_SECRET_KEY — Stripe restricted key with read access to
-//                       checkout sessions (rak_... or sk_live_... / sk_test_...).
-//                       See docs at Xiora_HP/api/README.md
-//
-// No external deps. Uses global fetch (Node 20 built-in).
+//   STRIPE_SECRET_KEY - Stripe restricted key with read access to Checkout
+//                       Sessions (rk_..., sk_live_..., sk_test_...).
+//                       Minimum permissions: Checkout Sessions Read + Prices
+//                       Read (needed for line_items[].price expansion).
 
 const fs = require("fs");
 const path = require("path");
 
-const PRODUCT_SLUG = "xiora-aos-guide-2026";
-const PRODUCT_LP = `/products/${PRODUCT_SLUG}.html`;
-const EXPECTED_AMOUNT_JPY = 1980; // ¥1,980 (Stripe amount_total for JPY is unit yen)
+// ---------------------------------------------------------------------------
+// Product map — SoT for all direct-sale digital products.
+// filename fields use the on-disk name INCLUDING the random suffix so that the
+// dl/*.zip file cannot be guessed from the public product slug.
+// ---------------------------------------------------------------------------
+const PRODUCT_MAP = {
+  // 1. AOS Guide (¥1,980) — the original HTML guide
+  "xiora-aos-guide-2026": {
+    lp: "/products/xiora-aos-guide-2026.html",
+    filename: "xiora-aos-guide-2026.html",
+    mime: "text/html; charset=utf-8",
+    disposition: "inline",
+    expectedAmount: 1980,
+  },
+  // 2. AOS Toolkit (¥4,980) — zip package
+  "xiora-aos-toolkit-2026": {
+    lp: "/products/xiora-aos-toolkit-2026.html",
+    filename: "aos-toolkit-2026-08f759.zip",
+    mime: "application/zip",
+    disposition: "attachment",
+    downloadName: "xiora-aos-toolkit-2026.zip",
+    expectedAmount: 4980,
+  },
+  // 3. Handler Prompt Pack (¥2,980) — markdown
+  "xiora-handler-prompt-pack-2026": {
+    lp: "/products/xiora-handler-prompt-pack-2026.html",
+    filename: "xiora-handler-prompt-pack-2026-a9e412.md",
+    mime: "text/markdown; charset=utf-8",
+    disposition: "attachment",
+    downloadName: "xiora-handler-prompt-pack-2026.md",
+    expectedAmount: 2980,
+  },
+  // 4. Rakuten Template Pack (¥1,980) — zip package
+  "xiora-rakuten-template-pack-2026": {
+    lp: "/products/xiora-rakuten-template-pack-2026.html",
+    filename: "rakuten-template-pack-2026-37b2c9.zip",
+    mime: "application/zip",
+    disposition: "attachment",
+    downloadName: "xiora-rakuten-template-pack-2026.zip",
+    expectedAmount: 1980,
+  },
+};
 
-// Load content once per cold start.
-let CONTENT = null;
-function loadContent() {
-  if (CONTENT) return CONTENT;
+// Amount-only fallback map (used when metadata is missing). If two products
+// share the same amount (AOS Guide ¥1,980 vs Rakuten Template Pack ¥1,980),
+// this falls back to product_mismatch — metadata is mandatory in that case.
+function amountFallbackSlug(amount) {
+  const matches = Object.entries(PRODUCT_MAP).filter(([, cfg]) => cfg.expectedAmount === amount);
+  if (matches.length === 1) return matches[0][0];
+  return null;
+}
+
+// ---------------------------------------------------------------------------
+// Content loader with a small in-memory cache (per cold start).
+// ---------------------------------------------------------------------------
+const CACHE = new Map();
+function loadContent(filename) {
+  if (CACHE.has(filename)) return CACHE.get(filename);
   try {
-    // dl/ sits next to api/ at repo root → ../dl/<slug>.html from this file.
-    const p = path.join(__dirname, "..", "dl", `${PRODUCT_SLUG}.html`);
-    CONTENT = fs.readFileSync(p, "utf-8");
+    const p = path.join(__dirname, "..", "dl", filename);
+    const buf = fs.readFileSync(p);
+    CACHE.set(filename, buf);
+    return buf;
   } catch (e) {
-    CONTENT = null;
     console.log(JSON.stringify({
       ts: new Date().toISOString(),
       event: "dl.load_error",
+      filename,
       error: String(e && e.message || e),
     }));
+    return null;
   }
-  return CONTENT;
 }
 
-function redirectErr(res, code) {
-  const location = `${PRODUCT_LP}?err=${encodeURIComponent(code)}`;
+function redirectErr(res, lp, code) {
+  const location = `${lp || "/products/"}?err=${encodeURIComponent(code)}`;
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("Referrer-Policy", "no-referrer");
   res.writeHead(302, { Location: location });
@@ -56,9 +111,9 @@ function truncate(s, n) {
 }
 
 async function verifySession(sessionId, secretKey) {
-  // Stripe HTTP Basic auth: username=secret_key, password=empty.
   const auth = Buffer.from(`${secretKey}:`).toString("base64");
-  const url = `https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sessionId)}`;
+  // Expand line_items so we can read price.metadata.xiora_product.
+  const url = `https://api.stripe.com/v1/checkout/sessions/${encodeURIComponent(sessionId)}?expand[]=line_items.data.price`;
   try {
     const resp = await fetch(url, {
       method: "GET",
@@ -77,13 +132,37 @@ async function verifySession(sessionId, secretKey) {
   }
 }
 
+// Resolve which product was purchased. Priority:
+//   1. session.metadata.product_slug (Payment Link with metadata)
+//   2. line_items[0].price.metadata.xiora_product
+//   3. Amount fallback (only if unambiguous)
+function resolveProductSlug(session) {
+  const meta = session.metadata || {};
+  if (meta.product_slug && PRODUCT_MAP[meta.product_slug]) {
+    return { slug: meta.product_slug, source: "session_metadata" };
+  }
+  const li = (session.line_items && session.line_items.data) || [];
+  for (const item of li) {
+    const pmeta = (item.price && item.price.metadata) || {};
+    if (pmeta.xiora_product && PRODUCT_MAP[pmeta.xiora_product]) {
+      return { slug: pmeta.xiora_product, source: "price_metadata" };
+    }
+  }
+  const amount = session.amount_total;
+  const currency = (session.currency || "").toLowerCase();
+  if (currency === "jpy") {
+    const fallback = amountFallbackSlug(amount);
+    if (fallback) return { slug: fallback, source: "amount_fallback" };
+  }
+  return { slug: null, source: "none" };
+}
+
 module.exports = async (req, res) => {
   const url = new URL(req.url, "https://xiora-official.com");
   const sessionId = url.searchParams.get("session_id") || "";
   const ua = req.headers["user-agent"] || "";
 
-  // 0) Basic session_id shape check (Stripe session IDs start with cs_ and are
-  // longer than 20 chars). Prevents fetch storms on random requests.
+  // 0) Basic session_id shape check.
   if (!sessionId || !/^cs_[A-Za-z0-9_]{10,}$/.test(sessionId)) {
     console.log(JSON.stringify({
       ts: new Date().toISOString(),
@@ -91,7 +170,7 @@ module.exports = async (req, res) => {
       reason: "bad_session_id_shape",
       ua: truncate(ua, 128),
     }));
-    return redirectErr(res, "bad_session");
+    return redirectErr(res, "/products/", "bad_session");
   }
 
   // 1) Env var check.
@@ -102,7 +181,7 @@ module.exports = async (req, res) => {
       event: "dl.reject",
       reason: "no_env_stripe_key",
     }));
-    return redirectErr(res, "server_config");
+    return redirectErr(res, "/products/", "server_config");
   }
 
   // 2) Verify with Stripe.
@@ -114,7 +193,7 @@ module.exports = async (req, res) => {
       reason: v.reason,
       session_id_prefix: truncate(sessionId, 12),
     }));
-    return redirectErr(res, "verify_failed");
+    return redirectErr(res, "/products/", "verify_failed");
   }
 
   const s = v.session;
@@ -128,53 +207,58 @@ module.exports = async (req, res) => {
       payment_status: truncate(s.payment_status || "", 32),
       session_id_prefix: truncate(sessionId, 12),
     }));
-    return redirectErr(res, "not_paid");
+    return redirectErr(res, "/products/", "not_paid");
   }
 
-  // 4) Product match: prefer metadata.product_slug, fall back to amount_total.
-  const meta = s.metadata || {};
-  const slugMeta = truncate(meta.product_slug || "", 64);
-  const slugOk = slugMeta === PRODUCT_SLUG;
-  const amountOk = s.amount_total === EXPECTED_AMOUNT_JPY && (s.currency || "").toLowerCase() === "jpy";
-  if (!slugOk && !amountOk) {
+  // 4) Resolve product slug.
+  const { slug, source } = resolveProductSlug(s);
+  if (!slug) {
     console.log(JSON.stringify({
       ts: new Date().toISOString(),
       event: "dl.reject",
       reason: "product_mismatch",
-      slug_meta: slugMeta,
       amount_total: s.amount_total,
       currency: truncate(s.currency || "", 8),
       session_id_prefix: truncate(sessionId, 12),
     }));
-    return redirectErr(res, "product_mismatch");
+    return redirectErr(res, "/products/", "product_mismatch");
   }
+  const cfg = PRODUCT_MAP[slug];
 
   // 5) Load packaged content.
-  const content = loadContent();
+  const content = loadContent(cfg.filename);
   if (!content) {
     console.log(JSON.stringify({
       ts: new Date().toISOString(),
       event: "dl.reject",
       reason: "content_missing",
+      product_slug: slug,
     }));
-    return redirectErr(res, "content_missing");
+    return redirectErr(res, cfg.lp, "content_missing");
   }
 
-  // 6) Serve the packaged HTML.
+  // 6) Serve.
   console.log(JSON.stringify({
     ts: new Date().toISOString(),
     event: "dl.serve",
-    product_slug: PRODUCT_SLUG,
+    product_slug: slug,
+    resolve_source: source,
     session_id_prefix: truncate(sessionId, 12),
-    slug_meta_ok: slugOk,
-    amount_ok: amountOk,
     ua_family: /mobile|iphone|android/i.test(ua) ? "mobile" : "desktop",
+    bytes: content.length,
   }));
 
   res.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
-  res.setHeader("Content-Type", "text/html; charset=utf-8");
   res.setHeader("Referrer-Policy", "no-referrer");
   res.setHeader("X-Robots-Tag", "noindex, nofollow");
+  res.setHeader("Content-Type", cfg.mime);
+  if (cfg.disposition === "attachment") {
+    const name = cfg.downloadName || cfg.filename;
+    res.setHeader("Content-Disposition", `attachment; filename="${name}"`);
+  } else {
+    res.setHeader("Content-Disposition", "inline");
+  }
+  res.setHeader("Content-Length", content.length);
   res.writeHead(200);
   res.end(content);
 };
