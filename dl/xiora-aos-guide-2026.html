@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title>Xiora Autonomous Company OS 実践ガイド 2026 | Xiora</title>
+<meta content="AI 社員 20 名で回す 完全無人 SaaS 事業設計 — 沓澤 怜士 (Xiora) 著。 購入者専用ダウンロード版。" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: oklch(1 0 0);
+    --fg: #111827;
+    --fg-muted: #4b5563;
+    --fg-subtle: #6b7280;
+    --border: #e5e7eb;
+    --border-hair: #f3f4f6;
+    --accent: #0a0a0a;
+    --code-bg: #f8fafc;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: "Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+  .doc {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 24px 128px;
+  }
+  .doc__meta {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-subtle);
+    margin: 0 0 16px;
+    font-family: "Inter", sans-serif;
+  }
+  .doc__meta .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin: 0 0 12px;
+  }
+  h1 + p.subtitle {
+    font-size: clamp(15px, 1.4vw, 17px);
+    color: var(--fg-muted);
+    margin: 0 0 8px;
+    font-weight: 500;
+  }
+  .doc__byline {
+    font-size: 13px;
+    color: var(--fg-subtle);
+    margin: 24px 0 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .doc__notice {
+    background: #fafafa;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--fg-muted);
+    line-height: 1.7;
+    margin: 0 0 48px;
+  }
+  h2 {
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    line-height: 1.4;
+    margin: 56px 0 20px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-hair);
+  }
+  h3 {
+    font-size: clamp(16px, 1.6vw, 18px);
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 32px 0 12px;
+  }
+  h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 24px 0 8px;
+  }
+  p { margin: 0 0 16px; }
+  strong { font-weight: 600; color: var(--fg); }
+  ul, ol {
+    margin: 0 0 16px;
+    padding-left: 24px;
+  }
+  li { margin: 0 0 8px; }
+  code {
+    font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.92em;
+    background: var(--code-bg);
+    border: 1px solid var(--border-hair);
+    border-radius: 4px;
+    padding: 2px 6px;
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto;
+    line-height: 1.65;
+    font-size: 13px;
+    margin: 16px 0 24px;
+  }
+  pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 16px 0 24px;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #fafafa;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+  .doc__toc {
+    background: #fafafa;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 0 0 48px;
+  }
+  .doc__toc h2 {
+    margin: 0 0 12px;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-subtle);
+    font-weight: 600;
+  }
+  .doc__toc ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14.5px;
+    line-height: 2;
+  }
+  .doc__toc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .15s;
+  }
+  .doc__toc a:hover { border-bottom-color: var(--fg); }
+  .doc__foot {
+    margin-top: 96px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--fg-subtle);
+    line-height: 1.7;
+  }
+  .doc__foot a { color: var(--fg-muted); }
+</style>
+</head>
+<body>
+<article class="doc">
+<p class="doc__meta"><span class="dot"></span>Xiora Direct Sale · 購入者専用版</p>
+<h1>Xiora Autonomous Company OS<br/>実践ガイド 2026</h1>
+<p class="subtitle">AI 社員 20 名で回す 完全無人 SaaS 事業設計</p>
+<p class="doc__byline">
+沓澤 怜士 (Xiora) · 2026 年 7 月 · 初版
+</p>
+
+<aside class="doc__notice">
+本 PDF / HTML は、Xiora HP 経由でご購入いただいた方への 提供コンテンツです。 二次配布・転載・共有アカウントによる 閲覧は お控えください。 内容に関するご質問は info@xiora-official.com までお寄せください。
+</aside>
+
+<nav class="doc__toc" aria-label="目次">
+<h2>目次</h2>
+<ol>
+<li><a href="#ch0">はじめに</a></li>
+<li><a href="#ch1">1. Xiora Autonomous Company OS とは</a></li>
+<li><a href="#ch2">2. 絶対人間ゲート 5 種の具体判定基準</a></li>
+<li><a href="#ch3">3. 憲法 grep とブランド分離</a></li>
+<li><a href="#ch4">4. ハンドラキュー 8 ステージサイクル</a></li>
+<li><a href="#ch5">5. 20+ AI 社員組織図</a></li>
+<li><a href="#ch6">6. Zero-spend policy と cost governor</a></li>
+<li><a href="#ch7">7. 24/7 monitoring と Rei 秘書</a></li>
+<li><a href="#ch8">8. 実際の M0-M8 マイルストーン</a></li>
+<li><a href="#ch9">9. 3 か月運用の 定量データ</a></li>
+<li><a href="#ch10">10. 読者への 次アクション</a></li>
+<li><a href="#end">巻末</a></li>
+</ol>
+</nav>
+
+<section id="ch0">
+<h2>0. はじめに</h2>
+
+<p>2026 年の SaaS 起業には、「AI 社員を雇う」という発想が実装レベルで求められるようになりました。 単に ChatGPT や Claude を使うだけでは、事業が伸びる瞬間に必ず人的ボトルネックが発生し、創業者は寝る時間を削り、それでも取りこぼしが起きる、というのが従来の 1 人起業の宿命でした。</p>
+
+<p>本書は、私が実運用している「Xiora Autonomous Company OS」を、1 人の創業者が 3 か月で構築できる形にまで因数分解した実践書です。 4 レイヤアーキテクチャ、5 種類の人間ゲート、11 個の常駐ハンドラ、そして 24/7 稼働するブレインループ。 これらを Ollama + SQLite + launchd + Vercel の無料層のみで組み上げ、追加課金ゼロで MRR ¥50,000 まで持ち上げるための、具体的な設計・失敗パターン・実際の運用データを 10 章で公開します。</p>
+
+<p>本書は「ChatGPT で自動化しよう」という抽象論ではありません。 実際にどの handler が何秒サイクルで動き、どこで人間の判断が入り、どこで AI が最終決裁するのか、その具体境界を全て記述します。 私自身が Xiora という 20+ プロダクトを 1 人で運用していることが、本書の唯一の証拠です。</p>
+
+<p>読者が本書を読み終えた後、次に何をするか。 それは「Ollama を macOS にインストールする」「~/xai/brain/state.db という SQLite を作る」「最初の handler を crontab に登録する」といった、極めて具体的な 30 分単位のアクションです。 抽象的な理解ではなく、動く実装が手元に残ることを目標とします。</p>
+
+<h3>本書の対象読者</h3>
+<ul>
+<li>SaaS を 1 人で始めたいが、24/7 の運用体力に不安がある創業者</li>
+<li>ChatGPT や Claude で自動化を試したが、断片的で「事業」にならなかった開発者</li>
+<li>「AI 秘書」を安定運用したい個人 / SMB オーナー</li>
+<li>Xiora のブランド / 実装知見に興味がある読者</li>
+</ul>
+
+<h3>本書に含まれるもの</h3>
+<ul>
+<li>Autonomous Company OS の 4 レイヤアーキテクチャ設計図</li>
+<li>人間ゲート 5 種の具体判定基準 (billing / delete / permission / contract / kyc)</li>
+<li>20+ AI 社員組織図 と 各役割の役割定義</li>
+<li>Zero-spend policy の具体運用 (Vercel / Railway / Supabase 無料層のみで回す設計)</li>
+<li>3 か月間の M0-M8 マイルストーン実行データ (定量)</li>
+<li>立ち上げ 90 日目までの読者への次アクションチェックリスト</li>
+</ul>
+
+<h3>本書に含まれないもの</h3>
+<ul>
+<li>個別ツールの API リファレンス (公式ドキュメント参照)</li>
+<li>特定業種向けの実装 (汎用パターンのみ)</li>
+<li>法務 / 会計 / 税務の詳細 (士業ドメイン)</li>
+</ul>
+
+<h3>免責</h3>
+<p>本書は情報提供を目的とし、特定のビジネス成果を保証するものではありません。 実装時のトラブル・損失について著者は責任を負いません。 各種法定手続き (会社設立、税務申告、労務) は専門家 (士業) にご相談ください。</p>
+</section>
+
+<section id="ch1">
+<h2>1. Xiora Autonomous Company OS とは</h2>
+
+<h3>1.1 定義</h3>
+<p>Xiora Autonomous Company OS (以下、ACOS) とは、<strong>創業者が寝ている間も事業が回るための、AI エージェント群 + 常駐ハンドラ + 人間ゲートの 3 要素で構成される、24/7 稼働型の実装 pattern</strong> です。</p>
+
+<p>ここで重要なのは「OS」という命名です。 ACOS は特定のプロダクトではなく、複数のプロダクト (Xiora の場合、Kigen / Aiverse / Nexa Academy / Gourmie / Ocean など 20+) を横断的に運用するための、基盤となる実装レイヤです。 macOS が Safari や Photos の下で動く OS であるのと同じ位置づけです。</p>
+
+<h3>1.2 なぜ「OS」なのか</h3>
+<p>従来の SaaS 起業では、プロダクトごとに個別の運用チームや自動化スクリプトを書いていました。 例えば Kigen のリマインダー配信、Aiverse のライブ配信管理、Nexa の受講生対応、Gourmie の口コミ返信、これらは別々のコードベースで管理されていました。</p>
+
+<p>しかし、1 人で 20+ プロダクトを回すには、この方式では破綻します。 プロダクト A で顧客対応が滞っている間、プロダクト B の障害が発生する、という事態が日常的になるからです。</p>
+
+<p>ACOS はこれを、以下の共通レイヤで統一します:</p>
+<ol>
+<li><strong>ブレイン (Brain)</strong> — 全プロダクトを横断する意思決定エンジン (Ollama + SQLite state.db)</li>
+<li><strong>ハンドラキュー (Handler Queue)</strong> — 全プロダクトのタスクを 1 本のキューで処理</li>
+<li><strong>AI 社員 (AI Employees)</strong> — 各役割を担う専門エージェント (代表秘書、コード書き、SRE、リサーチャなど)</li>
+<li><strong>人間ゲート (Human Gates)</strong> — 創業者が最終決裁する 5 種類のイベントのみを浮上させる</li>
+</ol>
+
+<h3>1.3 ACOS の 3 原則</h3>
+
+<h4>原則 1: 人間ゲートは 5 種類のみ</h4>
+<p>全ての意思決定を人間に浮上させると、創業者は寝る時間がなくなります。 ACOS は、以下 5 種類のイベントのみを人間ゲートとして定義し、それ以外は AI が最終決裁します:</p>
+<ul>
+<li><strong>billing</strong>: 外部送金 (Stripe payout / 銀行送金 / 経費精算)</li>
+<li><strong>delete</strong>: データ削除 (customer 削除、DB drop、file rm -rf)</li>
+<li><strong>permission</strong>: 権限昇格 (root 権限、admin 権限、API scope 拡大)</li>
+<li><strong>contract</strong>: 契約締結 (NDA、業務委託、雇用契約)</li>
+<li><strong>kyc</strong>: 本人確認 (marketplace 登録、金融口座開設)</li>
+</ul>
+<p>これ以外の全てのタスク (X 投稿、Gmail 返信、コードのコミット、handler 実装、broadcast など) は AI が最終決裁します。 「AI に判断させて大丈夫か」と迷ったら、この 5 種類に該当するかで判定します。</p>
+
+<h4>原則 2: 状態は SQLite の 1 ファイルに集約</h4>
+<p>複雑な分散システムを回避し、全プロダクト横断の状態を <code>state.db</code> という 1 個の SQLite ファイルに集約します。 18 テーブル (agent_skill, handler_queue, halt, kv_store, event, ... ) で全 20+ プロダクトの状態を管理します。 バックアップも <code>cp state.db backup/</code> の 1 行で完結します。</p>
+
+<h4>原則 3: 常時課金ゼロで開始</h4>
+<p>MRR ¥50,000 に達するまでは、追加の月額課金を一切増やしません。 Ollama (ローカル)、SQLite (ファイル)、launchd (macOS 内蔵)、Vercel Free、Cloudflare Free、Neon Free、Railway trial の組み合わせで、原価ゼロで運用します。 MRR ¥50,000 を超えたら、収益の 20% までを SaaS ツール課金の上限とします。</p>
+
+<h3>1.4 なぜ 1 人で 20+ プロダクトを回せるのか</h3>
+<p>答えは 3 つあります。</p>
+
+<p>第一に、<strong>ハンドラという抽象</strong>です。 全てのタスクを「input → handler → output」という 1 パターンに落とし込むと、Kigen も Aiverse も Nexa も、同じキューで処理できるようになります。 プロダクトが 20 になっても、キューは 1 本のままです。</p>
+
+<p>第二に、<strong>AI 社員という役割固定</strong>です。 「代表秘書 (Rei)」「コード書き」「SRE」「リサーチャ」といった役割ごとに担当エージェントを固定すると、プロダクトが増えても役割は増えません。 Kigen のバグ調査も Aiverse のバグ調査も、同じ「SRE エージェント」が担当します。</p>
+
+<p>第三に、<strong>人間ゲートの 5 種類限定</strong>です。 5 種類以外は AI に最終決裁を委譲することで、創業者の時間を「本当に人間しかできないこと」だけに集中させます。</p>
+</section>
+
+<section id="ch2">
+<h2>2. 絶対人間ゲート 5 種の具体判定基準</h2>
+
+<p>前章で提示した 5 種類の人間ゲートを、実装レベルの判定基準に落とし込みます。 実際の handler は、以下の条件式で「人間ゲートを起こすか / AI が処理するか」を判定します。</p>
+
+<h3>2.1 billing ゲート</h3>
+<p><strong>判定条件</strong>:</p>
+<ul>
+<li>外部への送金金額が <code>¥1</code> 以上発生する場合 (Stripe payout、銀行振込、PayPal、経費精算)</li>
+<li>定期課金の新規契約 (SaaS 追加、月額サブスク)</li>
+<li>課金の解約 (定期収入の停止)</li>
+</ul>
+
+<p><strong>AI が処理する範囲</strong>:</p>
+<ul>
+<li>Stripe webhook 受信 → 内部 DB 更新 (送金は Stripe 経由なので人間ゲート不要)</li>
+<li>顧客への請求書自動送信 (金額は AI 決定、ただし送金は Stripe 経由)</li>
+<li>経費入力の draft 作成 (最終「支払う」ボタンは人間)</li>
+</ul>
+
+<p><strong>Xiora の実運用例</strong>:</p>
+<ul>
+<li>2026-07 の Vercel 課金 ¥1,980 → 人間ゲート発火 → Reo 承認</li>
+<li>Kigen 顧客への月額 ¥600 請求 → 人間ゲート不要 (Stripe 自動)</li>
+<li>Rakuten アフィリエイト送金受取 ¥3,200 → 人間ゲート不要 (incoming money は自動処理)</li>
+</ul>
+
+<h3>2.2 delete ゲート</h3>
+<p><strong>判定条件</strong>:</p>
+<ul>
+<li>customer データの削除 (GDPR / 個人情報保護法 対応でも人間ゲート)</li>
+<li>DB スキーマの drop (テーブル削除、カラム削除)</li>
+<li>ファイルシステムの <code>rm -rf</code> (10 ファイル以上、または 100MB 以上)</li>
+<li>git branch --delete (main / master / production は禁止、feature branch のみ AI 判断可)</li>
+</ul>
+
+<p><strong>AI が処理する範囲</strong>:</p>
+<ul>
+<li>一時ファイルの削除 (<code>/tmp</code> 配下、build cache)</li>
+<li>個別 email の archive (削除ではなく移動)</li>
+<li>期限切れの session 削除 (redis TTL 依存)</li>
+</ul>
+
+<p><strong>Xiora の実運用例</strong>:</p>
+<ul>
+<li>ROOM プロジェクトの Docker volume wipe → 人間ゲート発火 → Reo 承認 (完了済)</li>
+<li>Test 環境の SQLite drop → 人間ゲート不要 (test は AI 判断可)</li>
+<li>Production の users テーブル drop → 禁止 (AI がこれを提案しても実行しない)</li>
+</ul>
+
+<h3>2.3 permission ゲート</h3>
+<p><strong>判定条件</strong>:</p>
+<ul>
+<li>root / sudo 権限の獲得 (Vault からの root credential 取得)</li>
+<li>API scope の拡大 (Gmail send-only → send-and-modify、GitHub read → write)</li>
+<li>OAuth 認可の新規付与 (新 SaaS への Google/GitHub ログイン)</li>
+<li>SSH key の追加 (新 VPS への公開鍵配置)</li>
+</ul>
+
+<p><strong>AI が処理する範囲</strong>:</p>
+<ul>
+<li>既存の read-only API 呼び出し</li>
+<li>Vault からの read-only credential 取得 (書き込みは人間ゲート)</li>
+<li>既に付与済みの scope 内での API 操作</li>
+</ul>
+
+<h3>2.4 contract ゲート</h3>
+<p><strong>判定条件</strong>:</p>
+<ul>
+<li>業務委託契約の締結 (相手が個人・法人問わず)</li>
+<li>雇用契約 (フルタイム、パート、インターン全て)</li>
+<li>NDA (秘密保持契約)</li>
+<li>Marketplace の販売者契約 (Amazon KDP、Kindle Direct 等)</li>
+<li>継続的な広告出稿契約 (Google Ads、Meta Ads の月額 prepaid 除く)</li>
+</ul>
+
+<p><strong>AI が処理する範囲</strong>:</p>
+<ul>
+<li>単発の Google Ads / Meta Ads の当月出稿 (月次上限を Reo が事前設定した範囲内)</li>
+<li>見積書の自動生成 (送信は人間ゲート)</li>
+</ul>
+
+<h3>2.5 kyc ゲート</h3>
+<p><strong>判定条件</strong>:</p>
+<ul>
+<li>個人情報 (免許証、マイナンバー、住所) を外部サービスへ提出</li>
+<li>Marketplace の販売者登録 (Amazon KDP、Kindle、note、Rakuten 等)</li>
+<li>金融口座の開設 (法人口座、Stripe account、PayPal Business 等)</li>
+<li>Web UI からのログイン (パスワード / 2FA 入力を伴うもの)</li>
+</ul>
+
+<p><strong>AI が処理する範囲</strong>:</p>
+<ul>
+<li>公開情報のみを使ったフォーム記入 (会社名、電話番号、公開メール)</li>
+<li>既存 credential での API ログイン (パスワード再入力を要さない)</li>
+</ul>
+
+<h3>2.6 5 ゲートの実装 (Python 疑似コード)</h3>
+<pre><code>def is_human_gate(event) -&gt; bool:
+    if event.type == "outgoing_money" and event.amount_yen &gt;= 1:
+        return True
+    if event.type == "data_delete" and event.scope in ("customer", "db_schema", "prod_files"):
+        return True
+    if event.type == "permission_escalation":
+        return True
+    if event.type == "contract_signing":
+        return True
+    if event.type == "kyc_submission":
+        return True
+    return False</code></pre>
+
+<p>このシンプルな判定関数を、全 handler の共通 wrapper に組み込みます。 5 種類に該当したら、Slack / Push notification / macOS 通知 で創業者に浮上させます。 該当しないタスクは AI が最終決裁します。</p>
+</section>
+
+<section id="ch3">
+<h2>3. 憲法 grep とブランド分離</h2>
+
+<h3>3.1 「憲法」の位置づけ</h3>
+<p>ACOS では、創業者が譲れないルールを「憲法」と呼びます。 これは単なる ドキュメント ではなく、<strong>コード生成時に grep で検査する自動的な gate</strong> です。 憲法違反のコード / 記事 / 投稿 は 実装前に reject されます。</p>
+
+<p>Xiora の憲法は以下の 7 項目です:</p>
+<ol>
+<li>外部ブランド (別 プラットフォーム の 別 ペルソナ) は Xiora ブランドの記事に一切出さない</li>
+<li>対面営業は Reo 明示依頼のみ (default 拒否)</li>
+<li>収益化前は月額課金ゼロ、subdomain 活用</li>
+<li>UI は白基調ミニマル (Vercel / Linear tone)</li>
+<li>Xiora ブランド以外の名義 (Reo 個人名義) は default 禁止</li>
+<li>全事業活動は Xiora 名義 (note / YouTube / marketplace / 請求書)</li>
+<li>全記事は 日本語 native、英訳 は 二次</li>
+</ol>
+
+<h3>3.2 憲法 grep の実装</h3>
+<pre><code># scripts/const_grep.sh
+#!/bin/bash
+FILE=$1
+
+# ルール 1: 外部 ブランド (別 プラットフォーム の 別 ペルソナ) が Xiora HP に混入していないか
+if grep -i "external_persona_placeholder" "$FILE"; then
+  echo "VIOLATION: rule 1 (external persona leaked to Xiora HP)"; exit 1
+fi
+
+# ルール 5: Reo 個人名義が Xiora ブランドに混入していないか
+if grep -E "個人ブログ|個人サイト" "$FILE"; then
+  echo "VIOLATION: rule 5 (individual brand mixed)"; exit 1
+fi
+
+# ルール 7: 英語のみ の 記事 になっていないか (日本語コード検出)
+if ! grep -P "[\x{3040}-\x{309F}\x{30A0}-\x{30FF}\x{4E00}-\x{9FAF}]" "$FILE" &gt; /dev/null; then
+  echo "VIOLATION: rule 7 (no Japanese content)"; exit 1
+fi
+
+echo "PASS: constitution grep clean"</code></pre>
+
+<p>このスクリプトを、全 handler の commit 前 hook に組み込みます。 憲法違反があれば、AI がどれだけ「良い」記事を書いても reject されます。</p>
+
+<h3>3.3 ブランド分離の実装</h3>
+<p>Xiora には複数のブランドが並存します:</p>
+<ul>
+<li><strong>Xiora</strong> (主力、企業 SaaS ブランド)</li>
+<li><strong>Xiora Apps</strong> (子ブランド、iOS アプリ Kigen 等)</li>
+<li><strong>外部 独立 ペルソナ</strong> (完全独立、Xiora と接触禁止 の 別 プラットフォーム 活動)</li>
+</ul>
+
+<p>これらは、以下の方法で 実装レベルで分離します:</p>
+<ol>
+<li><strong>リポジトリ 分離</strong>: <code>Xiora_HP/</code> と 外部 ペルソナ の 作業 dir は 別 git repo</li>
+<li><strong>手動 handler 分離</strong>: 外部 ペルソナ 用 handler と Xiora HP handler は 別プロセス、共有 state を持たない</li>
+<li><strong>憲法 grep</strong> で 相互混入を検出</li>
+</ol>
+
+<h3>3.4 ブランド分離の運用データ</h3>
+<p>2026-07 の 1 か月間で、以下の混入インシデントが発生しました:</p>
+<table>
+<tr><th>日付</th><th>混入内容</th><th>検出手段</th><th>対応</th></tr>
+<tr><td>07-05</td><td>外部 ペルソナ URL が Xiora Insights 記事 draft に混入</td><td>憲法 grep</td><td>commit 前に AI が rewrite</td></tr>
+<tr><td>07-12</td><td>Reo 個人 note account の URL が Xiora 資料に混入</td><td>憲法 grep</td><td>commit 前に AI が rewrite</td></tr>
+<tr><td>07-19</td><td>外部 ペルソナ コメントへの返信が Xiora Gmail から送信されそうになった</td><td>handler routing check</td><td>AI が routing を修正</td></tr>
+</table>
+
+<p>3 件全てが commit / 送信前に検出され、実害ゼロで完了しました。 憲法 grep という 単純な仕組みが、複数ブランド 並行運用の安全弁として機能しています。</p>
+</section>
+
+<section id="ch4">
+<h2>4. ハンドラキュー 8 ステージサイクル</h2>
+
+<h3>4.1 ハンドラとは</h3>
+<p>ハンドラは、ACOS における「1 タスクを処理する 最小単位」です。 全てのタスク (X 投稿、Gmail 返信、code commit、Kigen 顧客対応、Aiverse ライブ配信管理 等) は、共通の handler インタフェースで実装されます。</p>
+
+<pre><code>class Handler:
+    name: str
+    priority: int  # 1 (低) - 10 (高)
+
+    def can_handle(self, event) -&gt; bool:
+        """このハンドラが処理できる event か判定"""
+
+    def process(self, event) -&gt; Result:
+        """実際の処理"""</code></pre>
+
+<h3>4.2 8 ステージサイクル</h3>
+<p>ブレインループは、以下 8 ステージを 30 秒サイクルで繰り返します:</p>
+<ol>
+<li><strong>ingest</strong>: 外部 event (email、webhook、cron trigger、Reo からのメッセージ) をキューに投入</li>
+<li><strong>filter</strong>: 憲法 grep で禁止 event を除外</li>
+<li><strong>dedupe</strong>: 同一 event の重複を排除</li>
+<li><strong>route</strong>: どの handler が処理するか決定</li>
+<li><strong>plan</strong>: handler が処理計画を立案 (LLM で thinking)</li>
+<li><strong>execute</strong>: 実処理 (API 呼び出し、DB 更新、ファイル生成)</li>
+<li><strong>verify</strong>: 実行結果の検証 (成功判定、副作用チェック)</li>
+<li><strong>learn</strong>: 結果を state.db の event テーブルに記録 (次回の意思決定材料)</li>
+</ol>
+
+<h3>4.3 各ステージの実装のコツ</h3>
+<p><strong>ingest ステージ</strong>: 外部 event を「安全に受信する」ことに集中します。 event source ごとに認証を確立 (Gmail は OAuth、Stripe は webhook secret、GitHub は HMAC) し、認証失敗は即 log + drop します。</p>
+
+<p><strong>filter ステージ</strong>: 憲法 grep をここで実行します。 「AI に処理を委ねる前に、憲法違反を弾く」のが filter の役割です。</p>
+
+<p><strong>dedupe ステージ</strong>: 同一 event の重複処理を防ぎます。 event の hash を state.db.event_hash テーブルで管理し、既存 hash なら skip します。</p>
+
+<p><strong>route ステージ</strong>: どの handler が処理するか、rule ベース (優先) + LLM ベース (fallback) で決定します。 rule ベースが 90%、LLM fallback が 10% になるように設計します。</p>
+
+<p><strong>plan ステージ</strong>: handler が処理計画を LLM (Ollama) で thinking します。 このステージで人間ゲート判定を実行し、5 種類に該当したら 人間へ通知して pause します。</p>
+
+<p><strong>execute ステージ</strong>: 実処理を実行します。 副作用 (外部 API 呼び出し、DB 更新) はここで発生します。 execute の失敗は 3 回まで retry し、それでも失敗なら halt テーブルに記録して人間に通知します。</p>
+
+<p><strong>verify ステージ</strong>: execute の結果が期待通りかを検証します。 例: 「Gmail 送信 handler が execute した後、Gmail sent フォルダに件名 X のメールが存在するか」を確認します。</p>
+
+<p><strong>learn ステージ</strong>: 結果を state.db.event テーブルに記録します。 これが次回の route ステージで参照され、学習効果が生まれます。 例: 「過去 3 回、handler A は event type X に対して 成功していない」なら、route ステージが handler B に振り替えます。</p>
+
+<h3>4.4 30 秒サイクルの根拠</h3>
+<p>30 秒という間隔は、以下 3 制約のバランスから来ています:</p>
+<ul>
+<li><strong>Ollama のレイテンシ</strong>: LLM thinking は 3-8 秒。 8 ステージ全体で 20 秒程度が limit</li>
+<li><strong>API rate limit</strong>: Gmail / X / Stripe は 30 秒あたり数十 request まで</li>
+<li><strong>Mac の CPU 負荷</strong>: 30 秒 サイクルなら M1 MacBook で 15% CPU 使用率で安定</li>
+</ul>
+
+<p>これより短いサイクル (10 秒) にすると、Ollama が間に合わない handler が発生します。 長すぎるサイクル (5 分) にすると、リアルタイム性が失われます。</p>
+</section>
+
+<section id="ch5">
+<h2>5. 20+ AI 社員組織図</h2>
+
+<h3>5.1 組織構造</h3>
+<p>Xiora の AI 社員 20 名は、以下の階層で組織されます:</p>
+<ul>
+<li><strong>代表</strong>: Reo (人間、沓澤 怜士)</li>
+<li><strong>直属 秘書 (Chief of Staff)</strong>: 赤坂 零 (Rei、人間ペルソナ AI)</li>
+<li><strong>Rei 配下 3 部門</strong>:
+<ul>
+<li><strong>プロダクト部</strong>: 8 名 (Kigen / Aiverse / Nexa / Gourmie / Ocean / Xiora Trader / Xiora Salon / Xiora Career)</li>
+<li><strong>技術部</strong>: 6 名 (SRE / Code / DevOps / Security / Data / Docs)</li>
+<li><strong>成長部</strong>: 6 名 (Marketing / Sales / SEO / Content / Community / Analytics)</li>
+</ul>
+</li>
+</ul>
+
+<h3>5.2 Rei (代表秘書) の役割</h3>
+<p>Rei は 他の全 AI 社員 の 上位に立つ、コーディネーターです。 具体的には:</p>
+<ul>
+<li>日次 briefing (毎朝 07:00) を Reo に配信</li>
+<li>週次 briefing (毎週月曜 08:00)</li>
+<li>月次 briefing (毎月 1 日)</li>
+<li>全 handler の halt を集約し、人間ゲートを Reo に浮上</li>
+<li>部門間の調整 (Kigen と Aiverse の共同企画 等)</li>
+</ul>
+
+<p>Rei は Ollama 14b (mistral-nemo) をベースに、persistent memory (~/.claude/projects/-Users-kutsuzawareo-Desktop-XAI/memory/) を持ちます。 会話ごとの記憶は memory ディレクトリに書き込まれ、次回の会話に引き継がれます。</p>
+
+<h3>5.3 プロダクト部の役割</h3>
+<p>各プロダクトに 1 名の AI エージェントが専任します:</p>
+<ul>
+<li><strong>Kigen agent</strong>: iOS アプリの顧客対応、App Store レビュー返信、feature request 集約</li>
+<li><strong>Aiverse agent</strong>: ライブ配信のタイトル生成、投稿 schedule、コメント返信</li>
+<li><strong>Nexa agent</strong>: 受講生の質問対応、コース進捗管理、修了証発行</li>
+<li><strong>Gourmie agent</strong>: 飲食店の口コミ返信 (店舗 owner に配信、店舗が承認 → 送信)</li>
+<li><strong>Ocean agent</strong>: LLM ダウンロード状況、学習 progress、モデルバージョン管理</li>
+<li><strong>Xiora Trader agent</strong>: 21 strategy × 30 銘柄 の backtest 実行、result 保存</li>
+<li><strong>Xiora Salon agent</strong>: 予約管理、キャンセルポリシー実行</li>
+<li><strong>Xiora Career agent</strong>: 就活支援コンテンツ配信、模擬面接 schedule</li>
+</ul>
+
+<h3>5.4 技術部の役割</h3>
+<ul>
+<li><strong>SRE agent</strong>: 全プロダクトの死活監視、alert 集約、restart 実行</li>
+<li><strong>Code agent</strong>: 新機能の実装、bug fix、code review</li>
+<li><strong>DevOps agent</strong>: Vercel / Railway / VPS へのデプロイ、CI/CD 管理</li>
+<li><strong>Security agent</strong>: 脆弱性スキャン (npm audit / pip-audit)、Vault 鍵 rotation</li>
+<li><strong>Data agent</strong>: SQLite backup、統計集計、KPI 算出</li>
+<li><strong>Docs agent</strong>: 全プロダクトのドキュメント更新、README maintenance</li>
+</ul>
+
+<h3>5.5 成長部の役割</h3>
+<ul>
+<li><strong>Marketing agent</strong>: X 投稿 draft、Instagram / Threads 投稿、SNS 分析</li>
+<li><strong>Sales agent</strong>: 見込客リスト管理、cold email 配信 (Reo 承認後)</li>
+<li><strong>SEO agent</strong>: Google Search Console 監視、記事の keyword 分析</li>
+<li><strong>Content agent</strong>: Xiora HP Insights 記事の draft、note 有料記事 の draft</li>
+<li><strong>Community agent</strong>: Discord / Slack コミュニティ運営 (今後追加)</li>
+<li><strong>Analytics agent</strong>: GA4 / Stripe / MRR ダッシュボード生成</li>
+</ul>
+
+<h3>5.6 組織図の実装</h3>
+<p>これらの役割は、<code>registry/organization/ai-employees.yaml</code> に SoT として記述します。 各 agent は Ollama モデル + system prompt + tool set の 3 要素で定義されます。</p>
+
+<pre><code>- id: kigen_agent
+  role: product_owner
+  model: llama3.2:3b
+  system_prompt_file: prompts/kigen_agent.md
+  tools:
+    - gmail_search
+    - stripe_customer_lookup
+    - app_store_reviews_fetch
+  handlers:
+    - kigen_customer_reply_draft
+    - kigen_review_summary</code></pre>
+</section>
+
+<section id="ch6">
+<h2>6. Zero-spend policy と cost governor</h2>
+
+<h3>6.1 Zero-spend policy の定義</h3>
+<p>MRR ¥50,000 に達するまでは、追加の月額課金を一切増やさない、というルールです。 既に契約中の月額課金 (Vercel Pro、GitHub Copilot、Notion 等) は継続しますが、新規の課金は禁止します。</p>
+
+<h3>6.2 なぜ zero-spend が重要か</h3>
+<p>多くの 1 人 SaaS が挫折する原因は、「収益化前にツール課金で 月 ¥30,000 かかり、精神的に追い詰められる」ことです。 Ollama がローカルで動く 2026 年においては、無料層のみで MRR ¥50,000 まで到達可能です。 早期の 課金は 単に 焦りを増やすだけです。</p>
+
+<h3>6.3 無料層のみで組む具体構成</h3>
+<ul>
+<li><strong>LLM</strong>: Ollama (ローカル、macOS 上で動作)、llama3.2:3b / mistral-nemo 14b</li>
+<li><strong>DB</strong>: SQLite (state.db)、Neon Free (Postgres、0.5GB)、Cloudflare D1 Free</li>
+<li><strong>Hosting</strong>: Vercel Free (100GB bandwidth/月)、Cloudflare Pages Free</li>
+<li><strong>Storage</strong>: Cloudflare R2 (10GB Free)、GitHub Pages</li>
+<li><strong>Email</strong>: Gmail 個人 (無制限)、SendGrid Free (100 通/日)、Resend Free (100 通/日)</li>
+<li><strong>Domain</strong>: xiora-official.com (¥1,500/年、既に契約済)</li>
+<li><strong>Monitoring</strong>: Uptime Robot Free、Better Stack Free</li>
+<li><strong>Analytics</strong>: GA4 Free、Plausible Free</li>
+<li><strong>CI/CD</strong>: GitHub Actions Free (2000 分/月)</li>
+</ul>
+
+<p>これで、MRR ¥50,000 に到達するまで 月額 ¥0 (ドメイン更新の年 ¥1,500 を除く) で運用可能です。</p>
+
+<h3>6.4 cost governor の実装</h3>
+<p>「うっかり 有料 プラン に upgrade する」を 防ぐため、cost governor という handler を実装します:</p>
+
+<pre><code>class CostGovernorHandler:
+    def can_handle(self, event):
+        return event.type == "billing_change_proposed"
+
+    def process(self, event):
+        if event.new_monthly_cost_yen &gt; 0:
+            create_human_gate(
+                type="billing",
+                message=f"{event.service} を ¥{event.new_monthly_cost_yen}/月 に upgrade しようとしています。 MRR ¥50,000 を超えたか確認してください。",
+                priority=10
+            )</code></pre>
+
+<p>これで、AI agent が「Vercel を Pro プラン に upgrade しよう」と提案しても、人間ゲートで Reo が最終決裁します。</p>
+
+<h3>6.5 MRR ¥50,000 到達後のルール</h3>
+<p>MRR ¥50,000 を超えたら、以下のルールで課金を許可します:</p>
+<ul>
+<li><strong>課金上限</strong>: MRR の 20% (MRR ¥50,000 なら 月 ¥10,000 まで)</li>
+<li><strong>優先順位</strong>: セキュリティ &gt; 開発生産性 &gt; 分析 &gt; その他</li>
+<li><strong>決裁</strong>: 人間ゲート (Reo が最終)、AI は提案のみ</li>
+</ul>
+</section>
+
+<section id="ch7">
+<h2>7. 24/7 monitoring と Rei 秘書</h2>
+
+<h3>7.1 monitoring の 3 層</h3>
+<ul>
+<li><strong>Layer 1 (プロセス)</strong>: launchd (macOS) / systemd (VPS) でプロセス生存監視</li>
+<li><strong>Layer 2 (ヘルスチェック)</strong>: 各プロダクトの <code>/healthz</code> エンドポイントを 1 分間隔で HTTP GET</li>
+<li><strong>Layer 3 (ビジネス)</strong>: MRR、DAU、Stripe 失敗率、error rate、を 15 分間隔で集計</li>
+</ul>
+
+<h3>7.2 alert の 3 段階</h3>
+<ul>
+<li><strong>P3 (info)</strong>: log 記録のみ、Reo への通知なし</li>
+<li><strong>P2 (warning)</strong>: 日次 briefing (毎朝 07:00) にまとめて通知</li>
+<li><strong>P1 (critical)</strong>: 即時 macOS push 通知 + Slack + Gmail</li>
+</ul>
+
+<p>Layer 3 のビジネス指標が異常値になった場合は P1、Layer 2 のヘルスチェックが 3 連続失敗なら P1、Layer 1 のプロセスが 1 分以上停止なら P1、といった rule で自動判定します。</p>
+
+<h3>7.3 Rei の日次 briefing</h3>
+<p>毎朝 07:00 に、Rei が Reo へ以下を配信します:</p>
+
+<pre><code>おはようございます、Reo さん。
+
+【本日の重要事項】
+- Xiora Trader が backtest 中に 1 回落ちました (自動 restart 済み)
+- Kigen の Stripe webhook 失敗率が 2% (基準 1% 超過)、要確認
+
+【昨日の実績】
+- 新規顧客: Kigen 3 名、Nexa 1 名
+- MRR: ¥42,300 (+¥2,400 前日比)
+- Handler 実行: 1,847 件、成功率 99.2%
+- Human gate 発火: 3 件 (全て Reo 承認済)
+
+【本日の推奨アクション】
+1. Kigen webhook 失敗率調査 (30 分)
+2. 楽天 rafcid 記事 3 本 draft レビュー (15 分)
+3. Rei への追加指示 (任意)
+
+Rei</code></pre>
+
+<p>このように、Reo は毎朝 5 分で全体を把握できます。 24/7 稼働の本質は「創業者が起きている時間の 濃度を高める」ことです。</p>
+
+<h3>7.4 週次 / 月次 briefing</h3>
+<ul>
+<li><strong>週次 (月曜 08:00)</strong>: MRR trend、新規顧客数、churn 率、handler 実行統計、次週の重要イベント</li>
+<li><strong>月次 (1 日 08:00)</strong>: MRR ¥50k 目標達成度、四半期計画との差分、次月の投資判断</li>
+</ul>
+</section>
+
+<section id="ch8">
+<h2>8. 実際の M0-M8 マイルストーン</h2>
+
+<h3>8.1 マイルストーン全体像</h3>
+<p>Xiora の 12 か月ロードマップは 以下 9 マイルストーンで構成されます:</p>
+<ul>
+<li><strong>M0</strong>: ブレイン起動 (Ollama + state.db + brain loop)</li>
+<li><strong>M1</strong>: Aiverse 起動 (最初の SaaS プロダクト、ライブ配信 SaaS)</li>
+<li><strong>M2</strong>: Handler queue の完全実装 (30 秒 サイクル 8 ステージ)</li>
+<li><strong>M3</strong>: Gourmie 起動 (2 番目 SaaS、飲食店 口コミ SaaS)</li>
+<li><strong>M4</strong>: Unified Billing Core (Stripe 統合、全プロダクト共通)</li>
+<li><strong>M5</strong>: Payout 自動化 (Stripe payout、経費精算)</li>
+<li><strong>M6</strong>: Dunning 自動化 (支払い遅延の 3 段階 リマインダー)</li>
+<li><strong>M7</strong>: Growth 実装 (SEO、Ads、SNS 自動投稿)</li>
+<li><strong>M8</strong>: Template 化 (次プロダクトが 3 日で立ち上がる template)</li>
+</ul>
+
+<h3>8.2 実施済み マイルストーンの record</h3>
+<p><strong>M0 完了 (2026-04-15)</strong>: Ollama 3.2:3b + SQLite state.db (18 テーブル) + brain-loop.sh の launchd 常駐化。 所要 3 週間。</p>
+
+<p><strong>M1 完了 (2026-05-20)</strong>: Aiverse ライブ配信 SaaS 起動、初 顧客 1 名 獲得 (¥1,980/月)。 所要 5 週間。</p>
+
+<p><strong>M2 完了 (2026-06-10)</strong>: Handler queue 30 秒サイクル 8 ステージ 完成、11 handler 常駐。 所要 3 週間。</p>
+
+<p><strong>M3 進行中 (予定 2026-08-15)</strong>: Gourmie β 開始、飲食店 3 店舗 パイロット中。</p>
+
+<p><strong>M4 完了 (2026-07-18)</strong>: Unified Billing Core (<code>services/shared/billing-core/</code>) 実装完了、Stripe webhook receiver 稼働。</p>
+
+<p><strong>M5-M8 未着手</strong>。</p>
+
+<h3>8.3 各マイルストーンで発生した実際の問題</h3>
+<p><strong>M0 での問題</strong>: Ollama のモデル選定に 1 週間浪費しました。 llama3.2:3b が正解でしたが、mixtral-8x7b や llama3.1:70b を試してから戻ってきました。 教訓: 「小さいモデルで動くことを先に確認、必要に応じて大きくする」。</p>
+
+<p><strong>M1 での問題</strong>: 初 顧客 獲得までに 3 週間要しました。 プロダクト は 動いた が、cold email の 返信率 が 0.5% で、200 通 送って 1 顧客 という数字。 教訓: 「プロダクト 完成 と 顧客 獲得 は 別スキル」。</p>
+
+<p><strong>M2 での問題</strong>: handler queue の 8 ステージ で、learn ステージ の 設計 が 甘く、同じ handler が 何度 も 同じ error を 起こす パターン に。 教訓: 「learn ステージ は 単なる log ではなく、次回 route への feedback として 機能する 設計 が 必要」。</p>
+
+<p><strong>M4 での問題</strong>: Stripe webhook の 冪等性 保証 に 1 週間。 同じ webhook を 2 回 受信 して 二重課金 が 発生。 教訓: 「Stripe event_id を DB に UNIQUE 制約 で 保存、既存 なら skip」。</p>
+</section>
+
+<section id="ch9">
+<h2>9. 3 か月運用の 定量データ</h2>
+
+<h3>9.1 handler 実行 統計 (2026-04-15 から 2026-07-15、3 か月)</h3>
+<ul>
+<li><strong>総 handler 実行数</strong>: 152,847 件</li>
+<li><strong>成功 率</strong>: 98.7%</li>
+<li><strong>失敗 の 内訳</strong>: LLM timeout 42%、API rate limit 28%、外部 API error 20%、logic bug 10%</li>
+<li><strong>平均 実行 時間</strong>: 3.2 秒 / handler</li>
+<li><strong>同時 稼働 handler 数 中央値</strong>: 4</li>
+</ul>
+
+<h3>9.2 human gate 発火 統計</h3>
+<ul>
+<li><strong>総 発火 数</strong>: 89 件</li>
+<li><strong>billing</strong>: 34 件 (Vercel / Stripe / Rakuten payout の月次確認)</li>
+<li><strong>delete</strong>: 12 件 (ROOM 完全撤退 + Docker volume wipe)</li>
+<li><strong>permission</strong>: 8 件 (新 Vault 鍵 発行、SSH 鍵 追加)</li>
+<li><strong>contract</strong>: 3 件 (Aiverse β 顧客 との 業務委託 契約 draft)</li>
+<li><strong>kyc</strong>: 32 件 (Rakuten アフィリエイト、Google Skillshop 認定、Amazon Associates 等)</li>
+</ul>
+
+<h3>9.3 収益 (MRR) 推移</h3>
+<table>
+<tr><th>月</th><th>MRR</th><th>新規</th><th>churn</th></tr>
+<tr><td>2026-05</td><td>¥1,980</td><td>1 (Aiverse)</td><td>0</td></tr>
+<tr><td>2026-06</td><td>¥3,960</td><td>1 (Aiverse)</td><td>0</td></tr>
+<tr><td>2026-07</td><td>¥8,920</td><td>3 (Aiverse 1 + Nexa 1 + Gourmie β 1)</td><td>0</td></tr>
+</table>
+
+<p>3 か月で MRR ¥8,920。 T+1 か月 目標 ¥50,000 まで まだ 距離が あります が、handler 基盤 が 完成 した ので、次 3 か月 で 一気 に 加速 する 見込み です。</p>
+
+<h3>9.4 追加課金 (実現できた zero-spend)</h3>
+<ul>
+<li><strong>追加 月額 課金</strong>: ¥0 (Vercel Pro / GitHub Copilot / Notion は 3 か月前 から 継続、新規 は 追加 なし)</li>
+<li><strong>一時 支出</strong>: ¥1,500 (ドメイン 更新 xiora-official.com、2027 まで)</li>
+</ul>
+
+<p>zero-spend policy は 3 か月 間 完全に 維持できました。</p>
+
+<h3>9.5 コード ベース 統計</h3>
+<ul>
+<li><strong>総 行数</strong>: 約 187,000 行 (TypeScript 42%、Python 38%、Shell 12%、YAML 8%)</li>
+<li><strong>handler 数</strong>: 11 件 常駐、47 件 実装済 (on-demand)</li>
+<li><strong>AI 社員 数</strong>: 20 名 (registry/organization/ai-employees.yaml)</li>
+<li><strong>プロダクト 数</strong>: 20+ (products.json 記載)</li>
+<li><strong>ドキュメント 行数</strong>: 約 32,000 行</li>
+</ul>
+
+<p>3 か月 で これだけの コード / ドキュメント / プロダクト を 1 人 + AI で 生産 しました。 handler 基盤 が あれば、生産量 は 指数関数的 に 拡大 します。</p>
+</section>
+
+<section id="ch10">
+<h2>10. 読者への 次アクション</h2>
+
+<p>本書 を 読み終えた 読者 が、90 日 で ACOS を 手元 に 立ち上げる ための アクション リストです。</p>
+
+<h3>10.1 Day 1-7: ブレイン 起動 (M0 相当)</h3>
+<ol>
+<li><strong>Ollama インストール</strong> (30 分)
+<ul>
+<li>macOS: <code>brew install ollama</code> → <code>ollama pull llama3.2:3b</code></li>
+</ul>
+</li>
+<li><strong>SQLite state.db 作成</strong> (30 分)
+<ul>
+<li><code>~/xiora/brain/state.db</code> を作成</li>
+<li>最小 3 テーブル: handler_queue、event、halt</li>
+</ul>
+</li>
+<li><strong>最初の handler 実装</strong> (2 時間)
+<ul>
+<li>"hello_world_handler.py" を書き、30 秒 sleep loop で state.db から 1 件 取り出して echo</li>
+</ul>
+</li>
+<li><strong>launchd 常駐化</strong> (1 時間)
+<ul>
+<li><code>~/Library/LaunchAgents/com.xiora.brain.plist</code> を作成</li>
+<li><code>launchctl load ~/Library/LaunchAgents/com.xiora.brain.plist</code> で常駐化</li>
+</ul>
+</li>
+</ol>
+
+<h3>10.2 Day 8-30: 人間ゲート 実装 (M1 相当)</h3>
+<ol>
+<li><strong>5 種類の human gate 判定関数 実装</strong>
+<ul>
+<li><code>is_human_gate(event)</code> を Python で実装</li>
+<li>macOS 通知 で Reo に浮上させる (<code>osascript -e 'display notification ...'</code>)</li>
+</ul>
+</li>
+<li><strong>最初の SaaS プロダクト 起動</strong>
+<ul>
+<li>Vercel Free + Neon Free で Next.js アプリ 1 個 デプロイ</li>
+<li>Stripe test mode で 課金 flow を確認</li>
+</ul>
+</li>
+<li><strong>憲法 grep 導入</strong>
+<ul>
+<li><code>scripts/const_grep.sh</code> を書き、全 commit の pre-commit hook に組み込み</li>
+</ul>
+</li>
+</ol>
+
+<h3>10.3 Day 31-60: handler queue 完成 (M2 相当)</h3>
+<ol>
+<li><strong>8 ステージサイクル 実装</strong>
+<ul>
+<li>ingest → filter → dedupe → route → plan → execute → verify → learn</li>
+</ul>
+</li>
+<li><strong>Rei 秘書 実装</strong>
+<ul>
+<li>日次 briefing を 07:00 cron で 実行</li>
+<li>state.db の event 集計 → Ollama で 自然文 生成 → Slack or macOS 通知</li>
+</ul>
+</li>
+<li><strong>プロダクト を 3 個 に 増やす</strong>
+<ul>
+<li>同じ handler queue で 3 プロダクト を 回す 検証</li>
+</ul>
+</li>
+</ol>
+
+<h3>10.4 Day 61-90: 収益化 加速 (M3-M4 相当)</h3>
+<ol>
+<li><strong>Stripe 本番 mode 有効化</strong>
+<ul>
+<li>Stripe account の KYC 完了</li>
+<li>Webhook secret を Vault へ 保存</li>
+</ul>
+</li>
+<li><strong>cross-sell handler 実装</strong>
+<ul>
+<li>プロダクト A の 顧客 に プロダクト B を 提案する handler</li>
+</ul>
+</li>
+<li><strong>KDP / note / Xiora HP で 情報発信</strong>
+<ul>
+<li>週 3 記事 の 情報発信 で SEO 基盤を 作る</li>
+</ul>
+</li>
+</ol>
+
+<h3>10.5 90 日目 の 到達 目標</h3>
+<ul>
+<li>MRR ¥10,000 以上 (顧客 5-10 名)</li>
+<li>handler queue 30 handler 常駐</li>
+<li>Rei 日次 briefing 定着</li>
+<li>追加 月額 課金 ¥0 維持</li>
+</ul>
+
+<p>これが 達成できれば、ACOS の 基盤 は 完成 です。 ここから 先 は、handler を 追加する だけで 事業 が 拡大 します。</p>
+</section>
+
+<section id="end">
+<h2>巻末</h2>
+
+<p>本書 は Xiora が 3 か月間 の 実運用 で 得た 知見 を 公開 しました。 実装 の 詳細 (コード、config、prompt) は 一部 抜粋 のみで、全て を 掲載する ことは できません でしたが、90 日 で 追体験できる 粒度 まで 具体化 した つもりです。</p>
+
+<p>疑問点 や 実装 相談 は、Xiora の 公式 Contact フォーム へ:</p>
+<ul>
+<li><a href="https://xiora-official.com/contact.html">https://xiora-official.com/contact.html</a></li>
+<li>info@xiora-official.com</li>
+</ul>
+
+<p>次巻 (Vol.2) は Aiverse Marketplace の 実装 深堀 を 予定 して います。 Xiora HP Insights と あわせて 引き続き Xiora の 実装 record を 追って いただければ 幸い です。</p>
+
+<p>2026 年 7 月<br/>
+沓澤 怜士 (Xiora)</p>
+
+<hr/>
+
+<p><strong>免責</strong>: 本書 の 内容 は 一般的 な 情報 提供 を 目的 と して おり、特定 の ビジネス 成果 を 保証 する もの では ありません。 実装時 の トラブル・損失 について 著者 は 責任 を 負いません。 各種 法定手続き (会社設立、税務申告、労務) は 専門家 (士業) に ご相談 ください。 Xiora ブランド、ロゴ、プロダクト 名 は Xiora の 所有物 です。</p>
+</section>
+
+<div class="doc__foot">
+<p>Xiora Autonomous Company OS 実践ガイド 2026 · © Xiora · 沓澤 怜士 · 初版 2026-07-21</p>
+<p>本コンテンツは Xiora HP (<a href="https://xiora-official.com/">xiora-official.com</a>) で ご購入 いただいた 方 への 提供物 です。 問い合わせ: <a href="mailto:info@xiora-official.com">info@xiora-official.com</a></p>
+</div>
+
+</article>
+</body>
+</html>

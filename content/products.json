@@ -325,6 +325,42 @@
       "sub_cat_short": "Hiring",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><circle cx=\"30\" cy=\"24\" r=\"7\"></circle><path d=\"M18 46 Q30 34 42 46\"></path><rect x=\"58\" y=\"18\" width=\"42\" height=\"28\" rx=\"2\"></rect><path d=\"M64 26 L94 26 M64 32 L88 32 M64 38 L84 38\" opacity=\"0.55\"></path></g></svg>",
       "card_class": "prod-card--xiora-hire"
+    },
+    {
+      "id": "xiora-aos-guide-2026",
+      "name": "Xiora AOS 実践ガイド 2026",
+      "brand_short": "Xiora AOS 実践ガイド 2026",
+      "brand_html": "Xiora AOS<br/><span>実践ガイド 2026</span>",
+      "status": "Direct Sale · ¥1,980",
+      "category_ja": "実装手順書 (直販デジタル)",
+      "sub_desc_ja": "AI 社員 20 名で回す 完全無人 SaaS 事業設計",
+      "sub_desc_meta": "Xiora 沓澤 怜士 の 実運用 3 か月 の 定量データ + 4 レイヤアーキテクチャ + 5 種類の 人間ゲート + 8 ステージ handler queue の 実装手順書 (10 章 21,000 字)。 ¥1,980 (税込) · 買切 · 直販。",
+      "who": "SaaS を 1 人 で 立ち上げたい 創業者 / 24/7 運用 の 実装 pattern を 知りたい 開発者",
+      "problem": "ChatGPT で 自動化 を 試したが 断片的 で 事業 に なら ない、handler が 何秒 で 回り どこで 人間 判断 が 入るか の 具体境界 が 分から ない",
+      "ai_use": "Ollama 3.2:3b + SQLite state.db の 4 レイヤ + 20 名 AI 社員 + 30 秒 8 ステージ handler queue で 全 タスク を 統一 処理",
+      "url": "/products/xiora-aos-guide-2026.html",
+      "sub_short_desc": "AI 社員 20 名 で 回す 完全無人 SaaS 事業設計 の 実装手順書。 10 章 21,000 字。 直販 ¥1,980。",
+      "sub_cat_short": "Guide",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><rect x=\"18\" y=\"12\" width=\"36\" height=\"40\" rx=\"3\"></rect><path d=\"M24 22 L48 22 M24 30 L44 30 M24 38 L46 38\" opacity=\"0.55\"></path><circle cx=\"78\" cy=\"32\" r=\"14\"></circle><path d=\"M72 30 L78 36 L86 26\" stroke-linecap=\"round\"></path><path d=\"M96 20 L108 20 M96 32 L108 32 M96 44 L108 44\" opacity=\"0.4\"></path></g></svg>",
+      "card_class": "prod-card--aos-guide"
+    },
+    {
+      "id": "xiora-lingua",
+      "name": "Xiora Lingua",
+      "brand_short": "Xiora Lingua",
+      "brand_html": "Xiora<br/><span>Lingua</span>",
+      "status": "β Waitlist",
+      "category_ja": "完全無人 語学 SaaS",
+      "sub_desc_ja": "記憶科学 × 発音評価 × 無制限 AI 会話",
+      "sub_desc_meta": "完全無人 の 語学 SaaS。 記憶科学 (FSRS/IRT) + 音素発音評価 + 無制限 AI 会話 を 統合。 β 中 は 無料、正式 launch 時 に 有料 tier (¥1,480-¥2,980/月) を 導入 予定。",
+      "who": "英語 の 定着 と 発音 と 会話 を 1 アプリ に 束ねたい 個人 学習者",
+      "problem": "続くが 話せる ように ならない、発音 の 弱点 が 音素 単位 で 分から ない、会話 練習 が 別 アプリ に 分散 する",
+      "ai_use": "FSRS/IRT に よる 復習 最適化、Azure Speech の 音素別 発音評価、Claude 経由 の 無制限 AI 会話",
+      "url": "/lingua.html",
+      "sub_short_desc": "完全無人 語学 SaaS。 β 中 は 無料、正式 launch 時 に ¥1,480-¥2,980/月 の 3 tier を 導入 予定。",
+      "sub_cat_short": "Language",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><circle cx=\"30\" cy=\"30\" r=\"14\"></circle><path d=\"M16 30 L44 30 M30 16 L30 44 M20 22 Q30 26 40 22 M20 38 Q30 34 40 38\" opacity=\"0.55\"></path><path d=\"M62 22 L74 22 L74 38 L62 38 Z\"></path><path d=\"M80 26 L96 26 M80 32 L94 32 M80 38 L92 38\" opacity=\"0.55\"></path></g></svg>",
+      "card_class": "prod-card--xiora-lingua"
     }
   ]
 }

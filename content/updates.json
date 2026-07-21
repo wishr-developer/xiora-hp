@@ -2,6 +2,17 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "2026-07-21-xiora-aos-guide-2026-launch",
+      "date": "2026-07-21",
+      "type": "news",
+      "kind": "release",
+      "title": "「Xiora Autonomous Company OS 実践ガイド 2026」を直販で 販売開始 しました (¥1,980)。",
+      "description": "Xiora 沓澤 怜士 の 3 か月 実運用 record を 10 章 21,000 字 で 公開。 4 レイヤアーキテクチャ、5 種類の 人間ゲート、8 ステージ handler queue、憲法 grep、M0-M8 マイルストーン、152,847 handler 実行 の 定量データ を 実装レベル で 記述した 手順書 を 直販 ¥1,980 (税込 · 買切) で 販売開始。 Stripe 決済 完了 後 即時 ダウンロード。",
+      "url": "/news/2026-07-21-xiora-aos-guide-2026-launch.html",
+      "build_cat": "Direct Sale",
+      "news_cat": "Launch"
+    },
+    {
       "id": "xiora-lingua-launch-2026-07-27",
       "date": "2026-07-27",
       "type": "insight",
