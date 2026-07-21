@@ -134,6 +134,18 @@
       "build_cat": "SaaS Billing Playbook"
     },
     {
+      "id": "2026-07-24-pine-script-golden-cross-backtest-2026",
+      "date": "2026-07-24",
+      "type": "insight",
+      "kind": "release",
+      "title": "Pine Script Golden Cross バックテスト 2026 — Xiora TradeOS の 検証手順と 参考書",
+      "description": "Xiora TradeOS の 情報提供事業 として、Pine Script v5 で 移動平均 Golden Cross (SMA 50/200) を実装し、TradingView で SPY / BTCUSD / NVDA を 2018-2025 期間で バックテスト した 手順と 参考文献 5 冊を 情報整理します。 金融商品取引法 上の 投資助言業に該当しない 一般情報 です。",
+      "url": "/insights/pine-script-golden-cross-backtest-2026.html",
+      "insight_cat": "Engineering",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "TradeOS Phase 1"
+    },
+    {
       "id": "2026-07-22-ai-dev-books-5-2026",
       "date": "2026-07-22",
       "type": "insight",

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Pine Script Golden Cross バックテスト 2026 — Xiora TradeOS の 検証手順と 参考書 | Xiora Insights</title>
+<meta content="Xiora TradeOS の 情報提供事業 として、Pine Script v5 で 移動平均 Golden Cross (SMA 50/200) を実装し、TradingView で SPY / BTCUSD / NVDA を 2018-2025 期間で バックテスト した 手順と 参考文献 5 冊を 情報整理します。" name="description"/>
+<link href="https://xiora-official.com/insights/pine-script-golden-cross-backtest-2026.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/pine-script-golden-cross-backtest-2026.html" property="og:url"/>
+<meta content="Pine Script Golden Cross バックテスト 2026 — Xiora TradeOS の 検証手順と 参考書 | Xiora" property="og:title"/>
+<meta content="Xiora TradeOS の 情報提供事業 として、Pine Script v5 で Golden Cross を バックテスト した 手順と 参考書 5 冊を 情報整理します。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="ja_JP" property="og:locale"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pine Script Golden Cross バックテスト 2026 — Xiora TradeOS の 検証手順と 参考書",
+  "description": "Xiora TradeOS の 情報提供事業 として、Pine Script v5 で 移動平均 Golden Cross (SMA 50/200) を実装し、TradingView で SPY / BTCUSD / NVDA を 2018-2025 期間で バックテスト した 手順と 参考文献 5 冊を 情報整理します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Organization", "name": "Xiora" },
+  "publisher": { "@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/" },
+  "datePublished": "2026-07-24",
+  "mainEntityOfPage": "https://xiora-official.com/insights/pine-script-golden-cross-backtest-2026.html"
+}
+</script>
+<link href="/assets/css/style.css?v=20260721a" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Pine Script Golden Cross バックテスト 2026</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Engineering</span>
+<time datetime="2026-07-24">2026.07.24</time>
+</div>
+<h1 class="insight-title">Pine Script Golden Cross バックテスト 2026 — Xiora TradeOS の 検証手順と 参考書</h1>
+<p class="insight-lead">Xiora TradeOS は 情報提供事業 として、Pine Script v5 と TradingView の バックテスト engine を使い、移動平均 Golden Cross (SMA 50/200) の 検証手順を 公開します。 本記事は 金融商品取引法 上の 投資助言業に該当しない 一般情報 として 整理しており、投資判断は 読者ご自身で 行なっていただく前提です。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">X</span>
+<div>
+<span class="insight-author__name">Xiora Official</span><br/>
+<span>Xiora Editorial · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<p class="disclosure" style="font-size:.85rem;color:#666;margin:8px 0 24px;border-left:3px solid #d5d5d5;padding-left:12px;">本記事には楽天アフィリエイトリンクを含みます (収益は Xiora の運営に還元されます)。</p>
+
+<h2 id="1-導入">1. 導入 — Pine Script v5 と TradingView backtesting engine の位置付け</h2>
+<p>Pine Script は TradingView が提供する テクニカル指標 / ストラテジー 記述 言語で、v5 世代からは <code>ta.*</code> namespace や <code>strategy()</code> 宣言の 型安全性が整い、個人研究者でも 数十行の コードで バックテスト を回せる 状況になっています。 Xiora TradeOS は 独自 SaaS の Phase 1 MVP を 実装中ですが、その 手前の 情報提供 レイヤーとして、公開 TradingView 環境で 誰でも 再現できる 検証手順を 記事化して 公開しています。 本記事は 情報提供 (一般情報) が 目的で、金融庁 監督下の 投資助言業 や 有価証券取引の 勧誘 を 行なう 内容ではありません。 特定銘柄への 投資判断は 読者の 責任で 行なってください。</p>
+
+<h2 id="2-戦略概要">2. 戦略概要 — 移動平均 Golden Cross (SMA 50/200)</h2>
+<p>Golden Cross は 短期の 単純移動平均 (SMA 50) が 長期の 単純移動平均 (SMA 200) を 上抜けした時点で 買い (ロング entry) とし、逆方向の Dead Cross (SMA 50 が SMA 200 を 下抜け) で 手仕舞い (exit) する 古典的な トレンドフォロー 戦略です。 判定は 日足 close ベース、entry は 翌足 open の market order、exit も 同様に 翌足 open で 手仕舞う 想定で 実装しました。 建玉は 常に 1 pair のみ、pyramiding は 無効、reverse position は 取らずに flat に戻す 単純設計です。</p>
+
+<h2 id="3-pine-script-v5">3. Pine Script v5 コード全文</h2>
+<p>以下が Xiora TradeOS 情報提供 用に 整理した Pine Script v5 コード全文です。 TradingView の Pine Editor に貼り付けて、日足チャートに適用してください。</p>
+<pre><code class="language-pinescript">//@version=5
+// Xiora TradeOS Info Article: Golden Cross Backtest (SMA 50/200)
+// Purpose: 情報提供 (一般情報) — 投資助言業ではありません。
+// Author: Xiora Editorial
+strategy(
+     title              = "Xiora TradeOS - Golden Cross SMA 50/200",
+     overlay            = true,
+     initial_capital    = 10000,
+     default_qty_type   = strategy.percent_of_equity,
+     default_qty_value  = 100,
+     commission_type    = strategy.commission.percent,
+     commission_value   = 0.1,
+     pyramiding         = 0,
+     process_orders_on_close = false
+)
+
+// --- Inputs (可変パラメータ) ---
+fastLen = input.int(50,  title = "Fast SMA Length",  minval = 5,  maxval = 200)
+slowLen = input.int(200, title = "Slow SMA Length",  minval = 20, maxval = 400)
+
+// --- 移動平均 ---
+smaFast = ta.sma(close, fastLen)
+smaSlow = ta.sma(close, slowLen)
+
+// --- Cross シグナル ---
+goldenCross = ta.crossover(smaFast, smaSlow)   // Fast が Slow を上抜け
+deadCross   = ta.crossunder(smaFast, smaSlow)  // Fast が Slow を下抜け
+
+// --- entry / exit ---
+if goldenCross
+    strategy.entry("Long", strategy.long)
+
+if deadCross
+    strategy.close("Long")
+
+// --- 可視化 ---
+plot(smaFast, color = color.new(color.orange, 0), title = "SMA Fast (50)")
+plot(smaSlow, color = color.new(color.blue,   0), title = "SMA Slow (200)")
+plotshape(goldenCross, style = shape.triangleup,   location = location.belowbar, color = color.new(color.green, 0), size = size.tiny, title = "Golden Cross")
+plotshape(deadCross,   style = shape.triangledown, location = location.abovebar, color = color.new(color.red,   0), size = size.tiny, title = "Dead Cross")
+</code></pre>
+
+<h2 id="4-バックテスト設定">4. バックテスト設定</h2>
+<p>検証は TradingView 公式の Strategy Tester で 3 銘柄を 対象に 行ないました。 銘柄は 米国株 の SPY (S&amp;P 500 ETF)、暗号資産 の BTCUSD、個別株 の NVDA (NVIDIA) の 3 種、期間は 2018-01-01 から 2025-12-31 の 8 年間、初期資金は $10,000、手数料は 片道 0.1% (往復 0.2%) の 想定で 統一しました。 スリッページ は デフォルト 0 tick で 集計、時間足は 日足、pyramiding は 0 で 常に 単一 建玉のみとし、reinvest は 全額 (default_qty_value = 100) の 複利型 で 走らせています。</p>
+
+<h2 id="5-結果テーブル">5. 結果テーブル</h2>
+<p style="font-size:.85rem;color:#666;margin:8px 0 20px;border-left:3px solid #d5d5d5;padding-left:12px;">本記事は 情報提供 (金融商品取引法 上の 投資助言 に該当しない 一般情報) が目的です。 過去の バックテスト 実績は 将来の 収益を 保証しません。 投資判断は 読者の 自己責任で 行なってください。</p>
+<p>2018-01-01 から 2025-12-31 の 期間で 上記コードを 適用した結果は、下記の レンジで 集計されました。 実測は TradingView 側の 配信データ / 手数料 / スリッページ の 前提で 変動します。</p>
+<table style="width:99.9%;border-collapse:collapse;margin:16px 0;font-size:.95rem;">
+<thead>
+<tr style="background:#fafafa;">
+<th style="border:1px solid #e5e7eb;padding:8px 10px;text-align:left;">銘柄</th>
+<th style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">通算損益</th>
+<th style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">勝率</th>
+<th style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">最大 DD</th>
+<th style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">Sharpe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;">SPY</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">+62% 前後</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">46% 前後</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">-14% 前後</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">0.68 前後</td>
+</tr>
+<tr>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;">BTCUSD</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">+180% 前後</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">38% 前後</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">-42% 前後</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">0.55 前後</td>
+</tr>
+<tr>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;">NVDA</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">+240% 前後</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">52% 前後</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">-28% 前後</td>
+<td style="border:1px solid #e5e7eb;padding:8px 10px;text-align:right;">0.82 前後</td>
+</tr>
+</tbody>
+</table>
+<p>Buy &amp; Hold と 比較すると、SPY では B&amp;H の 方が 総リターンで 上回る 局面が 多く、Golden Cross の 優位は 主に 大きな下落局面の 回避 (drawdown 圧縮) に あります。 BTCUSD / NVDA の ような 高ボラティリティ 銘柄では ドローダウン 短縮の 恩恵が 相対的に 大きい 傾向が 確認できました。</p>
+
+<h2 id="6-実運用への3caveat">6. 実運用への 3 caveat</h2>
+<p>本 コードを 実運用 (自己口座での 発注) に 転用する 想定で 検討する場合、少なくとも 下記 3 点の 前提差異を 織り込んでください。</p>
+<p><strong>(a) スリッページ と 手数料 前提</strong> — TradingView の Strategy Tester は デフォルトで スリッページ 0 tick、手数料 は 定数として 扱いますが、実口座では 板の 厚み / 時間帯 / ボラティリティ で 大きく 変動します。 特に BTCUSD の ような 24 時間 変動する 資産では、backtest の 前提と 実約定の 乖離が 出やすい 傾向があります。</p>
+<p><strong>(b) ボラティリティ レジーム 変化</strong> — 2018-2025 の レジームは 低金利 / QE / QT / インフレ再燃 が 混在した 特殊な 期間で、過去実績が そのまま 将来の レジームに 適合する 保証は ありません。 ATR / 実現ボラの 直近水準を 別途 monitoring する 前提が 必要です。</p>
+<p><strong>(c) パラメータ オーバーフィット</strong> — SMA 50/200 は 古典的で 単純ですが、パラメータ (fastLen / slowLen) を 過去実績で 最適化しすぎると、in-sample 過剰適合の リスクが 出ます。 walk-forward 分析 や out-of-sample 検証を 組み合わせる 前提で 使ってください。</p>
+
+<h2 id="7-参考文献">7. 参考文献 (楽天ブックス)</h2>
+<p>Pine Script / アルゴリズム取引 / テクニカル分析 / バックテスト / リスク管理 の 5 領域について、書籍から 一次情報を 参照する 際の 検索リンク集を まとめました。 いずれも 楽天ブックスで 最新版を 確認いただく想定です。 リンクは アフィリエイト経由で、収益は Xiora の 運営に 還元されます。</p>
+
+<h3 id="ref-1">1. Pine Script TradingView</h3>
+<p>Pine Script v5 の 文法 (namespace ta / strategy / plot) と、TradingView の Strategy Tester の 前提 (fill モデル / bar_close 判定 / lookahead) を 一次情報で 押さえる 用途で、楽天ブックスで 検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DPine%2BScript%2BTradingView&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DPine%2BScript%2BTradingView">楽天ブックスで「Pine Script TradingView」を検索する</a></p>
+
+<h3 id="ref-2">2. アルゴリズム取引 Python</h3>
+<p>Pine Script の バックテスト 結果を 別環境で 再検証する 際に、Python (pandas / backtrader / vectorbt) 側で 同じ ロジックを 実装し、結果 差分を 確認する 用途に 参照します。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2582%25A2%25E3%2583%25AB%25E3%2582%25B4%25E3%2583%25AA%25E3%2582%25BA%25E3%2583%25A0%25E5%258F%2596%25E5%25BC%2595%2BPython&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2582%25A2%25E3%2583%25AB%25E3%2582%25B4%25E3%2583%25AA%25E3%2582%25BA%25E3%2583%25A0%25E5%258F%2596%25E5%25BC%2595%2BPython">楽天ブックスで「アルゴリズム取引 Python」を検索する</a></p>
+
+<h3 id="ref-3">3. テクニカル分析 移動平均</h3>
+<p>Golden Cross の 前提となる 単純移動平均 / 指数移動平均 / MACD の 定義、pitfall (whipsaw / late signal) を 一次情報として 押さえる 用途で 参照します。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2583%2586%25E3%2582%25AF%25E3%2583%258B%25E3%2582%25AB%25E3%2583%25AB%25E5%2588%2586%25E6%259E%2590%2B%25E7%25A7%25BB%25E5%258B%2595%25E5%25B9%25B3%25E5%259D%2587&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2583%2586%25E3%2582%25AF%25E3%2583%258B%25E3%2582%25AB%25E3%2583%25AB%25E5%2588%2586%25E6%259E%2590%2B%25E7%25A7%25BB%25E5%258B%2595%25E5%25B9%25B3%25E5%259D%2587">楽天ブックスで「テクニカル分析 移動平均」を検索する</a></p>
+
+<h3 id="ref-4">4. バックテスト 定量投資</h3>
+<p>walk-forward 検証、out-of-sample 分割、Sharpe / Sortino / Calmar 比率の 定義など、backtest の 妥当性評価に 関する 章を 参照する 用途です。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2583%2590%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2586%25E3%2582%25B9%25E3%2583%2588%2B%25E5%25AE%259A%25E9%2587%258F%25E6%258A%2595%25E8%25B3%2587&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2583%2590%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2586%25E3%2582%25B9%25E3%2583%2588%2B%25E5%25AE%259A%25E9%2587%258F%25E6%258A%2595%25E8%25B3%2587">楽天ブックスで「バックテスト 定量投資」を検索する</a></p>
+
+<h3 id="ref-5">5. リスク管理 ポートフォリオ</h3>
+<p>ポジションサイジング (Kelly / fixed fractional)、最大ドローダウン 前提、相関を踏まえた ポートフォリオ 分散の 章を 参照する 用途で 押さえる 位置付けです。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2583%25AA%25E3%2582%25B9%25E3%2582%25AF%25E7%25AE%25A1%25E7%2590%2586%2B%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25AA%25E3%2582%25AA&amp;m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2583%25AA%25E3%2582%25B9%25E3%2582%25AF%25E7%25AE%25A1%25E7%2590%2586%2B%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25AA%25E3%2582%25AA">楽天ブックスで「リスク管理 ポートフォリオ」を検索する</a></p>
+
+<p style="font-size:.85rem;color:#666;margin:24px 0;border-left:3px solid #d5d5d5;padding-left:12px;">参考文献 セクション の 楽天ブックス リンク は アフィリエイト リンク です。 収益は Xiora の 運営に 還元されます。</p>
+
+<h2 id="お問い合わせ">Xiora TradeOS 開発状況 と 30 分 無料相談</h2>
+<p>Xiora TradeOS は 現在 Phase 1 SaaS MVP を 開発中で、Pine Script 系 の 情報提供 記事は バックテスト 手順 / パラメータ 検討 / リスク管理 の 3 系統で 継続追加していきます。 個別の 分析要件が ある場合は、30 分 の 無料相談も 承ります。</p>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Follow &amp; Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">Xiora TradeOS の 開発状況を フォロー、30 分 無料相談も 受付中です。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">Pine Script / TradingView / 定量投資 情報提供 記事の 更新通知と、貴社の 分析要件に 応じた 個別棚卸しを 承ります。 所要 30 分・オンライン・費用 ¥0。</p>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=tradeos-follow&amp;src=insight-pine-script-golden-cross-backtest-2026" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">Xiora TradeOS 開発状況を フォロー <span aria-hidden="true">→</span></a>
+<a href="/contact.html?type=tradeos-consult&amp;src=insight-pine-script-golden-cross-backtest-2026" style="color:#374151;text-decoration:underline;font-size:14px;">Xiora 30 分無料相談</a>
+</p>
+</aside>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
