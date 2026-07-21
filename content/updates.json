@@ -559,6 +559,42 @@
       "url": "/labs.html",
       "build_cat": "Prototype",
       "date_label": "In Labs"
+    },
+    {
+      "id": "2026-07-31-startup-marketing-books-5-2026",
+      "date": "2026-07-31",
+      "type": "insight",
+      "kind": "release",
+      "title": "スタートアップ マーケティング 実践書 5 選 — Growth / PLG / SaaS Sales / SEO の一次資料 (2026)",
+      "description": "Xiora が 2026 年に SaaS マーケティングの実装判断で参照した書籍 5 冊を、章単位で用途を明示しながら紹介します。 Startup マーケ / Growth Hacking / Product Led Growth / SaaS Sales / SEO 実践 の 5 領域について、代表 沓澤が実装判断に効いた章を情報整理します。",
+      "url": "/insights/startup-marketing-books-5-2026.html",
+      "insight_cat": "Books",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Books Playbook"
+    },
+    {
+      "id": "2026-08-02-productivity-books-5-2026",
+      "date": "2026-08-02",
+      "type": "insight",
+      "kind": "release",
+      "title": "単独運営の生産性 実践書 5 選 — Deep Work / GTD / 7 つの習慣 / エッセンシャル思考 / タスク管理 (2026)",
+      "description": "Xiora が 2026 年に単独 SaaS 運営で参照した生産性 書籍 5 冊を、章単位で用途を明示しながら紹介します。 集中時間の設計 / タスクの受け皿 / 判断の一貫性 / 断る基準 / 進捗の可視化 の 5 軸について、代表 沓澤が現場で開いた章を情報整理します。",
+      "url": "/insights/productivity-books-5-2026.html",
+      "insight_cat": "Books",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Books Playbook"
+    },
+    {
+      "id": "2026-08-03-security-books-5-2026",
+      "date": "2026-08-03",
+      "type": "insight",
+      "kind": "release",
+      "title": "Web セキュリティ 実践書 5 選 — OWASP / OAuth / 暗号技術 の一次資料 (2026)",
+      "description": "Xiora が 2026 年に Web セキュリティ 設計判断で参照した書籍 5 冊を、章単位で用途を明示しながら紹介します。 OWASP 分類 / Web セキュリティ 実装 / OAuth 認可 / 暗号 プリミティブ / セキュリティ 運用 の 5 軸について、代表 沓澤が現場で開いた章を情報整理します。",
+      "url": "/insights/security-books-5-2026.html",
+      "insight_cat": "Books",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Books Playbook"
     }
   ]
 }

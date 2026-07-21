@@ -219,7 +219,22 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://xiora-official.com/insights/security-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/productivity-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/blender-3dcg-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/startup-marketing-books-5-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

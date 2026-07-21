@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Web セキュリティ 実践書 5 選 — OWASP / OAuth / 暗号技術 の一次資料 (2026) | Xiora Insights</title>
+<meta content="Xiora が 2026 年に Web セキュリティ 設計判断で参照した書籍 5 冊を、章単位で用途を明示しながら紹介します。 OWASP / Web セキュリティ / OAuth 認可 / 暗号技術 実務 / セキュリティ エンジニア の 5 領域について、代表 沓澤が現場で開いたページ単位の使用文脈を共有します。" name="description"/>
+<link href="https://xiora-official.com/insights/security-books-5-2026.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/security-books-5-2026.html" property="og:url"/>
+<meta content="Web セキュリティ 実践書 5 選 (2026) | Xiora" property="og:title"/>
+<meta content="Xiora が 2026 年に Web セキュリティ 設計判断で参照した書籍 5 冊。 章単位で用途を明示。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="ja_JP" property="og:locale"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Web セキュリティ 実践書 5 選 — OWASP / OAuth / 暗号技術 の一次資料 (2026)",
+  "description": "Xiora が 2026 年に Web セキュリティ 設計判断で参照した書籍 5 冊を、章単位で用途を明示しながら紹介します。",
+  "inLanguage": "ja",
+  "author": { "@type": "Organization", "name": "Xiora" },
+  "publisher": { "@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/" },
+  "datePublished": "2026-08-03",
+  "mainEntityOfPage": "https://xiora-official.com/insights/security-books-5-2026.html"
+}
+</script>
+<link href="/assets/css/style.css?v=20260803a" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Web セキュリティ 実践書 5 選 (2026)</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Books</span>
+<time datetime="2026-08-03">2026.08.03</time>
+</div>
+<h1 class="insight-title">Web セキュリティ 実践書 5 選 — OWASP / OAuth / 暗号技術 の一次資料 (2026)</h1>
+<p class="insight-lead">Xiora が 2026 年に Web セキュリティ 設計判断で参照した書籍 5 冊を、章単位で用途を明示しながら紹介します。 OWASP / Web セキュリティ / OAuth 認可 / 暗号技術 実務 / セキュリティ エンジニア の 5 領域について、代表 沓澤が現場で開いたページ単位の使用文脈を共有します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">X</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Xiora)</span><br/>
+<span>Xiora Editorial · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<p class="disclosure" style="font-size:.85rem;color:#666;margin:8px 0 24px;border-left:3px solid #d5d5d5;padding-left:12px;">本記事には楽天アフィリエイトリンクを含みます。 リンク先での購入により Xiora に紹介料が発生する場合があります。 記事内容と紹介商品の選定は独立して行っています。</p>
+
+<p>Xiora の運用は Kigen / XCloud Connect / Xiora Lingua / TradeOS など複数の SaaS を同時に扱う構造上、認証 認可 / 暗号 / 監査ログ / インシデント 対応 の実装判断を代表 1 人で下す場面が多く発生します。 Web 記事の断片で断片的に学ぶよりも、書籍で「OWASP Top 10 の各項目」「OAuth 2.0 の grant type 選択」「TLS の cipher suite 選定」等を章単位で網羅する方が、単独創業 SaaS の設計判断で圧倒的に速く動けます。 本 5 選は、章 or 節を特定できるレベルで実装判断に効く、Web 記事の断片では代替しにくい、2025-2026 時点で内容が陳腐化していない、の 3 点で選定した書籍です。</p>
+
+<h2 id="1-owasp">1. OWASP Top 10 と Web 攻撃分類の書籍</h2>
+<p>OWASP Top 10 は Web セキュリティの共通 分類 語彙として、SaaS 開発者が最初に押さえる枠組みです。 「Web セキュリティ 徹底入門」系の書籍は、Injection / Broken Access Control / Cryptographic Failure / Insecure Design / SSRF 等の各カテゴリについて、攻撃 例 / 検出 方法 / 対策 実装 を章単位で扱います。 Xiora の実装では、「Broken Access Control 章」の "IDOR (Insecure Direct Object Reference)" 節と「Injection 章」の "Prepared Statement" 節を、FastAPI + SQLAlchemy 実装の レビュー チェックリストとして毎リリース前に開きます。 楽天ブックスで「Web セキュリティ」「OWASP」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DWeb%2520%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3&m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DWeb%2520%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3" rel="sponsored noopener" target="_blank">楽天ブックスで「Web セキュリティ」を検索する</a></p>
+
+<h2 id="2-web-security">2. 実践 Web セキュリティの設計書</h2>
+<p>「Web Application Security」系の実践書は、TLS の設定 / CSP (Content Security Policy) / HSTS / Secure Cookie / SameSite の実装 詳細を章単位で扱います。 Xiora HP / 各 SaaS の Vercel / Fastly / Cloudflare 前段では、CSP header の "script-src" と "connect-src" の 2 節を毎リリース前に確認する運用で、XSS の攻撃 面を継続的に絞り込んでいます。 特に「HSTS の preload リスト」章と「Cookie の SameSite=Strict / Lax の使い分け」章は、書籍で全体像を掴んだ方が Web 記事の断片より遥かに速く判断できます。 楽天ブックスで「Web セキュリティ 実践」「Real-World Web Security」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DWeb%2520%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%2520%25E5%25AE%259F%25E8%25B7%25B5&m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DWeb%2520%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%2520%25E5%25AE%259F%25E8%25B7%25B5" rel="sponsored noopener" target="_blank">楽天ブックスで「Web セキュリティ 実践」を検索する</a></p>
+
+<h2 id="3-oauth">3. OAuth 2.0 / 認可 の設計書</h2>
+<p>「実践 OAuth 2.0」「OAuth 2.0 in Action」系の書籍は、Authorization Code / Client Credentials / Device / Refresh Token の 4 grant type と、PKCE / JWT / Introspection / Revocation の周辺仕様を章単位で扱います。 Xiora の Stripe MCP 再接続 / Google OAuth / GitHub OAuth の実装 判断では、「Authorization Code with PKCE 章」の "code_verifier / code_challenge の生成順序" と「Refresh Token 章」の "rotation の必要性" を毎回開いて、grant type と token 保管 場所を決めています。 楽天ブックスで「OAuth 2.0」「認可 設計」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DOAuth%25202.0&m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3DOAuth%25202.0" rel="sponsored noopener" target="_blank">楽天ブックスで「OAuth 2.0」を検索する</a></p>
+
+<h2 id="4-crypto">4. 暗号技術の実務書</h2>
+<p>「暗号技術入門」系の書籍は、対称 鍵 / 公開 鍵 / ハッシュ / MAC / デジタル 署名 / TLS / PKI / 認証局 の全体像を章単位で扱います。 Xiora の JWT 署名 / API key rotation / secret 保管 の設計判断では、「ハッシュ 関数 章」の "パスワード ハッシュに Argon2id を選ぶ理由" と「TLS 章」の "cipher suite の選定基準" を毎回開いて、暗号 プリミティブの選択理由を書面で残しています。 単独創業でも監査 対応 (将来 SOC 2 / ISO 27001 相当) を想定する場合、書籍の枠組みで「なぜこの暗号を選んだか」を書ける状態を維持することが重要です。 楽天ブックスで「暗号技術 実務」「暗号技術入門」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E6%259A%2597%25E5%258F%25B7%25E6%258A%2580%25E8%25A1%2593%2520%25E5%25AE%259F%25E5%258B%2599&m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E6%259A%2597%25E5%258F%25B7%25E6%258A%2580%25E8%25A1%2593%2520%25E5%25AE%259F%25E5%258B%2599" rel="sponsored noopener" target="_blank">楽天ブックスで「暗号技術 実務」を検索する</a></p>
+
+<h2 id="5-security-engineer">5. セキュリティ エンジニア のキャリア / 運用書</h2>
+<p>「セキュリティ エンジニア の教科書」系の書籍は、脆弱性 診断 / インシデント 対応 / 監査 対応 / SOC 運用 / CSIRT 構築 の運用面を章単位で扱います。 Xiora のような単独創業では専任 SOC 担当を置けませんが、書籍の「初動 対応 の 6 ステップ (Preparation / Identification / Containment / Eradication / Recovery / Lessons Learned)」章を、インシデント 対応 ランブックのテンプレとしてそのまま流用しています。 特に「脆弱性 診断 章」の "Static / Dynamic / Interactive / SCA の 4 分類" は、GitHub Dependabot + Semgrep + OWASP ZAP の運用 方針決定にそのまま使えます。 楽天ブックスで「セキュリティ エンジニア」で検索できます。</p>
+<p><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2&m=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2" rel="sponsored noopener" target="_blank">楽天ブックスで「セキュリティ エンジニア」を検索する</a></p>
+
+<h2 id="まとめ">まとめ — 5 冊の使い分け</h2>
+<p>Web セキュリティは「OWASP 分類 × 実装 詳細 × OAuth 認可 × 暗号 プリミティブ × 運用 手順」の 5 軸で規定されます。 上記 5 冊は「章 or 節を特定できるレベルで実装判断に効く」書籍として、Xiora が実際に参照した実績があるものです。 いずれも楽天ブックスで最新版を確認いただく想定で、電子書籍 (楽天 Kobo) 版がある場合は Kobo 側でもリンクを辿れます。 内容は 2026-08 時点の公開情報に基づく参考情報で、書籍の内容そのものについては各出版社の一次情報を優先ください。</p>
+
+<h2 id="お問い合わせ">Xiora の AI/DX 実装相談 (30 分無料)</h2>
+<p>本記事の 5 冊を貴社の Web セキュリティ 要件に当てはめると何が使えるかを、代表 沓澤が 30 分で棚卸しします。 単独創業 / 小規模チーム向けの実装アドバイスとしてもご活用ください。</p>
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">本 5 冊の実装への当てはめを 30 分で整理します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">貴社の Web セキュリティ 要件に応じた書籍の章ピックアップと、実装優先度の初期棚卸しを行います。 所要 30 分・オンライン・費用 ¥0。</p>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-security-books-5-2026" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;">30 分無料相談を申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[security-books-5-2026] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メールで送る</a>
+</p>
+</aside>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+<aside class="related-articles" aria-labelledby="related-heading">
+  <h2 id="related-heading">関連記事</h2>
+  <ul>
+    <li><a href="/insights/ai-dev-books-5-2026.html">Xiora が実運用で参照する AI 開発書籍 5 選 (2026)</a></li>
+    <li><a href="/insights/stripe-webhook-6-pitfalls.html">Stripe Webhook 6 落とし穴の実務対策</a></li>
+  </ul>
+  <p style="margin:20px 0 0;padding-top:16px;border-top:1px solid #e5e7eb;font-size:14px;color:#4b5563;line-height:1.75;">API key / SaaS 契約 / ドメイン / SSL の期限管理 は Xiora の iOS アプリ <strong>KigenX</strong> で 一元化。 <a href="https://apps.apple.com/jp/app/kigenx/id6776154131" target="_blank" rel="noopener">App Store で入手 →</a></p>
+</aside>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
