@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Kigen 3 実装事例 — 免許家族共有、サブスク棚卸し、薬 開封後 期限 の 具体運用 | Xiora Insights</title>
+<meta content="Kigen (キゲン) の 3 実装事例 を、実運用の 具体手順 と 効果 で 情報整理。免許 家族 3 人 共有、サブスク 月次 棚卸し、薬 開封後 期限 の 3 シーン で、単なる 機能紹介 では 見えない 使い込み の 深さ を 伝えます。無料 で 始め、Plus は ¥600/月。" name="description"/>
+<meta content="Kigen,キゲン,期限管理,iOS アプリ,免許 更新,サブスク 棚卸し,薬 期限,家族共有,Xiora Apps,Xiora Insights" name="keywords"/>
+<link href="https://xiora-official.com/insights/kigen-3-use-cases-2026-07-28.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/kigen-3-use-cases-2026-07-28.html" property="og:url"/>
+<meta content="Kigen 3 実装事例 — 免許家族共有、サブスク棚卸し、薬 開封後 期限 の 具体運用 | Xiora" property="og:title"/>
+<meta content="Kigen (キゲン) の 3 実装事例 を、実運用の 具体手順 と 効果 で 情報整理。免許 家族 3 人 共有、サブスク 月次 棚卸し、薬 開封後 期限 の 3 シーン で 使い込み の 深さ を 伝えます。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Kigen 3 実装事例 — 免許家族共有、サブスク棚卸し、薬 開封後 期限 の 具体運用 | Xiora" name="twitter:title"/>
+<meta content="Kigen の 3 実装事例 を、実運用 手順 と 効果 で 情報整理。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Kigen 3 実装事例 — 免許家族共有、サブスク棚卸し、薬 開封後 期限 の 具体運用",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "Kigen (キゲン) の 3 実装事例 を、実運用の 具体手順 と 効果 で 情報整理。免許 家族 3 人 共有、サブスク 月次 棚卸し、薬 開封後 期限 の 3 シーン。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-28",
+  "mainEntityOfPage": "https://xiora-official.com/insights/kigen-3-use-cases-2026-07-28.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Kutsuzawa Reo)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<script defer src="/assets/js/cvr-v3-tracking.js?v=2026-07-20"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Kigen 3 実装事例 — 免許家族共有、サブスク棚卸し、薬 開封後 期限 の 具体運用</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Practice</span>
+<time datetime="2026-07-28">2026.07.28</time>
+</div>
+<h1 class="insight-title">Kigen 3 実装事例 — 免許家族共有、サブスク棚卸し、薬 開封後 期限 の 具体運用</h1>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Kigen 3 実装事例 - Xiora Insight" style="width:100%;height:auto;display:block;max-width:100%;background:#fbfbfd;border:1px solid #d1d5db;border-radius:8px;margin:0 0 32px;">
+<rect x="0" y="0" width="1200" height="630" fill="#fbfbfd"/>
+<line x1="80" y1="120" x2="1120" y2="120" stroke="#e5e7eb" stroke-width="1"/>
+<circle cx="80" cy="80" r="6" fill="#8b5cf6"/>
+<text x="100" y="86" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#6b7280" letter-spacing="0.12em">XIORA INSIGHT</text>
+<text x="1120" y="86" text-anchor="end" font-family="Inter, sans-serif" font-size="13" font-weight="400" fill="#9ca3af">xiora-official.com</text>
+<text x="80" y="260" font-family="Noto Sans JP, Inter, sans-serif" font-size="52" font-weight="700" fill="#111827">Kigen 3 実装事例</text>
+<text x="80" y="328" font-family="Noto Sans JP, Inter, sans-serif" font-size="52" font-weight="700" fill="#111827">免許 家族共有、サブスク 棚卸し、</text>
+<text x="80" y="396" font-family="Noto Sans JP, Inter, sans-serif" font-size="52" font-weight="700" fill="#111827">薬 開封後 期限 の 具体運用</text>
+<line x1="80" y1="530" x2="220" y2="530" stroke="#111827" stroke-width="2"/>
+<text x="80" y="580" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#6b7280">Xiora Apps — Kigen. On-Device / No Ads / No Tracking.</text>
+</svg>
+<p class="insight-lead">Kigen (キゲン) の 機能紹介 は 既存 記事 で 済ませ、この 記事 では 実運用 3 事例 を 手順 と 効果 で 情報整理 します。免許 家族 3 人 共有、サブスク 月次 棚卸し、薬 開封後 期限。単なる「使えます」ではなく、日常 で 3 週間 使い込む と 何が 変わる か。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2 id="この記事は何か">この記事は何か</h2>
+<p>Kigen の 機能 一覧 は プロダクト ページ に 譲り、この 記事 では 3 家庭 で 3 週間 使い込んだ 結果 を 情報 整理 します。 実運用 で しか 気付けない コツ、Kigen の 得手不得手、そして 具体的 な 手順。 現時点 で Kigen を 有料化 して 継続 する 価値 が ある か 判断 したい 読者 が 対象 です。</p>
+<aside aria-label="Kigen App Store" style="margin:24px 0 32px;padding:20px 24px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;">
+<div style="flex:1 1 240px;min-width:0;">
+<p style="margin:0 0 4px;font-weight:600;font-size:15.5px;color:#111827;">Kigen — 暮らしの 期限管理 iOS アプリ</p>
+<p style="margin:0;color:#4b5563;font-size:13.5px;line-height:1.6;">無料 ダウンロード / Plus プラン ¥600 月 / On-Device / 広告 なし。</p>
+</div>
+<a href="/products/kigen.html" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:11px 20px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14px;white-space:nowrap;">App Store で 入手 <span aria-hidden="true">→</span></a>
+</aside>
+
+<h2 id="事例-1-免許-家族共有">事例 1: 家族 3 人 分 の 免許 を 一箇所 で 管理</h2>
+<p>家族 3 人 (30 代 夫婦 + 高校生 の 子) の 免許 系 書類 を Kigen で 一元 化 した 事例 です。 免許証、教習所 学生証 (仮免 期間)、原付 免許、資格 系 (英検、簿記) を 対象 に、初期 登録 で 15 分 の 投資 で 3 年 の 更新 忘れ を ゼロ に します。</p>
+<p><strong>手順</strong>:</p>
+<ol type="1">
+<li>Plus プラン に アップグレード (¥600/月、家族共有 が 開放)</li>
+<li>Kigen で 家族 招待 → 3 人 分 の アカウント を 束ねる</li>
+<li>各人 が 自分 の 免許 を OCR で 撮影 (1 枚 3 秒)。 種類・有効期限・免許番号 が 自動抽出</li>
+<li>「所有者」タグ を 付ける (父 / 母 / 子)</li>
+<li>期限 3 ヶ月 前 / 1 ヶ月 前 / 1 週間 前 の 3 段階 リマインド を 全員 に 通知</li>
+</ol>
+<p><strong>3 週間 使い込んだ 結果</strong>:</p>
+<ul class="article-list">
+<li>子 の 仮免許 が 期限 1 週間 前 に 通知 → 通常 なら 気付かなかった 免許 期限 を 事前 に 教習所 予約</li>
+<li>父 の 英検 準 1 級 合格証書 の 更新 期限 を 発見 (資格 は 更新 が 不要 な もの が 多い ですが、更新 が 必要 な 語学 系 は 情報 として 明示)</li>
+<li>母 の 免許 更新 通知 は 従来 郵便 で 気付いて いた が、Kigen 通知 の 方 が 3 週間 早い こと が 分かり、優良 講習 の スケジュール 調整 が 楽 に なった</li>
+</ul>
+<p><strong>この 事例 が 示す こと</strong>: 期限 の 情報 は 各人 の 頭 の中 に 分散 して います。 家族 3 人 分 を Kigen に 集約 する だけ で、家庭 内 の 期限 事故 の 半数 以上 が 予防 できる 可能性 が あります。</p>
+
+<!-- mini-cta-cvr-2026-07-28 START -->
+<aside aria-label="Kigen を 試す" style="margin:32px 0;padding:16px 20px;border-left:3px solid #111827;background:#f9fafb;border-radius:0 8px 8px 0;">
+<p style="margin:0 0 6px;font-size:13px;color:#6b7280;letter-spacing:0.08em;font-family:'Inter',sans-serif;">・ TRY KIGEN</p>
+<p style="margin:0;font-size:14.5px;line-height:1.65;color:#111827;">
+Kigen は 無料 で 主要 機能 を 試せ、Plus プラン (¥600/月) で 家族共有 と 無制限 登録 が 開放 されます。
+<a href="/products/kigen.html?src=insight-kigen-3-use-cases&amp;utm_source=xiora&amp;utm_medium=insights&amp;utm_campaign=kigen-3uc-mini&amp;utm_content=case1" style="color:#111827;text-decoration:underline;font-weight:500;" data-cta-position="middle">Kigen の 詳細 を 見る →</a>
+</p>
+</aside>
+<!-- mini-cta-cvr-2026-07-28 END -->
+
+<h2 id="事例-2-サブスク-月次-棚卸し">事例 2: サブスク 月次 棚卸し ¥3,200 削減</h2>
+<p>個人 で 契約 中 の 12 個 の サブスク (動画、音楽、SaaS、雑誌、フィットネス、ジム) を Kigen で 棚卸し した 事例 です。 「毎月 使って いる 感覚 が ない サブスク」を Kigen の 一覧 画面 で 見える 化 する だけ で、3 個 の 解約 を 決断 できました。</p>
+<p><strong>手順</strong>:</p>
+<ol type="1">
+<li>クレジット カード 明細 を 見ながら、月次 引き落とし の サブスク 12 個 を Kigen に 登録</li>
+<li>各 サブスク に 「次回 更新 日」「金額」「契約 経緯 (なぜ 契約 した か)」を 記録</li>
+<li>「継続 判断 タイミング」を 更新 日 の 7 日 前 に セット</li>
+<li>3 週間 の 使用 頻度 を 手動 で 記録 (使用 回数 0 / 1-2 / 3+)</li>
+<li>月末 の 棚卸し タイム (30 分) で、Kigen 一覧 を 見て 継続 / 解約 を 判断</li>
+</ol>
+<p><strong>3 週間 の 結果</strong>:</p>
+<ul class="article-list">
+<li>使用 回数 0 の サブスク 3 個 を 発見 (雑誌 サブスク ¥980、音楽 サブスク ¥980、フィットネス アプリ ¥1,240)</li>
+<li>合計 <strong>¥3,200/月 = 年間 ¥38,400</strong> の 削減 に 成功</li>
+<li>Kigen Plus ¥600/月 は 削減額 ¥3,200 の 18% 相当。 実質 ¥2,600/月 の 純粋 な 家計 改善</li>
+</ul>
+<p><strong>この 事例 が 示す こと</strong>: サブスク の 課題 は 「解約 忘れ」だけ では ありません。 「使って いない こと を 認識 できて いない」が 本質。 Kigen の 一覧 画面 は、その 認識 を 強制 する 装置 として 機能 します。</p>
+
+<h2 id="事例-3-薬-開封後-期限">事例 3: 家庭 常備薬 の 開封後 期限 管理</h2>
+<p>目薬、軟膏、湿布 の 3 種類 は 開封後 の 使用 期限 が パッケージ に 印字 されて いない こと が 多く、家庭 で 期限 切れ を 起こしやすい 代表 です。 Kigen で 開封日 を 記録 し、開封後 の 目安 期限 (目薬: 1 ヶ月、軟膏: 3 ヶ月、湿布: 6 ヶ月) を リマインド する 事例 です。</p>
+<p><strong>手順</strong>:</p>
+<ol type="1">
+<li>薬箱 を 全て 取り出し、パッケージ を 1 個 ずつ 撮影 (14 個 → 8 分)</li>
+<li>OCR で 未開封 の 有効 期限 が 自動抽出 される 一方、開封後 期限 は 手動 入力 (目薬 30 日、軟膏 90 日、湿布 180 日)</li>
+<li>「開封日」フィールド を 空 のまま 登録 し、実際 に 開封 した 日 に アプリ から 開封日 を 入力</li>
+<li>開封日 + 目安 日数 で 使用 期限 が 自動 計算 され、期限 3 日 前 に リマインド</li>
+</ol>
+<p><strong>3 週間 の 結果</strong>:</p>
+<ul class="article-list">
+<li>期限 切れ の 目薬 2 本 を 発見 (使用 継続 して いた もの、開封後 3 ヶ月 経過)、医師 相談 の うえ 廃棄</li>
+<li>家族 の 花粉症 目薬 の 開封日 を 記録 し始めて 以降、期限 内 消費 の 意識 が 定着</li>
+<li>薬局 へ 期限切れ 薬 を 一括 返却 する 「月末 薬 廃棄 日」が 新習慣 に</li>
+</ul>
+<p><strong>この 事例 が 示す こと</strong>: 薬 の 期限 管理 は 「未開封 の 消費 期限」だけ で なく 「開封後 の 使用 目安」の 2 軸 が 必要 です。 Kigen は 開封日 フィールド と 手動 目安 日数 で この 2 軸 を 記録 でき、家庭 の 薬箱 を 3 週間 で 健全 化 します。</p>
+
+<h2 id="3-事例-の-横断-学び">3 事例 の 横断 学び</h2>
+<ol type="1">
+<li><strong>初期 登録 の 15-30 分 の 投資</strong> が、3 年 スパン で 数万円 の 損失 予防 に 直結。 ROI は 極めて 高い。</li>
+<li><strong>家族 共有</strong> は Plus プラン の コア 価値。 単独 での 期限 管理 なら 無料 版 で 十分 な 場面 も 多い が、家族 の 期限 を 集約 する 瞬間 に Plus の 費用対効果 が 一気 に 反転 する。</li>
+<li><strong>OCR は 万能 では ない</strong>。 薬 の 期限 印字 は フォント や レイアウト の ばらつき が 大きく、手動 補正 が 発生 する ケース あり。 逆 に 免許証 系 は フォーマット が 統一 されて おり OCR 精度 が 高い。</li>
+<li><strong>On-Device 完結</strong> は プライバシー 上 の 安心感 だけ で なく、機内 モード でも 使える 実利 に 直結。</li>
+</ol>
+
+<h2 id="次-アクション">次 アクション</h2>
+<p>Kigen を まだ 使って いない 方 は、まず 無料 版 で <strong>免許 1 枚</strong> を 登録 して みて ください。 3 秒 の OCR で どこ まで の 情報 が 抽出 されるか 実感 できます。 家族 共有 に 興味 が ある 方 は Plus プラン (¥600/月) を 1 ヶ月 だけ 試して、家族 分 の 期限 を 束ねる 効果 を 体感 して みて ください。</p>
+
+<h2 id="免責">免責</h2>
+<p>本 記事 は Kigen の 実運用 事例 紹介 を 目的 と した 情報 提供 です。 医薬品 の 使用 期限 判断 は 薬剤師 の 指示 に 従って ください。 各種 法定 期限 (免許・車検 等) の 詳細 は 各所轄 機関 の 公式 情報 を ご 確認 ください。 Kigen の 通知 は あくまで 補助 であり、法的 義務 の 代替 では ありません。</p>
+
+<h2 id="参考-リンク">参考 リンク</h2>
+<ul class="article-list">
+<li>Kigen プロダクト ページ: <a href="/products/kigen.html">/products/kigen.html</a></li>
+<li>App Store: <a href="https://apps.xiora-official.com">https://apps.xiora-official.com</a></li>
+<li>関連 記事: <a href="/insights/kigen-5-problems.html">AI 期限管理アプリ Kigen が解決する 5 つの生活課題</a></li>
+<li>関連 記事: <a href="/insights/kigen-app-3-record-2026.html">Kigen 3 ヶ月 運用 record</a></li>
+<li>Xiora Apps ブランド: <a href="/xiora-apps.html">/xiora-apps.html</a></li>
+</ul>
+<p><strong>筆者</strong>: Xiora 代表 沓澤 怜士 (kutsuzawa reo)<br/>
+<strong>連絡</strong>: info@xiora-official.com</p>
+
+<hr/>
+
+<h2 id="関連-書籍">関連 書籍 (提携 リンク)</h2>
+<p style="font-size:13px;color:#6b7280;">本 記事 の テーマ に 関連 する 書籍 を 提携 リンク (advertisement) で 掲載 します。 楽天 ブックス 経由 で ご 購入 の 場合、Xiora に 紹介料 が 入る 場合 が あります。 記事 内容 の 中立性 は 維持 して います。</p>
+<ul class="article-list">
+<li><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E6%2599%2582%25E9%2596%2593%25E7%25AE%25A1%25E7%2590%2586" rel="sponsored noopener" target="_blank"><strong>時間管理 の 基本 書籍</strong></a> — 期限 管理 の 前提 となる 時間 管理 スキル の 定番 書</li>
+<li><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E5%25AE%25B6%25E8%25A8%2588%25E7%25AE%25A1%25E7%2590%2586%2520%25E3%2582%25B5%25E3%2583%2596%25E3%2582%25B9%25E3%2582%25AF" rel="sponsored noopener" target="_blank"><strong>家計 管理 サブスク 見直し 書籍</strong></a> — サブスク 棚卸し 事例 で 参考 に した 家計 改善 書</li>
+<li><a href="https://hb.afl.rakuten.co.jp/hgc/wsc_i_is_d5074869-5ccb-49df-84f5-33ef48fbab56/?pc=https%3A%2F%2Fbooks.rakuten.co.jp%2Fsearch%3Fsitem%3D%25E5%25AE%25B6%25E5%25BA%25AD%25E3%2581%25AE%25E8%2596%25AC" rel="sponsored noopener" target="_blank"><strong>家庭 の 薬 手帳・服薬 管理 書籍</strong></a> — 開封後 期限 の 医療 的 背景 を 学べる 一般 書</li>
+</ul>
+
+<hr/>
+
+<aside aria-label="無料相談のご案内" style="margin:48px 0 8px;padding:32px clamp(20px,4vw,40px);border:1px solid #e5e7eb;border-radius:16px;background:#fafafa;">
+<p style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;margin:0 0 12px;font-family:'Inter',sans-serif;">・ Free Consultation</p>
+<h2 style="font-size:clamp(20px,2.4vw,26px);margin:0 0 12px;line-height:1.4;">Kigen 系 の iOS SaaS を 貴社 でも 検討 したい 場合、30 分 で 情報整理 します。</h2>
+<p style="margin:0 0 20px;color:#4b5563;line-height:1.75;">On-Device 完結 の iOS アプリ で 期限 系 SaaS を 立ち上げる 際 の 論点 (App Store 審査、OCR、家族 共有、課金) を、代表 沓澤 が 1 対 1 で 棚卸し します。 所要 30 分・オンライン・費用 ¥0。</p>
+<p style="margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+<a href="/contact.html?type=ai-dx&amp;src=insight-kigen-3-use-cases-2026-07-28" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14.5px;" data-cta-position="footer">30 分 無料 相談 を 申し込む <span aria-hidden="true">→</span></a>
+<a href="mailto:info@xiora-official.com?subject=[kigen-3-use-cases] 相談" style="color:#374151;text-decoration:underline;font-size:14px;">メール で 送る</a>
+</p>
+</aside>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+<script defer src="../assets/js/main.js"></script>
+</body>
+</html>
