@@ -2,6 +2,18 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "xiora-lingua-launch-2026-07-27",
+      "date": "2026-07-27",
+      "type": "insight",
+      "kind": "release",
+      "title": "Xiora Lingua を 発表 — 完全無人 の 語学 SaaS で Duolingo 代替 を 目指す",
+      "description": "Xiora の 5 番目 主力 product「Xiora Lingua」を 発表 します。 記憶科学 (FSRS/IRT) × 音素発音評価 × 無制限 AI 会話 を 統合する 完全無人 語学 SaaS の 3 軸、事業 model、M12 目標、Phase 1 W1-W12 の 実装 roadmap を 情報整理 します。 β は 2026-10 に 50 名 開始 予定。",
+      "url": "/insights/xiora-lingua-launch-2026-07-27.html",
+      "insight_cat": "Announcement",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Xiora Lingua"
+    },
+    {
       "id": "2026-08-22-xcloud-connect-3month-implicit-demo-tenant-record",
       "date": "2026-08-22",
       "type": "insight",
