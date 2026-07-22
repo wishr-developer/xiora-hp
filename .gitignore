@@ -49,6 +49,7 @@ tmp/
 *.bak
 *.old
 *.orig
+*.phase-c-backup
 
 # Playwright MCP local traces / screenshots
 .playwright-mcp/
