@@ -52,3 +52,8 @@ tmp/
 
 # Playwright MCP local traces / screenshots
 .playwright-mcp/
+
+# Insight draft batch folders (not deployed)
+insights/_batch_*/
+insights/_dinner_*/
+insights/*.bak_*
