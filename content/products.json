@@ -183,6 +183,24 @@
       "card_class": "prod-card--tradeos"
     },
     {
+      "id": "xiora-algo",
+      "name": "Xiora Algo",
+      "brand_short": "Xiora Algo",
+      "brand_html": "Xiora<br/><span>Algo</span>",
+      "status": "Live",
+      "category_ja": "投資情報 SaaS",
+      "sub_desc_ja": "Forex / 仮想通貨 / 米株 の TradingView indicator SaaS",
+      "sub_desc_meta": "Xiora Algo は Forex / 仮想通貨 / 米株 対応の TradingView indicator SaaS。 リアルタイム signal + backtest 5 年 + Discord community、決済後 TradingView user 自動 invite で完全 self-serve。 金融商品取引法 免責 明記の 情報提供のみサービス。",
+      "who": "個人トレーダー / 副業層 / 投資学習者",
+      "problem": "TradingView indicator の access が 手動 invite で 数日-数週間 待ち、他ツールは 単一マーケットのみ",
+      "ai_use": "signal 生成に AI 判別、backtest ダッシュボードで銘柄別 win rate + drawdown 表示、Discord AI モデレータ",
+      "url": "https://xiora-algo.pages.dev/",
+      "sub_short_desc": "TradingView 指標を Forex + 仮想通貨 + 米株 で提供する完全無人 SaaS。 決済後 15 分以内 に自動 invite。",
+      "sub_cat_short": "Algo",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><polyline points=\"10,45 25,32 40,38 55,20 70,28 85,15 105,22\" /><circle cx=\"55\" cy=\"20\" r=\"2.5\" fill=\"currentColor\"/></g></svg>",
+      "card_class": "prod-card--algo"
+    },
+    {
       "id": "nexa-academy",
       "name": "Nexa Academy",
       "brand_short": "Nexa Academy",
