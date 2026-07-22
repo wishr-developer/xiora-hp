@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<meta content="#fbfbfd" name="theme-color">
+<meta content="light" name="color-scheme">
+<title>Migration Support | Xiora Systems</title>
+<meta content="既存 SaaS から Xiora への 乗り換え 支援。 CSV import / API 連携 / zero-downtime 移行 / 初回 無料 support。 主要 tool (Salesforce/HubSpot/Shopify/Duolingo/Udemy 他) の 移行 経路 公開。" name="description">
+<link href="https://xiora-official.com/migration/" rel="canonical">
+<meta content="index,follow" name="robots">
+<link href="/assets/css/style.css?v=20260702f" rel="stylesheet">
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png">
+<style>
+  .mig-container { max-width: 920px; margin: 0 auto; padding: 48px 24px 96px; line-height: 1.75; color: #111827; font-family: "Inter","Noto Sans JP",-apple-system,sans-serif; background: #fbfbfd; }
+  .mig-container h1 { font-size: 32px; margin: 0 0 12px; letter-spacing: 0.01em; font-weight: 700; }
+  .mig-container .hero-sub { color: #4b5563; font-size: 16px; margin: 0 0 40px; }
+  .mig-container h2 { font-size: 22px; margin: 48px 0 16px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb; font-weight: 600; }
+  .mig-container h3 { font-size: 16px; margin: 24px 0 10px; font-weight: 600; }
+  .mig-container p { margin: 8px 0 12px; }
+  .breadcrumb { font-size: 12px; color: #6b7280; margin-bottom: 20px; }
+  .breadcrumb a { color: #4b5563; text-decoration: none; }
+  .promise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 24px 0 32px; }
+  .promise-card { padding: 20px 22px; border: 1px solid #e5e7eb; border-radius: 12px; background: #ffffff; }
+  .promise-card .promise-icon { font-size: 22px; margin-bottom: 8px; }
+  .promise-card h3 { margin: 0 0 6px; font-size: 15px; }
+  .promise-card p { font-size: 13px; color: #4b5563; margin: 0; line-height: 1.6; }
+  .step-list { counter-reset: step; padding: 0; list-style: none; margin: 16px 0; }
+  .step-list li { counter-increment: step; padding: 14px 18px 14px 60px; border: 1px solid #e5e7eb; border-radius: 8px; margin: 8px 0; background: #ffffff; position: relative; }
+  .step-list li::before { content: counter(step); position: absolute; left: 14px; top: 14px; width: 32px; height: 32px; background: #1e3a8a; color: #ffffff; border-radius: 50%; text-align: center; line-height: 32px; font-weight: 600; font-size: 14px; }
+  .step-list li strong { display: block; font-size: 14px; margin-bottom: 4px; }
+  .step-list li p { font-size: 13px; color: #4b5563; margin: 0; }
+  .tool-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0; }
+  .tool-table th, .tool-table td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+  .tool-table th { font-weight: 600; color: #4b5563; background: #f9fafb; }
+  .tool-table td:first-child { font-weight: 500; }
+  .status-badge { display: inline-block; padding: 2px 10px; border-radius: 999px; border: 1px solid #d1fae5; background: #ecfdf5; color: #166534; font-size: 12px; font-weight: 500; }
+  .status-badge.neutral { border-color: #e5e7eb; background: #f9fafb; color: #374151; }
+  .status-badge.warn { border-color: #fed7aa; background: #fff7ed; color: #92400e; }
+  .callout { padding: 16px 20px; background: #eff6ff; border-left: 3px solid #1e3a8a; border-radius: 4px; margin: 20px 0; font-size: 13px; line-height: 1.7; color: #1e40af; }
+  .cta-row { display: flex; gap: 12px; margin: 32px 0; flex-wrap: wrap; }
+  .cta-row a { padding: 10px 18px; border: 1px solid #111827; border-radius: 6px; text-decoration: none; color: #111827; font-size: 14px; font-weight: 500; background: #ffffff; }
+  .cta-row a.primary { background: #111827; color: #ffffff; }
+  .cta-row a:hover { opacity: 0.85; }
+  .footer-meta { margin-top: 64px; padding-top: 24px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280; }
+</style>
+</head>
+<body>
+<main class="mig-container">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="/">Xiora Home</a> &nbsp;/&nbsp; <a href="/trust/">Trust Center</a> &nbsp;/&nbsp; Migration Support
+</nav>
+
+<h1>Migration Support</h1>
+<p class="hero-sub">既存 tool から Xiora への 乗り換え を、 データ 損失 なし で 支援 します。 初回 移行 は 無料、 zero-downtime、 並行 稼働 期間 も 対応。</p>
+
+<div class="promise-grid">
+  <div class="promise-card">
+    <div class="promise-icon">🎁</div>
+    <h3>初回 無料 支援</h3>
+    <p>移行 相談 + データ 移行 script の 初回 実行 は 無料 (30 日 以内 の 導入 契約 前提)。</p>
+  </div>
+  <div class="promise-card">
+    <div class="promise-icon">🔄</div>
+    <h3>Zero Downtime</h3>
+    <p>既存 tool と Xiora を 並行 稼働、 データ 同期 完了 後 に 切替。 事業 停止 時間 = 0。</p>
+  </div>
+  <div class="promise-card">
+    <div class="promise-icon">🛡</div>
+    <h3>ロールバック 保証</h3>
+    <p>移行 完了 後 30 日 は 完全 rollback 可能 (元 tool へ の 復帰 支援 含む)。</p>
+  </div>
+  <div class="promise-card">
+    <div class="promise-icon">🔐</div>
+    <h3>データ 主権</h3>
+    <p>移行 データ の 所有 権 は 顧客 に 帰属。 契約 終了 時 は 全 データ を 標準 format (CSV / JSON) で export。</p>
+  </div>
+</div>
+
+<div class="cta-row">
+  <a href="mailto:info@xiora-official.com?subject=%5BMigration%5D%20%E5%B0%8E%E5%85%A5%E7%9B%B8%E8%AB%87" class="primary">移行 相談 (無料) →</a>
+  <a href="/trust/">Trust Center →</a>
+  <a href="/security/">Security 詳細 →</a>
+</div>
+
+<h2>移行 フロー (5 step)</h2>
+<ol class="step-list">
+  <li>
+    <strong>ヒアリング (メール、 24-48h 以内 返信)</strong>
+    <p>現行 tool、 データ 量、 移行 希望 時期 を info@xiora-official.com へ お知らせ ください。 貴社 の 事業 規模 と compliance 要件 に 合わせ、 最適 な 移行 プラン を 24-48 時間 以内 に ご提案 いたします。</p>
+  </li>
+  <li>
+    <strong>データ export (現行 tool 側 の 標準 手順)</strong>
+    <p>Salesforce / HubSpot / Shopify 等 の 主要 tool は 標準 CSV / JSON export を 提供。 export 手順 の ガイド は 事業別 に 用意 (下 の 対応 tool 一覧 参照)。</p>
+  </li>
+  <li>
+    <strong>Xiora 側 import (自動 変換 + validation)</strong>
+    <p>Xiora の import wizard が field mapping を 自動 提案、 validation で エラー データ を 事前 検出。 大量 データ (100k+ rows) は API 経由 で バッチ import。</p>
+  </li>
+  <li>
+    <strong>並行 稼働 + 差分 同期 (推奨 期間: 2-4 週)</strong>
+    <p>既存 tool と Xiora を 同時 稼働。 新規 データ は Xiora に 記録、 既存 tool は read-only 化。 差分 は 日次 で 自動 同期。</p>
+  </li>
+  <li>
+    <strong>切替 + 30 日 rollback 期間</strong>
+    <p>顧客 承認 後 に 完全 切替。 30 日 以内 なら 完全 rollback 可能 (既存 tool へ の データ 逆同期 含む)。 切替 後 も サポート 継続。</p>
+  </li>
+</ol>
+
+<h2>対応 tool 一覧 (主要)</h2>
+<p>下記 は 移行 実績 or 経路 確立 済 の tool。 一覧 に ない tool も 個別 対応 いたします (info@xiora-official.com)。</p>
+
+<h3>営業 / CRM (Sales AI OS)</h3>
+<table class="tool-table">
+<tr><th>元 tool</th><th>移行 方法</th><th>状態</th></tr>
+<tr><td>Salesforce</td><td>Data Loader → CSV export → Sales AI OS import wizard</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>HubSpot</td><td>Contact/Deal API 経由 で 直接 移行、custom field mapping 対応</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>Zoho CRM</td><td>Zoho export → CSV → Sales AI OS import</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>kintone</td><td>アプリ 単位 CSV export → 事業別 mapping</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>Excel / スプレッドシート</td><td>CSV 直接 upload、 列 名 自動 推論</td><td><span class="status-badge">可</span></td></tr>
+</table>
+
+<h3>EC / 物販 (EC-Autopilot)</h3>
+<table class="tool-table">
+<tr><th>元 tool</th><th>移行 方法</th><th>状態</th></tr>
+<tr><td>Shopify</td><td>Product / Order / Customer API 経由、 image asset は R2 に 一括 転送</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>BASE</td><td>商品 一括 CSV → EC-Autopilot import + 画像 URL 再取得</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>STORES</td><td>API 経由 で 商品 / 注文 移行、 在庫 数 同期</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>Amazon Marketplace</td><td>SP-API 経由、 seller central 認証 必要</td><td><span class="status-badge neutral">要 個別 対応</span></td></tr>
+<tr><td>楽天市場</td><td>RMS 経由 の 商品 export → 変換</td><td><span class="status-badge neutral">要 個別 対応</span></td></tr>
+</table>
+
+<h3>教育 (Nexa Academy)</h3>
+<table class="tool-table">
+<tr><th>元 tool</th><th>移行 方法</th><th>状態</th></tr>
+<tr><td>Udemy Business</td><td>受講者 名簿 CSV → Nexa 会員 一括 登録 + 進捗 移行</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>Coursera for Business</td><td>Learner API → 受講 履歴 移行</td><td><span class="status-badge neutral">要 個別 対応</span></td></tr>
+<tr><td>Teachable</td><td>Student export → Nexa 会員 変換</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>Thinkific</td><td>User export + Course progress 移行</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>自社 LMS (SCORM)</td><td>SCORM 1.2 / 2004 対応、 xAPI (Tin Can) も 対応</td><td><span class="status-badge">可</span></td></tr>
+</table>
+
+<h3>飲食 / 店舗 (XCloud Connect / Gourmie)</h3>
+<table class="tool-table">
+<tr><th>元 tool</th><th>移行 方法</th><th>状態</th></tr>
+<tr><td>Square for Restaurants</td><td>Menu / Order API 経由</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>Toast POS</td><td>menu.csv export + integration ID mapping</td><td><span class="status-badge neutral">要 個別 対応</span></td></tr>
+<tr><td>Airレジ</td><td>売上 export → 分析 のみ 移行 (menu は 手動 再入力)</td><td><span class="status-badge warn">部分 対応</span></td></tr>
+<tr><td>ぐるなび / 食べログ 予約 台帳</td><td>CSV export → Gourmie 予約 履歴 に import</td><td><span class="status-badge">可</span></td></tr>
+</table>
+
+<h3>スクール / 塾 (XCloud Flow)</h3>
+<table class="tool-table">
+<tr><th>元 tool</th><th>移行 方法</th><th>状態</th></tr>
+<tr><td>Comiru</td><td>生徒 CSV export + 授業 記録 → XCloud Flow へ 変換</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>Google Classroom</td><td>受講者 名簿 + 課題 提出 履歴 の API 移行</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>Excel / Google Sheets</td><td>直接 upload、 列 auto-mapping</td><td><span class="status-badge">可</span></td></tr>
+</table>
+
+<h3>語学 (Xiora Lingua)</h3>
+<table class="tool-table">
+<tr><th>元 tool</th><th>移行 方法</th><th>状態</th></tr>
+<tr><td>Duolingo</td><td>skill tree progress + streak を 手動 mapping (公式 export 限定)</td><td><span class="status-badge warn">部分 対応</span></td></tr>
+<tr><td>Rosetta Stone</td><td>受講 履歴 のみ 移行 (自社 LMS 依存)</td><td><span class="status-badge neutral">要 個別 対応</span></td></tr>
+<tr><td>スタディサプリ ENGLISH</td><td>スコア 履歴 の 手動 入力 支援</td><td><span class="status-badge warn">部分 対応</span></td></tr>
+</table>
+
+<h3>投資 情報 (Xiora Algo)</h3>
+<table class="tool-table">
+<tr><th>元 tool</th><th>移行 方法</th><th>状態</th></tr>
+<tr><td>TradingView (他 indicator)</td><td>watchlist export + alert 設定 の Pine Script 移行支援</td><td><span class="status-badge">可</span></td></tr>
+<tr><td>MT4 / MT5 EA</td><td>SentinelFX 経路 で MT5 EA 連動、 過去 backtest data も import 可</td><td><span class="status-badge">可</span></td></tr>
+</table>
+
+<h2>移行 コスト</h2>
+<table class="tool-table">
+<tr><th>tier</th><th>対象</th><th>費用</th><th>期間</th></tr>
+<tr><td>Self-serve</td><td>CSV upload だけ で 完結 する 単純 移行 (~1000 rows)</td><td><strong>無料</strong></td><td>即時</td></tr>
+<tr><td>Assisted (初回 無料)</td><td>1 tool → Xiora 1 事業 の 標準 移行 (API 連携 含む)</td><td><strong>無料</strong> (30 日 以内 導入 契約 前提)</td><td>1-2 週</td></tr>
+<tr><td>Custom</td><td>複数 tool 統合、 大量 データ (100k+ rows)、 独自 変換 logic</td><td>個別 見積 (最低 ¥50,000-)</td><td>2-4 週</td></tr>
+<tr><td>Enterprise</td><td>SCORM/xAPI 統合、 SSO 連携、 audit trail 引継ぎ、 SOC 2 対応</td><td>個別 見積 (最低 ¥200,000-)</td><td>4-8 週</td></tr>
+</table>
+
+<h2>データ 主権 / エクスポート 保証</h2>
+<div class="callout">
+Xiora は 「顧客 データ の 所有 権 は 顧客 に 帰属 する」 を 基本 方針 と して います。 契約 終了 時 or いつ でも、 全 データ を 標準 format (CSV / JSON / SCORM) で 一括 export 可能。 API 経由 でも 個別 取得 可。 lock-in を 目的 と した 独自 format 化 は 一切 行いません。
+</div>
+
+<h2>お問い合わせ</h2>
+<div class="callout">
+移行 相談 は info@xiora-official.com (件名: [Migration] 相談) 宛。 現行 tool 名 と データ 量 (概算) を お知らせ いただける と、 24-48 時間 以内 に 具体的 な 移行 手順 と 期間 見積 を ご返信 いたします。
+</div>
+
+<p class="footer-meta">版数 v1.0 · 発行日 2026-07-22 · 発行元 Xiora Systems<br>
+最終更新 2026-07-22 · 見直し 周期: 3 ヶ月 毎 (次回 = 2026-10-22)</p>
+</main>
+</body>
+</html>

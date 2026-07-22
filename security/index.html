@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<meta content="#fbfbfd" name="theme-color">
+<meta content="light" name="color-scheme">
+<title>Security Policy | Xiora Systems</title>
+<meta content="Xiora Systems の セキュリティ policy。 顧客 データ 保護 · access control · secret management · incident response の 全項目 を 公開。" name="description">
+<link href="https://xiora-official.com/security/" rel="canonical">
+<meta content="index,follow" name="robots">
+<link href="/assets/css/style.css?v=20260702f" rel="stylesheet">
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png">
+<style>
+  .sec-container { max-width: 920px; margin: 0 auto; padding: 48px 24px 96px; line-height: 1.75; color: #111827; font-family: "Inter","Noto Sans JP",-apple-system,sans-serif; background: #fbfbfd; }
+  .sec-container h1 { font-size: 32px; margin: 0 0 12px; letter-spacing: 0.01em; font-weight: 700; }
+  .sec-container .hero-sub { color: #4b5563; font-size: 16px; margin: 0 0 40px; }
+  .sec-container h2 { font-size: 22px; margin: 48px 0 16px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb; font-weight: 600; }
+  .sec-container h3 { font-size: 16px; margin: 24px 0 10px; font-weight: 600; }
+  .sec-container p { margin: 8px 0 12px; }
+  .sec-container ul { padding-left: 24px; margin: 8px 0 12px; }
+  .sec-container li { margin: 6px 0; }
+  .breadcrumb { font-size: 12px; color: #6b7280; margin-bottom: 20px; }
+  .breadcrumb a { color: #4b5563; text-decoration: none; }
+  .layer-block { padding: 18px 22px; border: 1px solid #e5e7eb; border-radius: 10px; background: #ffffff; margin: 16px 0; }
+  .layer-block .layer-title { font-weight: 600; font-size: 15px; margin: 0 0 6px; display: flex; align-items: center; gap: 8px; }
+  .layer-block .layer-title .layer-num { display: inline-block; width: 24px; height: 24px; border-radius: 50%; background: #1e3a8a; color: #ffffff; text-align: center; line-height: 24px; font-size: 12px; font-weight: 600; }
+  .layer-block p { font-size: 13px; color: #4b5563; margin: 4px 0; }
+  .layer-block code { background: #f3f4f6; padding: 2px 6px; border-radius: 3px; font-size: 12px; font-family: ui-monospace, "SF Mono", monospace; }
+  .status-badge { display: inline-block; padding: 2px 10px; border-radius: 999px; border: 1px solid #d1fae5; background: #ecfdf5; color: #166534; font-size: 12px; font-weight: 500; margin-left: 6px; }
+  .status-badge.neutral { border-color: #e5e7eb; background: #f9fafb; color: #374151; }
+  .callout { padding: 16px 20px; background: #f9fafb; border-left: 3px solid #b91c1c; border-radius: 4px; margin: 20px 0; font-size: 13px; line-height: 1.7; color: #374151; }
+  .cta-row { display: flex; gap: 12px; margin: 32px 0; flex-wrap: wrap; }
+  .cta-row a { padding: 10px 18px; border: 1px solid #111827; border-radius: 6px; text-decoration: none; color: #111827; font-size: 14px; font-weight: 500; background: #ffffff; }
+  .cta-row a:hover { opacity: 0.85; }
+  .footer-meta { margin-top: 64px; padding-top: 24px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280; }
+</style>
+</head>
+<body>
+<main class="sec-container">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="/">Xiora Home</a> &nbsp;/&nbsp; <a href="/trust/">Trust Center</a> &nbsp;/&nbsp; Security Policy
+</nav>
+
+<h1>Security Policy</h1>
+<p class="hero-sub">Xiora Systems が 顧客 データ を 保護 する 具体的 な 手段 を 6 layer で 公開 します。 導入 検討 時 の 監査 資料 として ご利用 ください。</p>
+
+<div class="cta-row">
+  <a href="/trust/">Trust Center →</a>
+  <a href="/migration/">Migration 支援 →</a>
+  <a href="/legal/privacy.html">プライバシー ポリシー →</a>
+</div>
+
+<h2>Layer 1 — 通信 (In Transit)</h2>
+<div class="layer-block">
+  <div class="layer-title"><span class="layer-num">1</span> TLS 1.3 全端点 <span class="status-badge">enabled</span></div>
+  <p>顧客 と Xiora 間 の 全 request は TLS 1.3 で 暗号化。 HTTP は 全 domain で 自動 HTTPS リダイレクト。 HSTS max-age=31536000 (1 年)、 includeSubDomains 有効。</p>
+  <p>SSL 証明書: Let's Encrypt (Caddy 自動 更新) or Cloudflare 発行 (Universal SSL)。</p>
+  <p>weak cipher (SSL 3.0 / TLS 1.0 / TLS 1.1) は 全 endpoint で 無効化。</p>
+</div>
+
+<h2>Layer 2 — 保存 (At Rest)</h2>
+<div class="layer-block">
+  <div class="layer-title"><span class="layer-num">2</span> Postgres + pgcrypto AES-256 <span class="status-badge">enabled</span></div>
+  <p>Postgres 16 の 機微 field (contact / API key / PII) は pgcrypto の <code>pgp_sym_encrypt</code> で AES-256 暗号化。 schema 分離 で テナント 越境 read 不可。</p>
+  <p>Docker volume は VPS の 暗号化 disk (ConoHa 提供 の LUKS-equivalent) に 配置。</p>
+  <p>Cloudflare R2 / MinIO 保存 asset は edge レベル で 冗長 保存、 3-copy 以上。</p>
+</div>
+
+<h2>Layer 3 — Access Control</h2>
+<div class="layer-block">
+  <div class="layer-title"><span class="layer-num">3</span> Role-based + 2FA/TOTP <span class="status-badge">enabled</span></div>
+  <p>Xiora 内部 (XAI Portal) は TOTP 2FA 必須、 magic URL は HMAC-SHA256 署名 の 15 分 TTL、 auditor role は read-only。</p>
+  <p>顧客 側 auth は product 依存: Clerk (Nexa Academy) / OAuth (Google/Apple/LINE) / passkey (WebAuthn) を 使い分け。</p>
+  <p>全 API endpoint は role-based access control (RBAC)、 顧客 は 自 tenant データ のみ アクセス可。</p>
+</div>
+
+<h2>Layer 4 — Secret Management</h2>
+<div class="layer-block">
+  <div class="layer-title"><span class="layer-num">4</span> macOS Keychain + VPS .env, never in code <span class="status-badge">enabled</span></div>
+  <p>API key / 秘密鍵 / password は 全て:</p>
+  <ul>
+    <li>Reo 側: macOS Keychain (svce=xai:*) に 保管、 chat / log / commit に 直接 露出 させない</li>
+    <li>Server 側: VPS の <code>/opt/*/.env</code> に systemd 経由 で 供給、 file permission 600</li>
+    <li>rotation: 6 ヶ月 毎 に review、 breach 疑い 発生 時 は 即 rotate</li>
+  </ul>
+  <p>secret manifest (key 名 のみ、 値 は 出さない) は XAI Portal の /co/it で 全 employees が 監査 可能。</p>
+</div>
+
+<h2>Layer 5 — Vulnerability Management</h2>
+<div class="layer-block">
+  <div class="layer-title"><span class="layer-num">5</span> Sentry + Aegis (internal) + weekly dependency scan <span class="status-badge">enabled</span></div>
+  <p>ランタイム error / stack trace は Sentry に 集約 (xiora.sentry.io)。 全 project で source map 有効。</p>
+  <p>dependency vulnerability: 週次 <code>npm audit</code> / <code>pip-audit</code> / <code>cargo audit</code> を CI で 自動 実行、 critical は 即 patch。</p>
+  <p>侵入 payload 検出時 は Xiora 内部 の Aegis (defensive security OS) で sandbox 隔離 + 研究 + 予防策 蓄積 (外部 通報 なし)。</p>
+</div>
+
+<h2>Layer 6 — Incident Response</h2>
+<div class="layer-block">
+  <div class="layer-title"><span class="layer-num">6</span> 48 時間 以内 の 初動 + Responsible Disclosure <span class="status-badge">policy</span></div>
+  <p>Security incident 発生 時 の 対応 手順:</p>
+  <ul>
+    <li>覚知 → 24 時間 以内 に 初動 (影響 範囲 特定、 暫定 対応)</li>
+    <li>48 時間 以内 に 影響 顧客 に 通知</li>
+    <li>7 日 以内 に 恒久 対応 完了 + public post-mortem 公開</li>
+  </ul>
+  <p>Responsible disclosure 窓口: <code>info@xiora-official.com</code> (件名: [Security Report])。 発見者 の 匿名 希望 は 尊重、 report bounty は 現状 未整備 (Phase 2 予定)。</p>
+</div>
+
+<h2>過去 incident 履歴</h2>
+<p>2026-07-22 時点 で 顧客 影響 の 発生 した security incident は <strong>0 件</strong> です。 発生 時 は 本 page に 追記 の 上、 影響 顧客 に 個別 通知 いたします。</p>
+
+<h2>認証 / 適合</h2>
+<table style="width:100%; border-collapse:collapse; font-size:14px; margin: 12px 0;">
+<tr><th style="border:1px solid #e5e7eb; padding:8px 12px; text-align:left; background:#f9fafb;">項目</th><th style="border:1px solid #e5e7eb; padding:8px 12px; text-align:left; background:#f9fafb;">状態</th></tr>
+<tr><td style="border:1px solid #e5e7eb; padding:8px 12px;">PCI DSS SAQ-A</td><td style="border:1px solid #e5e7eb; padding:8px 12px;">Stripe 経由 決済 (カード 情報 非保持) で 準拠 <span class="status-badge">SAQ-A</span></td></tr>
+<tr><td style="border:1px solid #e5e7eb; padding:8px 12px;">SOC 2 Type II</td><td style="border:1px solid #e5e7eb; padding:8px 12px;">未取得 (2027 Q2 目標)。 内部 監査 log 実装 で 準備段階 <span class="status-badge neutral">roadmap</span></td></tr>
+<tr><td style="border:1px solid #e5e7eb; padding:8px 12px;">ISO 27001</td><td style="border:1px solid #e5e7eb; padding:8px 12px;">未取得 (2027 Q4 目標)。 情報 セキュリティ management system 整備 中 <span class="status-badge neutral">roadmap</span></td></tr>
+<tr><td style="border:1px solid #e5e7eb; padding:8px 12px;">GDPR</td><td style="border:1px solid #e5e7eb; padding:8px 12px;">EU 顧客 対応時 に 適用。 現状 は 日本国内 事業 中心 (privacy policy で 個情法 対応)</td></tr>
+</table>
+
+<h2>お問い合わせ</h2>
+<div class="callout">
+セキュリティ 関連 の 質問、 pen test 依頼、 監査 資料 請求 は <code>info@xiora-official.com</code> (件名: [Security Enquiry]) 宛 に ご連絡 ください。 貴社 の compliance 要件 に 合わせた 個別 対応 も 可能 です。
+</div>
+
+<p class="footer-meta">版数 v1.0 · 発行日 2026-07-22 · 発行元 Xiora Systems<br>
+最終更新 2026-07-22 · 見直し 周期: 3 ヶ月 毎 (次回 = 2026-10-22)</p>
+</main>
+</body>
+</html>
