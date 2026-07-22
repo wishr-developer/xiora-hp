@@ -60,7 +60,7 @@
 <p class="thanks-hero__eyebrow"><span class="dot"></span>Xiora Founder Pack Bundle · Download Center</p>
 <h1 class="thanks-hero__title">Xiora Founder Pack — 購入完了。</h1>
 <p class="thanks-hero__lead">
-ご購入 ありがとう ございます。 下記 5 asset を 順番 に お受け取り ください。 各 デジタル 4 asset は 決済 verify 後、 個別 download link で 提供 します。 Consulting 30 分 は 24 時間 以内 に info@xiora-official.com から 予約 URL を お送り します。
+ご購入 ありがとう ございます。 下記 4 asset を 順番 に お受け取り ください。 各 デジタル asset は 決済 verify 後、 個別 download link で 提供 します。 決済後 即時 DL — 予約 待ち や 手動 手続き は ありません。
 </p>
 <div id="verify-status" class="thanks-status">
 決済 情報 を verify 中... しばらく お待ち ください。
@@ -106,15 +106,6 @@
 
 </ul>
 
-<aside class="thanks-consulting">
-<h3>Asset 05 · Consulting 30 min Diagnostic (次 の アクション)</h3>
-<p>
-Xiora 代表 沓澤 怜士 と Zoom 30 分 の 個別 診断 セッション は、 決済 完了 後 <strong>24 時間 以内</strong> に info@xiora-official.com から 予約 URL を メール で ご案内 します。
-</p>
-<p>
-予約 URL が 24 時間 経過 後 も 届かない 場合、 または 事前 の ご質問 は info@xiora-official.com まで ご連絡 ください (件名: 「Founder Pack Bundle — Consulting 予約 URL の 確認」 で ご送信 いただけます と スムーズ です)。
-</p>
-</aside>
 
 <p style="font-size:12.5px;color:#9ca3af;margin:32px 0 0;">
 本 ページ は Founder Pack Bundle 購入者 専用 の Download Center です。 asset の URL は Stripe セッション ID で 認証 され、決済 完了 者のみ アクセス できます。 URL の 共有 は お控え ください。 特商法 表記 は <a href="/legal/tokusho.html" style="color:#6b7280;">こちら</a>。
@@ -168,12 +159,12 @@ Xiora 代表 沓澤 怜士 と Zoom 30 分 の 個別 診断 セッション は
   // links from info@ within 24h, but the placeholders below let buyers try
   // an anchor immediately with a soft failure that redirects to the LP.
   statusEl.className = "thanks-status thanks-status--ok";
-  statusEl.textContent = "決済 確認 済み。 下記 の 4 asset を お受け取り ください。 Consulting 30 分 は 別途 info@xiora-official.com から ご案内 します。";
+  statusEl.textContent = "決済 確認 済み。 下記 の 4 asset を お受け取り ください。";
 
   buttons.forEach(function(btn) {
     var slug = btn.getAttribute("data-slug");
     // Point to the per-product LP as a safe fallback URL. The real download
-    // link will be emailed within 24h alongside the Consulting booking URL,
+    // link is served immediately via /api/dl (Stripe session_id verified),
     // so buyers have TWO independent paths to the assets. (Anchor stays as
     // a soft-fail if server extension isn't deployed yet.)
     btn.href = "/api/dl?session_id=" + encodeURIComponent(sessionId) + "&slug=" + encodeURIComponent(slug);
