@@ -218,7 +218,7 @@
     },
     {
       "id": "2026-07-19-koshigaya-it-ai-4-axes",
-      "date": "2026-07-19",
+      "date": "2026-07-14",
       "type": "insight",
       "kind": "release",
       "title": "越谷・草加・川口の中小 IT/SaaS 会社が AI 導入を選ぶ 4 判断軸 — 従業員 5-30 名 SaaS 受託 / 自社 SaaS でよくある判断ミスと実装事例",
@@ -230,7 +230,7 @@
     },
     {
       "id": "2026-07-19-ai-agent-5-rules",
-      "date": "2026-07-19",
+      "date": "2026-07-15",
       "type": "insight",
       "kind": "release",
       "title": "24/7 AI エージェント運用で SaaS スタートアップが踏むべき 5 つの判断ルール — 執行境界・BAN リスク・OAuth guardrail・可逆性 diff・blanket 承認",
@@ -242,7 +242,7 @@
     },
     {
       "id": "2026-07-19-stripe-webhook-6-pitfalls",
-      "date": "2026-07-19",
+      "date": "2026-07-11",
       "type": "insight",
       "kind": "release",
       "title": "Stripe webhook を本番運用する時に踏むべき 6 つの落とし穴 — 冪等性・署名検証・タイムアウト・再送・重複・失敗記録",
@@ -254,7 +254,7 @@
     },
     {
       "id": "2026-07-19-subsidy-ai-draft-3-stages",
-      "date": "2026-07-19",
+      "date": "2026-07-12",
       "type": "insight",
       "kind": "release",
       "title": "補助金・助成金の申請書を AI で下書きする 3 段階プロセス — 行政書士法に適合させる書き方",
@@ -266,7 +266,7 @@
     },
     {
       "id": "insight-ai-agent-task-selection-4-axes",
-      "date": "2026-07-19",
+      "date": "2026-07-13",
       "type": "insight",
       "kind": "release",
       "title": "AI エージェントに何をやらせるかを決める 4 軸判断 framework (時間・可逆性・失敗コスト・データ整備度)",
@@ -278,7 +278,7 @@
     },
     {
       "id": "insight-restaurant-review-ai-5-caveats",
-      "date": "2026-07-19",
+      "date": "2026-07-15",
       "type": "insight",
       "kind": "release",
       "title": "飲食店の口コミ返信を AI で自動化する時に注意すべき 5 項目 (景表法・薬機法・顧客体験)",
@@ -290,7 +290,7 @@
     },
     {
       "id": "insight-reduce-churn-ai-3-patterns",
-      "date": "2026-07-19",
+      "date": "2026-07-17",
       "type": "insight",
       "kind": "release",
       "title": "解約率を下げる AI 導入 3 パターン (SaaS スタートアップ 実装例)",
@@ -302,7 +302,7 @@
     },
     {
       "id": "insight-nextjs-15-corporate-site-design",
-      "date": "2026-07-19",
+      "date": "2026-07-17",
       "type": "insight",
       "kind": "release",
       "title": "Next.js 15 時代の、コーポレートサイト設計指針",
@@ -338,7 +338,7 @@
     },
     {
       "id": "2026-07-19-kigen-5-problems",
-      "date": "2026-07-19",
+      "date": "2026-07-20",
       "type": "insight",
       "kind": "release",
       "title": "AI 期限管理アプリ Kigen が解決する 5 つの生活課題 — 免許・保証・サブスク・薬・車検",
@@ -361,7 +361,7 @@
     },
     {
       "id": "2026-07-18-ai-saas-solo-founder",
-      "date": "2026-07-18",
+      "date": "2026-07-10",
       "type": "insight",
       "kind": "release",
       "title": "単独創業者が AI で 24/7 稼働の SaaS 会社を作る方法 — Xiora の実践事例",
@@ -373,7 +373,7 @@
     },
     {
       "id": "2026-07-18-restaurant-qr-order-2026",
-      "date": "2026-07-18",
+      "date": "2026-07-09",
       "type": "insight",
       "kind": "release",
       "title": "2026 年、飲食店の QR モバイルオーダー導入で本当に得する店 / しない店",
@@ -397,7 +397,7 @@
     },
     {
       "id": "2026-07-16-gourmie-beta-learnings",
-      "date": "2026-07-16",
+      "date": "2026-07-08",
       "type": "insight",
       "kind": "release",
       "title": "Gourmie β 運用で分かった、飲食コンシェルジュの需要と課題",
@@ -421,7 +421,7 @@
     },
     {
       "id": "2026-07-16-xai-org-architecture",
-      "date": "2026-07-16",
+      "date": "2026-07-18",
       "type": "insight",
       "kind": "release",
       "title": "Xiora AI 組織アーキテクチャ: 9 agent + orchestrator + 憲法投入で何が変わったか",
