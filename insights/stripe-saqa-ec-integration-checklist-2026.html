@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Stripe SAQ-A 準拠 の EC 統合 チェックリスト 2026 — 法令 + 冪等 + Webhook | Xiora Insights</title>
+<meta content="EC で Stripe 決済 を 導入 する時 の SAQ-A 準拠 チェックリスト、Webhook 冪等化 の 実装 パターン、Stripe Radar (不正検知)、特商法 対応、返金 flow の 設計。 EC-Autopilot は SAQ-A の 24 項目 を 標準 対応 済。" name="description"/>
+<link href="https://xiora-official.com/insights/stripe-saqa-ec-integration-checklist-2026.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/stripe-saqa-ec-integration-checklist-2026.html" property="og:url"/>
+<meta content="Stripe SAQ-A 準拠 の EC 統合 チェックリスト 2026 — 法令 + 冪等 + Webhook | Xiora" property="og:title"/>
+<meta content="EC で Stripe 決済 を 導入 する時 の SAQ-A 準拠 チェックリスト、Webhook 冪等化 の 実装 パターン、Stripe Radar (不正検知)、特商法 対応、返金 flow の 設計。 EC-Autopilot は SAQ-A の 24 項目 を 標準 対応 済。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Stripe SAQ-A 準拠 の EC 統合 チェックリスト 2026 — 法令 + 冪等 + Webhook" name="twitter:title"/>
+<meta content="EC で Stripe 決済 を 導入 する時 の SAQ-A 準拠 チェックリスト、Webhook 冪等化 の 実装 パターン、Stripe Radar (不正検知)、特商法 対応、返金 flow の 設計。 EC-Autopilot は SAQ-A の 24 項目 を 標準 対応 済。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260722a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stripe SAQ-A 準拠 の EC 統合 チェックリスト 2026 — 法令 + 冪等 + Webhook",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "EC で Stripe 決済 を 導入 する時 の SAQ-A 準拠 チェックリスト、Webhook 冪等化 の 実装 パターン、Stripe Radar (不正検知)、特商法 対応、返金 flow の 設計。 EC-Autopilot は SAQ-A の 24 項目 を 標準 対応 済。",
+  "inLanguage": "ja",
+  "author": {"@type": "Organization", "name": "Xiora Systems"},
+  "publisher": {"@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/"},
+  "datePublished": "2026-08-01",
+  "mainEntityOfPage": "https://xiora-official.com/insights/stripe-saqa-ec-integration-checklist-2026.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Stripe SAQ-A 準拠 の EC 統合 チェックリスト 2026 — 法令 + 冪等 + Webhook</span>
+</nav>
+<header class="article-header">
+<span class="insight-cat">EC compliance</span>
+<h1 class="insight-title">Stripe SAQ-A 準拠 の EC 統合 チェックリスト 2026 — 法令 + 冪等 + Webhook</h1>
+<time datetime="2026-08-01" class="article-date">2026-08-01</time>
+</header>
+
+<aside class="insight-cta" style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;background:#fafafa;">
+<p style="margin:0 0 12px 0;font-size:14px;">この記事 の 対応 product を すぐ 試す:</p>
+<a class="btn btn--primary" href="https://buy.stripe.com/dRmfZh0s4aYz9Mgfm61ck0d" style="display:inline-block;padding:12px 20px;background:#0a0a0a;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">SAQ-A 準拠 の EC を ¥4,980/月 で ↗</a>
+</aside>
+
+<h2>PCI DSS SAQ-A とは</h2>
+<p>PCI DSS の 自己 質問票 の 中で最も 軽い 24 質問。 前提: カード情報 を 自社 で 一切 保管 / 処理しない (Stripe Checkout redirect 型 のみ 該当)。 EC-Autopilot は 標準 で SAQ-A 型、 iframe embed 版 (SAQ-A-EP) は非採用。</p>
+<h2>Stripe Checkout の 実装 5 step</h2>
+<p>Step 1: server で Session 発行 (customer_email / line_items / mode)。 Step 2: 顧客 を Session URL に redirect。 Step 3: 顧客 が Stripe UI で 決済。 Step 4: success_url / cancel_url で 顧客 が 戻る。 Step 5: Webhook で 決済完了 検知 → 注文 状態 更新。</p>
+<h2>Webhook 冪等化 の 6 パターン</h2>
+<p>同一 event.id を 2 度 受信、 event 順序 逆転、 payload 一部欠損、 signature mismatch、 network timeout、 replay attack。 EC-Autopilot の Webhook consumer は これら 6 パターン を testcontainers で 網羅 テスト、 副作用 は 必ず 1 度 のみ (idempotency_key + DB unique constraint)。</p>
+<h2>Stripe Radar (不正検知)</h2>
+<p>Stripe Radar は ML 型 不正検知、 追加費用 なし で AI が 自動判定。 高リスク 判定 = block、 中リスク = review queue。 EC-Autopilot は Radar 判定 + 独自加点 (¥30,000 以上 は自動 hold、 短時間 連続注文 は hold) の 2 段構え。</p>
+<h2>特商法 表記 の 必須 9 項目</h2>
+<p>販売者名 / 住所 / 電話 / メール / 販売価格 / 送料 / 支払方法 / 引渡時期 / 返品条件。 これら は 商品ページ から 1 click で 到達可能 でなければ 特商法違反。 EC-Autopilot は テナント 登録時 に 9 項目 を強制 入力、 各 商品 ページ footer に 自動 埋込。</p>
+<h2>返金 flow (人の承認 gate)</h2>
+<p>¥10,000 以上 の 返金 は 必ず 人 (owner ロール) の 承認 gate。 Stripe Refund API は 冪等 (idempotency_key 必須)、 partial refund 対応、 返金理由 は 監査ログ に必ず記録 (未記録 の 返金 は Stripe が 30 日後 に 自動 refund 拒否 する 可能性)。</p>
+<h2>SAQ-A 24 質問 の 対応 例</h2>
+<p>「Q1: カード会員データ を 自社 で保管していない?」= 「はい」(Stripe Checkout redirect 型)。 「Q7: 攻撃者 が cardholder data 環境 に 入 込む 経路 は?」= 「該当 なし (自社 では 一切扱わない)」。 EC-Autopilot は 全 24 質問 の 回答テンプレ を 標準 提供。</p>
+<h2>Stripe monthly cost 試算</h2>
+<p>決済手数料 3.6 % (カード) / 3.4 % (JCB 除く) / 2.4 % (デビット) / ¥170 / 件 (コンビニ払い)。 月商 100 万円 = 決済手数料 3.6 万円 = Shopify Payments 相当。 EC-Autopilot は Stripe のみ、 Shopify Payments / PAY.JP 等 は Phase 2 で 追加検討。</p>
+
+<aside class="insight-cta" style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:32px 0;background:#fafafa;">
+<p style="margin:0 0 12px 0;font-size:14px;font-weight:600;">Stripe SAQ-A 準拠 の EC 統合 チェックリスト 2026 — 法令 + 冪等 + Webhook を もっと 詳しく:</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;">
+<a class="btn btn--primary" href="https://buy.stripe.com/dRmfZh0s4aYz9Mgfm61ck0d" style="display:inline-block;padding:12px 20px;background:#0a0a0a;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">SAQ-A 準拠 の EC を ¥4,980/月 で ↗</a>
+<a href="https://ec-autopilot.pages.dev/" style="display:inline-block;padding:12px 20px;background:#fff;color:#0a0a0a;text-decoration:none;border-radius:8px;border:1px solid #e5e7eb;font-weight:500;">LP を 見る ↗</a>
+</div>
+</aside>
+
+<h2>References</h2><ul><li><a href="https://stripe.com/docs/security/saq" target="_blank" rel="noopener nofollow">https://stripe.com/docs/security/saq</a></li><li><a href="https://stripe.com/docs/webhooks/best-practices" target="_blank" rel="noopener nofollow">https://stripe.com/docs/webhooks/best-practices</a></li><li><a href="https://stripe.com/docs/radar" target="_blank" rel="noopener nofollow">https://stripe.com/docs/radar</a></li><li><a href="https://www.no-trouble.caa.go.jp/what/mailorder/" target="_blank" rel="noopener nofollow">https://www.no-trouble.caa.go.jp/what/mailorder/</a></li><li><a href="https://www.pcisecuritystandards.org/document_library" target="_blank" rel="noopener nofollow">https://www.pcisecuritystandards.org/document_library</a></li></ul>
+
+<footer class="article-footer" style="margin-top:48px;padding-top:24px;border-top:1px solid #e5e7eb;">
+<p style="font-size:13px;color:#6b7280;">この記事 は Xiora Systems の 情報提供 として 公開。 執筆 は AI エージェント + 沓澤 怜士 (代表) の check。 免責事項 は 各 product LP を 参照 ください。</p>
+<p style="font-size:13px;color:#6b7280;">お問い合わせ: <a href="mailto:info@xiora-official.com">info@xiora-official.com</a> (AI 自動応答)</p>
+</footer>
+
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>

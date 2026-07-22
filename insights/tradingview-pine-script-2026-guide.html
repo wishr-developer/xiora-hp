@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>TradingView Pine Script 2026 入門 — indicator 作成 / backtest / alert | Xiora Insights</title>
+<meta content="TradingView Pine Script v5 の 基本 (varip / plot / strategy)、backtest 実行手順、alert 設定、Xiora Algo が どう Pine Script で indicator を構築するかを解説。 金融商品取引法 情報提供のみ、投資判断 は 自己責任。" name="description"/>
+<link href="https://xiora-official.com/insights/tradingview-pine-script-2026-guide.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/tradingview-pine-script-2026-guide.html" property="og:url"/>
+<meta content="TradingView Pine Script 2026 入門 — indicator 作成 / backtest / alert | Xiora" property="og:title"/>
+<meta content="TradingView Pine Script v5 の 基本 (varip / plot / strategy)、backtest 実行手順、alert 設定、Xiora Algo が どう Pine Script で indicator を構築するかを解説。 金融商品取引法 情報提供のみ、投資判断 は 自己責任。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="TradingView Pine Script 2026 入門 — indicator 作成 / backtest / alert" name="twitter:title"/>
+<meta content="TradingView Pine Script v5 の 基本 (varip / plot / strategy)、backtest 実行手順、alert 設定、Xiora Algo が どう Pine Script で indicator を構築するかを解説。 金融商品取引法 情報提供のみ、投資判断 は 自己責任。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260722a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "TradingView Pine Script 2026 入門 — indicator 作成 / backtest / alert",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "TradingView Pine Script v5 の 基本 (varip / plot / strategy)、backtest 実行手順、alert 設定、Xiora Algo が どう Pine Script で indicator を構築するかを解説。 金融商品取引法 情報提供のみ、投資判断 は 自己責任。",
+  "inLanguage": "ja",
+  "author": {"@type": "Organization", "name": "Xiora Systems"},
+  "publisher": {"@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/"},
+  "datePublished": "2026-08-03",
+  "mainEntityOfPage": "https://xiora-official.com/insights/tradingview-pine-script-2026-guide.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">TradingView Pine Script 2026 入門 — indicator 作成 / backtest / alert</span>
+</nav>
+<header class="article-header">
+<span class="insight-cat">Trading</span>
+<h1 class="insight-title">TradingView Pine Script 2026 入門 — indicator 作成 / backtest / alert</h1>
+<time datetime="2026-08-03" class="article-date">2026-08-03</time>
+</header>
+
+<aside class="insight-cta" style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;background:#fafafa;">
+<p style="margin:0 0 12px 0;font-size:14px;">この記事 の 対応 product を すぐ 試す:</p>
+<a class="btn btn--primary" href="https://buy.stripe.com/bJe8wP5Mo3w73nS6PA1ck0r" style="display:inline-block;padding:12px 20px;background:#0a0a0a;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">Xiora Algo (¥8,800/月) を試す ↗</a>
+</aside>
+
+<h2>Pine Script v5 の 概要</h2>
+<p>TradingView 独自 の DSL、簡潔 な 文法 で indicator / strategy を記述。 v5 は 2021 発表、v4 と 非互換 で 大幅刷新。 主要 変更: `study` → `indicator`、`security` → `request.security`、変数 型 の 明示。</p>
+<h2>indicator の 骨格</h2>
+<pre><code class="language-pine">//@version=5
+indicator('Xiora RSI+BB', overlay=false)
+length = input.int(14, 'RSI length')
+source = input(close, 'Source')
+rsi_val = ta.rsi(source, length)
+plot(rsi_val, 'RSI', color=color.orange)
+hline(70, 'Overbought', color=color.red)
+hline(30, 'Oversold', color=color.green)
+</code></pre>
+<h2>varip vs var</h2>
+<p>`var` = init 時 1 度のみ (bar 単位で保持)、`varip` = tick 毎に 保持 (リアルタイム 実行時 のみ差)。 backtest では 挙動 が異なる、リアル運用時のみの trailing stop 等 で varip 使用。</p>
+<h2>backtest 実装</h2>
+<pre><code class="language-pine">//@version=5
+strategy('Xiora BB Reversal', overlay=true)
+[bbUpper, bbBasis, bbLower] = ta.bb(close, 20, 2)
+longCondition = ta.crossover(close, bbLower)
+if longCondition
+    strategy.entry('Long', strategy.long)
+shortCondition = ta.crossunder(close, bbUpper)
+if shortCondition
+    strategy.entry('Short', strategy.short)
+</code></pre>
+<h2>backtest の 落とし穴</h2>
+<p>look-ahead bias (未来 データ 参照)、over-fitting (train 期間 に fit)、survivor bias (退場 銘柄除外)、slippage 無視、手数料 過小評価 の 5 大 落とし穴。 Xiora Algo は 全 backtest で スリッページ 2 pips / 手数料 0.1 % 込 を 標準 適用。</p>
+<h2>alert 設定</h2>
+<p>`alert(message, alert.freq_once_per_bar_close)` で bar 確定時 に 通知。 TradingView Alert → Webhook で Discord / Slack / メール / 独自 API に 転送。 Xiora Algo は Discord community に 自動投稿、 有料会員 の み 閲覧可。</p>
+<h2>マルチマーケット 対応</h2>
+<p>`request.security()` で 別 銘柄 の データ 取得可 (単一 chart から Forex + 米株 の 相関 分析 等)。 Xiora Algo indicator は デフォルト で 対応 マーケット list (Forex 28 通貨 / 仮想通貨 top 50 / 米株 S&P500) を 内蔵。</p>
+<h2>Xiora Algo indicator の 提供 形式</h2>
+<p>TradingView invite-only script として 提供。 決済 完了 → 顧客が TradingView username を form 入力 → 15 分以内 に API 経由 で 自動 invite。 手動 invite 待ちゼロ、 完全 self-serve。 免責: 投資判断 は 自己責任、 金融商品取引法 情報提供のみ。</p>
+
+<aside class="insight-cta" style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:32px 0;background:#fafafa;">
+<p style="margin:0 0 12px 0;font-size:14px;font-weight:600;">TradingView Pine Script 2026 入門 — indicator 作成 / backtest / alert を もっと 詳しく:</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;">
+<a class="btn btn--primary" href="https://buy.stripe.com/bJe8wP5Mo3w73nS6PA1ck0r" style="display:inline-block;padding:12px 20px;background:#0a0a0a;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">Xiora Algo (¥8,800/月) を試す ↗</a>
+<a href="https://xiora-algo.pages.dev/" style="display:inline-block;padding:12px 20px;background:#fff;color:#0a0a0a;text-decoration:none;border-radius:8px;border:1px solid #e5e7eb;font-weight:500;">LP を 見る ↗</a>
+</div>
+</aside>
+
+<h2>References</h2><ul><li><a href="https://www.tradingview.com/pine-script-docs/en/v5/index.html" target="_blank" rel="noopener nofollow">https://www.tradingview.com/pine-script-docs/en/v5/index.html</a></li><li><a href="https://www.tradingview.com/pine-script-reference/v5/" target="_blank" rel="noopener nofollow">https://www.tradingview.com/pine-script-reference/v5/</a></li><li><a href="https://kabu.com/investment/guide/technical/index.html" target="_blank" rel="noopener nofollow">https://kabu.com/investment/guide/technical/index.html</a></li><li><a href="https://www.fsa.go.jp/policy/kinyu_shohin_torihiki/" target="_blank" rel="noopener nofollow">https://www.fsa.go.jp/policy/kinyu_shohin_torihiki/</a></li><li><a href="https://en.wikipedia.org/wiki/Look-ahead_bias" target="_blank" rel="noopener nofollow">https://en.wikipedia.org/wiki/Look-ahead_bias</a></li></ul>
+
+<footer class="article-footer" style="margin-top:48px;padding-top:24px;border-top:1px solid #e5e7eb;">
+<p style="font-size:13px;color:#6b7280;">この記事 は Xiora Systems の 情報提供 として 公開。 執筆 は AI エージェント + 沓澤 怜士 (代表) の check。 免責事項 は 各 product LP を 参照 ください。</p>
+<p style="font-size:13px;color:#6b7280;">お問い合わせ: <a href="mailto:info@xiora-official.com">info@xiora-official.com</a> (AI 自動応答)</p>
+</footer>
+
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>

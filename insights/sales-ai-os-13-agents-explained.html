@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Sales AI OS 13 agents 詳解 — 営業を 8 工程で分業する設計 | Xiora Insights</title>
+<meta content="Sales AI OS の 13 AI エージェント (Lead / Research / Scoring / Content / Review / Outreach / Conversation / Appointment / Proposal / Contract / Billing / CRM / Analytics) を各 400 字で解説。 Salesforce との比較表、Postgres 16 RLS 設計、¥3,000/月 で開始できる完全自動営業 SaaS の全容。" name="description"/>
+<link href="https://xiora-official.com/insights/sales-ai-os-13-agents-explained.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/sales-ai-os-13-agents-explained.html" property="og:url"/>
+<meta content="Sales AI OS 13 agents 詳解 — 営業を 8 工程で分業する設計 | Xiora" property="og:title"/>
+<meta content="Sales AI OS の 13 AI エージェント (Lead / Research / Scoring / Content / Review / Outreach / Conversation / Appointment / Proposal / Contract / Billing / CRM / Analytics) を各 400 字で解説。 Salesforce との比較表、Postgres 16 RLS 設計、¥3,000/月 で開始できる完全自動営業 SaaS の全容。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="Sales AI OS 13 agents 詳解 — 営業を 8 工程で分業する設計" name="twitter:title"/>
+<meta content="Sales AI OS の 13 AI エージェント (Lead / Research / Scoring / Content / Review / Outreach / Conversation / Appointment / Proposal / Contract / Billing / CRM / Analytics) を各 400 字で解説。 Salesforce との比較表、Postgres 16 RLS 設計、¥3,000/月 で開始できる完全自動営業 SaaS の全容。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260722a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sales AI OS 13 agents 詳解 — 営業を 8 工程で分業する設計",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "Sales AI OS の 13 AI エージェント (Lead / Research / Scoring / Content / Review / Outreach / Conversation / Appointment / Proposal / Contract / Billing / CRM / Analytics) を各 400 字で解説。 Salesforce との比較表、Postgres 16 RLS 設計、¥3,000/月 で開始できる完全自動営業 SaaS の全容。",
+  "inLanguage": "ja",
+  "author": {"@type": "Organization", "name": "Xiora Systems"},
+  "publisher": {"@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/"},
+  "datePublished": "2026-07-22",
+  "mainEntityOfPage": "https://xiora-official.com/insights/sales-ai-os-13-agents-explained.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Sales AI OS 13 agents 詳解 — 営業を 8 工程で分業する設計</span>
+</nav>
+<header class="article-header">
+<span class="insight-cat">Product Deep Dive</span>
+<h1 class="insight-title">Sales AI OS 13 agents 詳解 — 営業を 8 工程で分業する設計</h1>
+<time datetime="2026-07-22" class="article-date">2026-07-22</time>
+</header>
+
+<aside class="insight-cta" style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;background:#fafafa;">
+<p style="margin:0 0 12px 0;font-size:14px;">この記事 の 対応 product を すぐ 試す:</p>
+<a class="btn btn--primary" href="https://buy.stripe.com/4gMcN50s4aYze2w7TE1ck0a" style="display:inline-block;padding:12px 20px;background:#0a0a0a;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">Sales AI OS を ¥3,000/月 で 始める ↗</a>
+</aside>
+
+<h2>なぜ 13 の agent に分けたか</h2>
+<p>営業は 「Lead → Research → Scoring → Content → Review → Outreach → Conversation → Appointment → Proposal → Contract → Billing → CRM → Analytics」の 13 工程に分解できます。 1 つの巨大 agent に全部やらせる vs 分業させる vs 半自動化 の 3 択の中で、Sales AI OS は分業を選びました。 各 agent が独立してテスト可能で、失敗時の局所化ができるからです。</p>
+<h2>Lead agent — 公開情報からリード収集</h2>
+<p>Google Maps · 商工会議所 名簿 · 業界 DB · SNS の 4 経路 から robots.txt 遵守で lead を収集。 各 lead に industry / employee_count / recent_news の 3 属性を最低限持たせます。 個情法 の 「公開情報の適正取得」に該当する範囲のみを収集、非公開データは 一切扱いません。</p>
+<h2>Research agent — 会社分析 3 軸</h2>
+<p>DX 度 (公式サイト の技術 stack から推定) · SEO 順位 (10 主要 KW での順位) · 採用状況 (公開求人 URL の 有無) の 3 軸で 会社を分析。 各分析には根拠 URL を必ず記録、Scoring 時に参照。</p>
+<h2>Scoring agent — 100 点満点 + 根拠</h2>
+<p>Research 結果 + Lead 属性 を 特徴量 として、100 点 scoring。 60 点未満 = 送信対象外、60-79 = follow up 対象、80+ = 即座に Content agent に引き渡し。 判定根拠を 5 行以内で必ず出力、ブラックボックス scoring 禁止。</p>
+<h2>Content agent — テンプレ感のない文面</h2>
+<p>件名 20 字 + 本文 300-500 字 の 個別 pitch を生成。 SPECIFIC_FACT slot (会社固有の事実、Research から引用) を必ず埋め込み、テンプレ blast を回避。 A/B test は subject 5 パターン × 本文 3 パターン = 15 バリアント。</p>
+<h2>Review + Outreach agent — 送信 gate + 予約</h2>
+<p>Review agent は 生成文面 を 憲法 (押し売り禁止 / 誇大表現禁止 / 景表法 / 特商法) の 4 pass で 検査。 pass すると Outreach agent が送信予約 (24 時間 内 同一 domain 1 通 制限、SMTP は Postfix relay 経由)。</p>
+<h2>契約 / 決済 は 必ず 人の gate</h2>
+<p>Contract + Billing 2 agent は自動化不可 の Absolute gate 領域。 電子契約 の 承認、 大口決済 の 承認、返金 は 必ず人 (owner ロール のみ) の承認 gate を通過します。 これで 完全自動化 が 「暴走」に至らない設計。</p>
+<h2>Salesforce との比較</h2>
+<p>Salesforce Sales Cloud は 汎用 CRM、Sales AI OS は 完全自動営業。 対比表: 人 の工数 (SF: 常時 vs SaOS: 承認のみ) / 初期学習 (SF: 数週間 vs SaOS: sign up で 即 稼働) / 単価 (SF: $25-300/user/月 vs SaOS: ¥3,000-¥100,000/組織/月)。</p>
+
+<aside class="insight-cta" style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:32px 0;background:#fafafa;">
+<p style="margin:0 0 12px 0;font-size:14px;font-weight:600;">Sales AI OS 13 agents 詳解 — 営業を 8 工程で分業する設計 を もっと 詳しく:</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;">
+<a class="btn btn--primary" href="https://buy.stripe.com/4gMcN50s4aYze2w7TE1ck0a" style="display:inline-block;padding:12px 20px;background:#0a0a0a;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">Sales AI OS を ¥3,000/月 で 始める ↗</a>
+<a href="https://sales-ai-os.pages.dev/" style="display:inline-block;padding:12px 20px;background:#fff;color:#0a0a0a;text-decoration:none;border-radius:8px;border:1px solid #e5e7eb;font-weight:500;">LP を 見る ↗</a>
+</div>
+</aside>
+
+<h2>References</h2><ul><li><a href="https://openai.com/index/openai-o3/" target="_blank" rel="noopener nofollow">https://openai.com/index/openai-o3/</a></li><li><a href="https://www.anthropic.com/news/claude-3-5-sonnet" target="_blank" rel="noopener nofollow">https://www.anthropic.com/news/claude-3-5-sonnet</a></li><li><a href="https://stripe.com/docs/security" target="_blank" rel="noopener nofollow">https://stripe.com/docs/security</a></li><li><a href="https://www.postgresql.org/docs/16/row-security-of-tables.html" target="_blank" rel="noopener nofollow">https://www.postgresql.org/docs/16/row-security-of-tables.html</a></li><li><a href="https://www.caa.go.jp/policies/policy/consumer_transaction/act_email/" target="_blank" rel="noopener nofollow">https://www.caa.go.jp/policies/policy/consumer_transaction/act_email/</a></li></ul>
+
+<footer class="article-footer" style="margin-top:48px;padding-top:24px;border-top:1px solid #e5e7eb;">
+<p style="font-size:13px;color:#6b7280;">この記事 は Xiora Systems の 情報提供 として 公開。 執筆 は AI エージェント + 沓澤 怜士 (代表) の check。 免責事項 は 各 product LP を 参照 ください。</p>
+<p style="font-size:13px;color:#6b7280;">お問い合わせ: <a href="mailto:info@xiora-official.com">info@xiora-official.com</a> (AI 自動応答)</p>
+</footer>
+
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>

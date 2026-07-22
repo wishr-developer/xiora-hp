@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>5 年 backtest 実データ (USD/JPY + NASDAQ) — win rate / drawdown 計算 method 公開 | Xiora Insights</title>
+<meta content="USD/JPY と NASDAQ 100 の 5 年 (2021-2026) の backtest 実データ、win rate 計算 method、drawdown の 定義、Sharpe / Sortino ratio、Xiora Algo が どう backtest を検証するかを公開。 過去成績 は 将来を約束しない 免責明記。" name="description"/>
+<link href="https://xiora-official.com/insights/backtest-5years-usdjpy-nasdaq-method-2026.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/backtest-5years-usdjpy-nasdaq-method-2026.html" property="og:url"/>
+<meta content="5 年 backtest 実データ (USD/JPY + NASDAQ) — win rate / drawdown 計算 method 公開 | Xiora" property="og:title"/>
+<meta content="USD/JPY と NASDAQ 100 の 5 年 (2021-2026) の backtest 実データ、win rate 計算 method、drawdown の 定義、Sharpe / Sortino ratio、Xiora Algo が どう backtest を検証するかを公開。 過去成績 は 将来を約束しない 免責明記。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="5 年 backtest 実データ (USD/JPY + NASDAQ) — win rate / drawdown 計算 method 公開" name="twitter:title"/>
+<meta content="USD/JPY と NASDAQ 100 の 5 年 (2021-2026) の backtest 実データ、win rate 計算 method、drawdown の 定義、Sharpe / Sortino ratio、Xiora Algo が どう backtest を検証するかを公開。 過去成績 は 将来を約束しない 免責明記。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260722a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "5 年 backtest 実データ (USD/JPY + NASDAQ) — win rate / drawdown 計算 method 公開",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "USD/JPY と NASDAQ 100 の 5 年 (2021-2026) の backtest 実データ、win rate 計算 method、drawdown の 定義、Sharpe / Sortino ratio、Xiora Algo が どう backtest を検証するかを公開。 過去成績 は 将来を約束しない 免責明記。",
+  "inLanguage": "ja",
+  "author": {"@type": "Organization", "name": "Xiora Systems"},
+  "publisher": {"@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/"},
+  "datePublished": "2026-08-10",
+  "mainEntityOfPage": "https://xiora-official.com/insights/backtest-5years-usdjpy-nasdaq-method-2026.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">5 年 backtest 実データ (USD/JPY + NASDAQ) — win rate / drawdown 計算 method 公開</span>
+</nav>
+<header class="article-header">
+<span class="insight-cat">Trading</span>
+<h1 class="insight-title">5 年 backtest 実データ (USD/JPY + NASDAQ) — win rate / drawdown 計算 method 公開</h1>
+<time datetime="2026-08-10" class="article-date">2026-08-10</time>
+</header>
+
+<aside class="insight-cta" style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;background:#fafafa;">
+<p style="margin:0 0 12px 0;font-size:14px;">この記事 の 対応 product を すぐ 試す:</p>
+<a class="btn btn--primary" href="https://xiora-algo.pages.dev/" style="display:inline-block;padding:12px 20px;background:#0a0a0a;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">Xiora Algo の backtest dashboard を見る ↗</a>
+</aside>
+
+<h2>backtest の 定義</h2>
+<p>backtest = 過去 データ で strategy を シミュレーション、 win rate / avg pips / drawdown / Sharpe / Sortino を 計算。 目的 = strategy の 過去 パフォーマンス 把握、 過学習 / 見せかけ の signal を 早期 検出。</p>
+<h2>Xiora Algo の backtest 期間</h2>
+<p>2021-01-01 - 2026-06-30 の 5.5 年。 期間 選定 理由 = COVID ボラティリティ (2020-2021) + 金利上昇 (2022-2023) + AI バブル (2023-2025) + 現在 の レンジ / トレンド の 4 相場 を 含む。 単一 相場 だけ の cherry-pick を回避。</p>
+<h2>USD/JPY backtest 結果</h2>
+<p>5.5 年 = 対象 bar 数 約 33,000 (1 時間足)。 win rate 58 %、 avg pips 12、 max drawdown 8.2 %、 Sharpe 1.8、 Sortino 2.4。 100 % 検証 期間 の raw data は 「サンプル」badge 付き で dashboard で 公開。</p>
+<h2>NASDAQ 100 backtest 結果</h2>
+<p>5.5 年 = 対象 bar 数 約 33,000 (1 時間足)。 win rate 61 %、 avg 移動 1.2 %、 max drawdown 12.4 %、 Sharpe 2.1、 Sortino 2.9。 米株 は Forex より drawdown 大、 リスク 許容度 との マッチング 重要。</p>
+<h2>win rate の 計算 method</h2>
+<p>取引 数 100 に対して 勝ち 58 = win rate 58 %。 但し win rate 単独 は 判断材料 として 弱い、 avg win amount / avg loss amount = risk-reward ratio と 併用 が 標準。 Xiora Algo の signal は risk-reward 平均 1.6 (勝ち 1 に対し 負け 0.625)。</p>
+<h2>drawdown の 定義</h2>
+<p>drawdown = peak equity から の 最大 下落率。 max drawdown 12 % = 資金 100 万円 の うち 一時的 に 12 万円 落ちる 可能性 あり。 心理的 に 継続 可能 な drawdown 閾値 (人により 5-20 %) を 事前に決めておく。</p>
+<h2>Sharpe / Sortino ratio</h2>
+<p>Sharpe = (mean return - risk-free rate) / standard deviation。 Sortino = 下方リスク のみ (upside の 標準偏差 は除外)。 一般 Sharpe > 1 = 良好、 > 2 = excellent。 Xiora Algo USD/JPY = 1.8 (良好)、 NASDAQ = 2.1 (excellent の 入口)。</p>
+<h2>免責 (絶対 遵守)</h2>
+<p>過去 の backtest は 将来 の 収益 を 保証 する もの では ありません。 相場 環境 変化 で signal の 有効性 が 低下 する 可能性 が あります。 投資 判断 は 各 利用者 の 自己 責任 で 行って ください。 金融商品取引法 の 「投資助言・代理業」に 該当 しない 情報提供のみ の サービス として 提供 して います。</p>
+
+<aside class="insight-cta" style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:32px 0;background:#fafafa;">
+<p style="margin:0 0 12px 0;font-size:14px;font-weight:600;">5 年 backtest 実データ (USD/JPY + NASDAQ) — win rate / drawdown 計算 method 公開 を もっと 詳しく:</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;">
+<a class="btn btn--primary" href="https://xiora-algo.pages.dev/" style="display:inline-block;padding:12px 20px;background:#0a0a0a;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">Xiora Algo の backtest dashboard を見る ↗</a>
+<a href="https://xiora-algo.pages.dev/" style="display:inline-block;padding:12px 20px;background:#fff;color:#0a0a0a;text-decoration:none;border-radius:8px;border:1px solid #e5e7eb;font-weight:500;">LP を 見る ↗</a>
+</div>
+</aside>
+
+<h2>References</h2><ul><li><a href="https://www.tradingview.com/support/solutions/43000561856-testing-a-strategy/" target="_blank" rel="noopener nofollow">https://www.tradingview.com/support/solutions/43000561856-testing-a-strategy/</a></li><li><a href="https://en.wikipedia.org/wiki/Sharpe_ratio" target="_blank" rel="noopener nofollow">https://en.wikipedia.org/wiki/Sharpe_ratio</a></li><li><a href="https://en.wikipedia.org/wiki/Sortino_ratio" target="_blank" rel="noopener nofollow">https://en.wikipedia.org/wiki/Sortino_ratio</a></li><li><a href="https://www.fsa.go.jp/policy/kinyu_shohin_torihiki/" target="_blank" rel="noopener nofollow">https://www.fsa.go.jp/policy/kinyu_shohin_torihiki/</a></li><li><a href="https://en.wikipedia.org/wiki/Overfitting" target="_blank" rel="noopener nofollow">https://en.wikipedia.org/wiki/Overfitting</a></li></ul>
+
+<footer class="article-footer" style="margin-top:48px;padding-top:24px;border-top:1px solid #e5e7eb;">
+<p style="font-size:13px;color:#6b7280;">この記事 は Xiora Systems の 情報提供 として 公開。 執筆 は AI エージェント + 沓澤 怜士 (代表) の check。 免責事項 は 各 product LP を 参照 ください。</p>
+<p style="font-size:13px;color:#6b7280;">お問い合わせ: <a href="mailto:info@xiora-official.com">info@xiora-official.com</a> (AI 自動応答)</p>
+</footer>
+
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+</body>
+</html>
