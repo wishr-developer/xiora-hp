@@ -160,7 +160,7 @@
 <div><dt data-i18n="i18n.3efadf75f49e">想定業種</dt><dd data-i18n="i18n.d0dab78af00d">医療 / 美容クリニック</dd></div>
 <div><dt data-i18n="i18n.c0ce4a0f2ee2">想定規模</dt><dd data-i18n="i18n.c59875c43eb0">従業員 50–100 名 / 多院展開</dd></div>
 <div><dt data-i18n="i18n.04641f251cfa">想定期間</dt><dd data-i18n="i18n.def6330549cd">2 ヶ月＋月次伴走</dd></div>
-<div><dt data-i18n="i18n.3f4d16d53c92">技術構成</dt><dd>Next.js / OpenAI / LINE Messaging API / Supabase / GAS</dd></div>
+<div><dt data-i18n="i18n.3f4d16d53c92">技術構成</dt><dd>Next.js / OpenAI / LINE Messaging API / Postgres / GAS</dd></div>
 <div><dt data-i18n="i18n.11d1ca02ffbe">提供範囲</dt><dd data-i18n="i18n.4a9fd8798fa8">設計 / 実装 / ダッシュボード / 月次伴走</dd></div>
 </dl>
 </aside>
@@ -172,7 +172,7 @@
 </div>
 <div class="case-detail__section">
 <p class="case-detail__section-label" data-i18n="i18n.4fb74805636b">Solution（Xiora の支援モデル）</p>
-<p data-i18n="i18n.d5c2b524a921">院内ナレッジ（診療メニュー、料金、FAQ、各院ごとの空き枠ロジック）を <span class="term" data-def="RAG = 社内文書を AI が引用しながら回答する仕組み。「学習させる」のではなく「参照させる」イメージです。">RAG</span> で接続した AI エージェントを構築。LINE 公式アカウントと Web の双方に統合し、24 時間一次対応 → 担当者にエスカレーション、という運用に切り替えます。Supabase に対話履歴と CV 状態を蓄積し、Looker Studio で院別 KPI を可視化します。</p>
+<p data-i18n="i18n.d5c2b524a921">院内ナレッジ（診療メニュー、料金、FAQ、各院ごとの空き枠ロジック）を <span class="term" data-def="RAG = 社内文書を AI が引用しながら回答する仕組み。「学習させる」のではなく「参照させる」イメージです。">RAG</span> で接続した AI エージェントを構築。LINE 公式アカウントと Web の双方に統合し、24 時間一次対応 → 担当者にエスカレーション、という運用に切り替えます。Postgres に対話履歴と CV 状態を蓄積し、Looker Studio で院別 KPI を可視化します。</p>
 </div>
 <div class="case-detail__section">
 <p class="case-detail__section-label" data-i18n="i18n.83d5747605a9">Outcome（想定される効果・目安値）</p>
@@ -262,7 +262,7 @@
 </div>
 </div>
 <ul class="case-tile__stack">
-<li>LINE API</li><li>OpenAI</li><li>Supabase</li><li>Next.js</li>
+<li>LINE API</li><li>OpenAI</li><li>Postgres</li><li>Next.js</li>
 </ul>
 </article>
 <article class="case-tile reveal">
@@ -290,7 +290,7 @@
 </div>
 </div>
 <ul class="case-tile__stack">
-<li>XCloud Connect</li><li>Stripe</li><li>Next.js</li><li>Supabase</li>
+<li>XCloud Connect</li><li>Stripe</li><li>Next.js</li><li>Postgres</li>
 </ul>
 </article>
 <article class="case-tile reveal">
@@ -346,7 +346,7 @@
 </div>
 </div>
 <ul class="case-tile__stack">
-<li>Next.js</li><li>Supabase</li><li>OpenAI</li><li>LINE API</li>
+<li>Next.js</li><li>Postgres</li><li>OpenAI</li><li>LINE API</li>
 </ul>
 </article>
 </div>
@@ -360,7 +360,7 @@
 </div>
 <h3 class="case-tile__title" data-i18n="i18n.49234ba813cc">D2C コーポレートサイト刷新で、<br/>CVR を 2.3 倍へ。</h3>
 <p class="case-tile__summary" data-i18n="i18n.1d8ce2c5dd8d">
-          テンプレベースで CVR が頭打ちだった D2C ブランドサイトを、Next.js + Sanity で再構築。情報設計と速度を抜本改善し、広告依存度を下げる体質へ転換。
+          テンプレベースで CVR が頭打ちだった D2C ブランドサイトを、Next.js + MDX で再構築。情報設計と速度を抜本改善し、広告依存度を下げる体質へ転換。
         </p>
 <div class="case-tile__metrics">
 <div class="case-tile__metric">
@@ -377,7 +377,7 @@
 </div>
 </div>
 <ul class="case-tile__stack">
-<li>Next.js</li><li>Sanity</li><li>Stripe</li><li>Vercel</li>
+<li>Next.js</li><li>MDX</li><li>Stripe</li><li>Vercel</li>
 </ul>
 </article>
 <article class="case-tile reveal">
@@ -489,7 +489,7 @@
 </div>
 </div>
 <ul class="case-tile__stack">
-<li>LIFF</li><li>LINE API</li><li>Supabase</li><li>Claude</li>
+<li>LIFF</li><li>LINE API</li><li>Postgres</li><li>Claude</li>
 </ul>
 </article>
 </div>
