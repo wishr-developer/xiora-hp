@@ -109,6 +109,18 @@
       "build_cat": "Books Playbook"
     },
     {
+      "id": "2026-07-24-nexa-vs-teachable-thinkific-docebo",
+      "date": "2026-07-24",
+      "type": "insight",
+      "kind": "release",
+      "title": "Nexa Education OS 対 Teachable / Thinkific / Docebo — 日本語 + Stripe ¥ decimal + AI 内蔵 の 3 差別化",
+      "description": "Nexa Education OS (LMS SaaS 販売本体) と 海外 LMS 3 大 platform を、日本の教育機関 / 塾 / 企業研修 / 士業 目線 で 比較。 日本語 native、Stripe ¥ decimal 決済、AI 内蔵 (講師 / 採点 / ロードマップ) の 3 差別化 と、判定 flowchart で どんな 組織 で どちら が fit する か を 整理。",
+      "url": "/insights/nexa-vs-teachable-thinkific-docebo-2026-07-24.html",
+      "insight_cat": "Comparison",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Nexa Education OS"
+    },
+    {
       "id": "2026-07-24-kigenx-vs-anylist-cozi-bring",
       "date": "2026-07-24",
       "type": "insight",
