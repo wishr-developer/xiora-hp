@@ -109,6 +109,42 @@
       "build_cat": "Books Playbook"
     },
     {
+      "id": "2026-07-24-xiora-life-media-part1-room-retreat",
+      "date": "2026-07-24",
+      "type": "insight",
+      "kind": "release",
+      "title": "XioraLifeMedia Part 1 — ROOM 撤退 の 3 理由 と 学び",
+      "description": "2026-07-15 の 楽天 ROOM 停止 判断 を、単一 platform 依存 / 手動 属人 / cross-sell 経路 不在 の 3 課題 で 整理。 XioraLifeMedia 立ち上げ の why-past を 記録 する Journey 3 部作 の Part 1。",
+      "url": "/insights/xiora-life-media-part1-room-retreat-2026-07-24.html",
+      "insight_cat": "Journey",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "XioraLifeMedia"
+    },
+    {
+      "id": "2026-07-24-xiora-life-media-part2-relaunch",
+      "date": "2026-07-24",
+      "type": "insight",
+      "kind": "release",
+      "title": "XioraLifeMedia Part 2 — 復活 の 判断 と 3 変更 point",
+      "description": "2026-07-21 復活 directive を 前提 に、完全自動化 / 多 platform 統合 / cross-sell 設計 の 3 変更 point と Phase 1/2/3 実装順序 を 提示。 Journey 3 部作 の Part 2。",
+      "url": "/insights/xiora-life-media-part2-relaunch-2026-07-24.html",
+      "insight_cat": "Journey",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "XioraLifeMedia"
+    },
+    {
+      "id": "2026-07-24-xiora-life-media-part3-system",
+      "date": "2026-07-24",
+      "type": "insight",
+      "kind": "release",
+      "title": "XioraLifeMedia Part 3 — system 設計 と Xiora 12 product 内 の 6 番目主力 位置付け",
+      "description": "21 商品 inventory DB / 4 channel 統合 / 代理人 pipeline の 実装 と、Xiora 12 product family (KigenX / Nexa / Gourmie / Sales AI OS 等) との 補完関係、参考実在 (LTK / 楽天 ROOM 上位 curator) を 整理。 Journey 3 部作 の Part 3 (完結)。",
+      "url": "/insights/xiora-life-media-part3-lifemedia-system-2026-07-24.html",
+      "insight_cat": "Journey",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "XioraLifeMedia"
+    },
+    {
       "id": "2026-07-24-nexa-vs-teachable-thinkific-docebo",
       "date": "2026-07-24",
       "type": "insight",
