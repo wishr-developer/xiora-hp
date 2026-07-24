@@ -176,8 +176,8 @@
       "who": "個人投資家 (株式・投信・FX・crypto を複数 broker で運用している方)",
       "problem": "Excel + iSpeed + Yahoo Finance + Google スプレッドシートに分散した投資情報の一元化",
       "ai_use": "自作ルール alert の判定エンジン (Phase 2)、過去取引の税務向け整理",
-      "url": "/products/tradeos.html?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=tradeos",
-      "sub_short_desc": "個人投資家の tool 分散を統合。 broker OAuth は read-only のみ、投資助言業には該当させない情報 tool。 現状 Phase 1 (personal 運用中、Xiora Algo と組み合わせで Waitlist 予定)。",
+      "url": "https://trade.xiora-official.com/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=tradeos",
+      "sub_short_desc": "個人投資家の tool 分散を 1 dashboard に統合。 broker OAuth read-only、Kubera / Snowball Analytics 相当を日本語 native で。 Phase 2 開発中、waitlist 受付中。",
       "sub_cat_short": "Investing",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><path d=\"M8 44 L28 32 L46 40 L64 20 L82 26 L100 12 L114 18\"></path><path d=\"M8 50 L114 50\" opacity=\"0.4\"></path><circle cx=\"64\" cy=\"20\" r=\"2\" fill=\"currentColor\"></circle><circle cx=\"100\" cy=\"12\" r=\"2\" fill=\"currentColor\"></circle></g></svg>",
       "card_class": "prod-card--tradeos"
