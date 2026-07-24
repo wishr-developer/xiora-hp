@@ -49,9 +49,9 @@
   "description": "8 士業 (行政書士・弁護士・税理士・会計士・社労士・司法書士・弁理士・診断士) の情報提供と準備支援を行う AI エージェント群。士業独占業務の代行は行わず、本人作成の下書き支援・情報整理・書類前処理を担う。",
   "offers": [
     { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "JPY" },
-    { "@type": "Offer", "name": "Creator", "price": "2980", "priceCurrency": "JPY" },
-    { "@type": "Offer", "name": "Pro", "price": "9800", "priceCurrency": "JPY" },
-    { "@type": "Offer", "name": "Business", "price": "49800", "priceCurrency": "JPY" }
+    { "@type": "Offer", "name": "Basic", "price": "2980", "priceCurrency": "JPY", "url": "https://buy.stripe.com/4gM6oH0s48Qr5w0gqa1ck0A" },
+    { "@type": "Offer", "name": "Pro", "price": "9800", "priceCurrency": "JPY", "url": "https://buy.stripe.com/fZubJ1a2EgiT5w02zk1ck0B" },
+    { "@type": "Offer", "name": "Enterprise", "price": "49800", "priceCurrency": "JPY", "url": "https://buy.stripe.com/6oU4gzfmYeaLcYs1vg1ck0C" }
   ]
 }
 </script>
@@ -88,18 +88,18 @@
 <a href="/products/">Products</a><span aria-hidden="true">/</span>
 <span aria-current="page">Shigyo Agents</span>
 </nav>
-<p class="page-hero__eyebrow reveal"><span class="dash"></span>Products / Shigyo Agents<span class="pill pill--muted" style="margin-left:12px;">[システム]</span><span class="pill pill--muted" style="margin-left:8px;">Waitlist</span></p>
+<p class="page-hero__eyebrow reveal"><span class="dash"></span>Products / Shigyo Agents<span class="pill pill--muted" style="margin-left:12px;">[情報提供 SaaS]</span><span class="pill pill--muted" style="margin-left:8px;">LIVE · 決済 稼働中</span></p>
 <h1 class="page-hero__title reveal">
-Shigyo Agents.<br class="sp-only"/> あなたのキャラに、身体と声と時間を。
+Shigyo Agents.<br class="sp-only"/> 8 士業 の 情報提供 + 準備支援 AI。
 </h1>
 <p class="page-hero__lead reveal">
-AI キャラクターを 10 分で作って YouTube / Twitch / TikTok に配信できる制作・運用 SaaS。<br class="pc-only"/>
-多層安全フィルタと緊急停止、AI 表示の自動付与を標準搭載。<br class="pc-only"/>
-月次上限つき従量課金で「使いすぎ破産」を防ぎます。
+弁護士 / 行政書士 / 司法書士 / 税理士 / 弁理士 / 社労士 / 中小 企業 診断士 の 8 職種 の AI review を 10 段階 chain で 直列 合成。<br class="pc-only"/>
+SaaS 事業者 の 特商法 / 利用規約 / privacy / 広告 表現 の legal check を 弁護士 spot ¥15 万 に 頼らず に 完結。<br class="pc-only"/>
+士業 独占 業務 (代理・代行・登記・訴訟 等) は 4 例外 として 自動 BLOCK + 人間 弁護士 escalate。
 </p>
 <div class="page-hero__actions reveal">
-<a class="btn btn--primary" href="/contact.html?type=waitlist&product=shigyo-agents">
-ウェイトリストに登録
+<a class="btn btn--primary" href="#pricing">
+料金 プラン を 見る
 <svg aria-hidden="true" class="btn__arrow" fill="none" height="14" viewbox="0 0 16 16" width="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
 </a>
 <a class="btn btn--ghost" href="#features">機能を見る</a>
@@ -110,12 +110,10 @@ AI キャラクターを 10 分で作って YouTube / Twitch / TikTok に配信�
 <section class="section" id="what">
 <div class="container">
 <header class="section__head">
-<p class="section__label reveal"><span class="dash"></span>What Shigyo is</p>
-<h2 class="section__title reveal">AI キャラを"配信できる状態"まで、<br class="sp-only"/>1 SaaS で完結。</h2>
+<p class="section__label reveal"><span class="dash"></span>What Shigyo Agents is</p>
+<h2 class="section__title reveal">弁護士 spot ¥15 万 を、<br class="sp-only"/>AI Chain 月額 ¥2,980 で 代替。</h2>
 <p class="section__lead reveal">
-OSS 自組み (Live2D + LLM + TTS + RTMP) は数日〜数週間。ai_licia は「co-host」で主役配信を作れません。
-Shigyo Agents は、主役 AI キャラを 10 分で立ち上げ、当日配信までを 1 契約に収めた
-個人クリエイター向けの制作・運用 SaaS です。
+LegalOn Cloud ¥180,000 / 月 は Enterprise 向け。 SMB SaaS founder / EC 事業者 が launch の 都度 弁護士 spot ¥15 万 を 払う 現状 を、10-stage AI review chain (弁護士 / 行政書士 / 司法書士 / 税理士 / 弁理士 / 社労士 / 中小 企業 診断士 + preflight + final_scorer + verdict) で 置き換え。 PASS / CONCERNS / BLOCKED の verdict を 数分 で 返却、修正 提案 まで 生成。
 </p>
 </header>
 </div>
@@ -129,20 +127,20 @@ Shigyo Agents は、主役 AI キャラを 10 分で立ち上げ、当日配信�
 </header>
 <div class="feature-grid reveal">
 <article class="feature">
-<h3>10 分で立ち上げ</h3>
-<p>人格 (口調・記憶・NG) → 音声モデル → Live2D → プレビュー → 配信開始まで 5 ステップ 10 分。</p>
+<h3>10-stage AI Legal Chain</h3>
+<p>preflight → 弁護士 → 行政書士 → 司法書士 → 税理士 → 弁理士 → 社労士 → 中小 企業 診断士 → final_scorer → verdict。 8 士業 role が Ollama qwen2.5:7b で 独立 review、fail-open で 1 stage 落ちても 全体 継続。</p>
 </article>
 <article class="feature">
-<h3>多層 safety filter</h3>
-<p>自傷 / 未成年 / 過激暴力 / ヘイト / 違法 / 個人情報 / プロンプト注入の 7 カテゴリを入出力両方で検査。緊急停止ワンタップで 15 分全配信停止。</p>
+<h3>4 例外 = 自動 BLOCK</h3>
+<p>士業 独占 業務 (「代理」「代行」「登記」「訴訟」 regex) / 業許可 事業 (派遣 / 貸金 / 医療 機器 等) / 事件 対応 (「訴えられた」) / 契約書 legal 署名 の 4 種 は AI Chain 判定 で 自動 BLOCKED + escalate_to_lawyer=true。</p>
 </article>
 <article class="feature">
-<h3>月次上限つき従量課金</h3>
-<p>超過分は月次上限をユーザーが設定。上限到達で無料枠モデルに自動切替、月末想定外請求ゼロ。</p>
+<h3>PASS / CONCERNS / BLOCKED verdict</h3>
+<p>PASS (7-8/8 士業 ok + preflight ok) → 1 タップ 承認 で launch OK。 CONCERNS (4-6/8) → 修正 提案 生成、判断 は 事業者 側。 BLOCKED → 停止 + 弁護士 escalate 明示。</p>
 </article>
 <article class="feature">
-<h3>EU AI Act 対応の自動表示</h3>
-<p>「AI による配信」バナーを配信画面に常時表示。総務省ガイドライン + EU AI Act art.50 に準拠。</p>
+<h3>Xiora 内部 dogfood 済</h3>
+<p>Xiora 30+ product の launch 全て を 本 Chain で review 済 (月 平均 100+ review)。 弁護士 spot への 依存 を 除去、time-to-first-yen を 2-6 週間 短縮 する 内部 実 績 が 顧客 提供 の 前提。</p>
 </article>
 </div>
 </div>
@@ -152,26 +150,43 @@ Shigyo Agents は、主役 AI キャラを 10 分で立ち上げ、当日配信�
 <div class="container">
 <header class="section__head">
 <p class="section__label reveal"><span class="dash"></span>Pricing</p>
-<h2 class="section__title reveal">4 tier (Waitlist 開放後)</h2>
+<h2 class="section__title reveal">4 tier · Stripe LIVE 決済 稼働中</h2>
 </header>
 <div class="pricing-grid reveal">
-<div class="pricing-tier"><h3>Free</h3><p class="tier-price">¥0</p><p>10h/月、Haiku、キャラ 1</p></div>
-<div class="pricing-tier"><h3>Creator</h3><p class="tier-price">¥2,980</p><p>40h/月、Sonnet、キャラ 1</p></div>
-<div class="pricing-tier featured"><h3>Pro</h3><p class="tier-price">¥9,800</p><p>120h/月、Sonnet、キャラ 3</p></div>
-<div class="pricing-tier"><h3>Business</h3><p class="tier-price">¥49,800</p><p>500h/月、Sonnet/Opus、キャラ 10</p></div>
+<div class="pricing-tier">
+  <h3>Free</h3><p class="tier-price">¥0</p>
+  <p>月 3 review、テンプレ 3 種、community サポート</p>
+  <a class="btn btn--ghost" href="/contact.html?type=trial&product=shigyo-agents-free" style="margin-top:12px;display:inline-block;">Free 登録</a>
 </div>
-<p class="hint reveal" style="margin-top:16px;text-align:center;">現在は waitlist 受付中。有料プラン決済開放は 法務レビュー完了・特商法表記の実記載が揃ってから開始します。</p>
+<div class="pricing-tier">
+  <h3>Basic</h3><p class="tier-price">¥2,980<span style="font-size:14px;font-weight:400;color:#666;"> / 月</span></p>
+  <p>月 20 review、全 テンプレ、修正 提案、Email サポート</p>
+  <a class="btn btn--primary" href="https://buy.stripe.com/4gM6oH0s48Qr5w0gqa1ck0A" style="margin-top:12px;display:inline-block;">Basic を 契約</a>
+</div>
+<div class="pricing-tier featured">
+  <h3>Pro</h3><p class="tier-price">¥9,800<span style="font-size:14px;font-weight:400;color:#666;"> / 月</span></p>
+  <p>月 100 review、Chain 詳細 出力、API access、priority サポート</p>
+  <a class="btn btn--primary" href="https://buy.stripe.com/fZubJ1a2EgiT5w02zk1ck0B" style="margin-top:12px;display:inline-block;">Pro を 契約</a>
+</div>
+<div class="pricing-tier">
+  <h3>Enterprise</h3><p class="tier-price">¥49,800<span style="font-size:14px;font-weight:400;color:#666;"> / 月</span></p>
+  <p>無制限 review、独自 テンプレ 追加、SLA 24h、直接 相談 (情報 提供 範囲)</p>
+  <a class="btn btn--primary" href="https://buy.stripe.com/6oU4gzfmYeaLcYs1vg1ck0C" style="margin-top:12px;display:inline-block;">Enterprise を 契約</a>
+</div>
+</div>
+<p class="hint reveal" style="margin-top:16px;text-align:center;">Stripe (LIVE mode、Xiora 名義) 経由 で 決済 稼働中。 月次 サブスクリプション、いつでも cancel 可能。 <br>参考 サービス: LegalOn Cloud (¥180,000/月〜)、Hubble (¥50,000/月〜) — 本 Shigyo Agents は SMB down-market position で 10x 低価格。</p>
 </div>
 </section>
 
 <section class="section section--cta">
 <div class="container container--narrow">
-<h2 class="section__title reveal">まずは waitlist に登録</h2>
-<p class="section__lead reveal">公開時にメールでお知らせします。Free プランは登録次第すぐご利用いただけます。</p>
+<h2 class="section__title reveal">まずは Free tier で 試す</h2>
+<p class="section__lead reveal">Free tier は 月 3 review + テンプレ 3 種 で 開始 可能。 有料 プラン は Stripe で 直接 サブスクリプション。 <br>本番 API は shigyo-agents.xiora-official.com で 提供予定 (DNS propagation 待ち、暫定 は /contact.html?type=trial から 手続き)。</p>
 <div class="page-hero__actions reveal">
-<a class="btn btn--primary" href="/contact.html?type=waitlist&product=shigyo-agents">
-ウェイトリスト登録に進む
+<a class="btn btn--primary" href="/contact.html?type=trial&product=shigyo-agents">
+Free tier を 申し込む
 </a>
+<a class="btn btn--ghost" href="#pricing">有料 プラン に 進む</a>
 </div>
 </div>
 </section>
