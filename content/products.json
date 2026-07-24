@@ -505,6 +505,42 @@
       "sub_cat_short": "Vault Guide",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><rect x=\"36\" y=\"22\" width=\"48\" height=\"28\" rx=\"3\"></rect><path d=\"M46 22 L46 14 Q46 8 60 8 Q74 8 74 14 L74 22\"></path><circle cx=\"60\" cy=\"36\" r=\"3\" fill=\"currentColor\"></circle><path d=\"M60 40 L60 46\" opacity=\"0.55\"></path></g></svg>",
       "card_class": "prod-card--vault-guide"
+    },
+    {
+      "id": "dreamverse",
+      "name": "Dreamverse",
+      "brand_short": "Dreamverse",
+      "brand_html": "Dreamverse",
+      "status": "準備中 · Phase 1 waitlist",
+      "category_ja": "開発者向け 統合 platform (Genesis phase)",
+      "sub_desc_ja": "AI エージェント 統合 substrate · Q4 2026 Phase 1 kickoff 予定",
+      "sub_desc_meta": "Dreamverse は Xiora の AI エージェント + 大規模 mono repo (apps 3 + packages 12+) を 束ねる 統合 substrate。 現状 Genesis commit landed / Implementation Phase 1 authorization 待ち。 Phase 1 kickoff で 早期 waitlist 招待、Q4 2026 開始 予定。 参考: Rosebud AI (AI game dev) の substrate 型。",
+      "who": "AI エージェント 実装 substrate を 探して いる 開発者 / SIer / R&D 部門",
+      "problem": "AI エージェント 複数 を 統合 して 業務 に 落とし込む substrate の 実装 が 業界 に 未整備",
+      "ai_use": "Turborepo monorepo + 12+ shared packages で エージェント間 の state / event / auth を 統合",
+      "url": "/contact.html?type=waitlist&product=dreamverse",
+      "sub_short_desc": "AI エージェント 統合 substrate (Genesis phase)。 Q4 2026 Phase 1 kickoff、waitlist 受付中。",
+      "sub_cat_short": "DevSubstrate",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><circle cx=\"22\" cy=\"22\" r=\"8\"></circle><circle cx=\"60\" cy=\"22\" r=\"8\"></circle><circle cx=\"98\" cy=\"22\" r=\"8\"></circle><circle cx=\"22\" cy=\"48\" r=\"8\"></circle><circle cx=\"60\" cy=\"48\" r=\"8\"></circle><circle cx=\"98\" cy=\"48\" r=\"8\"></circle><path d=\"M22 30 L22 40 M60 30 L60 40 M98 30 L98 40 M30 22 L52 22 M68 22 L90 22 M30 48 L52 48 M68 48 L90 48\" opacity=\"0.4\"></path></g></svg>",
+      "card_class": "prod-card--dreamverse"
+    },
+    {
+      "id": "xai-public-apis",
+      "name": "XAIPublicAPIs",
+      "brand_short": "XAIPublicAPIs",
+      "brand_html": "XAI<br/><span>PublicAPIs</span>",
+      "status": "準備中 · M1 scaffold + waitlist",
+      "category_ja": "開発者向け API marketplace (M1 段階)",
+      "sub_desc_ja": "Xiora 内部で使う 統合 API layer を 開発者向けに 提供予定",
+      "sub_desc_meta": "XAIPublicAPIs は Xiora 内部 で 実運用中 の news / weather / books / gov / trends 等 の 統合 API layer を、 開発者 向け に 販売 する 予定。 現状 M1 scaffold (FastAPI + adapter 実装) + Phase 2 で rate limit + billing 設計 予定。 参考: RapidAPI の 従量課金 marketplace。 想定 pricing: Free 5k req/mo / Dev ¥1,980 100k / Team ¥9,800 unlimited。",
+      "who": "SaaS 開発者 / 個人開発者 / SIer で 統合 API を 使いたい人",
+      "problem": "個別 API 契約 の コスト + 認証統合 の 手間 で 開発 が 詰まる",
+      "ai_use": "AI 経由 で 各 adapter (news / weather / gov / trends) の response を 統一 schema 化",
+      "url": "/contact.html?type=waitlist&product=xai-public-apis",
+      "sub_short_desc": "統合 API layer (M1 scaffold)。 想定 Free 5k / Dev ¥1,980 100k / Team ¥9,800 unlimited、Phase 2 で 販売開始。",
+      "sub_cat_short": "API",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><rect x=\"12\" y=\"18\" width=\"26\" height=\"24\" rx=\"2\"></rect><rect x=\"47\" y=\"18\" width=\"26\" height=\"24\" rx=\"2\"></rect><rect x=\"82\" y=\"18\" width=\"26\" height=\"24\" rx=\"2\"></rect><path d=\"M38 30 L47 30 M73 30 L82 30\" opacity=\"0.5\"></path></g></svg>",
+      "card_class": "prod-card--xai-public-apis"
     }
   ]
 }
