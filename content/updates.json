@@ -109,6 +109,18 @@
       "build_cat": "Books Playbook"
     },
     {
+      "id": "2026-07-24-kigenx-vs-anylist-cozi-bring",
+      "date": "2026-07-24",
+      "type": "insight",
+      "kind": "release",
+      "title": "KigenX 対 海外 shared list app (Anylist / Cozi / Bring!) — 日本語 + iCloud + 家族スペース の 3 差別化 factor",
+      "description": "KigenX と 海外 shared list / family organization app 群 を、日本 在住 iPhone 家族 目線 で 比較。 日本語 native、iCloud 同期、家族スペース の 3 差別化 factor と、判定 flowchart で どんな 家庭 で どちら が fit する か を 整理。",
+      "url": "/insights/kigenx-vs-anylist-cozi-bring-2026-07-24.html",
+      "insight_cat": "Comparison",
+      "author": "沓澤 怜士 (Xiora)",
+      "build_cat": "Xiora Apps"
+    },
+    {
       "id": "2026-07-28-kigen-3-use-cases",
       "date": "2026-07-28",
       "type": "insight",
