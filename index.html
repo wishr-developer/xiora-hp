@@ -121,6 +121,16 @@
   .xc-hero__trust li { display: inline-flex; align-items: center; gap: 6px; }
   .xc-hero__trust li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--xc-text-mute); }
 
+  /* LIVE products strip (retail path) */
+  .xc-hero__live { margin: 28px auto 0; max-width: 720px; padding: 16px 20px; background: #fff; border: 1px solid var(--xc-border); border-radius: 12px; }
+  .xc-hero__live-label { font-size: 11px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--xc-text-mute); display: inline-flex; align-items: center; gap: 8px; margin: 0 0 10px; }
+  .xc-hero__live-label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--xc-green); box-shadow: 0 0 0 3px rgba(22,163,74,0.16); }
+  .xc-hero__live-items { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .xc-hero__live-items a { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--xc-bg-soft); border: 1px solid var(--xc-border); border-radius: 999px; font-size: 13px; color: var(--xc-text); text-decoration: none; transition: border-color 0.15s ease, background 0.15s ease; }
+  .xc-hero__live-items a:hover { border-color: var(--xc-accent); background: #fff; }
+  .xc-hero__live-items strong { font-weight: 600; color: var(--xc-text); }
+  .xc-hero__live-items span { color: var(--xc-text-sub); font-size: 12.5px; }
+
   /* Section base */
   .xc-section { padding: 88px 0; border-bottom: 1px solid var(--xc-border); }
   .xc-section--soft { background: var(--xc-bg-soft); }
@@ -246,6 +256,14 @@ Start a project
 <li>Free initial scoping</li>
 <li>Remote-only</li>
 </ul>
+<div class="xc-hero__live">
+<p class="xc-hero__live-label">今すぐ 使える 商用 SaaS · 5 分 で 開始</p>
+<ul class="xc-hero__live-items">
+<li><a href="https://kigen.xiora-official.com/?utm_source=xiora_hp&utm_medium=hero_live&utm_campaign=kigenx"><strong>KigenX</strong> <span>iOS 期限管理 · 無料DL / Plus ¥600/月</span></a></li>
+<li><a href="https://academy.xiora-official.com/pricing?utm_source=xiora_hp&utm_medium=hero_live&utm_campaign=nexa"><strong>Nexa Academy</strong> <span>28 コース 学び放題 · ¥1,980/月〜</span></a></li>
+<li><a href="https://sales-ai-os.pages.dev/?utm_source=xiora_hp&utm_medium=hero_live&utm_campaign=sales_ai_os"><strong>Sales AI OS</strong> <span>14 日 無料 trial · ¥3,000/月〜</span></a></li>
+</ul>
+</div>
 </div>
 </section>
 
