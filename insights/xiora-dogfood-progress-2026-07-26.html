@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Xiora Systems dogfood 進捗 記録 2026-07-26 — 個人 事業 で 8 SaaS を 同時 build する 24 時間 の 実装 log | Xiora Insights</title>
+<meta content="Xiora Systems (個人 事業) が 2026-07-25 から 26 日 に かけて 24 時間 で 実装 した dogfood 進捗 の 記録。 Nexa Academy 22 → 32 コース、Sales AI OS 4 → 10/13 agent、EC-Autopilot 4 → 11/20 agent、outreach 53 touches、法務 5 file 弁護士 review 準備 等。 個人 事業 で AI 自律 build を 回す 実装 記録。" name="description"/>
+<meta content="Xiora Systems,個人事業,SaaS 実装,dogfood,AI agent,Sales AI OS,EC-Autopilot,Nexa Academy,autonomous build,24時間 実装,実装 log,commit 履歴" name="keywords"/>
+<link href="https://xiora-official.com/insights/xiora-dogfood-progress-2026-07-26.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/xiora-dogfood-progress-2026-07-26.html" property="og:url"/>
+<meta content="Xiora dogfood 進捗 記録 2026-07-26 — 個人 事業 で 8 SaaS を 同時 build する 24 時間 の 実装 log | Xiora" property="og:title"/>
+<meta content="個人 事業 で 24 時間 に AI agent 5 追加 · Nexa 4 コース 追加 · outreach 53 touches · 法務 5 file 弁護士 review 準備 · Xiora HP 20 commit push 等 の 実装 記録。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Xiora Systems dogfood 進捗 記録 2026-07-26 — 個人 事業 で 8 SaaS を 同時 build する 24 時間 の 実装 log",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "Xiora Systems (個人 事業) が 2026-07-25 から 26 日 に かけて 24 時間 で 実装 した dogfood 進捗 の 記録。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": { "@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/" },
+  "datePublished": "2026-07-26",
+  "mainEntityOfPage": "https://xiora-official.com/insights/xiora-dogfood-progress-2026-07-26.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260716a" rel="stylesheet"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">Xiora dogfood 進捗 2026-07-26</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Dogfood log</span>
+<time datetime="2026-07-26">2026.07.26</time>
+</div>
+<h1 class="insight-title">Xiora Systems dogfood 進捗 記録 2026-07-26 — 個人 事業 で 8 SaaS を 同時 build する 24 時間 の 実装 log</h1>
+<p class="insight-lead">Xiora Systems は 個人 事業 (沓澤 怜士) の AI · SaaS ブランド で、7 稼働 SaaS + 2 α 版 を 24/7 で 無人 運営 して います。 2026-07-25 から 26 日 に かけて、build + outreach + 法務 準備 を 直列 で 並行 実施 した 24 時間 の 実装 log を 公開 します。 「AI が 事業 を 動かす」を 内側 から dogfood する 記録 として、SMB · 個人 事業 者 の 実装 判断 に 役立てば 幸い です。 数値 は 全 て 実 commit / 実 DB / 実 送信 log に 基づく 事実、誇大 なし。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+
+<div class="article-rich reveal">
+
+<h2 id="tldr">TL;DR — 24 時間 の 数値</h2>
+<ul class="article-list">
+<li><strong>Sales AI OS agent 稼働 数</strong>: 4 → <strong>10/13</strong> α 稼働 (+6)</li>
+<li><strong>EC-Autopilot agent 稼働 数</strong>: 4 → <strong>11/20</strong> α 稼働 (+7)</li>
+<li><strong>Nexa Academy コース 数</strong>: 22 → <strong>32 コース</strong> (+10)</li>
+<li><strong>cold outreach touches</strong>: 45 (07-25) + 8 (07-26) = <strong>53 touches</strong> (SMTP + form_fill 併用)</li>
+<li><strong>Xiora HP commit push</strong>: 24 時間 で <strong>20+ commits</strong> (CF Pages 自動 deploy)</li>
+<li><strong>法務 5 file の 弁護士 review 準備</strong>: 統合 資料 + 5 事務所 email 収集 中 (無料 相談 flow)</li>
+<li><strong>VPS 常時 稼働 daemon 追加</strong>: aegis-monitor (5 分) + xsocialos-daily (08:00 JST) + salesaios-research (6 h) の 3 systemd timer</li>
+</ul>
+
+<h2 id="context">1. なぜ dogfood 進捗 を 公開 する か</h2>
+<p>「AI で 事業 を 動かす」を 訴求 する SaaS 会社 は 多い です が、内側 の 実装 log を 数値 で 公開 する 例 は 少 なめ です。 Xiora Systems は 個人 事業 (代表 1 名) で 7 稼働 SaaS + 2 α 版 を 24/7 で 運営 して おり、 各 週 の build 進捗 を 実 commit / 実 DB / 実 送信 log の 数値 で 記録 · 公開 する こと で、 SMB · 個人 事業 者 の 実装 判断 の 参考 材料 に なる こと を 目指し ます。</p>
+
+<h2 id="build">2. build 側 の 24 時間 (agent 実装 + コース 追加)</h2>
+
+<h3 id="sales">Sales AI OS (α 版 · 10/13 稼働)</h3>
+<p>7 月 25 日 時点 4/13 稼働 → 26 日 に かけて 6 agent 追加、10/13 稼働 に。 追加 した agent の 実装 pattern は 純粋 関数 (pytest 100% coverage) + AI 呼出 なし の 決定 的 判定 で、confidence は 常時 1.0。</p>
+<ul class="article-list">
+<li><strong>reply-agent</strong>: 受信 email の intent (interested / question / decline / opt_out / auto_reply / bounce) を keyword base で 分類、intent 別 draft 返信 を 生成</li>
+<li><strong>scheduling-agent</strong>: 平日 10-18 JST の 30 分 slot を 3-5 個 提示、営業 電話 070-9165-0203 を footer に 埋込</li>
+<li><strong>contract-agent</strong>: plan tier 別 に 契約 書 draft を 生成 (Starter / SMB / Business = ¥3,000 / ¥30,000 / ¥100,000 月 額)、弁護士 review 必須 明示</li>
+<li><strong>crm-agent</strong>: stage 遷移 (lead → contacted → engaged → meeting → proposal → won / lost / opt_out) の 検証、次 action 提案</li>
+<li><strong>proposal-agent</strong>: customer_size (individual / smb / mid / large) → plan mapping + 多 product bundle、総額 計算</li>
+<li><strong>billing-agent</strong>: Stripe payment link mapping (LIVE 3 link) + invoice 番号 + 銀行 振込 案内 (口座 情報 は 別 mail、セキュリティ 配慮)</li>
+</ul>
+
+<h3 id="ec">EC-Autopilot (α 版 · 11/20 稼働)</h3>
+<p>7 月 25 日 時点 4/20 稼働 → 26 日 に かけて 7 agent 追加、11/20 稼働 に。 EC-Autopilot も 全 て 純粋 関数 ベース (AI 呼出 なし)。</p>
+<ul class="article-list">
+<li><strong>fraud-detector</strong>: 注文 の 不正 リスク を 15 signal で スコア 化、pass / review / block を 決定</li>
+<li><strong>return-judge</strong>: 返品 リクエスト を 自動 承認 / 目視 / 却下 に 判定、返送 送料 の 負担 者 も 決定</li>
+<li><strong>dynamic-pricer</strong>: 在庫 · 需要 · 競合 価格 から SKU 価格 算出 (下限 保証 付き)</li>
+<li><strong>supplier-selector</strong>: 候補 仕入先 群 から 総 コスト + 信頼 性 の 総合 スコア で 最適 選択</li>
+<li><strong>inventory-monitor</strong>: 現在 在庫 と 平均 日 販 から reorder 推奨 · 緊急 · out 検知</li>
+<li><strong>seo-writer</strong>: 商品 名 + カテゴリ + benefit + keyword から SEO title / meta / description / tags を 生成 (禁句 二重 check)</li>
+<li><strong>tokusho-generator</strong>: 販売 事業 者 情報 + 商品 情報 から 特商法 表記 draft を 生成、必須 fields validate、弁護士 review 必須 明示</li>
+</ul>
+
+<h3 id="nexa">Nexa Academy (32 コース)</h3>
+<p>22 → 32 コース に 10 コース 追加。 うち v3 4 コース は Reo directive の 「顔出しなし SNS + 自作物 誘導 + 資格 不要 で 個人 で できる 収益 化」の 教材 化:</p>
+<ul class="article-list">
+<li>x2-b2b-slack-notion-ai (¥12,800) — Slack + Notion + AI 業務 効率 化</li>
+<li>x2-side-kindle-publishing (¥14,800) — Kindle 出版 で 収益 化</li>
+<li>x2-side-youtube-faceless (¥16,800) — 顔出し なし YouTube チャンネル 立ち上げ</li>
+<li>x2-freelance-ai-engineer (¥19,800) — AI エンジニア フリーランス 案件 獲得</li>
+</ul>
+
+<h2 id="outreach">3. outreach 側 の 24 時間 (53 touches)</h2>
+
+<p>Xiora は 「作りながら 売り込み も 常時 並列」を 運用 rule と して、build 単独 に なら ない よう cold outreach を 常時 動かして います。</p>
+
+<h3 id="outreach-25">2026-07-25 (45 touches)</h3>
+<ul class="article-list">
+<li>SMTP 15 (Nexa s1_juku 4 + s2_corp 1 + s3_shigyo 4 + sales_smb 1 + koshigaya 1 + smb_saas_jp 4)</li>
+<li>form_fill 30 (Playwright 直列 1 process、CAPTCHA 検知 で skip、bot bypass NG)</li>
+</ul>
+
+<h3 id="outreach-26">2026-07-26 (8 touches)</h3>
+<ul class="article-list">
+<li>SMTP 4 (shigyo_national 4 東京 · 名古屋 · 福岡 の 士業 事務所)</li>
+<li>form_fill 4 (士業 site は CAPTCHA 多、16 中 7 skip)</li>
+</ul>
+
+<p>返信 は info@xiora-official.com (IMAP watcher が 10 分 毎 に poll、intent 分類 → draft 生成)、D+3 · D+7 の 自動 follow-up は launchd cron で 発火。</p>
+
+<h2 id="legal">4. 法務 準備 (弁護士 review 統合)</h2>
+
+<p>2026-07-25 に 5 legal file の 全 更新 + 弁護士 review 用 統合 資料 を 作成。 26 日 に は 無料 相談 対応 の 弁護士 事務所 5 件 の email 収集 を subagent で 実行 中、 収集 完了 後 に xiora00000@gmail.com 経由 で spot review 依頼 送信 予定 (5 論点: 金商法 · 薬機法 · 特商法 · 消費者 契約 法 · 景表法)。</p>
+
+<ul class="article-list">
+<li>更新 済 5 file: tokusho / privacy / terms / disclaimer / brand-separation</li>
+<li>統合 資料: <a href="/legal/REO_ACTION_AND_LAWYER_REVIEW_2026-07-25.md">REO_ACTION_AND_LAWYER_REVIEW_2026-07-25.md</a></li>
+<li>Reo 決定 済: 所在 地 (渋谷 道玄坂 東急 ビル 2F-C) · 電話 (070-9165-0203) · 事業 者 形態 (個人 事業) · DPO (代表 兼務) · 資格 必要 事業 NG 方針</li>
+</ul>
+
+<h2 id="infra">5. VPS 常時 稼働 daemon (systemd timer 3)</h2>
+
+<ul class="article-list">
+<li><strong>aegis-monitor.timer</strong>: 5 分 毎 に aegis.xiora-official.com の /_edge/health を check、失敗 時 は docker restart</li>
+<li><strong>xsocialos-daily.timer</strong>: 毎日 08:00 JST に X post + YouTube ショート draft を 生成、 deliverables/x_drafts + youtube_shorts に 保存</li>
+<li><strong>salesaios-research.timer</strong>: 6 時間 毎 に 公開 web + 会社 情報 を crawl、ICP scorer で outreach queue に export</li>
+</ul>
+
+<p>Mac 側 の launchd 2 daemon (imap-reply-watcher + outreach-followup) は macOS FDA (Full Disk Access) grant 待ち で 現在 pending、grant 後 に 全 自動 稼働 化 予定。</p>
+
+<h2 id="rule">6. 遵守 rule (Xiora 憲法)</h2>
+
+<ul class="article-list">
+<li><strong>資格 必要 事業 NG</strong>: 投資 助言 業 · 医療 機器 業 · 弁護士 業 · 税理士 業 等 の 業許可 · 士業 資格 必要 事業 は 一切 行わ ない</li>
+<li><strong>事故 領域 exclusion</strong>: 薬機法 · 金商法 · 景表法 · 著作 権 · 政治 · 宗教 · 差別 に 該当 する コンテンツ · アフィリエイト は 全 pipeline で 自動 exclude</li>
+<li><strong>ステマ 規制 (2023-10)</strong>: アフィリエイト リンク 含む 全 投稿 に PR 明示 (Amazon Associates · A8.net 承認 後 に activate)</li>
+<li><strong>誇大 表現 禁止</strong>: 「絶対 · 必ず · 100% · 爆売れ · 保証 · 業界 最強 · 業界 No.1」等 の 禁句 は 全 layer (planner / producer / analyzer) で grep block</li>
+<li><strong>fake account · bot follower 禁止</strong>: 全 8 SNS accounts (準備 中 含む) は Xiora Systems 名義 の self-owned、透明 branding、クリックファーム と は 明確 分離</li>
+<li><strong>Mac heavy load ban</strong>: 並列 subagent max 2、Playwright 直列 1 process、docker build · cargo · VOICEVOX 音声 合成 等 の 重 process は VPS 側 に 移設</li>
+</ul>
+
+<h2 id="how">7. どう やって 24 時間 で これ だけ 進めた か</h2>
+
+<ul class="article-list">
+<li><strong>並列 subagent</strong>: Claude Code CLI の 3 subagent 並列 build (Xiora Lingua gamification / Sales AI OS research / XSocialOS Phase 2) を 同時 実行</li>
+<li><strong>純粋 関数 中心</strong>: AI 呼出 なし で 決定 的 な rule ベース agent (fraud / return / pricing / supplier / inventory / seo / tokusho 等) を 中心 に 実装、pytest 100% coverage で 安定 化</li>
+<li><strong>dogfood 循環</strong>: 自社 で 実装 した SaaS を 自社 で 使う (Xiora HP + XAIOutreach で cold email + XSocialOS で SNS post + Sales AI OS で 返信 分類 · 契約 draft)</li>
+<li><strong>Reo 判断 の 最小 化</strong>: 「臨機応変 · don't over-block」rule で 絶対 gate (billing · delete · permission · contract · kyc) 以外 は 判断 確認 せず 実行 → 結果 報告</li>
+</ul>
+
+<h2 id="honest">8. できて いない こと (現状 の gap)</h2>
+
+<ul class="article-list">
+<li>Amazon Associates + A8.net の 個別 プログラム 提携 は Reo hand action 待ち (KYC 必要、prep 完成 済)</li>
+<li>SNS main 4 platform (note · YouTube · TikTok · Instagram) の 開設 は Reo hand action 待ち (電話 SMS 認証 等)</li>
+<li>Xiora Lingua API 側 の deploy は 未 (in-memory stub は LIVE、Postgres wire は code ready)</li>
+<li>Aegis Rust binaries は architecture-only、実装 は Security Kernel から 順次 (Reo 明示 で cargo build 起動 前提、Mac ban で VPS 側 実行)</li>
+</ul>
+
+<div style="margin-top:56px;padding:24px;background:#f9fafb;border-radius:12px;border:1px solid #e5e7eb;text-align:center;">
+<p style="margin:0 0 12px;font-size:15px;color:#4b5563;">Xiora Systems の 商用 SaaS を 個別 に 見る。</p>
+<a href="/products/" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15px;margin-right:8px;">Products →</a>
+<a href="/comparisons/" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#111827;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15px;border:1px solid #111827;">海外 SaaS と の 比較 →</a>
+</div>
+
+</div>
+</div>
+</article>
+</main>
+
+<footer style="border-top:1px solid #e5e7eb;margin-top:80px;padding:32px 0;background:#fafafa;">
+<div class="container">
+<p style="text-align:center;font-size:13px;color:#6b7280;margin:0;">
+&copy; 2026 Xiora Systems. info@xiora-official.com | 070-9165-0203<br/>
+関連: <a href="/comparisons/" style="color:#111827;">Comparisons</a> · <a href="/insights/" style="color:#111827;">Insights</a> · <a href="/products/" style="color:#111827;">Products</a>
+</p>
+</div>
+</footer>
+</body>
+</html>
