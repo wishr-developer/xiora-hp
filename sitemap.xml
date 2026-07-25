@@ -12,7 +12,7 @@
   </url>
   <!-- BUILD:start sitemap-products -->
   <url>
-    <loc>https://xiora-official.comhttps://kigen.xiora-official.com/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=kigenx_traffic</loc>
+    <loc>https://kigen.xiora-official.com/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=kigenx_traffic</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -57,17 +57,17 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xiora-official.comhttps://trade.xiora-official.com/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=tradeos</loc>
+    <loc>https://trade.xiora-official.com/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=tradeos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xiora-official.comhttps://xiora-algo.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=xiora_algo</loc>
+    <loc>https://xiora-algo.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=xiora_algo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xiora-official.comhttps://academy.xiora-official.com/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=nexa_lms</loc>
+    <loc>https://academy.xiora-official.com/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=nexa_lms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -97,7 +97,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xiora-official.comhttps://ec-autopilot.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=ec_autopilot</loc>
+    <loc>https://ec-autopilot.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=ec_autopilot</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -236,6 +236,31 @@
     <loc>https://xiora-official.com/insights/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/comparisons/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/comparisons/nexa-vs-teachable-thinkific.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/comparisons/sales-ai-os-vs-salesloft-apollo.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/comparisons/ec-autopilot-vs-shopify-base.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/comparisons/xiora-lingua-vs-duolingo-preply.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
