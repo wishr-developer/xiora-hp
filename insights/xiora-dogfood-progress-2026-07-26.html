@@ -6,7 +6,7 @@
 <meta content="#fbfbfd" name="theme-color"/>
 <meta content="light" name="color-scheme"/>
 <title>Xiora Systems dogfood 進捗 記録 2026-07-26 — 個人 事業 で 8 SaaS を 同時 build する 24 時間 の 実装 log | Xiora Insights</title>
-<meta content="Xiora Systems (個人 事業) が 2026-07-25 から 26 日 に かけて 24 時間 で 実装 した dogfood 進捗 の 記録。 Nexa Academy 22 → 32 コース、Sales AI OS 4 → 10/13 agent、EC-Autopilot 4 → 11/20 agent、outreach 53 touches、法務 5 file 弁護士 review 準備 等。 個人 事業 で AI 自律 build を 回す 実装 記録。" name="description"/>
+<meta content="Xiora Systems (個人 事業) が 2026-07-25 から 26 日 に かけて 24 時間 で 実装 した dogfood 進捗 の 記録。 Nexa Academy 22 → 36 コース、Sales AI OS 4 → 13/13 agent (α 完成)、EC-Autopilot 4 → 17/20 agent、outreach 58 touches (弁護士 5 件 含)、法務 5 file 弁護士 review 依頼 済、GitHub Actions billing 復旧 & repo public 化 で auto-deploy 復元。 個人 事業 で AI 自律 build を 回す 実装 記録。" name="description"/>
 <meta content="Xiora Systems,個人事業,SaaS 実装,dogfood,AI agent,Sales AI OS,EC-Autopilot,Nexa Academy,autonomous build,24時間 実装,実装 log,commit 履歴" name="keywords"/>
 <link href="https://xiora-official.com/insights/xiora-dogfood-progress-2026-07-26.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
@@ -81,9 +81,11 @@
 
 <h2 id="tldr">TL;DR — 24 時間 の 数値</h2>
 <ul class="article-list">
-<li><strong>Sales AI OS agent 稼働 数</strong>: 4 → <strong>10/13</strong> α 稼働 (+6)</li>
-<li><strong>EC-Autopilot agent 稼働 数</strong>: 4 → <strong>11/20</strong> α 稼働 (+7)</li>
-<li><strong>Nexa Academy コース 数</strong>: 22 → <strong>32 コース</strong> (+10)</li>
+<li><strong>Sales AI OS agent 稼働 数</strong>: 4 → <strong>13/13</strong> α 稼働 完成 (+9)</li>
+<li><strong>EC-Autopilot agent 稼働 数</strong>: 4 → <strong>17/20</strong> α 稼働 (+13)</li>
+<li><strong>Nexa Academy コース 数</strong>: 22 → <strong>36 コース</strong> (+14)</li>
+<li><strong>弁護士 spot review outreach</strong>: 5 件 送信 済 (渋谷・千代田・中央 の IT 実務 事務所、金商法/薬機法/特商法/消契法/景表法 5 論点)</li>
+<li><strong>deploy pipeline 復旧</strong>: GitHub Actions billing 停止 で 27 連続 失敗 → repo public 化 で unlimited free 復元、以後 全 push が auto-deploy</li>
 <li><strong>cold outreach touches</strong>: 45 (07-25) + 8 (07-26) = <strong>53 touches</strong> (SMTP + form_fill 併用)</li>
 <li><strong>Xiora HP commit push</strong>: 24 時間 で <strong>20+ commits</strong> (CF Pages 自動 deploy)</li>
 <li><strong>法務 5 file の 弁護士 review 準備</strong>: 統合 資料 + 5 事務所 email 収集 中 (無料 相談 flow)</li>
@@ -95,8 +97,8 @@
 
 <h2 id="build">2. build 側 の 24 時間 (agent 実装 + コース 追加)</h2>
 
-<h3 id="sales">Sales AI OS (α 版 · 10/13 稼働)</h3>
-<p>7 月 25 日 時点 4/13 稼働 → 26 日 に かけて 6 agent 追加、10/13 稼働 に。 追加 した agent の 実装 pattern は 純粋 関数 (pytest 100% coverage) + AI 呼出 なし の 決定 的 判定 で、confidence は 常時 1.0。</p>
+<h3 id="sales">Sales AI OS (α 版 · 13/13 稼働 完成)</h3>
+<p>7 月 25 日 時点 4/13 稼働 → 26 日 に かけて 9 agent 追加、13/13 稼働 (α 純粋 関数 layer 完成) に。 追加 した agent の 実装 pattern は 純粋 関数 (pytest 100% coverage) + AI 呼出 なし の 決定 的 判定 で、confidence は 常時 1.0。 次 Phase = LLM 統合 + 外部 CRM 双方向 sync。</p>
 <ul class="article-list">
 <li><strong>reply-agent</strong>: 受信 email の intent (interested / question / decline / opt_out / auto_reply / bounce) を keyword base で 分類、intent 別 draft 返信 を 生成</li>
 <li><strong>scheduling-agent</strong>: 平日 10-18 JST の 30 分 slot を 3-5 個 提示、営業 電話 070-9165-0203 を footer に 埋込</li>
@@ -106,8 +108,8 @@
 <li><strong>billing-agent</strong>: Stripe payment link mapping (LIVE 3 link) + invoice 番号 + 銀行 振込 案内 (口座 情報 は 別 mail、セキュリティ 配慮)</li>
 </ul>
 
-<h3 id="ec">EC-Autopilot (α 版 · 11/20 稼働)</h3>
-<p>7 月 25 日 時点 4/20 稼働 → 26 日 に かけて 7 agent 追加、11/20 稼働 に。 EC-Autopilot も 全 て 純粋 関数 ベース (AI 呼出 なし)。</p>
+<h3 id="ec">EC-Autopilot (α 版 · 17/20 稼働)</h3>
+<p>7 月 25 日 時点 4/20 稼働 → 26 日 に かけて 13 agent 追加、17/20 稼働 に。 EC-Autopilot も 全 て 純粋 関数 ベース (AI 呼出 なし) の 判定 layer。 追加 分 に 含まれる: legal-checker (景表法 · 薬機法 二重 検査)、shipping-monitor (発注/発送/紛失 判定)、order-processor (冪等 pipeline)、marketer (segment 別 channel 推奨)、sns-writer (platform 別 draft + NG 検査)、email-marketer (特電法 遵守 頻度 cap)。 残 3 (orchestrator / product-scout / review-manager) は Phase 5+ 予定。</p>
 <ul class="article-list">
 <li><strong>fraud-detector</strong>: 注文 の 不正 リスク を 15 signal で スコア 化、pass / review / block を 決定</li>
 <li><strong>return-judge</strong>: 返品 リクエスト を 自動 承認 / 目視 / 却下 に 判定、返送 送料 の 負担 者 も 決定</li>
@@ -118,8 +120,14 @@
 <li><strong>tokusho-generator</strong>: 販売 事業 者 情報 + 商品 情報 から 特商法 表記 draft を 生成、必須 fields validate、弁護士 review 必須 明示</li>
 </ul>
 
-<h3 id="nexa">Nexa Academy (32 コース)</h3>
-<p>22 → 32 コース に 10 コース 追加。 うち v3 4 コース は Reo directive の 「顔出しなし SNS + 自作物 誘導 + 資格 不要 で 個人 で できる 収益 化」の 教材 化:</p>
+<h3 id="nexa">Nexa Academy (36 コース)</h3>
+<p>22 → 36 コース に 14 コース 追加。 うち v3 (4 コース) + v4 (4 コース) は Reo directive の 「顔出しなし SNS + 自作物 誘導 + 資格 不要 で 個人 で できる 収益 化」の 教材 化。 v4 追加 分:</p>
+<ul>
+<li>v4-16: 顔出しなし SNS で 収益 化 する 運用 実装 (¥13,800)</li>
+<li>v4-17: Claude Code + Cursor + Codex で 個人 開発 を 加速 する (¥18,800)</li>
+<li>v4-18: 士業 事務所 が 顧問 先 に 「法改正 e-learning」を 追加 課金 で 提供 する 実装 (¥16,800)</li>
+<li>v4-19: BigQuery + GA4 で 事業 意思 決定 を データ 駆動 化 する (¥19,800)</li>
+</ul>
 <ul class="article-list">
 <li>x2-b2b-slack-notion-ai (¥12,800) — Slack + Notion + AI 業務 効率 化</li>
 <li>x2-side-kindle-publishing (¥14,800) — Kindle 出版 で 収益 化</li>
