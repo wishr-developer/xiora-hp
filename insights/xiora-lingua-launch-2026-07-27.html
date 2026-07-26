@@ -160,14 +160,15 @@
 <h2 id="section-5">5. Phase 1 W1-W12 の 実装 roadmap</h2>
 
 <aside style="margin:16px 0 24px;padding:16px 20px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:14.5px;line-height:1.7;">
-<p style="margin:0 0 8px;font-weight:600;">🎯 2026-07-26 update: Phase 1 W1 完了、API LIVE</p>
-<p style="margin:0 0 6px;">Phase 1 W1 マイルストーン (repo/CI 骨格 + docker-compose + DB 全 スキーマ + Phase 1 ゲーミフィケーション pytest) 完了、Xiora Lingua API が VPS + Caddy edge 経由 で public HTTPS 疎通 済。</p>
+<p style="margin:0 0 8px;font-weight:600;">🎯 2026-07-26 update: Phase 1 W1 完了、実 lesson web app 公開</p>
+<p style="margin:0 0 6px;">Phase 1 W1 マイルストーン (repo/CI 骨格 + docker-compose + DB 全 スキーマ + Phase 1 ゲーミフィケーション pytest) 完了、Xiora Lingua API が VPS + Caddy edge 経由 で public HTTPS 疎通 済 + 実 lesson プレイ が できる web app を CF Pages で 公開。</p>
 <ul style="margin:8px 0 0 20px;padding:0;">
-<li>API endpoint: <code>https://api.xiora-official.com/lingua/api/*</code> (15 endpoints、FastAPI 0.115 + asyncpg + Postgres 16 xiora_lingua schema 7 テーブル)</li>
+<li><strong>Web app (実 lesson プレイ)</strong>: <a href="https://lingua-app.pages.dev/">https://lingua-app.pages.dev/</a> — 英語 基本 3 lessons × 5 問、XP / hearts が API 実 更新</li>
+<li>API endpoint: <code>https://api.xiora-official.com/lingua/api/*</code> (15 endpoints、FastAPI + asyncpg + Postgres 16 xiora_lingua schema 7 テーブル)</li>
 <li>Public catalog: <code>/lingua/api/plans</code> → 3-tier (Free / Super ¥980 / Family ¥1,980)</li>
 <li>Gamification: <code>/lingua/api/gamification/state</code> → XP / level / streak / hearts / tier の JSON payload</li>
-<li>Frontend LP: <code>https://xiora-lingua.xiora-official.com/</code> (waitlist 受付 中)</li>
-<li>Stripe 決済 link は catalog 応答 に 埋め込み 済 (Super / Family 直 URL)</li>
+<li>Marketing LP: <code>https://xiora-lingua.xiora-official.com/</code> (waitlist + pricing)</li>
+<li>Stripe 決済 link は catalog 応答 と web app hearts 切れ 画面 に 埋め込み 済 (Super / Family 直 URL)</li>
 <li>信頼性: docker restart=unless-stopped + systemd docker enabled at boot</li>
 </ul>
 <p style="margin:8px 0 0;font-size:13px;color:#065f46;">残 実装: JWT auth (現在 dev fallback 単一 UUID)、Stripe webhook secret 設定、W2 以降 の Language Pack ローダー / 会話 pipeline / 音素 評価 の 段階 追加。</p>
