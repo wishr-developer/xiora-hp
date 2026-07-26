@@ -74,14 +74,14 @@
 <span aria-hidden="true">/</span>
 <a href="/insights/">Insights</a>
 <span aria-hidden="true">/</span>
-<span aria-current="page">Xiora Lingua を 発表 — 完全無人 の 語学 SaaS で Duolingo 代替 を 目指す</span>
+<span aria-current="page">Xiora Lingua を 発表 — 完全無人 の 語学 SaaS の 独自 提案</span>
 </nav>
 <header class="insight-header reveal">
 <div class="insight-meta">
 <span class="insight-meta__cat">Announcement</span>
 <time datetime="2026-07-27">2026.07.27</time>
 </div>
-<h1 class="insight-title">Xiora Lingua を 発表 — 完全無人 の 語学 SaaS で Duolingo 代替 を 目指す</h1>
+<h1 class="insight-title">Xiora Lingua を 発表 — 完全無人 の 語学 SaaS の 独自 提案</h1>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Xiora Lingua を 発表 - Xiora Insight" style="width:99.9%;height:auto;display:block;background:#fbfbfd;border:1px solid #d1d5db;border-radius:8px;margin:0 0 32px;">
 <rect x="0" y="0" width="1200" height="630" fill="#fbfbfd"/>
 <line x1="80" y1="120" x2="1120" y2="120" stroke="#e5e7eb" stroke-width="1"/>
@@ -90,7 +90,7 @@
 <text x="1120" y="86" text-anchor="end" font-family="Inter, sans-serif" font-size="13" font-weight="400" fill="#9ca3af">xiora-official.com</text>
 <text x="80" y="260" font-family="Noto Sans JP, Inter, sans-serif" font-size="52" font-weight="700" fill="#111827">Xiora Lingua を 発表</text>
 <text x="80" y="328" font-family="Noto Sans JP, Inter, sans-serif" font-size="36" font-weight="500" fill="#374151">完全無人 の 語学 SaaS で</text>
-<text x="80" y="380" font-family="Noto Sans JP, Inter, sans-serif" font-size="36" font-weight="500" fill="#374151">Duolingo 代替 を 目指す</text>
+<text x="80" y="380" font-family="Noto Sans JP, Inter, sans-serif" font-size="36" font-weight="500" fill="#374151">独自 の 完全無人 学習 loop を 実装</text>
 <line x1="80" y1="530" x2="220" y2="530" stroke="#111827" stroke-width="2"/>
 <text x="80" y="580" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#6b7280">Xiora — AI-native software, engineered for business.</text>
 </svg>
@@ -107,7 +107,7 @@
 <div class="article-rich reveal">
 
 <h2 id="section-1">1. 現状 の 語学 学習 アプリ に ある 構造的 な 不満</h2>
-<p>語学 学習 アプリ 市場 は、世界 で 年間 約 2 兆円 規模、年率 15% 成長帯 と 見られて います。 モバイル 学習 の 主戦場 は Duolingo が 支配 して おり、MAU は 約 1 億 と 言われて います。</p>
+<p>語学 学習 アプリ 市場 は、世界 で 年間 約 2 兆円 規模、年率 15% 成長帯 と 見られて います。 モバイル 学習 の 主戦場 は 大手 A 社 (語学 学習 SaaS) が 支配 して おり、MAU は 約 1 億 と 言われて います。</p>
 <p>一方 で、実 ユーザー の 声 を 集める と、以下 の 構造的 な 不満 が 繰り返し 現れます。</p>
 <ul class="article-list">
 <li><strong>ゲーム で 続く が、話せる ように ならない</strong> — 連続 ログイン は 増えるが、実際 の 発話 力 に は 繋がらない。</li>
@@ -130,7 +130,7 @@
 <p>AI 会話 は Anthropic Claude API を 経由 し、client.py 抽象化 レイヤ を 挟む こと で 他社 model に も 差し替え 可能 に して います。 会話 パイプライン (§10) は、発話 終了 から AI 音声 開始 まで 中央値 2.0 秒 を 目標 に 設計。 会話 終了 時 に は フィードバック (誤り 一覧 + 言い換え + 次回 推奨) を エラー タグ 付き で 構造化 保存 し、翌日 の レッスン 事前 生成 に フィード バック されます。</p>
 
 <h2 id="section-3">3. 完全無人 運営 は 事業 model の 「核」</h2>
-<p>Xiora Lingua の 一番 の 差別化 は、「完全無人 運営」 を 単なる コスト 削減 では なく 事業 model の 核 に 位置付ける 点 です。 これは Duolingo の 業界 構造 に 対する 意識的 な 反転 でも あります。</p>
+<p>Xiora Lingua の 一番 の 差別化 は、「完全無人 運営」 を 単なる コスト 削減 では なく 事業 model の 核 に 位置付ける 点 です。 これは 既存 の 業界 構造 (人 が 監修 する 従来 モデル) に 対する 意識的 な 反転 でも あります。</p>
 <p>具体 的 に は、以下 の 7 種 の Ops AI が 分業 して 常時 稼働 します。</p>
 <ul class="article-list">
 <li><strong>QA Gate AI</strong> — 教材 生成 の 都度、4 段 ゲート + カナリア 配信 で 品質 検証。</li>
