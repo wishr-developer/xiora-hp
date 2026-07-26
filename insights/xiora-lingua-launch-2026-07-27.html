@@ -159,8 +159,26 @@
 
 <h2 id="section-5">5. Phase 1 W1-W12 の 実装 roadmap</h2>
 
+<aside style="margin:16px 0 24px;padding:16px 20px;background:#faf5ff;border:1px solid #a78bfa;border-radius:8px;font-size:14.5px;line-height:1.7;">
+<p style="margin:0 0 8px;font-weight:600;">🎉 2026-07-26 update: v1.0 一般 公開 (β から 昇格)</p>
+<p style="margin:0 0 6px;">Xiora Lingua が v1.0 正式 リリース。 β 版 の 実 lesson web app 公開 から 同 日 中 に 4 phase (Content 拡張 → Auth + Dashboard → 音声 TTS/ASR → PWA + UI polish + A2 追加) を 一気通貫 で 完了、 「完成 版」相応 の 機能 セット を 揃えた 状態 に。</p>
+<ul style="margin:8px 0 0 20px;padding:0;">
+<li><strong>Content</strong>: 3 course × 43 lesson (日常 18 / 旅行 15 / 表現力 10)、A1 + A2 grade、単語 · フレーズ · 穴埋め · 発音 の 4 型</li>
+<li><strong>音声</strong>: TTS (全 question に 🔊 speaker icon)、ASR (「発音 練習」lesson で mic 判定)、Web Speech API 内蔵 (¥0)</li>
+<li><strong>弱点 復習</strong>: 間違えた 問題 は 自動 で 復習 keue に、home の 「🔁 復習 N 問」button で 再挑戦</li>
+<li><strong>Auth</strong>: email/password signup (device UUID を account に link)、JWT 30 日、guest mode も 継続 可 (opt-in)</li>
+<li><strong>Dashboard</strong>: 30 日 streak heatmap、course 別 進捗、累計 lesson · XP · streak (current/best)</li>
+<li><strong>PWA</strong>: manifest + service worker (offline 動作)、iOS Safari + Android Chrome で 「ホーム 画面 に 追加」対応</li>
+<li><strong>UI polish</strong>: モバイル 375x812 対応、tap area 44px 最低、iOS safe-area、initial load skeleton、onboarding tour</li>
+<li><strong>Web app URL</strong>: <a href="https://lingua-app.pages.dev/">https://lingua-app.pages.dev/</a> (無料 で 全 lesson プレイ 可)</li>
+<li><strong>API</strong>: <code>https://api.xiora-official.com/lingua/api/*</code> (16 endpoints、FastAPI + asyncpg + Postgres 16 xiora_lingua schema)</li>
+<li><strong>決済</strong>: Stripe payment link 埋込 (Super ¥980/月 / Family ¥1,980/月)</li>
+</ul>
+<p style="margin:8px 0 0;font-size:13px;color:#6d28d9;">残 実装 (Phase 5+): 会話 pipeline (WebSocket + ASR fluency 判定)、他 target language (中/韓/西/仏)、Ocean LLM 統合 (自社 LLM で TTS/翻訳 コスト ゼロ 化)。</p>
+</aside>
+
 <aside style="margin:16px 0 24px;padding:16px 20px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:14.5px;line-height:1.7;">
-<p style="margin:0 0 8px;font-weight:600;">🎯 2026-07-26 update: Phase 1 W1 完了、実 lesson web app 公開</p>
+<p style="margin:0 0 8px;font-weight:600;">🎯 2026-07-26 (earlier) : Phase 1 W1 完了、実 lesson web app 公開</p>
 <p style="margin:0 0 6px;">Phase 1 W1 マイルストーン (repo/CI 骨格 + docker-compose + DB 全 スキーマ + Phase 1 ゲーミフィケーション pytest) 完了、Xiora Lingua API が VPS + Caddy edge 経由 で public HTTPS 疎通 済 + 実 lesson プレイ が できる web app を CF Pages で 公開。</p>
 <ul style="margin:8px 0 0 20px;padding:0;">
 <li><strong>Web app (実 lesson プレイ)</strong>: <a href="https://lingua-app.pages.dev/">https://lingua-app.pages.dev/</a> — 日常 会話 7 lesson + 旅行 英語 6 lesson = <strong>合計 13 lesson</strong>、単語/フレーズ/穴埋め の 3 型 段階 難度、XP / hearts が API 実 更新、course 選択 + 進捗 % 表示 (W2 拡張 2026-07-26 完了)</li>
