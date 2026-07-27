@@ -58,7 +58,21 @@ Nexa Academy 11 商業 course も 個別 購入 CTA LIVE (¥8,800-¥19,800)。
 | 4 | Xiora Lingua ¥690/¥1,180 Stripe metadata 追加 | 5 分 | Stripe login | 有料 tier LIVE 化 |
 | 5 | launchctl load lingua-conversion daemon | 3 分 | Mac terminal | conversion tracking |
 
-## 6. 本 session commit 履歴 (14 commit)
+## 6. 本 session commit 履歴 (26 commit / 2026-07-27 → 2026-07-28)
+
+### 追加 batch (2026-07-28 未明)
+
+```
+f78a5ce contact.html: プロダクト 相談 の 説明 を 4 core に 更新 (撤退 pillar 8 個 削除)
+91087fe index + labs + internship: 4 core rebrand の 波及 (Insights strip + Next Ventures + What you'll do)
+7b1a6a4 company.html + case-studies.html: 4 core 集中 の 意思決定 を about + timeline + case tile に 反映
+950297d nexa-academy.html + xcloud-connect.html: 関連 記事 section 追加 (4 core 全 product page 統一)
+3f9e30f kigen.html + lingua.html: 関連 記事 section 追加 (SEO 内部 リンク 強化)
+3fde3cb insights/: Web 型 語学 学習 サービス を 選ぶ 3 判断 軸 記事 追加
+ee04729 insights/: サブスク 解約 忘れ を 防ぐ 4 checklist 記事 追加
+```
+
+### 初期 batch (2026-07-27)
 
 ```
 24c26aa comparisons/index.html: 撤退 事業 の 2 card に amber badge
@@ -78,7 +92,32 @@ bbb74c4 xiora HP: 甘さ 大 一括 修正 (誇大 + ¥980 mismatch 全 除去)
 ```
 
 **削除 行数**: 約 4,000 行 (誇大 表現 · 未 実装 主張 · 撤退 pillar 露出 全 除去)
-**追加 行数**: 約 500 行 (short redirect + amber banner + 4 core focus)
+**追加 行数**: 約 1,000 行 (short redirect + amber banner + 4 core focus + 新 insights 2 記事 + 内部 リンク 強化)
+
+## 7. 追加 traffic pipeline (2026-07-28 batch)
+
+### 新 insights 2 記事 (SEO 集客 · fact-only tone)
+
+| URL | 対象 | keyword | CTA |
+|---|---|---|---|
+| /insights/subscription-cancel-forget-4-checklist-2026-07-28.html | Kigen | サブスク 解約 忘れ · 期限 管理 アプリ | App Store 直リンク |
+| /insights/web-language-app-3-criteria-2026-07-28.html | Xiora Lingua | Web 語学 学習 · インストール 不要 · PWA | /lingua.html |
+
+### 4 core 全 product page に 関連 記事 section 追加 (SEO 内部 リンク)
+
+- kigen.html + lingua.html + nexa-academy.html + xcloud-connect.html
+- Google internal linking + PageRank flow を core → insights に 集約
+- 各 page 3 記事 の card UI 統一
+
+### note.com draft 2 本 (Reo 承認 → 手動 投稿 待ち)
+
+- /XSocialOS/deliverables/note_drafts/2026-07-28_01_subscription-cancel-forget.md (約 1,800 字)
+- /XSocialOS/deliverables/note_drafts/2026-07-28_02_web-language-3-criteria.md (約 1,500 字)
+
+### X post drafts 5 本 (Reo 承認 → 順次 投稿)
+
+- /XSocialOS/deliverables/x_drafts/2026-07-28/kigen_subscription_qa.md
+- 疑問 解消 tone (Reo directive「業務 報告 じゃ なく 告知 · 疑問 解消」遵守)
 
 ## 7. 判断 · 意思決定 の 根拠
 
