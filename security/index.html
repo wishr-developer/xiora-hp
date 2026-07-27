@@ -89,10 +89,9 @@
 
 <h2>Layer 5 — Vulnerability Management</h2>
 <div class="layer-block">
-  <div class="layer-title"><span class="layer-num">5</span> Sentry + Aegis (internal) + weekly dependency scan <span class="status-badge">enabled</span></div>
+  <div class="layer-title"><span class="layer-num">5</span> Sentry + weekly dependency scan <span class="status-badge">enabled</span></div>
   <p>ランタイム error / stack trace は Sentry に 集約 (xiora.sentry.io)。 全 project で source map 有効。</p>
   <p>dependency vulnerability: 週次 <code>npm audit</code> / <code>pip-audit</code> / <code>cargo audit</code> を CI で 自動 実行、 critical は 即 patch。</p>
-  <p>侵入 payload 検出時 は Xiora 内部 の Aegis (defensive security OS) で sandbox 隔離 + 研究 + 予防策 蓄積 (外部 通報 なし)。</p>
 </div>
 
 <h2>Layer 6 — Incident Response</h2>
