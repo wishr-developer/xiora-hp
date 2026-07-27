@@ -2,6 +2,19 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "type": "insight",
+      "date": "2026-07-28",
+      "title": "サブスク 解約 忘れ を 防ぐ 4 checklist — 無料 期間 終了 · 契約 更新 の 期限 管理 実践",
+      "url": "/insights/subscription-cancel-forget-4-checklist-2026-07-28.html",
+      "cat": "How-to · 期限 管理",
+      "build_cat": "How-to",
+      "description": "サブスク の 「無料 期間 終了 で 気付けば 課金」問題 を、 契約 一覧化・逆算 通知・月次 棚卸し・家族 共有 の 4 checklist で 対策。 iOS 標準 tool と 期限 管理 アプリ の 使い分け 判断 軸 を fact-based で 整理。",
+      "id": "subscription-cancel-forget-4-checklist-2026-07-28",
+      "kind": "insight",
+      "insight_cat": "How-to · 期限 管理",
+      "author": "沓澤 怜士 (Kutsuzawa Reo)"
+    },
+    {
       "id": "2026-07-21-xiora-aos-guide-2026-launch",
       "date": "2026-07-21",
       "type": "news",
