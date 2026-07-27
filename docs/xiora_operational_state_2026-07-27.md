@@ -91,8 +91,9 @@ bbb74c4 xiora HP: 甘さ 大 一括 修正 (誇大 + ¥980 mismatch 全 除去)
 501cb45 xiora HP: consulting-thanks + lingua-beta-thanks 甘さ 除去
 ```
 
-**削除 行数**: 約 4,000 行 (誇大 表現 · 未 実装 主張 · 撤退 pillar 露出 全 除去)
-**追加 行数**: 約 1,000 行 (short redirect + amber banner + 4 core focus + 新 insights 2 記事 + 内部 リンク 強化)
+**削除 行数**: 6,685 行 (誇大 表現 · 未 実装 主張 · 撤退 pillar 露出 · 過大 数値 全 除去)
+**追加 行数**: 2,051 行 (short redirect + amber banner + 4 core focus + 新 insights 2 記事 + 内部 リンク 強化 + 数値 正確 化)
+**net**: -4,634 行 · 128 file 変更 · 30 commit
 
 ## 7. 追加 traffic pipeline (2026-07-28 batch)
 
