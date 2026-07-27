@@ -3,6 +3,19 @@
   "items": [
     {
       "type": "insight",
+      "kind": "insight",
+      "date": "2026-07-28",
+      "id": "web-language-app-3-criteria-2026-07-28",
+      "title": "Web で 動く 語学 学習 サービス を 選ぶ 3 判断 軸 — インストール · Free tier · 進捗 保存",
+      "description": "Web ブラウザ で 動く 語学 学習 サービス の 選び 方 を、 インストール 有無・Free で どこ まで 使える か・進捗 の 保存 場所 の 3 判断 軸 で fact-based 整理。 Xiora Lingua v1.0 の 例 も 交えて 中立 に 解説。",
+      "url": "/insights/web-language-app-3-criteria-2026-07-28.html",
+      "cat": "Explainer · 語学 学習 tool",
+      "insight_cat": "Explainer · 語学 学習 tool",
+      "author": "沓澤 怜士 (Kutsuzawa Reo)",
+      "build_cat": "Explainer"
+    },
+    {
+      "type": "insight",
       "date": "2026-07-28",
       "title": "サブスク 解約 忘れ を 防ぐ 4 checklist — 無料 期間 終了 · 契約 更新 の 期限 管理 実践",
       "url": "/insights/subscription-cancel-forget-4-checklist-2026-07-28.html",
