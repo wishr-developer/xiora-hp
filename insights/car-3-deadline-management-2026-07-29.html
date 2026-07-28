@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>車 の 車検 · 保険 · 免許 3 つ の 期限 を 1 画面 で 管理 する 手順 (iOS Kigen 実運用) | Xiora Insights</title>
+<meta content="車 を 持つ 人 は 平均 3 つ の 期限 (車検 · 自賠責 保険 · 任意 保険 · 免許 更新) を 抱える。 それぞれ 通知 方法 が 別 で、 うっかり 切れる ケース の 実 パターン と、 iOS 期限 管理 アプリ Kigen で 1 画面 に 集約 する 4 step 手順 を fact-based で 整理。" name="description"/>
+<meta content="車検 期限,免許 更新,自動車 保険 期限,自動車 期限 管理 アプリ,Kigen,iOS" name="keywords"/>
+<link href="https://xiora-official.com/insights/car-3-deadline-management-2026-07-29.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/car-3-deadline-management-2026-07-29.html" property="og:url"/>
+<meta content="車 の 車検 · 保険 · 免許 3 つ の 期限 を 1 画面 で 管理 する 手順 (iOS Kigen 実運用) | Xiora Insights" property="og:title"/>
+<meta content="車 を 持つ 人 の 3 期限 (車検 · 保険 · 免許) を 1 画面 に 集約 する Kigen 実運用 4 step。" property="og:description"/>
+<meta content="xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="車 の 3 期限 を 1 画面 管理 (iOS Kigen) | Xiora" name="twitter:title"/>
+<meta content="車検 · 保険 · 免許 を 4 step で 集約 する 手順。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260728a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "車 の 車検 · 保険 · 免許 3 つ の 期限 を 1 画面 で 管理 する 手順 (iOS Kigen 実運用)",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "車 を 持つ 人 の 3 期限 (車検 · 保険 · 免許) を 1 画面 に 集約 する Kigen 実運用 4 step。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-07-29",
+  "mainEntityOfPage": "https://xiora-official.com/insights/car-3-deadline-management-2026-07-29.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="xiora" name="application-name"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a aria-label="xiora ホーム" class="brand" href="/">
+<svg aria-hidden="true" class="brand__mark" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 23 Q16 5 26.5 23" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"></path><circle cx="16" cy="12.5" fill="currentColor" r="3.2"></circle></svg>
+<span class="brand__name">xiora</span>
+</a>
+<nav aria-label="メインメニュー" class="site-nav" id="siteNav">
+<a href="/#technology">Technology</a>
+<a href="/products/">Products</a>
+<a href="/#services">Services</a>
+<a href="/case-studies.html">Case Studies</a>
+<a href="/insights/">Insights</a>
+<a href="/company.html">About</a>
+<a href="/contact.html">Contact</a>
+</nav>
+<button aria-expanded="false" aria-label="メニューを開く" class="nav-toggle" id="navToggle">
+<span></span><span></span>
+</button>
+</div>
+</header>
+
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">車 の 車検 · 保険 · 免許 3 つ の 期限 を 1 画面 で 管理 する 手順</span>
+</nav>
+<header class="article-header">
+<span class="insight-cat">How-to · 期限 管理 · 車 保有</span>
+<h1 class="insight-title">車 の 車検 · 保険 · 免許 3 つ の 期限 を 1 画面 で 管理 する 手順 (iOS Kigen 実運用)</h1>
+<time datetime="2026-07-29" class="article-date">2026-07-29</time>
+</header>
+
+<section>
+<h2>車 を 持つ 人 は 平均 3 期限 を 抱える</h2>
+<p>自家 用車 を 1 台 保有 する と、 少なく とも 3 種類 の 「期限」が 発生 します。</p>
+<ul>
+<li><strong>車検</strong>: 新車 は 3 年、 継続 は 2 年 毎。 車検 場 予約 も 含めた 逆算 が 必要。</li>
+<li><strong>自動車 保険 (任意)</strong>: 通常 1 年 毎 更新。 継続 割引 · ネット 割 を 逃さ ない 逆算 が 有効。</li>
+<li><strong>運転 免許 更新</strong>: ゴールド 免許 で 5 年 · 通常 3 年 · 初 心 者 3 年。 誕生日 前後 1 ヶ月 の 更新 期間 が 決まって いる。</li>
+</ul>
+<p>これら の 通知 は、 車検 は 整備 工場 · 保険 は 保険 会社 · 免許 は 警察 (公安 委員 会) と、 発 信 元 が 完全 に 分か れて います。 「保険 の DM は 届いた が 車検 の 予定 が 覚え て い なかった」 と いう 事故 が 起き やすい 構造。</p>
+</section>
+
+<section>
+<h2>うっかり 切れる 3 パターン (実 事例)</h2>
+
+<h3>パターン 1 — 車検 直前 の 車検 場 予約 が 取れ ない</h3>
+<p>車検 場 · 整備 工場 は 週末 が 混みます。 「車検 満了 まで 2 週間」の タイミング で 予約 を 試みる と、 希望 の 週末 が 埋まって いる こと が 多い。 満了 日 を 過ぎる と 公道 走行 不可 · 過料 6,000 円 相当 の リスク が 発生 (道路 運送 車両 法 に 基づく)。</p>
+
+<h3>パターン 2 — 自動車 保険 の 継続 割引 を 逃す</h3>
+<p>任意 保険 の 「継続 割引」は 更新 20 日 前 前後 に 手続 が 必要 な 会社 が 多い。 満了 日 の 前日 に 手続 する と 継続 割引 の 対象 外 に なる ケース が あり、 年 数 千 円 の 差 が 出る こと が あります。</p>
+
+<h3>パターン 3 — 免許 更新 期間 を 過ぎる と 「失効」</h3>
+<p>免許 更新 は 「誕生日 の 前 後 1 ヶ月」が 更新 期間。 これ を 過ぎる と 「失効」扱い に なり、 6 ヶ月 以内 なら 再取得 講習 で 復活 可能 だ が、 6 ヶ月 を 過ぎる と 学科 · 実技 の 再 受験 が 必要 (警察 庁 情報)。 失効 に 気付く の が 「車 を 運転 しよう と した 時」の ケース が 実際 に あります。</p>
+</section>
+
+<section>
+<h2>iOS 期限 管理 アプリ で 1 画面 集約 する 4 step</h2>
+<p>iOS 標準 の 「Reminders」で も 出来 ます が、 category 分け · 逆算 通知 · 家族 共有 を 「車 3 期限」に 適用 する と、 期限 管理 専用 アプリ の 方 が 摩擦 が 少ない ケース が 多い。 xiora の Kigen (iOS 期限 管理 アプリ) を 例 に 4 step で 記述 します。</p>
+
+<h3>Step 1 — 3 期限 を 登録 (5 分)</h3>
+<ul>
+<li>車検 満了 日 (車検 証 右下 に 記載)</li>
+<li>自動車 保険 満了 日 (保険 証 券 に 記載)</li>
+<li>免許 更新 期限 (免許 証 表 に 記載、 通常 誕生日 の 1 ヶ月 前 から 更新 可能)</li>
+</ul>
+<p>Kigen の 場合、 各 期限 は 「date + label + category (車)」で 登録。 category を 統一 して おく と 「車」で filter が できる。</p>
+
+<h3>Step 2 — 逆算 通知 を 3 段階 で 設定</h3>
+<ul>
+<li><strong>30 日 前</strong>: 「まだ 時間 が ある」段階、 検討 · 見積り 開始 タイミング</li>
+<li><strong>7 日 前</strong>: 「そろそろ 動く」段階、 予約 · 手続 を 実行 する タイミング</li>
+<li><strong>前日</strong>: 最終 確認、 うっかり 対策</li>
+</ul>
+<p>3 段階 の 通知 は、 「気付いた 時 に は もう 遅い」を 防ぐ 実 用 的 な 設定。 iOS 標準 の Reminders でも 出来 ます が、 期限 管理 専用 アプリ は 逆算 の UI が 予め 用意 されて いる。</p>
+
+<h3>Step 3 — 家族 共有 folder に 集約 (Plus プラン · 家族 で 車 を 使う 場合)</h3>
+<p>家族 で 車 を 共有 して いる 場合、 「誰 が 保険 契約 者 か」「誰 が 車検 場 に 連れて 行く か」を 家族 内 で 共有 する 必要 が あります。 Kigen Plus プラン (¥600/月) の 家族 共有 folder に 「車 3 期限」を 入れて おく と、 通知 が 家族 全 員 に 届き、 「誰 が 手続 する か」の 分担 が しやすい。</p>
+
+<h3>Step 4 — 月 1 回 の 「車 期限 確認」を 定着</h3>
+<p>3 期限 の 状態 を 月 1 回 (例: 毎月 1 日 · 給料 日) に 見返す 習慣 を 設定。 Kigen の category filter で 「車」を 選び、 「あと 何 日」の 一覧 を 5 秒 で 確認 する だけ。 期限 前 の 通知 と 併用 する と、 「通知 が 来る 前 に 気付ける」余裕 が 生まれる。</p>
+</section>
+
+<section>
+<h2>tool 選び の 判断 軸 (3 択)</h2>
+
+<ul>
+<li><strong>iOS 標準 Reminders</strong>: 費用 ¥0、 逆算 通知 は カスタム で 設定 可能。 category (車) 分類 は 手動 タグ で 対応。 家族 共有 は Apple の 家族 共有 機能 経由。 UI の 一覧 性 は 期限 専用 アプリ より 劣る。</li>
+<li><strong>期限 管理 専用 アプリ (Kigen 等)</strong>: Free で 基本 機能 (登録 · 通知)。 Plus プラン (¥600/月) で 家族 共有。 category 分類 が UI で 予め 用意。 「車 3 期限」を 5 秒 で 一覧 化 できる。</li>
+<li><strong>紙 · 手帳 で 管理</strong>: 費用 ¥0、 但 し 「見た 時 しか 気付か ない」ため 通知 は 無い。 予定 表 (Google Calendar 等) に 登録 する と 通知 は 出せる が、 予定 と 期限 が 混在 する。</li>
+</ul>
+
+<p>「車 3 期限 の 集約 通知 が 必要 で、 家族 で 共有 したい」なら Kigen Plus プラン (¥600/月) が fit。 「1 人 で 車 1 台、 通知 が 出れば 十分」なら iOS Reminders で 十分。</p>
+</section>
+
+<section class="cta-inline" style="margin-top:32px;padding:24px;border:1px solid #e5e7eb;border-radius:12px;background:#f9fafb;">
+<h3 style="margin:0 0 12px;font-size:18px;font-weight:600;">Kigen (iOS 期限 管理 アプリ) を 試す</h3>
+<p style="margin:0 0 16px;font-size:14px;color:#4b5563;line-height:1.75;">車 3 期限 (車検 · 保険 · 免許) の 集約 管理 に 対応。 Free で 登録 · 通知 の 基本 機能、 Plus プラン (¥600/月) で 家族 共有 + 詳細 通知 setting。 Apple ID の み で 開始 · 初期 登録 5 分 · 広告 なし · On-Device 完結。</p>
+<a href="https://apps.apple.com/jp/app/kigenx/id6776154131?utm_source=xiora_hp&utm_medium=insights&utm_campaign=car_3_deadlines" style="display:inline-block;padding:12px 24px;background:#111827;color:#fff;text-decoration:none;border-radius:999px;font-weight:500;font-size:15px;">
+無料 で App Store から ダウンロード →
+</a>
+</section>
+
+<section style="margin-top:32px;">
+<h2>参考</h2>
+<ul>
+<li>国土 交通 省「自動車 検査 登録 制度」: 車検 期限 は 車検 証 右下 の 「有効 期間 の 満了 する 日」で 確認 可</li>
+<li>警察 庁「運転 免許 の 更新 手続」: 更新 期間 は 誕生日 の 前 後 1 ヶ月、 有効 期間 は ゴールド 5 年 · 一般 3 年 (75 歳 未満 の 場合)</li>
+<li>自動車 保険 各社 の 継続 割引 手続 締切 は 会社 に よって 異なる、 満了 日 の 15-30 日 前 が 目安</li>
+</ul>
+<p style="margin-top:24px;font-size:13px;color:#6b7280;">本 記事 は 一般 情報 として の 車 3 期限 管理 の 考え 方 を 整理 した もの です。 個別 の 車検 · 保険 · 免許 の 手続 は 各 事業 者 · 公的 機関 の 最新 情報 を ご 確認 ください。 xiora は 車 保有 に 関する 個別 助言 は 行いません。</p>
+</section>
+
+</div>
+</article>
+</main>
+
+<footer class="site-footer">
+<div class="container">
+<p style="text-align:center;font-size:12px;color:#6b7280;">© <span id="year">2026</span> xiora. All rights reserved.</p>
+</div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script defer="" src="/assets/js/main.js?v=20260728a"></script>
+</body>
+</html>

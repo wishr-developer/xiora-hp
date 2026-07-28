@@ -4,6 +4,19 @@
     {
       "type": "insight",
       "kind": "insight",
+      "date": "2026-07-29",
+      "id": "car-3-deadline-management-2026-07-29",
+      "title": "車 の 車検 · 保険 · 免許 3 つ の 期限 を 1 画面 で 管理 する 手順 (iOS Kigen 実運用)",
+      "description": "車 を 持つ 人 の 3 期限 (車検 · 保険 · 免許) を 1 画面 に 集約 する Kigen 実運用 4 step。 うっかり 切れる 3 パターン と、 iOS 標準 tool と 期限 管理 アプリ の 使い分け 判断 軸。",
+      "url": "/insights/car-3-deadline-management-2026-07-29.html",
+      "cat": "How-to · 期限 管理 · 車 保有",
+      "insight_cat": "How-to · 期限 管理 · 車 保有",
+      "author": "沓澤 怜士 (Kutsuzawa Reo)",
+      "build_cat": "How-to"
+    },
+    {
+      "type": "insight",
+      "kind": "insight",
       "date": "2026-07-28",
       "id": "web-language-app-3-criteria-2026-07-28",
       "title": "Web で 動く 語学 学習 サービス を 選ぶ 3 判断 軸 — インストール · Free tier · 進捗 保存",
