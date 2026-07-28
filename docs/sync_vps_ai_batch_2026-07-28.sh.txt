@@ -1,0 +1,65 @@
+#!/bin/bash
+# Sync VPS AI batch output back to Mac + regenerate Reo review file
+# Usage: bash scripts/sync_vps_ai_batch.sh
+set -euo pipefail
+
+VPS=xai-vps
+VPS_DIR=/opt/xiora-life-media/deliverables/curated_batch_2026-07-28/ai_generated
+MAC_DIR=/Users/kutsuzawareo/Desktop/XAI/services/systems/XioraLifeMedia/deliverables/curated_batch_2026-07-28/ai_generated
+
+echo "[sync] pulling from $VPS:$VPS_DIR"
+mkdir -p "$MAC_DIR"
+rsync -avz --progress "$VPS:$VPS_DIR/" "$MAC_DIR/"
+
+echo ""
+echo "[sync] VPS batch progress:"
+ssh "$VPS" 'ls /opt/xiora-life-media/deliverables/curated_batch_2026-07-28/ai_generated/ | wc -l' || true
+
+echo "[sync] Mac local file count:"
+ls "$MAC_DIR/" | wc -l
+
+echo ""
+echo "[sync] regenerating Reo review consolidated file..."
+python3 <<'PY'
+import os, glob, sqlite3
+base = '/Users/kutsuzawareo/Desktop/XAI/services/systems/XioraLifeMedia/deliverables/curated_batch_2026-07-28/ai_generated/'
+files = sorted(glob.glob(base + '*.md'))
+
+groups = {}
+for f in files:
+    name = os.path.basename(f)
+    pid, platform_ext = name.split('_', 1)
+    platform = platform_ext.replace('.md', '')
+    groups.setdefault(int(pid), {})[platform] = f
+
+conn = sqlite3.connect('/Users/kutsuzawareo/Desktop/XAI/services/systems/XioraLifeMedia/data/inventory.db')
+title_map = {row[0]: row[1] for row in conn.execute("SELECT id, title FROM products")}
+conn.close()
+
+out_path = '/Users/kutsuzawareo/Desktop/XAI/services/systems/XioraLifeMedia/deliverables/curated_batch_2026-07-28/REO_REVIEW_BATCH_LATEST.md'
+with open(out_path, 'w') as w:
+    w.write(f'# Reo review batch — latest AI 生成 (posts × platform)\n\n')
+    w.write(f'**total products**: {len(groups)}, **total posts**: {sum(len(g) for g in groups.values())}\n\n')
+    w.write('**model**: VPS Ollama qwen2.5:7b (Mac 負荷 ゼロ)\n\n')
+    w.write('## 目視 判定\n\n')
+    w.write('各 post に:\n- ✅ approve = posting OK\n- ⚠️ minor fix = 1-2 word 直せば OK\n- ❌ regenerate\n\n')
+    w.write('---\n\n')
+    for pid in sorted(groups.keys()):
+        title = title_map.get(pid, '')
+        w.write(f'## id={pid} — {title[:60]}\n\n')
+        for platform in ['room', 'x', 'note']:
+            if platform not in groups[pid]:
+                continue
+            with open(groups[pid][platform]) as r:
+                content = r.read()
+            parts = content.split('---', 1)
+            body = parts[1].strip() if len(parts) == 2 else content
+            w.write(f'### {platform.upper()}\n\n```\n{body}\n```\n\n')
+            w.write(f'**Reo**: [ ] ✅  [ ] ⚠️  [ ] ❌\n\n')
+        w.write('---\n\n')
+print(f'✓ wrote {out_path}')
+PY
+
+echo ""
+echo "[sync] done. Review at:"
+echo "  /Users/kutsuzawareo/Desktop/XAI/services/systems/XioraLifeMedia/deliverables/curated_batch_2026-07-28/REO_REVIEW_BATCH_LATEST.md"
