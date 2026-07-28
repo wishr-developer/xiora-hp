@@ -4,6 +4,32 @@
     {
       "type": "insight",
       "kind": "insight",
+      "date": "2026-07-31",
+      "id": "personal-restaurant-qr-order-5-steps-2026-07-31",
+      "title": "小さな 個人店 が QR モバイル オーダー で 失敗 しない 導入 5 ステップ — 越谷 · 草加 の 定食 屋 · カフェ · 居酒屋 向け 費用 / 期間 / 撤退 基準",
+      "description": "越谷 · 草加 の 個人 経営 飲食店 owner 向け に、 QR モバイル オーダー 導入 の 5 ステップ を fact-based で 整理。 費用 相場 · 期間 目安 · 「使わない と 分かった 時 の やめ 方」(撤退 基準) を 含み、 大手 SaaS が 書か ない 差別 化 tone で 実務 判断 を 支援。",
+      "url": "/insights/personal-restaurant-qr-order-5-steps-2026-07-31.html",
+      "cat": "How-to · 飲食店 DX · 越谷 · 草加",
+      "insight_cat": "How-to · 飲食店 DX · 越谷 · 草加",
+      "author": "沓澤 怜士 (Kutsuzawa Reo)",
+      "build_cat": "How-to"
+    },
+    {
+      "type": "insight",
+      "kind": "insight",
+      "date": "2026-07-30",
+      "id": "personal-tax-return-ai-8-hours-2026-07-30",
+      "title": "個人 事業主 が AI で 確定 申告 を 8 時間 で 終わらせる 実務 手順 (2026 年 版)",
+      "description": "副業 · 個人 事業主 の 確定 申告 (白色 · 青色) を AI で 8 時間 に 圧縮 する 実務 手順。 会計 SaaS と AI の 使い分け、 事務 作業 と 税務 判断 の 境界 を fact-based で 整理。 税務 代理 · 税務書類 作成 は 税理士 独占 業務 の ため 提供 しません。",
+      "url": "/insights/personal-tax-return-ai-8-hours-2026-07-30.html",
+      "cat": "How-to · 経理 自動 化 · 個人 事業主",
+      "insight_cat": "How-to · 経理 自動 化 · 個人 事業主",
+      "author": "沓澤 怜士 (Kutsuzawa Reo)",
+      "build_cat": "How-to"
+    },
+    {
+      "type": "insight",
+      "kind": "insight",
       "date": "2026-07-29",
       "id": "car-3-deadline-management-2026-07-29",
       "title": "車 の 車検 · 保険 · 免許 3 つ の 期限 を 1 画面 で 管理 する 手順 (iOS Kigen 実運用)",
