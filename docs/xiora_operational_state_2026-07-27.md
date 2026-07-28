@@ -91,9 +91,39 @@ bbb74c4 xiora HP: 甘さ 大 一括 修正 (誇大 + ¥980 mismatch 全 除去)
 501cb45 xiora HP: consulting-thanks + lingua-beta-thanks 甘さ 除去
 ```
 
-**削除 行数**: 6,685 行 (誇大 表現 · 未 実装 主張 · 撤退 pillar 露出 · 過大 数値 全 除去)
-**追加 行数**: 2,051 行 (short redirect + amber banner + 4 core focus + 新 insights 2 記事 + 内部 リンク 強化 + 数値 正確 化)
-**net**: -4,634 行 · 128 file 変更 · 30 commit
+**削除 行数**: 約 6,800 行 (誇大 表現 · 未 実装 主張 · 撤退 pillar 露出 · 過大 数値 全 除去)
+**追加 行数**: 約 2,200 行 (short redirect + amber banner + 4 core focus + 新 insights 2 記事 + 内部 リンク 強化 + 数値 正確 化 + 法務 rebrand + Stripe SoT doc)
+**net**: 約 -4,600 行 · 130+ file 変更 · 41 commit
+
+## 8. 追加 batch (2026-07-28 深夜, 11 commit)
+
+### 法務 · 表示 の 4 core rebrand 適用
+
+- `legal/tokusho.html`: 撤退 4 pillar (Sales AI OS / EC-Autopilot / XCloud Flow / Shigyo Agents) を 「販売 停止 中 · 事業 見直し 中」に 明示、 Nexa 「44 コース」→「36+ コース」補正
+- `legal/brand-separation.html`: 4 core + 継続 販売 + β + 事業 見直し 中 + 内部 非販売 の 5 区分 に 再 構成
+- `legal/disclaimer.html` + `legal/privacy.html` + `legal/terms.html` + `legal/ai-disclaimer.html`: 商標 · 対象 サービス · 適用 範囲 · AI 機能 例示 を 4 core 集中 展開 に refactor
+- `legal/index.html` + `legal/investment-disclaimer.html`: 投資 助言 免責 事項 を 「XioraTrader / XioraPredict」括弧 削除 で 総称 化
+
+### バグ 修正 + 数値 整合
+
+- `scripts/build.py`: sitemap.xml の 絶対 URL 混入 malformed 修正 (kigen.xiora-official.com / academy.xiora-official.com が 正しく indexed される よう に)
+- Nexa 「50 course」全 削除 (products/index + index + pricing + comparisons/nexa-vs-teachable-thinkific)
+- `products/gourmie.html` footer product 一覧 を 4 core + Gourmie に refactor
+- `pricing.html`: Gourmie を 「事業 見直し 中」から「β 事前 登録 (継続)」に 移動
+
+### Reo action 追加 doc
+
+- `docs/reo_action_xiora_lingua_stripe_2026-07-28.md`: HP marketing ¥690/¥1,180 vs API+Stripe ¥980/¥1,980 の 不整合 発見、 3 択 (A/B/C) 提示 · 推奨 A (Stripe 側 を ¥690/¥1,180 に 変更)
+
+## 9. Reo 残 action 更新
+
+| # | action | 所要 | 効果 |
+|---|---|---|---|
+| 1 | FDA grant to /bin/bash | 30秒 | Playwright form_fill 68 target 一括 activate |
+| 2 | Kigen App Store 「KigenX → Kigen」 rename | 30 分 | brand 統一 |
+| 3 | Kigen Lifetime IAP MISSING_METADATA 補完 | 5 分 | 買い切り option |
+| **4 (優先)** | **Xiora Lingua Stripe A/B/C 決定 + Stripe dashboard で price 変更** | **5 分** | **Super/Family LIVE 化 · 実 課金 開始** |
+| 5 | launchctl load lingua-conversion daemon | 3 分 | conversion tracking |
 
 ## 7. 追加 traffic pipeline (2026-07-28 batch)
 
