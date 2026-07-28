@@ -245,6 +245,8 @@ def render_sitemap_insights(updates: dict) -> str:
 
 
 def render_sitemap_products(products_data: dict) -> str:
+    # 4 core (Xiora Lingua LIVE Stripe funnel): weekly + priority 1.0
+    CORE_HIGH_PRIORITY = {"/lingua.html"}
     parts: list[str] = []
     for p in products_data["products"]:
         if p.get("include_in_sitemap") is False:
@@ -258,10 +260,13 @@ def render_sitemap_products(products_data: dict) -> str:
             url = base
         else:
             url = "https://xiora-official.com" + raw_url
+        is_core = raw_url in CORE_HIGH_PRIORITY
+        changefreq = "weekly" if is_core else "monthly"
+        priority = "1.0" if is_core else "0.9"
         parts.append("  <url>")
         parts.append(f"    <loc>{url}</loc>")
-        parts.append("    <changefreq>monthly</changefreq>")
-        parts.append("    <priority>0.9</priority>")
+        parts.append(f"    <changefreq>{changefreq}</changefreq>")
+        parts.append(f"    <priority>{priority}</priority>")
         parts.append("  </url>")
     return "\n".join(parts)
 

@@ -54,7 +54,6 @@
   <url>
     <loc>https://xiora-official.com/lingua.html</loc>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-07-28</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -265,7 +264,17 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://xiora-official.com/insights/personal-restaurant-qr-order-5-steps-2026-07-31.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/startup-marketing-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/personal-tax-return-ai-8-hours-2026-07-30.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
