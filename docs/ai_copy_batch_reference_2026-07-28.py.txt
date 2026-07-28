@@ -1,0 +1,241 @@
+#!/usr/bin/env python3
+"""AI-native copy generator for XioraLifeMedia (2026-07-28).
+
+Reo directive: 「AI を もっと 活用 して」
+- 使用: local Ollama (qwen2.5:7b, 負荷 抑え目、`memory/feedback_mac_no_heavy_load_2026_07_25.md` 遵守)
+- 対象: `data/inventory.db` 全 product
+- 出力: `deliverables/curated_batch_2026-07-28/ai_generated/<id>_<platform>.md`
+
+原則:
+- fact-only tone (xiora HP directive 継承)
+- 「絶対 / 100% / 神 / 爆売れ」等 の 誇大 表現 禁止
+- 全 post に 「【PR · アフィリエイト】」明示
+- 4 POV 差別 化 を prompt に 埋め込み
+"""
+
+import json
+import sqlite3
+import sys
+import time
+import urllib.request
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DB = ROOT / "data" / "inventory.db"
+OUT_DIR = ROOT / "deliverables" / "curated_batch_2026-07-28" / "ai_generated"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+MODEL = "qwen2.5:7b"
+OLLAMA_URL = "http://localhost:11434/api/generate"
+
+FORBIDDEN = ["絶対", "必ず", "100%", "神", "爆売れ", "最高", "最強", "確実", "保証"]
+
+# 誇大 表現 の soft-replace mapping (fact-only tone に 変換)
+SOFT_REPLACEMENTS = {
+    "絶対": "実 感 として",
+    "必ず": "多く の 場合",
+    "100%": "概ね",
+    "神": "気に入って いる",
+    "爆売れ": "実 レビュー 上位",
+    "最高": "個人 的 に は 良い",
+    "最強": "上位 候補 の 1 つ",
+    "確実に": "実 使用 感 と して",
+    "保証": "傾向",
+}
+
+PLATFORM_PROMPTS = {
+    "room": """楽天 ROOM への 投稿 本文 を 生成 して 下さい。
+制約:
+- 100-160 文字 (半角 換算)
+- 本文 に URL や ハッシュタグ (#) は 書か ない (ROOM 公式 rule)
+- fact-only tone、 主観 語 は data の 裏付け と セット (例:「Rakuten review 4.5+」)
+- 冒頭 に「【PR】」と 明示
+- 「絶対」「100%」「神」「爆売れ」等 の 誇大 表現 は 使わない
+- 「渋谷 道玄坂 の xiora 事務所 (1 人 会社)」の 実 使用 context を 織り込む こと が 望ましい
+
+POV 差別 化:
+- xiora は AI SaaS 4 core (Kigen/Xiora Lingua/Nexa/XCloud Connect) を 1 人 で 運用 する 会社
+- data (Rakuten review 平均 + 件数) と 実 使用 感 を セット で 書く
+- 「盛らない fact-first tone」で 差別 化
+
+出力: ROOM 本文 のみ、 その 他 の 説明 · 見出し · 前置き は 一切 出力 しない。""",
+
+    "x": """X (Twitter) への 投稿 本文 を 生成 して 下さい。
+制約:
+- 140 文字 以内 (日本語 · 半角 換算)
+- 冒頭 に「【PR · アフィリエイト】」明示
+- 末尾 に「※Rakuten アフィリエイト 参加 中」
+- fact-only tone、 主観 語 は data 裏付け セット
+- URL や 画像 リンク は 記述 不要 (投稿 時 に 別 途 attach)
+
+POV: xiora (AI SaaS 4 core を 1 人 で 運用) の 実 使用 context
+
+出力: X 本文 のみ、 説明 一切 なし。""",
+
+    "note": """note (note.com) の 記事 本文 を Markdown で 生成 して 下さい。
+制約:
+- 700-1,200 字 の 本文
+- 見出し は h2 (##) から 使用、 冒頭 に「【本 記事 は Rakuten アフィリエイト リンク を 含みます】」明示
+- 構成: ## 選定 根拠 · ## 実 使用 感 · ## 4 core 隣接 領域 と して · ## Rakuten で 見る (link 挿入 の placeholder は `[Rakuten 商品 ページ (アフィリエイト リンク)]({AFF_URL})` の 形式)
+- fact-only tone、 「絶対 / 100% / 神」等 禁止
+- xiora の 4 core SaaS (Kigen 期限 管理 / Xiora Lingua 語学 学習 / Nexa Education OS / XCloud Connect 飲食 QR) の いずれ か と 隣接 領域 で re-frame する
+- 末尾 に「【免責】本 記事 は 個人 使用 感 に 基づく 情報 提供、 効果 · 満足 度 を 保証 しない」
+
+出力: Markdown 本文 のみ、 説明 一切 なし。""",
+}
+
+DIFFERENTIATION_HINT = """4 POV 差別 化 (この POV の 少なくとも 1 つ を copy に 明示 的 に 含める こと):
+1. AI が data (EV2 score + review 数値) で 選んだ こと を 明示
+2. Reo (xiora founder · 1 人 会社) の 実 使用 context (「Xiora 事務所 = 渋谷 道玄坂」等)
+3. xiora の 4 core SaaS 隣接 領域 と して re-frame
+4. fact-first tone (「感想」で は なく 「data」の 引用)
+
+**絶対 禁止 語** (これら の 語 は 一切 使用 禁止、 違反 は re-generate 対象):
+「絶対」「必ず」「100%」「神」「爆売れ」「最高」「最強」「確実」「保証」
+「話題 沸騰」「限定 特典」「今 だけ」「必ず 効く」「効能 認定」「医薬品 級」
+
+**代替 表現**:
+- 「絶対」→ 「実 感 として」「多く の 場合」
+- 「最高」→ 「個人 的 に は 良い」「上位 候補」
+- 「必ず」→ 「多く の 人 の 場合」「傾向 として」
+"""
+
+
+def build_prompt(product: dict, platform: str) -> str:
+    return f"""あなた は xiora 社 (AI SaaS 4 core を 1 人 で 運用 する 東京 渋谷 道玄坂 の tech 企業) の SNS 担当 です。
+
+以下 の 楽天 商品 に つい て、 {platform.upper()} 向け の 投稿 本文 を 生成 して 下さい。
+
+## 商品 情報
+
+- 商品 名: {product['title']}
+- 価格: ¥{product['price']:,}
+- Rakuten review 平均: {product.get('review_avg') or 'N/A'}
+- Rakuten review 件数: {product.get('review_count') or 'N/A'}
+- ジャンル: {product.get('genre') or 'N/A'}
+- ショップ: {product.get('shop_code') or 'N/A'}
+- EV2 score (inventory 内 順位 の 指標): {product.get('ev2_score') or 'N/A'}
+
+## POV
+
+{DIFFERENTIATION_HINT}
+
+## 生成 指示
+
+{PLATFORM_PROMPTS[platform]}
+"""
+
+
+def call_ollama(prompt: str, timeout: int = 90) -> str:
+    body = json.dumps({
+        "model": MODEL,
+        "prompt": prompt,
+        "stream": False,
+        "options": {
+            "temperature": 0.75,
+            "top_p": 0.92,
+            "num_predict": 1200,
+        },
+    }).encode("utf-8")
+    req = urllib.request.Request(
+        OLLAMA_URL,
+        data=body,
+        headers={"Content-Type": "application/json"},
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        data = json.loads(resp.read().decode("utf-8"))
+    return data.get("response", "").strip()
+
+
+import re
+
+URL_RE = re.compile(r"https?://\S+")
+HASHTAG_RE = re.compile(r"#\S+")
+
+
+def sanity_check(text: str, platform: str) -> tuple[str, list[str]]:
+    """Detect + soft-replace forbidden words + platform sanitize. Returns (sanitized, warnings)."""
+    warnings = []
+    sanitized = text
+    for word in FORBIDDEN:
+        if word in sanitized:
+            replacement = SOFT_REPLACEMENTS.get(word, "")
+            sanitized = sanitized.replace(word, replacement)
+            warnings.append(f"soft-replaced: {word} → {replacement or '(削除)'}")
+    # ROOM 公式 rule: 本文 に URL / hashtag 禁止
+    if platform == "room":
+        if URL_RE.search(sanitized):
+            sanitized = URL_RE.sub("", sanitized)
+            warnings.append("stripped URLs (ROOM rule)")
+        if HASHTAG_RE.search(sanitized):
+            sanitized = HASHTAG_RE.sub("", sanitized)
+            warnings.append("stripped hashtags (ROOM rule)")
+        sanitized = re.sub(r"\s+", " ", sanitized).strip()
+    return sanitized, warnings
+
+
+def main() -> int:
+    conn = sqlite3.connect(DB)
+    conn.row_factory = sqlite3.Row
+    products = conn.execute(
+        "SELECT * FROM products ORDER BY ev2_score DESC"
+    ).fetchall()
+    conn.close()
+
+    print(f"[ai_copy_batch] {len(products)} products loaded from inventory.db")
+    print(f"[ai_copy_batch] model = {MODEL}, output = {OUT_DIR}")
+    print()
+
+    stats = {"ok": 0, "warn": 0, "fail": 0}
+
+    for idx, row in enumerate(products, 1):
+        product = dict(row)
+        pid = product["id"]
+        title = product["title"][:40]
+        print(f"[{idx:2}/{len(products)}] id={pid} · {title}...")
+
+        for platform in ["room", "x", "note"]:
+            out_path = OUT_DIR / f"{pid:02}_{platform}.md"
+            if out_path.exists():
+                print(f"    skip {platform} (exists)")
+                continue
+
+            try:
+                t0 = time.time()
+                raw = call_ollama(build_prompt(product, platform))
+                elapsed = time.time() - t0
+                body, warnings = sanity_check(raw, platform)
+
+                content = (
+                    f"# product id={pid} · platform={platform}\n\n"
+                    f"**title**: {product['title']}\n\n"
+                    f"**price**: ¥{product['price']:,} · review avg {product.get('review_avg')} · "
+                    f"count {product.get('review_count')}\n\n"
+                    f"**affiliate URL**: `{product.get('affiliate_url')}`\n\n"
+                    f"**EV2 score**: {product.get('ev2_score')}\n\n"
+                )
+                if warnings:
+                    content += (
+                        "**⚠️ sanity warnings**:\n"
+                        + "\n".join(f"- {w}" for w in warnings)
+                        + "\n\n"
+                    )
+                    stats["warn"] += 1
+                else:
+                    stats["ok"] += 1
+
+                content += f"---\n\n{body}\n"
+                out_path.write_text(content, encoding="utf-8")
+                print(f"    ✓ {platform} generated ({elapsed:.1f}s, {len(body)} chars)"
+                      f"{' ⚠' if warnings else ''}")
+            except Exception as e:
+                stats["fail"] += 1
+                print(f"    ✗ {platform} FAILED: {e}")
+
+    print()
+    print(f"[ai_copy_batch] done — ok={stats['ok']}, warn={stats['warn']}, fail={stats['fail']}")
+    return 0 if stats["fail"] == 0 else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
