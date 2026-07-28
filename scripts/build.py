@@ -249,7 +249,15 @@ def render_sitemap_products(products_data: dict) -> str:
     for p in products_data["products"]:
         if p.get("include_in_sitemap") is False:
             continue
-        url = "https://xiora-official.com" + p["url"]
+        raw_url = p["url"]
+        # Absolute URL (external product page): use as-is
+        # Relative URL (internal /products/*.html): prefix with canonical origin
+        if raw_url.startswith("http://") or raw_url.startswith("https://"):
+            # Strip UTM/query params for sitemap (search engines prefer canonical URLs)
+            base = raw_url.split("?", 1)[0]
+            url = base
+        else:
+            url = "https://xiora-official.com" + raw_url
         parts.append("  <url>")
         parts.append(f"    <loc>{url}</loc>")
         parts.append("    <changefreq>monthly</changefreq>")
