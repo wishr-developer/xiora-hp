@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>xiora API｜法人 番号 · 日本語 正規化 · 会社 情報 抽出 の 3 API | Xiora Products</title>
+<meta content="xiora が 自社 SaaS (Nexa · XCloud Connect · Xiora Lingua) の 内部 で 動かして いる 3 API を RapidAPI Hub 経由 で 外部 提供。 JP Business Registry / Japanese Text Normalization / Contact Extraction、 Freemium から 開始 可能。" name="description"/>
+<meta content="xiora API,法人番号,日本語正規化,会社情報抽出,RapidAPI,SaaS API,Xiora" name="keywords"/>
+<link href="https://xiora-official.com/products/apis.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://xiora-official.com/products/apis.html" property="og:url"/>
+<meta content="xiora API｜3 core API を 外部 提供 | Xiora" property="og:title"/>
+<meta content="法人 番号 lookup · 日本語 テキスト 正規化 · HP 会社 情報 抽出 の 3 API。 xiora 自社 SaaS の 内部 で 実 使用 中。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260702f" rel="stylesheet"/>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/manifest.json" rel="manifest"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://xiora-official.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://xiora-official.com/products/" },
+    { "@type": "ListItem", "position": 3, "name": "xiora API", "item": "https://xiora-official.com/products/apis.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "xiora API",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (HTTP)",
+  "url": "https://xiora-official.com/products/apis.html",
+  "publisher": { "@type": "Organization", "name": "Xiora", "url": "https://xiora-official.com/" },
+  "description": "JP Business Registry / Japanese Text Normalization / Contact Extraction の 3 API。 xiora 自社 SaaS の 内部 で 実 使用 中、 RapidAPI Hub 経由 で 外部 提供。",
+  "offers": [
+    { "@type": "Offer", "name": "Freemium", "price": "0", "priceCurrency": "JPY", "description": "100 req/day 無料" },
+    { "@type": "Offer", "name": "Basic", "price": "1980", "priceCurrency": "JPY", "description": "10,000 req/月" },
+    { "@type": "Offer", "name": "Pro", "price": "9800", "priceCurrency": "JPY", "description": "100,000 req/月" },
+    { "@type": "Offer", "name": "Enterprise", "price": "49800", "priceCurrency": "JPY", "description": "1,000,000 req/月" }
+  ]
+}
+</script>
+<style>
+.api-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 24px; background: #fff; margin-bottom: 16px; }
+.api-card h3 { margin: 0 0 8px; font-size: 20px; }
+.api-card .badge { display: inline-block; font-size: 11px; color: #666; letter-spacing: 0.05em; text-transform: uppercase; margin-right: 8px; }
+.api-card ul.endpoints { list-style: none; padding: 0; margin: 12px 0 0; }
+.api-card ul.endpoints li { font-family: "JetBrains Mono", monospace; font-size: 13px; padding: 6px 0; color: #444; }
+.api-card .method { display: inline-block; padding: 1px 6px; margin-right: 8px; border-radius: 4px; font-weight: 600; font-size: 11px; color: #fff; }
+.api-card .method--get { background: #16a34a; }
+.api-card .method--post { background: #2563eb; }
+.tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
+.tier { border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 20px; background: #fff; text-align: center; }
+.tier__name { font-size: 12px; color: #666; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 6px; }
+.tier__price { font-size: 24px; font-weight: 700; margin: 0 0 4px; }
+.tier__quota { font-size: 13px; color: #444; margin: 0 0 12px; }
+.tier__note { font-size: 11px; color: #888; }
+pre.code-snippet { background: #0f172a; color: #e2e8f0; padding: 16px; border-radius: 8px; font-family: "JetBrains Mono", monospace; font-size: 13px; overflow-x: auto; line-height: 1.5; }
+.snippet-tabs { display: flex; gap: 8px; margin: 12px 0 8px; }
+.snippet-tabs button { background: transparent; border: 1px solid rgba(0,0,0,0.12); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; }
+.snippet-tabs button.active { background: #0f172a; color: #fff; border-color: #0f172a; }
+.trust-list { list-style: none; padding: 0; margin: 16px 0 0; }
+.trust-list li { padding: 8px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); font-size: 14px; }
+.trust-list li:before { content: "· "; color: #666; }
+</style>
+<script defer="" src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a aria-label="Xiora ホーム" class="brand" href="/">
+<svg aria-hidden="true" class="brand__mark" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 23 Q16 5 26.5 23" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"></path><circle cx="16" cy="12.5" fill="currentColor" r="3.2"></circle></svg>
+<span class="brand__name">Xiora</span>
+</a>
+<nav aria-label="メインメニュー" class="site-nav" id="siteNav">
+<a href="/#technology">Technology</a>
+<a aria-current="page" href="/products/">Products</a>
+<a href="/#services">Services</a>
+<a href="/case-studies.html">Case Studies</a>
+<a href="/insights/">Insights</a>
+<a href="/company.html">About</a>
+<a href="/contact.html">Contact</a>
+</nav>
+<button aria-expanded="false" aria-label="メニューを開く" class="nav-toggle" id="navToggle">
+<span></span><span></span>
+</button>
+</div>
+</header>
+<main id="main">
+
+<section class="page-hero">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a><span aria-hidden="true">/</span>
+<a href="/products/">Products</a><span aria-hidden="true">/</span>
+<span aria-current="page">xiora API</span>
+</nav>
+<p class="page-hero__eyebrow reveal"><span class="dash"></span>Products / xiora API<span class="pill pill--muted" style="margin-left:12px;">[Developer API]</span><span class="pill pill--muted" style="margin-left:8px;">RapidAPI 準備 中</span></p>
+<h1 class="page-hero__title reveal">
+xiora API.<br class="sp-only"/> 4 core SaaS の 内部 で 動いて いる 3 API を 外部 提供。
+</h1>
+<p class="page-hero__lead reveal">
+Nexa · XCloud Connect · Xiora Lingua · Gourmie の 内部 で 実 使用 中 の 3 API を、<br class="pc-only"/>
+RapidAPI Hub 経由 で 外部 開発 者 向け に 公開 準備 中。<br class="pc-only"/>
+Freemium 100 req/day から 開始、 Enterprise 1M req/月 まで。
+</p>
+<div class="page-hero__actions reveal">
+<a class="btn btn--primary" href="#tiers">
+料金 tier を 見る
+</a>
+<a class="btn btn--ghost" href="#apis">
+3 API の 詳細
+</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="apis">
+<div class="container">
+<header class="section__head">
+<p class="section__label reveal"><span class="dash"></span>3 APIs</p>
+<h2 class="section__title reveal">4 core SaaS を 支える 3 内部 API</h2>
+<p class="section__lead reveal">
+xiora が 日々 の 自社 業務 で 使用 して いる API を そのまま 外部 提供。
+検証 済 の 実 稼働 code base、 品質 は 自社 使用 と 同 水準。
+</p>
+</header>
+
+<article class="api-card reveal">
+<span class="badge">API 01 · business-registry</span>
+<h3>JP Business Registry API</h3>
+<p>国税庁 法人 番号 API (国 公開 情報) の wrapper。 13 桁 法人 番号 で 会社 名 · 所在 地 · 設立 日 を 取得、 曖昧 検索 も 対応。 Postgres cache 30 日、 レスポンス 数十 ms。</p>
+<ul class="endpoints">
+<li><span class="method method--get">GET</span> /v1/companies/{corporate_number}</li>
+<li><span class="method method--get">GET</span> /v1/companies/search?q=xxx&amp;limit=10</li>
+</ul>
+</article>
+
+<article class="api-card reveal">
+<span class="badge">API 02 · text-normalize</span>
+<h3>Japanese Text Normalization API</h3>
+<p>全角/半角 変換、 送り 仮名 正規化、 住所 郵便 番号 展開、 姓 名 分離 · furigana 推定。 Xiora Lingua の 内部 normalizer を 転用。</p>
+<ul class="endpoints">
+<li><span class="method method--post">POST</span> /v1/normalize/text</li>
+<li><span class="method method--post">POST</span> /v1/normalize/address</li>
+<li><span class="method method--post">POST</span> /v1/normalize/name</li>
+</ul>
+</article>
+
+<article class="api-card reveal">
+<span class="badge">API 03 · contact-extract</span>
+<h3>xiora Contact Extraction API</h3>
+<p>HP の URL または HTML から email · phone · 住所 · 代表 者 名 · 会社 名 を 抽出。 LLM 補助 + regex fallback、 各 field に confidence score を 付与。</p>
+<ul class="endpoints">
+<li><span class="method method--post">POST</span> /v1/extract/contact</li>
+</ul>
+</article>
+</div>
+</section>
+
+<section class="section section--soft" id="tiers">
+<div class="container">
+<header class="section__head">
+<p class="section__label reveal"><span class="dash"></span>Pricing tiers</p>
+<h2 class="section__title reveal">4 tier + 従量 課金</h2>
+<p class="section__lead reveal">
+RapidAPI Hub 経由 で 契約、 Freemium から すぐ 試せる。 上限 到達 後 は endpoint 別 従量 課金 で 継続 利用 可。
+</p>
+</header>
+<div class="tier-grid reveal">
+<div class="tier">
+<p class="tier__name">Freemium</p>
+<p class="tier__price">¥0</p>
+<p class="tier__quota">100 req/day</p>
+<p class="tier__note">個人 評価 用、 hard stop</p>
+</div>
+<div class="tier">
+<p class="tier__name">Basic</p>
+<p class="tier__price">¥1,980<span style="font-size:12px;color:#666;">/月</span></p>
+<p class="tier__quota">10,000 req/月</p>
+<p class="tier__note">超過 ¥0.5/req</p>
+</div>
+<div class="tier">
+<p class="tier__name">Pro</p>
+<p class="tier__price">¥9,800<span style="font-size:12px;color:#666;">/月</span></p>
+<p class="tier__quota">100,000 req/月</p>
+<p class="tier__note">超過 ¥0.3/req · SLA 99.5%</p>
+</div>
+<div class="tier">
+<p class="tier__name">Enterprise</p>
+<p class="tier__price">¥49,800<span style="font-size:12px;color:#666;">/月</span></p>
+<p class="tier__quota">1,000,000 req/月</p>
+<p class="tier__note">超過 ¥0.15/req · SLA 99.9%</p>
+</div>
+</div>
+<p style="text-align:center;margin-top:24px;font-size:13px;color:#666;">
+RapidAPI Hub の 標準 通貨 は USD。 上記 JPY は 為替 概算、 実 決済 は USD ベース。
+</p>
+</div>
+</section>
+
+<section class="section" id="snippets">
+<div class="container">
+<header class="section__head">
+<p class="section__label reveal"><span class="dash"></span>SDK snippets</p>
+<h2 class="section__title reveal">3 言語 で 即 呼出</h2>
+<p class="section__lead reveal">
+Python · JavaScript · curl。 `X-RapidAPI-Key` ヘッダ 1 つ で 動作、 追加 SDK 不要。
+</p>
+</header>
+
+<h3 style="margin-top:32px;font-size:16px;">Python (requests)</h3>
+<pre class="code-snippet">import requests
+
+url = "https://xiora-official.com/api/v1/companies/2011101044774"
+headers = {"X-RapidAPI-Key": "YOUR_RAPIDAPI_KEY"}
+
+resp = requests.get(url, headers=headers, timeout=10)
+resp.raise_for_status()
+company = resp.json()
+
+print(company["name"], company["address"])
+# → 株式会社 example  東京都渋谷区道玄坂1-10-8</pre>
+
+<h3 style="margin-top:24px;font-size:16px;">JavaScript (fetch)</h3>
+<pre class="code-snippet">const url = "https://xiora-official.com/api/v1/normalize/text";
+const body = {
+  text: "ＸＩＯＲＡ　の　商　品　",
+  options: { fullwidth_to_halfwidth: true, collapse_spaces: true }
+};
+
+const resp = await fetch(url, {
+  method: "POST",
+  headers: {
+    "X-RapidAPI-Key": "YOUR_RAPIDAPI_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(body)
+});
+const data = await resp.json();
+
+console.log(data.normalized);
+// → XIORA の 商品</pre>
+
+<h3 style="margin-top:24px;font-size:16px;">curl</h3>
+<pre class="code-snippet">curl -X POST "https://xiora-official.com/api/v1/extract/contact" \
+  -H "X-RapidAPI-Key: YOUR_RAPIDAPI_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://xiora-official.com/company.html"}'</pre>
+</div>
+</section>
+
+<section class="section section--soft" id="trust">
+<div class="container">
+<header class="section__head">
+<p class="section__label reveal"><span class="dash"></span>Trust proof</p>
+<h2 class="section__title reveal">xiora 自社 SaaS で 実 使用 中</h2>
+</header>
+<ul class="trust-list reveal">
+<li>Nexa Education OS の 講師 · 受講 者 KYC verification で business-registry API を 使用</li>
+<li>XCloud Connect の 契約 書 生成 pipeline で address normalize API を 使用</li>
+<li>Xiora Lingua の 日本語 学習 モジュール で text normalize API を 使用</li>
+<li>Xiora の 営業 pipeline (XAIOutreach) で contact-extract API を 使用 (2026-07-25 稼働、 22 form 送信 実績)</li>
+<li>3 API 全て が xiora の 内部 手作業 削減 に 使われて いる 実 稼働 asset</li>
+</ul>
+<p style="margin-top:24px;font-size:13px;color:#666;">
+出典 の attribution: business-registry は 国税庁 法人 番号 API (国 公開 情報) を wrapper。 全 response に source field を 付与。
+</p>
+</div>
+</section>
+
+<section class="section section--cta">
+<div class="container container--narrow">
+<h2 class="section__title reveal">RapidAPI 準備 中</h2>
+<p class="section__lead reveal">RapidAPI Hub の list URL は 公開 後 に 反映 予定。 事前 に 相談 したい 場合 は info@xiora-official.com へ。</p>
+<div class="page-hero__actions reveal">
+<a class="btn btn--primary" href="/contact.html">
+事前 問い合わせ
+</a>
+<a class="btn btn--ghost" href="/products/">
+他 の Products を 見る
+</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="container">
+<div class="site-footer__grid">
+<div>
+<a aria-label="Xiora ホーム" class="brand brand--footer" href="/">
+<span class="brand__name">Xiora</span>
+</a>
+<p class="site-footer__blurb">AI 時代の技術パートナー</p>
+</div>
+<nav class="site-footer__nav">
+<div>
+<p class="site-footer__head">Company</p>
+<ul>
+<li><a href="/company.html">About</a></li>
+<li><a href="/contact.html">Contact</a></li>
+</ul>
+</div>
+<div>
+<p class="site-footer__head">Products</p>
+<ul>
+<li><a href="/products/kigen.html">Kigen (iOS)</a></li>
+<li><a href="/lingua.html">Xiora Lingua (Web)</a></li>
+<li><a href="https://academy.xiora-official.com/">Nexa Education OS</a></li>
+<li><a href="/products/xcloud-connect.html">XCloud Connect</a></li>
+<li><a href="/products/gourmie.html">Gourmie</a></li>
+<li><a href="/products/apis.html">xiora API</a></li>
+<li><a href="/products/">All Products</a></li>
+</ul>
+</div>
+<div>
+<p class="site-footer__head">Resources</p>
+<ul>
+<li><a href="/pricing.html">Pricing</a></li>
+<li><a href="/security.html">Security</a></li>
+<li><a href="/insights/">Insights</a></li>
+</ul>
+</div>
+</nav>
+</div>
+<div class="site-footer__bottom">
+<p>© <span id="year"></span> Xiora. All rights reserved.</p>
+<ul class="site-footer__meta">
+<li><a href="/legal/tokusho.html">特定商取引法</a></li>
+<li><a href="/legal/privacy.html">プライバシーポリシー</a></li>
+<li><a href="/legal/terms.html">利用規約</a></li>
+<li><a href="/legal/disclaimer.html">免責事項</a></li>
+<li><a href="/legal/cookies.html">Cookieポリシー</a></li>
+<li><a href="/legal/">Legal Index</a></li>
+<li><a href="/sitemap.html">サイトマップ</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script defer="" src="/assets/js/main.js?v=20260702f"></script>
+</body>
+</html>

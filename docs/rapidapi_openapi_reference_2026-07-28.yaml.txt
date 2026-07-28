@@ -1,0 +1,495 @@
+openapi: 3.1.0
+info:
+  title: xiora API — JP Business Data & Text Utilities
+  version: "1.0.0"
+  summary: 3 xiora core APIs published on RapidAPI Hub.
+  description: |
+    xiora が 自社 SaaS (Nexa / XCloud Connect / Xiora Lingua) の 内部 で
+    実 使用 して いる 3 API を 外部 提供 する。 全 endpoint は Tokyo VPS
+    (xiora-official.com、 Caddy reverse proxy) で 稼働。
+
+    ## Auth
+    - RapidAPI Hub 経由 で 契約、 `X-RapidAPI-Key` ヘッダ 必須。
+    - 直接 呼出 (RapidAPI 経由 でない) は 401 で reject。
+
+    ## Rate limit tiers (Provider dashboard で 制御)
+    - Freemium: 100 req/day
+    - Basic (¥1,980/月): 10,000 req/月 (~330 req/day)
+    - Pro (¥9,800/月): 100,000 req/月 (~3,300 req/day)
+    - Enterprise (¥49,800/月): 1,000,000 req/月
+
+    ## 除外 領域
+    投資 助言 · 士業 独占 業務 · 医療 診断 · 薬機 法 該当 情報 は 一切 含めない。
+
+    ## Fair use
+    全 endpoint は 出典 明示 · 公開 情報 wrapper。 政府 公開 情報 (国税庁 法人 番号 API)
+    は そのまま 転載 する 場合 の 商用 利用 制限 は 無し (国税庁 利用 規約 準拠)。
+
+  contact:
+    name: xiora support
+    email: info@xiora-official.com
+    url: https://xiora-official.com/contact.html
+  license:
+    name: xiora API Terms
+    url: https://xiora-official.com/legal/terms.html
+
+servers:
+  - url: https://xiora-official.com/api
+    description: Production (RapidAPI 経由 の 実 endpoint)
+
+security:
+  - RapidAPIKey: []
+
+tags:
+  - name: business-registry
+    description: 国税庁 法人 番号 API wrapper (30 日 cache)
+  - name: text-normalize
+    description: 日本語 テキスト 正規化 (全角/半角、 送り仮名、 furigana)
+  - name: contact-extract
+    description: HP から 会社 情報 抽出 (LLM 補助)
+
+paths:
+  /v1/companies/{corporate_number}:
+    get:
+      tags: [business-registry]
+      operationId: getCompanyByCorporateNumber
+      summary: 法人 番号 で 会社 情報 を lookup
+      description: |
+        国税庁 法人 番号 API を 30 日 cache 付き で wrapper。
+        13 桁 の 法人 番号 で 会社 名 · 所在 地 · 設立 日 を 返却。
+      parameters:
+        - name: corporate_number
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: "^[0-9]{13}$"
+            example: "2011101044774"
+      responses:
+        "200":
+          description: 会社 情報
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Company"
+              example:
+                corporate_number: "2011101044774"
+                name: "株式会社 example"
+                name_kana: "カブシキガイシャ エグザンプル"
+                address: "東京都渋谷区道玄坂1-10-8"
+                postal_code: "150-0043"
+                established_date: "2020-04-01"
+                status: "active"
+                source: "kokuzei-hojin-bangou-api"
+                cached_at: "2026-07-28T14:00:00+09:00"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: 該当 法人 番号 なし
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+
+  /v1/companies/search:
+    get:
+      tags: [business-registry]
+      operationId: searchCompanies
+      summary: 会社 名 曖昧 検索
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+            minLength: 2
+            maxLength: 100
+            example: "xiora"
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 10
+      responses:
+        "200":
+          description: 検索 結果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  query:
+                    type: string
+                  count:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Company"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+
+  /v1/normalize/text:
+    post:
+      tags: [text-normalize]
+      operationId: normalizeText
+      summary: 日本語 テキスト 正規化 (全角/半角、 送り仮名、 trim)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [text]
+              properties:
+                text:
+                  type: string
+                  maxLength: 10000
+                  example: "ＸＩＯＲＡ　の　商　品　"
+                options:
+                  type: object
+                  properties:
+                    fullwidth_to_halfwidth:
+                      type: boolean
+                      default: true
+                    halfwidth_to_fullwidth:
+                      type: boolean
+                      default: false
+                    normalize_okurigana:
+                      type: boolean
+                      default: true
+                    trim_whitespace:
+                      type: boolean
+                      default: true
+                    collapse_spaces:
+                      type: boolean
+                      default: true
+      responses:
+        "200":
+          description: 正規化 結果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  original:
+                    type: string
+                  normalized:
+                    type: string
+                  applied_options:
+                    type: array
+                    items:
+                      type: string
+              example:
+                original: "ＸＩＯＲＡ　の　商　品　"
+                normalized: "XIORA の 商品"
+                applied_options: ["fullwidth_to_halfwidth", "collapse_spaces", "trim_whitespace"]
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+
+  /v1/normalize/address:
+    post:
+      tags: [text-normalize]
+      operationId: normalizeAddress
+      summary: 住所 正規化 (郵便 番号 → 都道府県 · 市区町村 展開)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                postal_code:
+                  type: string
+                  pattern: "^[0-9]{3}-?[0-9]{4}$"
+                  example: "150-0043"
+                address:
+                  type: string
+                  maxLength: 500
+                  example: "東京都渋谷区道玄坂1-10-8"
+      responses:
+        "200":
+          description: 展開 結果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  postal_code:
+                    type: string
+                  prefecture:
+                    type: string
+                  city:
+                    type: string
+                  town:
+                    type: string
+                  street:
+                    type: string
+                  formatted:
+                    type: string
+              example:
+                postal_code: "150-0043"
+                prefecture: "東京都"
+                city: "渋谷区"
+                town: "道玄坂"
+                street: "1-10-8"
+                formatted: "〒150-0043 東京都渋谷区道玄坂1-10-8"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+
+  /v1/normalize/name:
+    post:
+      tags: [text-normalize]
+      operationId: normalizeName
+      summary: 姓 名 分離 + furigana 推定
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [full_name]
+              properties:
+                full_name:
+                  type: string
+                  maxLength: 100
+                  example: "沓澤 怜士"
+      responses:
+        "200":
+          description: 分離 結果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  full_name:
+                    type: string
+                  last_name:
+                    type: string
+                  first_name:
+                    type: string
+                  last_name_furigana:
+                    type: string
+                  first_name_furigana:
+                    type: string
+                  confidence:
+                    type: number
+                    format: float
+                    minimum: 0.0
+                    maximum: 1.0
+              example:
+                full_name: "沓澤 怜士"
+                last_name: "沓澤"
+                first_name: "怜士"
+                last_name_furigana: "くつざわ"
+                first_name_furigana: "れお"
+                confidence: 0.87
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+
+  /v1/extract/contact:
+    post:
+      tags: [contact-extract]
+      operationId: extractContact
+      summary: HP から 会社 情報 抽出 (email · phone · 住所 · 代表 名)
+      description: |
+        URL または HTML string を 入力、 会社 の contact 情報 を LLM 補助 で 抽出。
+        confidence_scores で 各 field の 抽出 信頼 度 を 提供。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
+                  example: "https://xiora-official.com/company.html"
+                html:
+                  type: string
+                  maxLength: 500000
+              oneOf:
+                - required: [url]
+                - required: [html]
+      responses:
+        "200":
+          description: 抽出 結果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  source:
+                    type: string
+                  email:
+                    type: array
+                    items:
+                      type: string
+                      format: email
+                  phone:
+                    type: array
+                    items:
+                      type: string
+                  address:
+                    type: string
+                    nullable: true
+                  representative_name:
+                    type: string
+                    nullable: true
+                  company_name:
+                    type: string
+                    nullable: true
+                  confidence_scores:
+                    type: object
+                    properties:
+                      email:
+                        type: number
+                      phone:
+                        type: number
+                      address:
+                        type: number
+                      representative_name:
+                        type: number
+                      company_name:
+                        type: number
+              example:
+                source: "https://xiora-official.com/company.html"
+                email: ["info@xiora-official.com"]
+                phone: ["070-9165-0203"]
+                address: "〒150-0043 東京都渋谷区道玄坂1-10-8"
+                representative_name: "沓澤 怜士"
+                company_name: "xiora"
+                confidence_scores:
+                  email: 0.98
+                  phone: 0.95
+                  address: 0.91
+                  representative_name: 0.82
+                  company_name: 0.97
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+
+components:
+  securitySchemes:
+    RapidAPIKey:
+      type: apiKey
+      in: header
+      name: X-RapidAPI-Key
+      description: |
+        RapidAPI Hub で 契約 後 に 発行 される API key。
+        直接 呼出 は 401、 必ず RapidAPI proxy 経由。
+
+  schemas:
+    Company:
+      type: object
+      properties:
+        corporate_number:
+          type: string
+        name:
+          type: string
+        name_kana:
+          type: string
+          nullable: true
+        address:
+          type: string
+        postal_code:
+          type: string
+        established_date:
+          type: string
+          format: date
+          nullable: true
+        status:
+          type: string
+          enum: [active, closed, unknown]
+        source:
+          type: string
+        cached_at:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        code:
+          type: string
+        message:
+          type: string
+        request_id:
+          type: string
+
+  responses:
+    BadRequest:
+      description: 400 リクエスト 不正
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: "bad_request"
+            code: "invalid_parameter"
+            message: "corporate_number must be 13 digits"
+            request_id: "req_abc123"
+    Unauthorized:
+      description: 401 認証 失敗
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: "unauthorized"
+            code: "missing_api_key"
+            message: "X-RapidAPI-Key header required"
+            request_id: "req_abc124"
+    RateLimited:
+      description: 429 rate limit 超過
+      headers:
+        X-RateLimit-Limit:
+          schema:
+            type: integer
+        X-RateLimit-Remaining:
+          schema:
+            type: integer
+        X-RateLimit-Reset:
+          schema:
+            type: integer
+          description: Unix timestamp when the limit resets
+        Retry-After:
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            error: "rate_limited"
+            code: "tier_quota_exceeded"
+            message: "Freemium tier is 100 req/day. Upgrade to Basic for 10,000 req/month."
+            request_id: "req_abc125"

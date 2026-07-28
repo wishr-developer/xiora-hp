@@ -1,0 +1,100 @@
+{
+  "$schema": "https://xiora-official.com/schemas/rapidapi-pricing-v1.json",
+  "product": {
+    "name": "xiora API — JP Business Data & Text Utilities",
+    "provider": "xiora",
+    "provider_email": "info@xiora-official.com",
+    "base_url": "https://xiora-official.com/api",
+    "currency": "JPY",
+    "billing_model": "monthly_recurring_plus_overage",
+    "updated_at": "2026-07-28"
+  },
+  "tiers": [
+    {
+      "id": "freemium",
+      "name": "Freemium",
+      "price_jpy": 0,
+      "monthly_quota": 3000,
+      "daily_quota": 100,
+      "per_second_limit": 2,
+      "burst_limit": 5,
+      "overage_policy": "hard_stop",
+      "overage_price_per_request_jpy": null,
+      "features": [
+        "All 3 APIs (business-registry / text-normalize / contact-extract)",
+        "Community support (Xiora HP contact form)",
+        "Response cache 30 days for business-registry"
+      ],
+      "target_persona": "Individual developer / evaluation"
+    },
+    {
+      "id": "basic",
+      "name": "Basic",
+      "price_jpy": 1980,
+      "monthly_quota": 10000,
+      "daily_quota": 500,
+      "per_second_limit": 5,
+      "burst_limit": 20,
+      "overage_policy": "metered_billing",
+      "overage_price_per_request_jpy": 0.5,
+      "features": [
+        "All Freemium features",
+        "Email support (48h response)",
+        "Bulk endpoint access (search up to 50 results per request)"
+      ],
+      "target_persona": "Small SaaS / freelance developer"
+    },
+    {
+      "id": "pro",
+      "name": "Pro",
+      "price_jpy": 9800,
+      "monthly_quota": 100000,
+      "daily_quota": 5000,
+      "per_second_limit": 20,
+      "burst_limit": 100,
+      "overage_policy": "metered_billing",
+      "overage_price_per_request_jpy": 0.3,
+      "features": [
+        "All Basic features",
+        "Priority email support (24h response)",
+        "Response cache extended to 60 days (business-registry)",
+        "SLA 99.5% monthly uptime target"
+      ],
+      "target_persona": "Growth-stage SaaS / mid-size in-house"
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "price_jpy": 49800,
+      "monthly_quota": 1000000,
+      "daily_quota": 50000,
+      "per_second_limit": 100,
+      "burst_limit": 500,
+      "overage_policy": "metered_billing",
+      "overage_price_per_request_jpy": 0.15,
+      "features": [
+        "All Pro features",
+        "Dedicated Slack / email channel (12h response)",
+        "SLA 99.9% monthly uptime target",
+        "Custom rate limit per endpoint on request"
+      ],
+      "target_persona": "Enterprise / high-volume integration"
+    }
+  ],
+  "endpoint_overage_pricing_jpy": {
+    "GET /v1/companies/{corporate_number}": 0.3,
+    "GET /v1/companies/search": 0.5,
+    "POST /v1/normalize/text": 0.2,
+    "POST /v1/normalize/address": 0.3,
+    "POST /v1/normalize/name": 0.4,
+    "POST /v1/extract/contact": 1.5
+  },
+  "notes": {
+    "billing_currency": "RapidAPI Hub の 標準 は USD、 上記 JPY 表示 は 為替 概算。 実 決済 は USD ベース で dashboard 設定。",
+    "quota_reset": "月次 quota は UTC 月初 に reset、 日次 quota は UTC 00:00 に reset。",
+    "cache_policy": "business-registry の cache hit は billing 対象 (uncached 呼出 と 同 quota 消費、 xiora 側 コスト 削減 分 は Basic 以上 で 反映)。",
+    "abuse_policy": "同一 IP から の 短期 大量 呼出 (per_second_limit の 3x 超過 が 5 分 継続) は 自動 で 一時 429、 dashboard で 通知。",
+    "downgrade": "月 途中 downgrade は 次月 から 適用、 現月 quota は 維持。",
+    "excluded_endpoints": "投資 助言 / 医療 診断 / 士業 独占 業務 の endpoint は 提供 しない (memory constraint 遵守)。"
+  }
+}
