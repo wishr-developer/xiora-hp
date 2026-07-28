@@ -159,7 +159,7 @@
 <li><strong>LLM + 音声 原価/月</strong> — ¥110 万 (原価 率 30% 未満 が 目標)</li>
 <li><strong>インフラ 固定費/月</strong> — ¥12 万 (単一 VPS で 全 stack 同居)</li>
 </ul>
-<p>価格 tier は Free ¥0 · Super ¥690 (準備 中) / Family ¥1,980 の 3 段 (2026-07 の Phase E pivot 後、freemium 構成、詳細 は <a href="/lingua.html#pricing">Xiora Lingua LP</a>)。 Free で 全 lesson access + hearts 5、 Super は hearts 無制限 + 上級 lesson + AI Tutor、 Family は Super x 6 名 で 共有。</p>
+<p>価格 tier は Free ¥0 · Super ¥980 (LIVE) / Family ¥1,980 の 3 段 (2026-07 の Phase E pivot 後、freemium 構成、詳細 は <a href="/lingua.html#pricing">Xiora Lingua LP</a>)。 Free で 全 lesson access + hearts 5、 Super は hearts 無制限 + 上級 lesson + AI Tutor、 Family は Super x 6 名 で 共有。</p>
 
 <h2 id="section-5">5. Phase 1 W1-W12 の 実装 roadmap</h2>
 
@@ -176,7 +176,7 @@
 <li><strong>UI polish</strong>: モバイル 375x812 対応、tap area 44px 最低、iOS safe-area、initial load skeleton、onboarding tour</li>
 <li><strong>Web app URL</strong>: <a href="https://lingua-app.pages.dev/">https://lingua-app.pages.dev/</a> (無料 で 全 lesson プレイ 可)</li>
 <li><strong>API</strong>: <code>https://api.xiora-official.com/lingua/api/*</code> (16 endpoints、FastAPI + asyncpg + Postgres 16 xiora_lingua schema)</li>
-<li><strong>決済</strong>: Stripe payment link 埋込 (Super ¥690/月 · Family ¥1,180/月 (準備 中))</li>
+<li><strong>決済</strong>: Stripe payment link 埋込 (Super ¥980/月 · Family ¥1,980/月 (LIVE))</li>
 </ul>
 <p style="margin:8px 0 0;font-size:13px;color:#6d28d9;">残 実装 (Phase 5+): 会話 pipeline (WebSocket + ASR fluency 判定)、他 target language (中/韓/西/仏)、Ocean LLM 統合 (自社 LLM で TTS/翻訳 コスト ゼロ 化)。</p>
 </aside>
@@ -187,7 +187,7 @@
 <ul style="margin:8px 0 0 20px;padding:0;">
 <li><strong>Web app (実 lesson プレイ)</strong>: <a href="https://lingua-app.pages.dev/">https://lingua-app.pages.dev/</a> — 日常 会話 7 lesson + 旅行 英語 6 lesson = <strong>合計 13 lesson</strong>、単語/フレーズ/穴埋め の 3 型 段階 難度、XP / hearts が API 実 更新、course 選択 + 進捗 % 表示 (W2 拡張 2026-07-26 完了)</li>
 <li>API endpoint: <code>https://api.xiora-official.com/lingua/api/*</code> (15 endpoints、FastAPI + asyncpg + Postgres 16 xiora_lingua schema 7 テーブル)</li>
-<li>Public catalog: <code>/lingua/api/plans</code> → 3-tier (Free / Super ¥690 · Family ¥1,180 (準備 中))</li>
+<li>Public catalog: <code>/lingua/api/plans</code> → 3-tier (Free / Super ¥980 · Family ¥1,980 (LIVE))</li>
 <li>Gamification: <code>/lingua/api/gamification/state</code> → XP / level / streak / hearts / tier の JSON payload</li>
 <li>Marketing LP: <code>https://xiora-lingua.xiora-official.com/</code> (waitlist + pricing)</li>
 <li>Stripe 決済 link は catalog 応答 と web app hearts 切れ 画面 に 埋め込み 済 (Super / Family 直 URL)</li>
@@ -244,7 +244,7 @@
 <a href="https://buy.stripe.com/aFa8wPdeQ8Qr8Icfm61ck00" target="_blank" rel="noopener" style="font-size:13px;color:#0a0a0a;font-weight:600;text-decoration:none;border:1px solid #0a0a0a;border-radius:6px;padding:6px 14px;">購入 →</a>
 </li>
 <li style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #f3f4f6;">
-<span style="font-size:14px;color:#0a0a0a;"><strong style="font-weight:600;">Xiora Lingua</strong> <span style="color:#6b7280;font-size:13px;margin-left:6px;">Free ¥0 · Super ¥690 (準備 中)</span></span>
+<span style="font-size:14px;color:#0a0a0a;"><strong style="font-weight:600;">Xiora Lingua</strong> <span style="color:#6b7280;font-size:13px;margin-left:6px;">Free ¥0 · Super ¥980 (LIVE)</span></span>
 <a href="https://xiora-lingua.xiora-official.com/?utm_source=xiora_hp&utm_medium=insights_cta&utm_campaign=lingua_freemium" target="_blank" rel="noopener" style="font-size:13px;color:#0a0a0a;font-weight:600;text-decoration:none;border:1px solid #0a0a0a;border-radius:6px;padding:6px 14px;">無料で試す →</a>
 </li>
 <li style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0;">
