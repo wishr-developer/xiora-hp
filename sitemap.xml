@@ -566,4 +566,36 @@
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
+  <!-- BUILD:start sitemap-marketplace -->
+  <url>
+    <loc>https://xiora-official.com/marketplace/templates/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/marketplace/templates/solo-saas-postgres-16-boilerplate.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/marketplace/templates/xiora-cold-email-pipeline.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/marketplace/templates/ai-persistent-memory-kit.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/marketplace/templates/xiora-qa-4-stage-cascade.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/marketplace/templates/jp-smb-500-target-list.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- BUILD:end sitemap-marketplace -->
 </urlset>
