@@ -91,9 +91,31 @@ bbb74c4 xiora HP: 甘さ 大 一括 修正 (誇大 + ¥980 mismatch 全 除去)
 501cb45 xiora HP: consulting-thanks + lingua-beta-thanks 甘さ 除去
 ```
 
-**削除 行数**: 約 6,800 行 (誇大 表現 · 未 実装 主張 · 撤退 pillar 露出 · 過大 数値 全 除去)
-**追加 行数**: 約 2,200 行 (short redirect + amber banner + 4 core focus + 新 insights 2 記事 + 内部 リンク 強化 + 数値 正確 化 + 法務 rebrand + Stripe SoT doc)
-**net**: 約 -4,600 行 · 130+ file 変更 · 41 commit
+**削除 行数**: 約 6,800 行
+**追加 行数**: 約 2,600 行 (L3 affiliate 戦略 + AI-native ops + VPS 移設 doc 追加)
+**net**: 約 -4,200 行 · 130+ file 変更 · 46 commit (2026-07-27 → 2026-07-28)
+
+## 10. L3 Affiliate revenue channel 開通 (2026-07-28 新)
+
+Reo directive「収入 柱 追加 · ROOM 等 の 他社 marketplace 事業」で 開始。
+
+- **XioraLifeMedia** (既存 · retired 予定 だった infrastructure) を **internal revenue channel** と して 再 位置 付け (Xiora HP 4 core と 別 layer)
+- **戦略 doc**: `docs/affiliate_revenue_channel_2026-07-28.md` (4 POV 差別 化 + 3 platform 稼働 pipeline + Reo action 5 items)
+- **AI 化 doc**: `docs/ai_native_operations_2026-07-28.md` (Reo directive「AIをもっと活用」対応、 Ollama qwen2.5:7b + 3 段 モデル)
+- **VPS 移設 doc**: `docs/vps_ai_migration_2026-07-28.md` (Mac 負荷 恒久 fix)
+- **AI 生成 batch 稼働 中** (2026-07-28 13:04 JST):
+  - Ollama qwen2.5:7b VPS 側 install 完了 (nice -n 19 で LIVE service に 影響 なし)
+  - 21 商品 × 2 platform (ROOM + X) = 42 posts を 生成 中 (推定 100 分)
+  - note 版 は 手動 生成 (品質 優先)
+- **Reo review 済**: `docs/REO_REVIEW_affiliate_batch1_2026-07-28.md` (Mac batch の 15 posts · URL/grammar post-process 済)
+
+## 11. Mac 負荷 事件 (2026-07-28 12:33 JST 対応 済)
+
+- Reo 通知: Mac fan うるさい
+- 私 の Ollama batch (Mac local) が 一 要因 (但 し 主 因 は Android emulator / Java gradle / VM 等 他 process)
+- 即 対応: 私 の batch + Ollama process kill、 Mac load 41 → 6 に 回復
+- 恒 久 fix: VPS 側 に Ollama 移設 完了 (`memory/feedback_mac_no_heavy_load_2026_07_25.md` 準拠)
+- 以降 の AI 大量 生成 は 全 VPS で 実行、 Mac は git ops + edit のみ
 
 ## 8. 追加 batch (2026-07-28 深夜, 11 commit)
 
