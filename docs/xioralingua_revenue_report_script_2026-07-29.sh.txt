@@ -1,0 +1,61 @@
+#!/bin/bash
+# Xiora Lingua weekly revenue report → email Reo via Resend
+# Cron: Mon 07:00 JST
+set -euo pipefail
+
+RESEND_KEY="$(grep '^RESEND_API_KEY=' /opt/xpp-fulfillment/.env | cut -d= -f2)"
+RECIPIENT="${REO_REPORT_EMAIL:-reo44283@gmail.com}"
+
+# Query DB via docker exec
+SQL="SET search_path TO xiora_lingua; SELECT
+  (SELECT COUNT(*) FROM users WHERE created_at >= NOW() - INTERVAL '7 days') || '|' ||
+  (SELECT COUNT(*) FROM users) || '|' ||
+  (SELECT COUNT(*) FROM stripe_subscriptions WHERE status='active') || '|' ||
+  (SELECT COUNT(*) FROM user_plan_tier WHERE tier='super') || '|' ||
+  (SELECT COUNT(*) FROM user_plan_tier WHERE tier='family') || '|' ||
+  (SELECT COUNT(*) FROM user_plan_tier WHERE tier='free') || '|' ||
+  (SELECT COUNT(*) FROM stripe_subscriptions WHERE created_at >= NOW() - INTERVAL '7 days' AND status='active') || '|' ||
+  (SELECT COUNT(*) FROM stripe_subscriptions WHERE status='canceled' AND updated_at >= NOW() - INTERVAL '7 days') || '|' ||
+  (SELECT COUNT(*) FROM lesson_events WHERE occurred_at >= NOW() - INTERVAL '7 days')"
+
+RAW=$(docker exec xioraai-postgres psql -U xioraai_owner -d xioraai -tAc "$SQL")
+IFS='|' read -r NEW_USERS TOTAL_USERS ACTIVE_SUBS SUB_SUPER SUB_FAMILY SUB_FREE NEW_SUBS CANCELED LESSONS <<< "$RAW"
+
+MRR_RAW=$(( SUB_SUPER * 980 + SUB_FAMILY * 1980 ))
+MRR=$(printf "%'d" $MRR_RAW)
+WEEK_START=$(date -d '7 days ago' +%Y-%m-%d)
+WEEK_END=$(date +%Y-%m-%d)
+
+# Build HTML body
+HTML="<h2>Xiora Lingua 週次 report (${WEEK_START} 〜 ${WEEK_END})</h2>
+<table style='border-collapse:collapse;font-family:monospace;font-size:14px;'>
+<tr><td style='padding:6px 12px;background:#f9fafb;'>MRR (月次 経常 収益)</td><td style='padding:6px 12px;text-align:right;background:#f9fafb;'><strong>¥${MRR}</strong></td></tr>
+<tr><td style='padding:6px 12px;'>Super 加入 (¥980/月)</td><td style='padding:6px 12px;text-align:right;'>${SUB_SUPER} 人</td></tr>
+<tr><td style='padding:6px 12px;'>Family 加入 (¥1,980/月)</td><td style='padding:6px 12px;text-align:right;'>${SUB_FAMILY} 人</td></tr>
+<tr><td style='padding:6px 12px;'>Free tier</td><td style='padding:6px 12px;text-align:right;'>${SUB_FREE} 人</td></tr>
+<tr><td style='padding:6px 12px;'>今週 の 新規 課金</td><td style='padding:6px 12px;text-align:right;'>+${NEW_SUBS} 件</td></tr>
+<tr><td style='padding:6px 12px;'>今週 の 解約</td><td style='padding:6px 12px;text-align:right;'>-${CANCELED} 件</td></tr>
+<tr><td style='padding:6px 12px;'>今週 の 新規 user</td><td style='padding:6px 12px;text-align:right;'>+${NEW_USERS} 人</td></tr>
+<tr><td style='padding:6px 12px;'>累計 user</td><td style='padding:6px 12px;text-align:right;'>${TOTAL_USERS} 人</td></tr>
+<tr><td style='padding:6px 12px;'>今週 の lesson 完了</td><td style='padding:6px 12px;text-align:right;'>${LESSONS} 回</td></tr>
+</table>
+<p style='color:#6b7280;font-size:12px;'>自動 送信 · VPS xai-vps · xioralingua-revenue-report.timer (Mon 07:00 JST)</p>"
+
+# Send via Resend
+PAYLOAD=$(python3 -c "
+import json
+print(json.dumps({
+    'from': 'Xiora Lingua Report <info@xiora-official.com>',
+    'to': ['${RECIPIENT}'],
+    'subject': f'Xiora Lingua 週次 · MRR ¥${MRR} · +${NEW_SUBS} 新規',
+    'html': '''${HTML}''',
+}))
+")
+
+RESPONSE=$(curl -sS -X POST "https://api.resend.com/emails" \
+  -H "Authorization: Bearer ${RESEND_KEY}" \
+  -H "Content-Type: application/json" \
+  -d "$PAYLOAD")
+
+echo "[revenue-report] MRR=¥${MRR} · super=${SUB_SUPER} · family=${SUB_FAMILY} · new=+${NEW_SUBS} · canceled=-${CANCELED} · lessons=${LESSONS}"
+echo "[revenue-report] response: $RESPONSE"
