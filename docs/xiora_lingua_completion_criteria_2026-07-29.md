@@ -77,7 +77,7 @@
 | D1 | Landing page load | LCP ≦ 3s (3G Fast) | Chrome MCP + Lighthouse | `unknown` |
 | D2 | Lesson start latency | course card click から 最初 の 問題 描画 まで ≦ 2s | Chrome MCP performance.now() 計測 | `unknown` |
 | D3 | Stripe checkout redirect | CTA click から buy.stripe.com HTTP 200 まで ≦ 5s | Chrome MCP performance API | `unknown` |
-| D4 | API health p95 latency | `/lingua/api/health` p95 ≦ 200ms (Tokyo region) | `hey -n 100 -c 10 https://api.xiora-official.com/lingua/api/health` | `unknown` |
+| D4 | API health p95 latency | `/lingua/health` p95 ≦ 200ms (Tokyo region) | curl 直 30 samples | `partial` (2026-07-29 実測 30 samples: min 120ms · p50 144ms · **p95 231ms** · avg 166ms — 目標 200ms を 31ms 超過。 endpoint は `/lingua/api/health` ではなく `/lingua/health` (Caddy mount) が 正解) |
 | D5 | Bundle size | 初回 JS + CSS ≦ 500KB gzip | Chrome MCP Network tab 集計 | `unknown` (web-app index.html = 2364 lines · 単一 file、 分割 未) |
 
 **Section D 現状: verified_live 0 / unknown 5**
@@ -136,11 +136,11 @@
 | # | 判定 項目 | Pass 基準 | 検証 方法 | Current status |
 |---|---|---|---|---|
 | I1 | Contact form 動作 | /contact.html から Lingua 選択 送信 → Gmail 到達 · auto reply | Chrome MCP form submit + Gmail MCP search | `assumed` (contact 経路 は 会社 全体 で 稼働 中) |
-| I2 | Support SLA 明記 | HP / terms に 「48 時間 以内 に 一次 回答」等 明記 | terms.html + lingua.html grep | `unknown` |
-| I3 | FAQ 掲載 | Lingua 特有 FAQ (支払 · 家族 招待 · 音声 が 認識 しない 等) 最低 8 件 | HP / lingua.html grep | `unknown` |
+| I2 | Support SLA 明記 | HP / terms に 「48 時間 以内 に 一次 回答」等 明記 | terms.html + lingua.html grep | `verified_live` (2026-07-29 lingua.html FAQ Q8 に 「一次 回答 は 原則 48 時間 以内 (営業 日 基準)」明記、 xiora-official.com/lingua.html LIVE) |
+| I3 | FAQ 掲載 | Lingua 特有 FAQ (支払 · 家族 招待 · 音声 が 認識 しない 等) 最低 8 件 | HP / lingua.html grep | `verified_live` (2026-07-29 lingua.html に FAQ 8 項目 追加 · FAQPage Schema.org markup 付き · commit e983dd9 で HP push) |
 | I4 | Refund policy | tokusho / terms に 返金 条件 明記 (SaaS 慣行 · 日割 or 不可) | tokusho.html + terms.html | `assumed` |
 
-**Section I 現状: verified_live 0 / assumed 2 / unknown 2**
+**Section I 現状 (2026-07-29 update): verified_live 2 / assumed 2 / unknown 0**
 
 ## Section J — Autonomous ops (7 日 hands-off) [必須 · 7 項目]
 
@@ -165,18 +165,18 @@
 | A Functional | 12 | 5 | 1 | 0 | 6 | 0 |
 | B Payment | 6 | 1 | 1 | 0 | 3 | 1 |
 | C UI/UX | 12 | 0 | 4 | 1 | 6 | 1 |
-| D Performance | 5 | 0 | 0 | 0 | 5 | 0 |
+| D Performance | 5 | 0 | 0 | 1 | 4 | 0 |
 | E Content | 5 | 0 | 1 | 0 | 4 | 0 |
 | F SEO | 6 | 2 | 1 | 0 | 3 | 0 |
 | G Legal | 5 | 2 | 3 | 0 | 0 | 0 |
 | H Analytics | 5 | 2 | 2 | 0 | 0 | 1 |
-| I Support | 4 | 0 | 2 | 0 | 2 | 0 |
+| I Support | 4 | 2 | 2 | 0 | 0 | 0 |
 | J Autonomous | 7 | 3 | 2 | 0 | 2 | 0 |
-| **合計** | **67** | **15** | **17** | **1** | **31** | **3** |
+| **合計** | **67** | **17** | **17** | **2** | **28** | **3** |
 
-**Pass 率 (verified_live のみ): 15 / 67 = 22.4%** (2026-07-29 更新 2: +9 verified_live · known_gap 7 → 3)
+**Pass 率 (verified_live のみ): 17 / 67 = 25.4%** (2026-07-29 更新 3: +2 verified_live (I2 I3) + 1 partial (D4))
 
-現時点 の 判定: **未 完成 · β 相当**。 Reo directive 「実際に公開して問題なかった場合が完全運用状態」に 照らし、 実 環境 verify が 22.4% しか 完了 して いない。 「完成」を 名乗る に は 最低 verified_live 90% (60 / 67) が 必要。
+現時点 の 判定: **未 完成 · β 相当**。 Reo directive 「実際に公開して問題なかった場合が完全運用状態」に 照らし、 実 環境 verify が 25.4% しか 完了 して いない。 「完成」を 名乗る に は 最低 verified_live 90% (60 / 67) が 必要。
 
 ### 2026-07-29 session の verify 差分 (前 8.9% → 22.4% · +9 verified_live · known_gap 7→3)
 
