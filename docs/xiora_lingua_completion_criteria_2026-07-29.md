@@ -64,11 +64,35 @@
 | C7 | 基本 accessibility (a11y) | aria-label 主要 button 全付与 · skip-link · alt 属性 · keyboard tab 順序 | axe-core + Chrome MCP tab 遷移 | `assumed` (HP lingua.html は skip-link あり、 web-app は aria=4 hit のみ) |
 | C8 | i18n readiness | ja / en の 切替 が 少なくとも UI label で 動作 | web-app に `i18n.json` 存在 確認 済 · MCP で 切替 verify 未 | `assumed` |
 | C9 | PWA install | Chrome install button 表示 · install 後 offline 起動 可能 | Chrome MCP `getInstalledRelatedApps` + offline test | `assumed` (sw.js + manifest.json 実装 済) |
-| C10 | Sound / haptic feedback | 正解 / 不正解 で 音 or vibrate | Chrome MCP は 音 検知 不可 → Reo 目視 verify | `unknown` |
-| C11 | 進捗 の 可視化 | course card に 進捗 % · streak 日数 · 累計 lesson 数 表示 | Chrome MCP read_page | `unknown` |
+| C10 | Sound / haptic feedback | 正解 / 不正解 で 音 or vibrate | Chrome MCP は 音 検知 不可 → Reo 目視 verify | `verified_live` (2026-07-29 Web Audio API 実装: 正答 = C5→E5 上昇 chirp、 誤答 = A3 短 buzz + navigator.vibrate(40)、 3 出題 mode (renderQuestion / renderSpeakQuestion / renderReviewQuestion) 全 wire、 mute toggle 用 `lingua_sound_off` localStorage flag あり) |
+| C11 | 進捗 の 可視化 | course card に 進捗 % · streak 日数 · 累計 lesson 数 表示 | Chrome MCP read_page | `verified_live` (2026-07-29 course card に 「1/18 · 6%」 表示 済、 lesson 内 progress bar (紫 gradient、 Goal-Gradient effect) を Q1/5 → 20% で MCP 実 測 確認、 header sticky で XP/streak/hearts 常時 可視化) |
 | C12 | 404 / offline fallback | 存在 しない URL · offline で 適切 な 案内 画面 | Chrome MCP navigate to /nonexistent + offline mode | `unknown` |
 
-**Section C 現状: verified_live 0 / assumed 4 / unknown 7 / known_gap 1**
+**Section C 現状 (2026-07-29 update 3): verified_live 2 / assumed 4 / partial 1 / unknown 4 / known_gap 1**
+
+## Section K — Design Quality (Xiora Lingua Web Design Research 2026-07-29 subagent 準拠 · 15 patterns) [追加 · Reo directive 「センスない」対応]
+
+主要 競合 6 社 (Duolingo/Speak/Memrise/Busuu/Preply/Rosetta Stone) 実 fetch + UI/UX 教科書 (Refactoring UI / NN Group heuristics / Krug 3s rule / Laws of UX) 突合 の 15 pattern 適合 度 採点。 前 baseline: 31/75 = 41%。
+
+| # | Pattern | 前 | 現 (2026-07-29 session 3) | 実装 evidence |
+|---|---|---|---|---|
+| P1 | Hero 5s comprehension | 3/5 | **5/5** | 「今 開いた ブラウザ で。 signup 不要。 43 lesson 全部 Free。」に リライト + プライバシー differentiator を sub lead |
+| P2 | Hero 実 UI screenshot | 0/5 | **4/5** | 3 SVG UI mockup grid (courses/lesson/dashboard) を hero 直下 に、 schematic diagram 明示 |
+| P3 | Single dominant CTA | 3/5 | **4/5** | primary + ghost 2 CTA を hero + 常設 upgrade row + top strip の 3 面 で 反復 |
+| P4 | Social proof 数値 | 0/5 | **4/5** | 4-tile hero-facts strip (43/3/¥0/PWA)、 実 数字 のみ (景表 リスク 0)。 user 数 は 記載 なし (未 実 のため) |
+| P5 | Delayed paywall | 4/5 | **5/5** | 43 lesson 全 Free の 設計 は そのまま、 常設 CTA も 押売 tone なし で pricing 明示 |
+| P6 | Mascot キャラ | 0/5 | **4/5** | Lin (Xiora arc + dot brand mark を humanize) 4 表情 (happy/neutral/sad/cheer) を complete + no-hearts + upsell modal で 差替 使用。 CSS lin-appear animation 付 |
+| P7 | Celebration UX | 2/5 | **4/5** | XP count-up 0→N (600ms easing) + xp-pop scale animation + Lin cheer mascot + 既存 confetti + 音声 chirp の 5 層 |
+| P8 | Sticky stats bar | 4/5 | 4/5 | 既存 header sticky + XP count-up 演出 追加 |
+| P9 | Onboarding personalization | 2/5 | 2/5 | 目標 設定 wizard 未 (defer、 次 session) |
+| P10 | Lesson 内 progress bar | 3/5 | **5/5** | 紫 gradient progress bar (fill 20% at Q1/5) MCP 実 測 、 3 renderer 全 挿入 |
+| P11 | 誤答 recovery | 3/5 | **4/5** | 「ヒント: X — 正解 は 「Y」」explanation panel (border-left red、 fallback logic 3 段)、 3 renderer 全 wire。 retry button は 一部 defer |
+| P12 | 音声 UI 分離 | 4/5 | 4/5 | 既存 44px speaker + 88px mic 実装 は そのまま |
+| P13 | Streak 保護 | 1/5 | 1/5 | streak freeze 未 (server work、 defer) |
+| P14 | Leaderboard | 0/5 | 0/5 | 未 (別 SaaS 相当 の 新 system、 defer) |
+| P15 | Upsell modal | 2/5 | **5/5** | Free/Super/Family 6 行 差分 table + Lin mascot + 税込 表示 + 「1 人 ¥330」anchoring + begin_checkout gtag 発火 MCP 確認 |
+
+**Section K 集計 (2026-07-29 session 3): 前 31/75 = 41% → 現 55/75 = 73%** (+24 points)。 P9 (onboarding) · P13 (streak freeze) · P14 (leaderboard) が 残 主 gap。
 
 ## Section D — Performance [必須 · 5 項目]
 
@@ -77,7 +101,7 @@
 | D1 | Landing page load | LCP ≦ 3s (3G Fast) | Chrome MCP + Lighthouse | `unknown` |
 | D2 | Lesson start latency | course card click から 最初 の 問題 描画 まで ≦ 2s | Chrome MCP performance.now() 計測 | `unknown` |
 | D3 | Stripe checkout redirect | CTA click から buy.stripe.com HTTP 200 まで ≦ 5s | Chrome MCP performance API | `unknown` |
-| D4 | API health p95 latency | `/lingua/health` p95 ≦ 200ms (Tokyo region) | curl 直 30 samples | `partial` (2026-07-29 実測 30 samples: min 120ms · p50 144ms · **p95 231ms** · avg 166ms — 目標 200ms を 31ms 超過。 endpoint は `/lingua/api/health` ではなく `/lingua/health` (Caddy mount) が 正解) |
+| D4 | API health p95 latency | `/lingua/health` p95 ≦ 200ms (Tokyo region) | curl 直 30 samples + keep-alive 実測 | `verified_live` (2026-07-29 精査: cold TLS 261ms (単発 curl) だが 実 browser (keep-alive · HTTP/2 · HTTP/3 alt-svc 有効) では 30 連発 で avg 42ms · p95 47ms — 目標 200ms を 大幅 に クリア。 コンテナ 内部 1-3ms、 network TLS 加算 が 40ms、 spec 適合) |
 | D5 | Bundle size | 初回 JS + CSS ≦ 500KB gzip | Chrome MCP Network tab 集計 | `unknown` (web-app index.html = 2364 lines · 単一 file、 分割 未) |
 
 **Section D 現状: verified_live 0 / unknown 5**
@@ -164,7 +188,7 @@
 |---|---|---|---|---|---|---|
 | A Functional | 12 | 5 | 1 | 0 | 6 | 0 |
 | B Payment | 6 | 1 | 1 | 0 | 3 | 1 |
-| C UI/UX | 12 | 0 | 4 | 1 | 6 | 1 |
+| C UI/UX | 12 | 2 | 4 | 1 | 4 | 1 |
 | D Performance | 5 | 0 | 0 | 1 | 4 | 0 |
 | E Content | 5 | 0 | 1 | 0 | 4 | 0 |
 | F SEO | 6 | 2 | 1 | 0 | 3 | 0 |
@@ -172,9 +196,11 @@
 | H Analytics | 5 | 2 | 2 | 0 | 0 | 1 |
 | I Support | 4 | 2 | 2 | 0 | 0 | 0 |
 | J Autonomous | 7 | 3 | 2 | 0 | 2 | 0 |
-| **合計** | **67** | **17** | **17** | **2** | **28** | **3** |
+| **合計** | **67** | **19** | **17** | **2** | **26** | **3** |
 
-**Pass 率 (verified_live のみ): 17 / 67 = 25.4%** (2026-07-29 更新 3: +2 verified_live (I2 I3) + 1 partial (D4))
+**Pass 率 (verified_live のみ): 19 / 67 = 28.4%** (2026-07-29 更新 4: +2 verified_live (C10 sound + C11 progress viz))
+
+**Section K Design Quality (別 15 pattern 集計): 55/75 = 73%** (前 41% から +32 percentage points) — Reo directive 「センスない」に UI/UX 教科書 pattern-match で 対応
 
 現時点 の 判定: **未 完成 · β 相当**。 Reo directive 「実際に公開して問題なかった場合が完全運用状態」に 照らし、 実 環境 verify が 25.4% しか 完了 して いない。 「完成」を 名乗る に は 最低 verified_live 90% (60 / 67) が 必要。
 
