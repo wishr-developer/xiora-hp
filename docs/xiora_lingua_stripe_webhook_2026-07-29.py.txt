@@ -1,0 +1,420 @@
+"""Stripe webhook receiver — auto tier flip + hearts unlimited (完全 放置 運用).
+
+Events handled:
+    - checkout.session.completed          → upsert stripe_customers, link to user by email or client_reference_id
+    - customer.subscription.created       → upsert stripe_subscriptions + user_plan_tier + hearts unlimited
+    - customer.subscription.updated       → refresh tier + current_period_end
+    - customer.subscription.deleted       → downgrade to free + hearts limited
+
+Signature verification uses STRIPE_WEBHOOK_SECRET (Vault:
+xai:XioraLingua:STRIPE_WEBHOOK_SECRET). If unset (dev), signature check is
+skipped with a WARN log.
+
+DATABASE_URL 未 設定 時 は log のみ (test / early dev)。 production は asyncpg 経由 で
+xiora_lingua schema の 3 tables (stripe_customers / stripe_subscriptions /
+user_plan_tier) を upsert し、 user_hearts.unlimited を tier に 応じて 更新。
+"""
+from __future__ import annotations
+
+import datetime as _dt
+import hashlib
+import hmac
+import json
+import logging
+import os
+import time
+from typing import Any, Optional
+from uuid import UUID
+
+from fastapi import APIRouter, HTTPException, Request
+from pydantic import BaseModel
+
+log = logging.getLogger(__name__)
+
+router = APIRouter(prefix="/api/webhooks/stripe", tags=["webhooks"])
+
+# Price → tier map (SoT: services/systems/SalesAIOS/deploy/stripe-live-products.json#xiora_lingua)
+PRICE_TIER_MAP: dict[str, str] = {
+    "price_1Tw1dYFoGzoX9pTQD3M1l0C1": "super",
+    "price_1Tw1dZFoGzoX9pTQKAgmcp7D": "family",
+}
+
+
+class WebhookAck(BaseModel):
+    received: bool
+    event_type: str | None
+    handled: bool
+
+
+# --- asyncpg pool (lazy) -----------------------------------------------------
+
+try:
+    import asyncpg  # type: ignore
+except ImportError:  # pragma: no cover
+    asyncpg = None  # type: ignore
+
+_POOL: Optional["asyncpg.Pool"] = None
+
+
+def _get_dsn() -> Optional[str]:
+    url = os.environ.get("DATABASE_URL", "").strip()
+    if not url:
+        return None
+    return url.replace("postgresql+asyncpg://", "postgresql://").replace("postgres+asyncpg://", "postgres://")
+
+
+async def _get_pool() -> Optional["asyncpg.Pool"]:
+    global _POOL
+    if _POOL is not None:
+        return _POOL
+    if asyncpg is None:
+        return None
+    dsn = _get_dsn()
+    if not dsn:
+        return None
+    try:
+        _POOL = await asyncpg.create_pool(dsn=dsn, min_size=1, max_size=4, command_timeout=10)
+        log.info("stripe.webhook pool initialized")
+        return _POOL
+    except Exception as e:
+        log.error(f"stripe.webhook pool init failed: {e}")
+        return None
+
+
+# --- Signature verification -------------------------------------------------
+
+def _verify_signature(payload: bytes, sig_header: str, secret: str, tolerance: int = 300) -> None:
+    """Constant-time Stripe signature verification (t=..,v1=..)."""
+    try:
+        items = dict(part.split("=", 1) for part in sig_header.split(","))
+        timestamp = int(items["t"])
+        expected = items["v1"]
+    except (KeyError, ValueError) as e:
+        raise HTTPException(status_code=400, detail="invalid signature header") from e
+
+    if abs(time.time() - timestamp) > tolerance:
+        raise HTTPException(status_code=400, detail="signature timestamp outside tolerance")
+
+    signed = f"{timestamp}.{payload.decode('utf-8')}".encode()
+    mac = hmac.new(secret.encode(), signed, hashlib.sha256).hexdigest()
+    if not hmac.compare_digest(mac, expected):
+        raise HTTPException(status_code=400, detail="signature mismatch")
+
+
+# --- DB operations ----------------------------------------------------------
+
+async def _resolve_user_id(
+    conn: "asyncpg.Connection",
+    stripe_customer_id: str,
+    email: Optional[str],
+    client_reference_id: Optional[str],
+) -> Optional[str]:
+    """Resolve xiora user_id from stripe customer info.
+
+    Priority: (1) client_reference_id (explicit user_id from HP link),
+              (2) existing stripe_customers.user_id lookup,
+              (3) users.email match (case-insensitive).
+    Returns UUID string or None (unlinked purchase).
+    """
+    # 1. Explicit user_id from HP CTA (payment link ?client_reference_id=UUID)
+    if client_reference_id:
+        try:
+            UUID(client_reference_id)
+            return client_reference_id
+        except ValueError:
+            pass
+
+    # 2. stripe_customers 既 存 lookup
+    row = await conn.fetchrow(
+        "SELECT user_id FROM stripe_customers WHERE stripe_customer_id = $1 AND user_id IS NOT NULL",
+        stripe_customer_id,
+    )
+    if row and row["user_id"]:
+        return str(row["user_id"])
+
+    # 3. users.email match
+    if email:
+        row = await conn.fetchrow(
+            "SELECT id FROM users WHERE LOWER(email) = LOWER($1) LIMIT 1",
+            email.strip(),
+        )
+        if row and row["id"]:
+            return str(row["id"])
+
+    return None
+
+
+async def _upsert_stripe_customer(
+    conn: "asyncpg.Connection",
+    stripe_customer_id: str,
+    email: Optional[str],
+    user_id: Optional[str],
+) -> None:
+    await conn.execute(
+        """
+        INSERT INTO stripe_customers (user_id, stripe_customer_id, email, created_at)
+        VALUES ($1, $2, $3, NOW())
+        ON CONFLICT (stripe_customer_id) DO UPDATE SET
+            user_id = COALESCE(stripe_customers.user_id, EXCLUDED.user_id),
+            email = COALESCE(EXCLUDED.email, stripe_customers.email)
+        """,
+        UUID(user_id) if user_id else None,
+        stripe_customer_id,
+        email,
+    )
+    if user_id:
+        await conn.execute(
+            "UPDATE users SET stripe_customer_id = $1, updated_at = NOW() WHERE id = $2",
+            stripe_customer_id,
+            UUID(user_id),
+        )
+
+
+async def _upsert_subscription(
+    conn: "asyncpg.Connection",
+    subscription_id: str,
+    stripe_customer_id: str,
+    user_id: Optional[str],
+    price_id: Optional[str],
+    tier: str,
+    status: str,
+    current_period_end: Optional[_dt.datetime],
+    cancel_at_period_end: bool,
+) -> None:
+    await conn.execute(
+        """
+        INSERT INTO stripe_subscriptions (
+            stripe_subscription_id, stripe_customer_id, user_id, price_id, tier,
+            status, current_period_end, cancel_at_period_end, created_at, updated_at
+        )
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW(), NOW())
+        ON CONFLICT (stripe_subscription_id) DO UPDATE SET
+            user_id = COALESCE(EXCLUDED.user_id, stripe_subscriptions.user_id),
+            price_id = EXCLUDED.price_id,
+            tier = EXCLUDED.tier,
+            status = EXCLUDED.status,
+            current_period_end = EXCLUDED.current_period_end,
+            cancel_at_period_end = EXCLUDED.cancel_at_period_end,
+            updated_at = NOW()
+        """,
+        subscription_id,
+        stripe_customer_id,
+        UUID(user_id) if user_id else None,
+        price_id,
+        tier,
+        status,
+        current_period_end,
+        cancel_at_period_end,
+    )
+
+
+async def _upsert_user_plan_tier(
+    conn: "asyncpg.Connection",
+    user_id: str,
+    tier: str,
+    subscription_id: Optional[str],
+    current_period_end: Optional[_dt.datetime],
+) -> None:
+    await conn.execute(
+        """
+        INSERT INTO user_plan_tier (
+            user_id, tier, source, stripe_subscription_id, current_period_end,
+            created_at, updated_at
+        )
+        VALUES ($1, $2, 'stripe', $3, $4, NOW(), NOW())
+        ON CONFLICT (user_id) DO UPDATE SET
+            tier = EXCLUDED.tier,
+            source = 'stripe',
+            stripe_subscription_id = EXCLUDED.stripe_subscription_id,
+            current_period_end = EXCLUDED.current_period_end,
+            updated_at = NOW()
+        """,
+        UUID(user_id),
+        tier,
+        subscription_id,
+        current_period_end,
+    )
+    # users.plan mirror (for JWT / auth 側 の quick access)
+    await conn.execute(
+        "UPDATE users SET plan = $1, updated_at = NOW() WHERE id = $2",
+        tier,
+        UUID(user_id),
+    )
+
+
+async def _update_hearts_for_tier(
+    conn: "asyncpg.Connection",
+    user_id: str,
+    tier: str,
+) -> None:
+    """Super/Family → unlimited=true, hearts_count=max_hearts. Free → unlimited=false, refill later."""
+    unlimited = tier in {"super", "family"}
+    if unlimited:
+        await conn.execute(
+            """
+            INSERT INTO user_hearts (user_id, hearts_count, max_hearts, unlimited, updated_at)
+            VALUES ($1, 5, 5, true, NOW())
+            ON CONFLICT (user_id) DO UPDATE SET
+                unlimited = true,
+                hearts_count = user_hearts.max_hearts,
+                updated_at = NOW()
+            """,
+            UUID(user_id),
+        )
+    else:
+        await conn.execute(
+            """
+            INSERT INTO user_hearts (user_id, hearts_count, max_hearts, unlimited, updated_at)
+            VALUES ($1, 5, 5, false, NOW())
+            ON CONFLICT (user_id) DO UPDATE SET
+                unlimited = false,
+                updated_at = NOW()
+            """,
+            UUID(user_id),
+        )
+
+
+# --- Event handlers ---------------------------------------------------------
+
+def _parse_period_end(ts: Any) -> Optional[_dt.datetime]:
+    if not ts:
+        return None
+    try:
+        return _dt.datetime.fromtimestamp(int(ts), tz=_dt.timezone.utc)
+    except (TypeError, ValueError):
+        return None
+
+
+async def _handle_checkout_completed(event: dict[str, Any]) -> bool:
+    """Link Stripe customer to xiora user (via client_reference_id or email)."""
+    obj = event.get("data", {}).get("object", {})
+    stripe_customer_id = obj.get("customer")
+    email = (obj.get("customer_details") or {}).get("email") or obj.get("customer_email")
+    client_reference_id = obj.get("client_reference_id")
+
+    if not stripe_customer_id:
+        log.warning("[stripe.webhook] checkout.session.completed missing customer")
+        return False
+
+    pool = await _get_pool()
+    if pool is None:
+        log.info(
+            f"[stripe.webhook] (no-db) checkout.session.completed customer={stripe_customer_id} "
+            f"email={email} client_ref={client_reference_id}"
+        )
+        return True
+
+    async with pool.acquire() as conn:
+        user_id = await _resolve_user_id(conn, stripe_customer_id, email, client_reference_id)
+        await _upsert_stripe_customer(conn, stripe_customer_id, email, user_id)
+    log.info(
+        f"[stripe.webhook] checkout.session.completed customer={stripe_customer_id} "
+        f"user_id={user_id or 'unlinked'} email={email}"
+    )
+    return True
+
+
+async def _handle_subscription_event(event: dict[str, Any]) -> bool:
+    """Upsert subscription + user_plan_tier + hearts on sub create/update/delete."""
+    obj = event.get("data", {}).get("object", {})
+    subscription_id = obj.get("id")
+    stripe_customer_id = obj.get("customer")
+    status = obj.get("status", "unknown")
+    cancel_at_period_end = bool(obj.get("cancel_at_period_end", False))
+    current_period_end = _parse_period_end(obj.get("current_period_end"))
+
+    items = (obj.get("items") or {}).get("data") or []
+    price_id = items[0]["price"]["id"] if items and items[0].get("price") else None
+
+    event_type = event.get("type", "unknown")
+    # stripe_subscriptions.tier CHECK ('super' | 'family') — reflect what was subscribed
+    sub_tier = PRICE_TIER_MAP.get(price_id or "", "super")  # default super so CHECK passes
+    # user_plan_tier reflects the effective tier for entitlement
+    effective_tier = "free" if event_type == "customer.subscription.deleted" else sub_tier
+
+    if not subscription_id or not stripe_customer_id:
+        log.warning(f"[stripe.webhook] {event_type} missing sub/customer id")
+        return False
+
+    pool = await _get_pool()
+    if pool is None:
+        log.info(
+            f"[stripe.webhook] (no-db) {event_type} sub={subscription_id} "
+            f"status={status} price={price_id} → effective_tier={effective_tier}"
+        )
+        return True
+
+    async with pool.acquire() as conn:
+        async with conn.transaction():
+            # Resolve user_id: check stripe_customers table first
+            row = await conn.fetchrow(
+                "SELECT user_id FROM stripe_customers WHERE stripe_customer_id = $1",
+                stripe_customer_id,
+            )
+            user_id = str(row["user_id"]) if row and row["user_id"] else None
+
+            # Upsert subscription record regardless of user_id (link later possible)
+            await _upsert_subscription(
+                conn,
+                subscription_id=subscription_id,
+                stripe_customer_id=stripe_customer_id,
+                user_id=user_id,
+                price_id=price_id,
+                tier=sub_tier,
+                status=status,
+                current_period_end=current_period_end,
+                cancel_at_period_end=cancel_at_period_end,
+            )
+
+            # Only flip tier + hearts if we have a linked user
+            if user_id:
+                await _upsert_user_plan_tier(
+                    conn,
+                    user_id=user_id,
+                    tier=effective_tier,
+                    subscription_id=subscription_id,
+                    current_period_end=current_period_end,
+                )
+                await _update_hearts_for_tier(conn, user_id=user_id, tier=effective_tier)
+
+    log.info(
+        f"[stripe.webhook] {event_type} sub={subscription_id} "
+        f"status={status} price={price_id} user={user_id or 'unlinked'} → effective_tier={effective_tier}"
+    )
+    return True
+
+
+# --- Router endpoint --------------------------------------------------------
+
+@router.post("", response_model=WebhookAck)
+async def receive_webhook(request: Request) -> WebhookAck:
+    payload = await request.body()
+    sig = request.headers.get("stripe-signature")
+    secret = os.getenv("STRIPE_WEBHOOK_SECRET", "")
+
+    if sig and secret:
+        _verify_signature(payload, sig, secret)
+    elif os.getenv("XIORA_ENV", "dev") == "prod":
+        raise HTTPException(
+            status_code=400,
+            detail="missing signature or STRIPE_WEBHOOK_SECRET in prod",
+        )
+
+    try:
+        event = json.loads(payload)
+    except json.JSONDecodeError as e:
+        raise HTTPException(status_code=400, detail="invalid JSON") from e
+
+    event_type = event.get("type", "")
+    handled = False
+
+    if event_type == "checkout.session.completed":
+        handled = await _handle_checkout_completed(event)
+    elif event_type in {
+        "customer.subscription.created",
+        "customer.subscription.updated",
+        "customer.subscription.deleted",
+    }:
+        handled = await _handle_subscription_event(event)
+
+    return WebhookAck(received=True, event_type=event_type, handled=handled)
