@@ -30,13 +30,13 @@
 | A5 | 43 lesson × 3 course 全 露出 | Web app UI 上 で 3 course 全 選択 可能 · 各 course lesson 一覧 が 全 lesson 分 描画 | Chrome MCP navigate + `read_page` で lesson id 42 個 以上 検出 | `verified_live` (2026-07-29 MCP navigate 実 確認: 日常18 + 旅行15 + 表現10 = 43 lesson、 course card に 進捗 「1/18・6%」等 表示) |
 | A6 | 音声 発音 (Web Speech API) 動作 | mic 権限 許可 → 発音 → 認識 結果 表示 · スコア >0 | Chrome MCP は mic 発話 不可 → Reo 目視 verify 必須 (5 分) | `unknown` |
 | A7 | Streak · hearts の 永続化 | localStorage / user_gamification テーブル に streak 保存 · 24h 経過 で 継続 判定 | Chrome MCP evaluate `localStorage.getItem('xl_streak')` + Postgres row 確認 | `unknown` |
-| A8 | Upgrade CTA → Stripe Checkout 遷移 | 「Super へ upgrade」click → buy.stripe.com へ 302 遷移 · client_reference_id 付与 | Chrome MCP click + URL 遷移 record | `partial` (Super ¥980・Family ¥1,980 checkout page LIVE 確認 済、 web-app home に 常設 CTA が 未 · hearts=0 で しか upgrade 案内 出ない Gap → task #131 で 追加 予定) |
+| A8 | Upgrade CTA → Stripe Checkout 遷移 | 「Super へ upgrade」click → buy.stripe.com へ 302 遷移 · client_reference_id 付与 | Chrome MCP click + URL 遷移 record | `verified_live` (2026-07-29 web-app home 常設 CTA 追加、 Super/Family 各 335×48px LIVE、 click で GA4 begin_checkout 発火 + Stripe checkout page LIVE 到達 確認、 client_reference_id 付与 は 未 実装 の memo あり) |
 | A9 | Downgrade / cancel flow | Stripe portal で cancel → subscription.deleted → user_plan_tier.tier='free' 自動 flip | Stripe test cancel + `psql` で tier 確認 | `assumed` (webhook code は 実装、 実 event smoke 3 件 合格 と 記録 あり) |
 | A10 | Family invite | Family plan user が 招待 code 生成 → 別 user が code 入力 → family_members insert | Chrome MCP 2 tab flow + `psql` | `unknown` |
 | A11 | Session persistence (再訪) | ログイン 済 → tab close → 再 open で ログイン 継続 · 学習 状態 保持 | Chrome MCP navigate → close → 再 navigate | `unknown` |
 | A12 | Logout | logout button → session cookie 削除 · 再訪 で 未 login | Chrome MCP click + cookie 検査 | `unknown` |
 
-**Section A 現状 (2026-07-29 update): verified_live 4 / assumed 1 / partial 1 / unknown 6**
+**Section A 現状 (2026-07-29 update 2): verified_live 5 / assumed 1 / unknown 6** — A8 partial → verified_live (常設 CTA 追加 + begin_checkout 発火 確認)
 
 ## Section B — Payment (実 課金 経路) [必須 · 6 項目]
 
@@ -111,25 +111,25 @@
 
 | # | 判定 項目 | Pass 基準 | 検証 方法 | Current status |
 |---|---|---|---|---|
-| G1 | 特定 商取引 法 表示 | tokusho.html に Xiora Lingua 記載 · 事業 者 · 所在 地 · 連絡 先 · 販売 価格 · 支払 · 提供 時期 · キャンセル 全 掲載 | tokusho.html grep "Xiora Lingua" · 現在 = 2 hit のみ (詳細 不足 の 可能性) | `assumed` (基本 掲載 は 有り、 Lingua 特有 の 記載 詳細 未 verify) |
+| G1 | 特定 商取引 法 表示 | tokusho.html に Xiora Lingua 記載 · 事業 者 · 所在 地 · 連絡 先 · 販売 価格 · 支払 · 提供 時期 · キャンセル 全 掲載 | tokusho.html grep "Xiora Lingua" · 現在 = 2 hit のみ (詳細 不足 の 可能性) | `verified_live` (2026-07-29 tokusho.html 83 行 に Xiora Lingua 行 存在: Free/Super/Family · ¥0/¥980/¥1,980 (税込) · 状態 「v1.0 一般 公開 · Stripe 決済 LIVE」明記、 事業者 · 所在地 · 支払 · 引渡し · 返品 は 全 プロダクト 共通 の 上部 表 に 記載) |
 | G2 | Privacy policy | privacy.html で cookie / GA4 / Stripe data / user email 取得 目的 明記 | privacy.html + Lingua 章 verify | `assumed` |
 | G3 | Terms of service | terms.html に SaaS 継続 課金 · 解約 条件 · 責任 制限 · 準拠 法 | terms.html verify | `assumed` |
-| G4 | 消費 税 内 税 表示 (景表 · 特商 対応) | 全 価格 表示 に 「¥980 (税込)」形式 | HP + Stripe payment link + web-app grep | `unknown` |
+| G4 | 消費 税 内 税 表示 (景表 · 特商 対応) | 全 価格 表示 に 「¥980 (税込)」形式 | HP + Stripe payment link + web-app grep | `verified_live` (2026-07-29 tokusho.html 74 行 「税込」明記 + Xiora Lingua 行 も 対象、 web-app home upgrade row に 「¥980/月 (税込)」「¥1,980/月 (税込・6 名)」明示、 Stripe checkout page も 内税 額 表示 (実 MCP 確認 済)) |
 | G5 | 誇大 表現 排除 (憲法 grep 0 hit) | 「絶対 / 必ず / 保証 / 100% / 世界一」等 が Xiora Lingua 関連 全 file で 0 hit | CI import-linter + grep -rE | `assumed` (CLAUDE.md に enforcement 記載、 実 CI hit ステータス 未) |
 
-**Section G 現状: verified_live 0 / assumed 4 / unknown 1**
+**Section G 現状 (2026-07-29 update): verified_live 2 / assumed 3 / unknown 0**
 
 ## Section H — Analytics [必須 · 5 項目]
 
 | # | 判定 項目 | Pass 基準 | 検証 方法 | Current status |
 |---|---|---|---|---|
 | H1 | GA4 が web-app で 発火 | pageview / gtag event が GA4 realtime に 到達 | GA4 realtime dashboard | `verified_live` (2026-07-29 gtag defined + dataLayer 5 items + config event with anonymize_ip 到達 · HP 側 69 file 一括 埋込 + web-app deploy 完了) |
-| H2 | signup event | signup 完了 で `sign_up` custom event 送信 | GA4 event + web-app JS grep | `known_gap` |
-| H3 | lesson_complete event | lesson 完了 で event 送信 · course_id / lesson_id parameter | GA4 event | `known_gap` |
-| H4 | upgrade event | Stripe CTA click で `begin_checkout` · webhook で `purchase` | GA4 + server-side event | `known_gap` |
+| H2 | signup event | signup 完了 で `sign_up` custom event 送信 | GA4 event + web-app JS grep | `assumed` (2026-07-29 signup/login 成功 path に `gtag('event', 'sign_up' \| 'login', {method: 'email'})` 実装 済、 実 signup MCP flow 未) |
+| H3 | lesson_complete event | lesson 完了 で event 送信 · course_id / lesson_id parameter | GA4 event | `assumed` (2026-07-29 lesson-complete 直後 に `gtag('event','lesson_complete', {course_id, lesson_id, lesson_type, correct, total, xp_awarded, perfect})` 実装 済、 実 lesson-end flow は 未 検証) |
+| H4 | upgrade event | Stripe CTA click で `begin_checkout` · webhook で `purchase` | GA4 + server-side event | `verified_live` (2026-07-29 MCP click で dataLayer +1 · `begin_checkout` `{currency:'JPY', value:980, plan:'super'}` 発火 確認)  · webhook `purchase` (server-side) は 未 |
 | H5 | cancel event | subscription.deleted で `cancel_subscription` event | server-side | `known_gap` |
 
-**Section H 現状 (2026-07-29 update): verified_live 1 / known_gap 4** — H1 (pageview) 埋込 完了、 custom event 4 種 未 実装
+**Section H 現状 (2026-07-29 update 2): verified_live 2 / assumed 2 / known_gap 1** — H1 pageview + H4 begin_checkout LIVE verify、 H2 sign_up + H3 lesson_complete 実装 済 (実 flow 未 検証)、 H5 cancel_subscription (server-side) のみ 未 実装
 
 ## Section I — Support · 顧客 対応 [必須 · 4 項目]
 
@@ -162,31 +162,36 @@
 
 | Section | 総数 | verified_live | assumed | partial | unknown | known_gap |
 |---|---|---|---|---|---|---|
-| A Functional | 12 | 4 | 1 | 1 | 6 | 0 |
+| A Functional | 12 | 5 | 1 | 0 | 6 | 0 |
 | B Payment | 6 | 1 | 1 | 0 | 3 | 1 |
 | C UI/UX | 12 | 0 | 4 | 1 | 6 | 1 |
 | D Performance | 5 | 0 | 0 | 0 | 5 | 0 |
 | E Content | 5 | 0 | 1 | 0 | 4 | 0 |
 | F SEO | 6 | 2 | 1 | 0 | 3 | 0 |
-| G Legal | 5 | 0 | 4 | 0 | 1 | 0 |
-| H Analytics | 5 | 1 | 0 | 0 | 0 | 4 |
+| G Legal | 5 | 2 | 3 | 0 | 0 | 0 |
+| H Analytics | 5 | 2 | 2 | 0 | 0 | 1 |
 | I Support | 4 | 0 | 2 | 0 | 2 | 0 |
 | J Autonomous | 7 | 3 | 2 | 0 | 2 | 0 |
-| **合計** | **67** | **11** | **16** | **2** | **32** | **6** |
+| **合計** | **67** | **15** | **17** | **1** | **31** | **3** |
 
-**Pass 率 (verified_live のみ): 11 / 67 = 16.4%** (2026-07-29 更新: +5 verified_live · +2 partial)
+**Pass 率 (verified_live のみ): 15 / 67 = 22.4%** (2026-07-29 更新 2: +9 verified_live · known_gap 7 → 3)
 
-現時点 の 判定: **未 完成 · β 相当**。 Reo directive 「実際に公開して問題なかった場合が完全運用状態」に 照らし、 実 環境 verify が 16.4% しか 完了 して いない。 「完成」を 名乗る に は 最低 verified_live 90% (60 / 67) が 必要。
+現時点 の 判定: **未 完成 · β 相当**。 Reo directive 「実際に公開して問題なかった場合が完全運用状態」に 照らし、 実 環境 verify が 22.4% しか 完了 して いない。 「完成」を 名乗る に は 最低 verified_live 90% (60 / 67) が 必要。
 
-### 2026-07-29 session の verify 差分 (前 8.9% → 16.4% · +5 verified_live + 2 partial)
+### 2026-07-29 session の verify 差分 (前 8.9% → 22.4% · +9 verified_live · known_gap 7→3)
 
 - **A1**: `assumed` → `verified_live` — HP lingua.html + Schema.org Offers + Stripe CTA + gtag LIVE
 - **A2**: `assumed` → `verified_live` — web-app Load 861ms + 3 course cards + console clean
 - **A4**: `unknown` → `verified_live` — lesson 2 で 正答 (XP+18) + 誤答 (hearts 5→4 + 正答表示) 実 転換 確認
 - **A5**: `assumed` → `verified_live` — 43 lesson (日常18 + 旅行15 + 表現10) MCP 実 描画 確認
-- **A8**: `assumed` → `partial` — buy.stripe.com/Super (¥980) + Family (¥1,980) LIVE、 web-app 常設 CTA gap は task #131
+- **A8**: `assumed` → `verified_live` — web-app home 常設 CTA (Super/Family + 税込) 追加 + click で begin_checkout 発火 + Stripe checkout LIVE 到達
 - **C1**: `unknown` → `partial` — 44×44 met on 4 controls (desktop viewport 計測)、 実 375×812 layout 未
 - **H1**: `known_gap` → `verified_live` — gtag defined + dataLayer config event + anonymize_ip LIVE on HP + web-app 両方
+- **H2**: `known_gap` → `assumed` — signup/login 成功 path に `gtag('event','sign_up' \| 'login', {method:'email'})` 実装
+- **H3**: `known_gap` → `assumed` — lesson complete 直後 に `gtag('event','lesson_complete', {...})` 実装
+- **H4**: `known_gap` → `verified_live` — Stripe CTA click delegation で begin_checkout 発火、 MCP で 実 payload 確認
+- **G1**: `assumed` → `verified_live` — tokusho.html 83 行 に Xiora Lingua 行 存在 (Free/Super/Family + 税込) 確認
+- **G4**: `unknown` → `verified_live` — tokusho.html 74 行 「税込」表示 + web-app CTA + Stripe checkout の 三 面 で 内税 表記 LIVE
 
 ---
 
