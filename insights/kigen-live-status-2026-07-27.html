@@ -105,7 +105,7 @@
 <li>bundle_id: <code>com.kigen.app</code> / App Store ID: <code>6776154131</code></li>
 <li>状態: App Store LIVE (審査 済 · 配信 中)</li>
 <li>Plus プラン ¥600/月 (monthly APPROVED) · 無料 版 でも 基本 機能 (期限 カレンダー · 自動 リマインダー · OCR · AI 自動 入力) 使用 可能</li>
-<li>Stripe web fallback: ¥300/月 monthly / ¥2,980/年 yearly / ¥1,980 買切 lifetime の 3 SKU 併設 (Apple IAP を primary rail と して 維持)</li>
+<li>Stripe web fallback: ¥300/月 monthly / ¥2,980/年 yearly の サブスク SKU 併設 (Apple IAP を primary rail と して 維持、 買切 SKU は 2026-07-31 に 廃止 · サブスク 一本 に 統一)</li>
 <li>プライバシー 設計 3 原則: On-Device / No Ads / No Tracking (ATT ダイアログ も 出 ない 設計)</li>
 </ul>
 
@@ -113,7 +113,7 @@
 <p>Kigen の 課金 は Apple IAP が primary rail。 App Store で iOS Plus プラン を 契約 する 場合 が 想定 導線。 Stripe web fallback (kigen.xiora-official.com) は 以下 の 想定 で 併設 して いる:</p>
 <ul>
 <li>App Store 経由 を 使わ ない 選択肢 が 欲しい ユーザー 向け の 代替</li>
-<li>Lifetime 買切 (¥1,980) を Stripe 経由 で 提供 する ため の 導線 (Apple IAP 側 で Lifetime SKU 復旧 前 の 暫定)</li>
+<li>ブラウザ 経由 で 課金 したい ユーザー 向け の 補助 導線 (App Store IAP を primary 経路 と して 継続)</li>
 <li>Xiora HP の 導線 統一 (他 SaaS が Stripe payment link を 使用 して いる 中 で、 Kigen のみ App Store 直リンク だと 表示 一貫性 が 崩れる 対策)</li>
 </ul>
 <p>2026-07-27 時点 で Stripe rail の Kigen 関連 subscription は 0 件、 実 収益 は Apple IAP 側 で 集計 される (APS Store Connect の 数値 pull は API key 発行 が 前提 の ため、 本 report で は 割愛)。</p>
@@ -145,7 +145,7 @@
 <li><b>SNS batch 22 本 activate</b> — Reo credentials 揃い 次第、 daemon を dispatch 状態 に する</li>
 <li><b>ASO 見直し</b> — 次 build で subtitle · keywords A/B 案 を 反映 (2 週間 · 4 週間 で 検索 順位 変動 を 追跡)</li>
 <li><b>Xiora Insights 系 SEO 記事 継続 追加</b> — 「iOS 期限 管理 · 家族 共有」「サブスク 棚卸し 実 手順」「薬 開封 後 期限」等 の 検索 意図 を カバー</li>
-<li><b>Apple IAP Lifetime SKU 復旧</b> — MISSING_METADATA 状態 の 買切 SKU を 埋め、 Stripe 側 に 依存 し ない buy 導線 を 完成</li>
+<li><b>Xiora HP 導線 統一</b> — Kigen の App Store 直リンク · Xiora HP hero · Insights 記事 の CTA を UTM 統一 で 分析 可能 に する (Lifetime 買切 SKU は 2026-07-31 廃止 · サブスク 一本)</li>
 </ul>
 
 <h2>7. 情報 参照 先</h2>
