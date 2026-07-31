@@ -117,7 +117,7 @@
     },
     {
       "id": "2026-08-22-xcloud-connect-3month-implicit-demo-tenant-record",
-      "date": "2026-08-22",
+      "date": "2026-08-01",
       "type": "insight",
       "kind": "release",
       "title": "XCloud Connect 導入 3 ヶ月 の record — implicit demo tenant + Restaurant OS 事例",
@@ -129,7 +129,7 @@
     },
     {
       "id": "2026-08-12-xiora-ocean-llm-unique-4-datasets",
-      "date": "2026-08-12",
+      "date": "2026-07-31",
       "type": "insight",
       "kind": "release",
       "title": "Xiora Ocean LLM の 独自 dataset — Xiora unique な 4 種 data moat の 構造",
@@ -141,7 +141,7 @@
     },
     {
       "id": "2026-08-05-smb-dx-books-5-2026",
-      "date": "2026-08-05",
+      "date": "2026-07-30",
       "type": "insight",
       "kind": "release",
       "title": "中小企業 DX 担当 が 手元に置く 書籍 5 選 — 業務改善 / システム選定 / 現場定着 (2026)",
@@ -653,7 +653,7 @@
     },
     {
       "id": "2026-08-02-productivity-books-5-2026",
-      "date": "2026-08-02",
+      "date": "2026-07-28",
       "type": "insight",
       "kind": "release",
       "title": "単独運営の生産性 実践書 5 選 — Deep Work / GTD / 7 つの習慣 / エッセンシャル思考 / タスク管理 (2026)",
@@ -665,7 +665,7 @@
     },
     {
       "id": "2026-08-03-security-books-5-2026",
-      "date": "2026-08-03",
+      "date": "2026-07-29",
       "type": "insight",
       "kind": "release",
       "title": "Web セキュリティ 実践書 5 選 — OWASP / OAuth / 暗号技術 の一次資料 (2026)",

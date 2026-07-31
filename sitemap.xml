@@ -154,26 +154,6 @@
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://xiora-official.com/insights/xiora-ocean-llm-unique-4-datasets.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://xiora-official.com/insights/smb-dx-books-5-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://xiora-official.com/insights/security-books-5-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://xiora-official.com/insights/productivity-books-5-2026.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
     <loc>https://xiora-official.com/insights/stripe-saqa-ec-integration-checklist-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
@@ -199,7 +179,17 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://xiora-official.com/insights/xiora-ocean-llm-unique-4-datasets.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/startup-marketing-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/smb-dx-books-5-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -224,6 +214,11 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://xiora-official.com/insights/security-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/web-language-app-3-criteria-2026-07-28.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
@@ -235,6 +230,11 @@
   </url>
   <url>
     <loc>https://xiora-official.com/insights/kigen-3-use-cases-2026-07-28.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/productivity-books-5-2026.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

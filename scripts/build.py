@@ -137,7 +137,11 @@ def render_news_list(updates: dict) -> str:
 
 
 def render_insights_grid(updates: dict) -> str:
+    import datetime as _dt
+    today_iso = _dt.date.today().isoformat()
     items = [i for i in updates["items"] if i["type"] == "insight"]
+    # Future-date guard: 未公開日 の 記事 は list に出さない (audit 2026-08-01 対応)
+    items = [i for i in items if (i.get("date") or "9999-99-99")[:10] <= today_iso]
     items = sort_by_date_desc(items)
 
     parts: list[str] = []
@@ -231,7 +235,11 @@ def render_sitemap_news(updates: dict) -> str:
 
 
 def render_sitemap_insights(updates: dict) -> str:
+    import datetime as _dt
+    today_iso = _dt.date.today().isoformat()
     items = [i for i in updates["items"] if i["type"] == "insight"]
+    # Future-date guard (same as insights grid)
+    items = [i for i in items if (i.get("date") or "9999-99-99")[:10] <= today_iso]
     items = sort_by_date_desc(items)
     parts: list[str] = []
     for it in items:
