@@ -149,6 +149,11 @@
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
+    <loc>https://xiora-official.com/insights/kigen-family-share-4-steps-2026-08-01.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/xcloud-connect-3month-implicit-demo-tenant-record.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
@@ -235,6 +240,11 @@
   </url>
   <url>
     <loc>https://xiora-official.com/insights/productivity-books-5-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/kigen-subscription-audit-3-steps-2026-07-27.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

@@ -3,6 +3,24 @@
   "items": [
     {
       "type": "insight",
+      "url": "/insights/kigen-family-share-4-steps-2026-08-01.html",
+      "date": "2026-08-01",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "title": "iPhone 家族共有 で 期限 管理 する 4 手順 — Kigen で 免許 · 保険 · 予防接種 を 家族単位 で",
+      "description": "Kigen で 家族 3-5 人分 の 免許 · 保険 · 予防接種 期限 を 一箇所 で 共有 する 4 手順。 iPhone 家族共有 連携、 通知 分散 の 実運用 tips。"
+    },
+    {
+      "type": "insight",
+      "url": "/insights/kigen-subscription-audit-3-steps-2026-07-27.html",
+      "date": "2026-07-27",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "title": "サブスク 期限管理 で 年 ¥20,000 節約 する 3 step — Kigen 実測 家計 audit",
+      "description": "Kigen で 契約中 サブスク 15 個 を 棚卸し、 年 ¥20,000 の 無駄 契約 を 見つけた 実測 手順 を 3 step で 情報整理。 動画 / 音楽 / SaaS の 実 category 別 節約 tips。"
+    },
+    {
+      "type": "insight",
       "kind": "release",
       "date": "2026-07-31",
       "id": "subscription-4-tier-launch-2026-07-31",
