@@ -1,0 +1,11 @@
+# Xiora HP redirects (ConoHa WING / Apache)
+# 2026-07-31: privacy 2重化解消 — 旧 /privacy.html を /legal/privacy.html に 301
+
+RewriteEngine On
+
+# privacy 統合
+Redirect 301 /privacy.html /legal/privacy.html
+Redirect 301 /privacy      /legal/privacy.html
+
+# 撤去 product の 404
+RewriteRule ^products/xfarm\.html?$ - [R=404,L]
