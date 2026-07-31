@@ -178,8 +178,14 @@
   .xc-trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   @media (max-width: 900px) { .xc-trust { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 520px) { .xc-trust { grid-template-columns: 1fr; } }
-  .xc-trust__card { padding: 24px; background: #fff; border: 1px solid var(--xc-border); border-radius: 10px; text-decoration: none; color: var(--xc-text); transition: border-color 0.15s ease; }
-  .xc-trust__card:hover { border-color: var(--xc-accent); }
+  /* Explicit state rules — prevent :visited / :focus-visible / :active from bleeding a different border color across the 4 cards. */
+  .xc-trust__card,
+  .xc-trust__card:link,
+  .xc-trust__card:visited,
+  .xc-trust__card:active { padding: 24px; background: #fff; border: 1px solid var(--xc-border); border-radius: 10px; text-decoration: none; color: var(--xc-text); transition: border-color 0.15s ease, box-shadow 0.15s ease; outline: none; box-shadow: none; }
+  .xc-trust__card:hover,
+  .xc-trust__card:focus-visible { border-color: var(--xc-accent); }
+  .xc-trust__card:focus-visible { box-shadow: 0 0 0 3px rgba(17,24,39,0.08); }
   .xc-trust__title { font-size: 15px; font-weight: 600; margin: 0 0 6px; }
   .xc-trust__desc { font-size: 13px; color: var(--xc-text-sub); margin: 0 0 12px; line-height: 1.65; }
   .xc-trust__arrow { font-size: 12px; color: var(--xc-accent-soft); font-weight: 500; }
@@ -202,6 +208,10 @@
   .xc-insight__title { font-size: 14.5px; font-weight: 500; line-height: 1.55; margin: 0; }
   .xc-insights__more { text-align: center; margin: 40px 0 0; font-size: 13.5px; }
   .xc-insights__more a { color: var(--xc-accent-soft); text-decoration: none; border-bottom: 1px solid var(--xc-border-strong); padding-bottom: 1px; }
+
+  /* Safety net — if any legacy .reveal element leaks into this page (or IntersectionObserver misfires),
+     force it visible so users never see blank space where content should be. */
+  main .reveal { opacity: 1 !important; transform: none !important; }
 </style>
 </head>
 <body class="xc-body">
@@ -471,7 +481,7 @@ Trust Center から 全 資料 を 参照 できます。
 
 <!-- ===== 6. Insights (3 recent) ===== -->
 <section class="xc-section" id="insights">
-<div class="xc-container xc-container--narrow">
+<div class="xc-container">
 <header class="xc-section__head">
 <p class="xc-section__label">Insights · 最新 記事</p>
 <h2 class="xc-section__title">実装 現場 から の 発信。</h2>

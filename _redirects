@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects
+# 2026-07-31: privacy 2重化解消 — 旧 /privacy.html を legal/privacy.html に 301
+/privacy.html      /legal/privacy.html      301
+/privacy           /legal/privacy.html      301
