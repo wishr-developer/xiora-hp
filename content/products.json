@@ -1,17 +1,7 @@
 {
-  "$comment": "Single source of truth for products. Add / edit / reorder here; scripts/build.py updates the footer Products block on ALL pages, /products/index.html cards + product-meta, and sitemap.xml. NOTE: bespoke sections (index.html Flagship, detail pages) stay hand-crafted. | 2026-07-31 pivot: 単発 買切 7 商品 + marketplace templates 5 商品 廃止 (Reo directive · サブスク 一本) | 2026-07-31 X farm added as 5th core product (Android MDM SaaS)",
+  "$comment": "Single source of truth for products. Add / edit / reorder here; scripts/build.py updates the footer Products block on ALL pages, /products/index.html cards + product-meta, and sitemap.xml. NOTE: bespoke sections (index.html Flagship, detail pages) stay hand-crafted. | 2026-07-31 pivot: 単発 買切 7 商品 + marketplace templates 5 商品 廃止 (Reo directive · サブスク 一本)",
   "flagship_id": "kigen",
   "products": [
-    {
-      "id": "xfarm",
-      "name": "X farm",
-      "category": "Android MDM SaaS",
-      "url": "/products/xfarm.html",
-      "status": "beta_live",
-      "featured": true,
-      "description": "Android 端末 一元管理 MDM SaaS。 SMB IT 管理者・教育機関・現場作業員 端末 向け。 self-hosted 対応。",
-      "pricing": "Starter ¥4,980/月〜 · Growth ¥19,800/月〜 · Free tier (1 device) あり"
-    },
     {
       "id": "kigen",
       "name": "KigenX",
