@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>税理士 · 社労士 · 行政書士 事務所 が 顧問先 に 「法改正 e-learning」を 追加課金 で 配信する 実装 手順 — Nexa Growth (¥29,800/月) の 具体運用 (2026) | Xiora Insights</title>
+<meta content="税理士 · 社労士 · 行政書士 事務所 が Nexa Growth (¥29,800/月, ≤50名) で 顧問先 に 「法改正 対応 の 30 分 動画 + 小テスト + 修了証」を 追加課金 で 配信する 具体手順。 教材 upload · 進捗管理 · 修了証 PDF 発行 の 実装 4 phase を fact-based で 整理。" name="description"/>
+<meta content="税理士 e-learning,社労士 e-learning,行政書士 e-learning,顧問先 教育,士業 追加収益,法改正 動画講座,Nexa Growth,SCORM 対応" name="keywords"/>
+<link href="https://xiora-official.com/insights/nexa-growth-shigyo-shomonsaki-elearning-monetize-2026-08-01.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/nexa-growth-shigyo-shomonsaki-elearning-monetize-2026-08-01.html" property="og:url"/>
+<meta content="税理士 · 社労士 · 行政書士 事務所 が 顧問先 に 「法改正 e-learning」を 追加課金 で 配信する 実装 手順 | Xiora Insights" property="og:title"/>
+<meta content="Nexa Growth (¥29,800/月, ≤50名) で 顧問先 教育 を 追加 収益 化する 4 phase 実装 手順 と 3 注意点 を fact-based で 整理。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="税理士 · 社労士 · 行政書士 事務所 が 顧問先 に 「法改正 e-learning」を 追加課金 で 配信する 実装 手順 | Xiora" name="twitter:title"/>
+<meta content="Nexa Growth (¥29,800/月, ≤50名) で 顧問先 教育 を 追加 収益 化する 4 phase 実装 手順 と 3 注意点 を fact-based で 整理。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260731a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "税理士 · 社労士 · 行政書士 事務所 が 顧問先 に 「法改正 e-learning」を 追加課金 で 配信する 実装 手順 — Nexa Growth (¥29,800/月) の 具体運用 (2026)",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "税理士 · 社労士 · 行政書士 事務所 が Nexa Growth (¥29,800/月, ≤50名) で 顧問先 に 「法改正 対応 の 30 分 動画 + 小テスト + 修了証」を 追加課金 で 配信する 具体手順。 教材 upload · 進捗管理 · 修了証 PDF 発行 の 実装 4 phase を fact-based で 整理。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-08-01",
+  "mainEntityOfPage": "https://xiora-official.com/insights/nexa-growth-shigyo-shomonsaki-elearning-monetize-2026-08-01.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Kutsuzawa Reo)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<script defer src="/assets/js/cvr-v3-tracking.js?v=2026-07-20"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a aria-label="Xiora ホーム" class="brand" href="/">
+<svg aria-hidden="true" class="brand__mark" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 23 Q16 5 26.5 23" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"></path><circle cx="16" cy="12.5" fill="currentColor" r="3.2"></circle></svg>
+<span class="brand__name">xiora</span>
+</a>
+<nav aria-label="メインメニュー" class="site-nav" id="siteNav">
+<a href="/#services">Services</a>
+<a href="/products/">Products</a>
+<a href="/family.html">Family</a>
+<a href="/trust.html">Trust</a>
+<a href="/insights/">Insights</a>
+<a href="/comparisons/">Comparisons</a>
+<a href="/company.html">Company</a>
+<a href="/contact.html">Contact</a>
+</nav>
+<button aria-expanded="false" aria-label="メニューを開く" class="nav-toggle" id="navToggle">
+<span></span><span></span>
+</button>
+</div>
+</header>
+
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">士業 事務所 が 顧問先 に 「法改正 e-learning」を 追加課金 で 配信する 実装 手順</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Practice</span>
+<time datetime="2026-08-01">2026.08.01</time>
+</div>
+<h1 class="insight-title">税理士 · 社労士 · 行政書士 事務所 が 顧問先 に 「法改正 e-learning」を 追加課金 で 配信する 実装 手順 — Nexa Growth (¥29,800/月) の 具体運用 (2026)</h1>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="士業 事務所 x Nexa Growth 法改正 e-learning - Xiora Insight" style="width:100%;height:auto;display:block;max-width:100%;background:#fbfbfd;border:1px solid #d1d5db;border-radius:8px;margin:0 0 32px;">
+<rect x="0" y="0" width="1200" height="630" fill="#fbfbfd"/>
+<line x1="80" y1="120" x2="1120" y2="120" stroke="#e5e7eb" stroke-width="1"/>
+<circle cx="80" cy="80" r="6" fill="#0a0a0a"/>
+<text x="100" y="86" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#6b7280" letter-spacing="0.12em">XIORA INSIGHT</text>
+<text x="1120" y="86" text-anchor="end" font-family="Inter, sans-serif" font-size="13" font-weight="400" fill="#9ca3af">xiora-official.com</text>
+<text x="80" y="230" font-family="Noto Sans JP, Inter, sans-serif" font-size="42" font-weight="700" fill="#111827">士業 事務所 x Nexa Growth</text>
+<text x="80" y="290" font-family="Noto Sans JP, Inter, sans-serif" font-size="42" font-weight="700" fill="#111827">顧問先 に 「法改正 e-learning」を</text>
+<text x="80" y="350" font-family="Noto Sans JP, Inter, sans-serif" font-size="42" font-weight="700" fill="#111827">追加課金 で 配信する 実装 手順</text>
+<text x="80" y="418" font-family="Noto Sans JP, Inter, sans-serif" font-size="32" font-weight="500" fill="#4b5563">¥29,800/月 · ≤50名 · 4 phase · 3 注意点 (2026)</text>
+<line x1="80" y1="530" x2="220" y2="530" stroke="#111827" stroke-width="2"/>
+<text x="80" y="580" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#6b7280">Nexa Academy — 教材 upload · SCORM · 進捗 · 修了証</text>
+</svg>
+<p class="insight-lead">税理士 · 社労士 · 行政書士 事務所 (3-30 名 規模) が Nexa Growth (¥29,800/月, ≤50 名) を 使い、 顧問先 企業 に 「インボイス · 電帳法 · 労基法 · 個人情報保護法 の 法改正 対応 30 分 動画 + 小テスト + 修了証 PDF」を 追加課金 で 配信 する 具体 手順 を 情報整理 します。 教材 upload · 進捗 dashboard · 修了証 発行 の 実装 4 phase と、 士業 独占業務 の 境界 · 顧問先 IT リテラシー · 個情法 遵守 の 3 注意点 を fact-based で 記載 します。 収益 化 · 契約 継続 の 保証 で は なく、 選択 軸 の 判断 材料 を 提示 する 情報 提供 記事 で す。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2 id="この記事は何か">この記事は何か</h2>
+<p>本 記事 は、 税理士 · 社労士 · 行政書士 事務所 (3-30 名 規模) が 顧問先 企業 (10-50 社 想定) に 「法改正 対応 e-learning」を 追加課金 で 配信 する 具体 手順 を 情報整理 する ガイド で す。 Nexa Growth (¥29,800/月, ≤50 名 · 2026 年 8 月 現在 の 参考 値) を 前 提 に、 教材 制作 · 配信 · 進捗 · 修了証 · 課金 モデル の 4 phase と 導入 時 注意 点 を fact-based で 記載 します。</p>
+
+<h2 id="背景">背景: 顧問先 教育 needs の 高まり (法改正 頻度 + オンライン 化)</h2>
+<p>近年、 インボイス 制度 · 電子帳簿保存 法 · 労働 基準 法 · 個人情報 保護 法 等 の 法改正 が 頻繁 に 発生 して おり、 士業 事務所 の 顧問先 企業 で は 「担当 者 が 動画 で 短時間 に キャッチ アップ したい」と の ニーズ が 一定 存在 する 目安 で す。 対面 セミナー は 移動 · 日程 調整 コスト が 高く、 オン デマンド 動画 + 修了 確認 の 形式 で 提供 する 選択 軸 が 徐々 に 拡大 して いる 傾向 が 見られ ます。 需要 · 顧問先 の 反応 は 事務所 · 業種 · 地域 に 依存 し、 一律 で 保証 される もの で は ありません。</p>
+
+<h2 id="growth-features">Nexa Growth (¥29,800/月, ≤50名) の 提供 機能</h2>
+<p>Nexa Growth プラン は 2026 年 8 月 現在 の 参考 値 で 、 月額 ¥29,800 · 学習 者 数 上限 50 名 · 教材 upload 無制限 · SCORM 1.2 / 2004 対応 (順次 拡充 予定) · 進捗 dashboard · 修了証 PDF 自動 発行 · AI 講師 (講義 script · 小テスト 生成 補助) · 事務所 別 schema 分離 (顧問先 データ の 分離) を 想定 して います。 各 機能 の 提供 時期 · 仕様 は 変更 され得 る 目安 で 、 契約 前 に 公式 pricing ページ で ご 確認 ください。</p>
+
+<h2 id="phase-1">Phase 1: 事務所 名義 の 「法改正 e-learning」設計</h2>
+<p>初期 設計 で は、 (1) 対象 顧問先 の 業種 · 従業 員 規模 · IT リテラシー を 把握、 (2) 「30 分 動画 + 5-10 問 の 小テスト + 修了証 PDF」の 3 元素 で 1 講座 を 構成、 (3) 配信 頻度 を 「月次 1 講座」または 「制度 改正 発生 時 に 随時」の どちら か で 事務所 内 で 合意 する の が 目安 で す。 講座 テーマ 例 は 「2026 年 インボイス 対応 の 実務 変更 点」「電帳法 の 保存 要件 更新」「労基法 改正 と 就業 規則 見直し」等 で 、 士業 独占業務 に 該当 しない 「一般 情報 提供 範囲」に 留める 設計 が 前 提 と なります。</p>
+
+<h2 id="phase-2">Phase 2: 教材 制作 (自作 or AI 補助)</h2>
+<p>教材 制作 は、 Nexa 内蔵 の AI 講師 機能 で 「講義 script 骨子 · 小テスト 5-10 問 · 修了証 用 タイトル 案」を 生成 補助 し、 事務所 職員 が 40 分 程度 の 撮影 · 収録 で 30 分 動画 に 編集 する 参考 手順 が あります。 撮影 機材 は 一般 的 な スマート フォン + 三脚 + マイク で 目安 品質 に 到達 する 事例 が あり、 初期 投資 を 抑え られる 傾向 が 見られ ます。 生成 された 講義 script · 小テスト は、 士業 資格 者 が 監修 · 事実 確認 を 行い、 一般 情報 提供 の 範囲 で 収まる か を 確認 する 工程 を 必ず 入れる の が 目安 で す。</p>
+
+<h2 id="phase-3">Phase 3: 顧問先 へ の 課金 モデル 設計</h2>
+<p>課金 モデル は、 事務所 側 が Nexa Growth (¥29,800/月) を 契約 し、 顧問 契約 に 「e-learning 配信 オプション」と して 追加 する 想定 で す。 参考 モデル と して 「顧問料 に 上乗せ ¥3,000/月 × 20 顧問先 = ¥60,000/月」の 単純 計算 で は、 事務所 コスト ¥29,800 を 差し引き ¥30,200/月 = 年 ¥362,400 の 差益 参考 例 と なります。 この 数値 は 単純 計算 例 で あり、 実 収益 の 保証 で は ありません。 実際 の 収益 は 顧問先 数 · 導入 率 · 解約 率 · 制作 工数 に 依存 し、 事務所 · 業種 · 地域 で 差 が 発生 する 目安 で す。 課金 開始 前 に、 顧問 契約 書 の 変更 · 追加 提供 の 覚書 · 消費 税 の 取扱 等 を 顧問 弁護士 · 顧問 税理士 と 確認 する の が 目安 で す。</p>
+
+<h2 id="phase-4">Phase 4: 実運用 (配信 → 進捗 dashboard 監視 → 修了証 発行 → 契約 更新 訴求)</h2>
+<p>実 運用 で は、 (1) 顧問先 担当 者 を Nexa 上 に 招待 · ID 発行、 (2) 月次 で 講座 配信 の 案内 メール を 送信、 (3) 進捗 dashboard で 受講 完了 率 · 小テスト 合格 率 を 事務所 側 で monitor、 (4) 修了 者 に 修了証 PDF を 自動 発行、 (5) 年 1 回 の 契約 更新 面談 で 受講 実 績 を 提示 · 継続 訴求、 の 5 手順 が 参考 と なります。 dashboard に は 個別 学習 者 の 進捗 · 修了 日 · スコア が 表示 され、 顧問先 の 教育 効果 を 事務所 側 で 可視 化 する 目安 と なります。 契約 更新 · 単価 上げ の 成否 は 顧問先 状況 に 依存 する 点 に ご 留意 ください。</p>
+
+<h2 id="notes">導入時 の 3 注意点</h2>
+<p>(1) 士業 独占業務 の 境界 — 税理士 法 · 社会 保険 労務 士 法 · 行政 書士 法 の 独占業務 (税務 相談 · 労務 相談 · 権利 義務 に 関する 書類 作成 相談 等) は e-learning 講座 に 含めず、 「一般 情報 提供 の 範囲」に 留める の が 目安 で す。 個別 具体 の 相談 は 従来 通り 顧問 契約 の 中 で 資格 者 が 対応 する 建付 と します。 (2) 顧問先 IT リテラシー — 一部 顧問先 で は 動画 視聴 · ID ログイン に 慣れて い ない 目安 が あり、 導入 時 に 「初回 ログイン 案内 PDF」「1 対 1 サポート 30 分」を 用意 する と 定着 率 が 上がり やすい 参考 傾向 が あります。 (3) 個人情報 · GDPR 遵守 — 顧問先 従業 員 の 氏名 · メール · 進捗 データ は 個人情報 で ある ため、 Nexa の schema 分離 · 監査 log · アクセス 制御 の 設定 を 事務所 側 で 事前 確認 し、 顧問先 と の 覚書 に 明記 する の が 目安 で す。</p>
+
+<h2 id="matome">まとめ + CTA</h2>
+<p>士業 事務所 が Nexa Growth (¥29,800/月, ≤50 名) で 顧問先 教育 を 追加 収益 化 する 実装 は、 教材 設計 · 制作 · 課金 · 運用 の 4 phase と 3 注意点 の 順 で 進める の が 目安 で す。 数値 · 差益 例 は 全て 参考 値 で 、 実 収益 の 保証 で は ありません。 プラン 詳細 · 契約 条件 は 下 記 pricing ページ で ご 確認 ください。</p>
+
+<aside aria-label="Nexa Academy pricing" style="margin:32px 0;padding:20px 24px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;">
+<div style="flex:1 1 240px;min-width:0;">
+<p style="margin:0 0 4px;font-weight:600;font-size:15.5px;color:#111827;">Nexa Academy — Growth プラン</p>
+<p style="margin:0;color:#4b5563;font-size:13.5px;line-height:1.6;">¥29,800/月 · 学習者 ≤50 名 · 教材 upload 無制限 · SCORM 対応 · 進捗 dashboard · 修了証 PDF 発行 (2026 年 8 月 現在 の 参考 値)。</p>
+</div>
+<a href="https://academy.xiora-official.com/pricing?utm_source=xiora_hp_insight&utm_medium=insight_link&utm_campaign=nexa_growth_shigyo_2026_08_01" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:11px 20px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14px;white-space:nowrap;">pricing を 見る <span aria-hidden="true">→</span></a>
+</aside>
+
+<h2 id="免責">免責</h2>
+<p>本 記事 は Nexa Growth プラン の 一般 情報 提供 で あり、 個別 の 事業 計画 · 税務 · 労務 · 法律 判断 の 助言 で は ありません。 士業 独占業務 (税務 相談 · 労務 相談 · 法律 相談 · 権利 義務 に 関する 書類 作成) は e-learning で 提供 する 想定 で は なく、 教材 は 一般 情報 提供 の 範囲 に 留める 前 提 で 記載 して います。 数値 · 差益 例 · 顧問先 数 · 導入 率 は 全て 参考 値 · 単純 計算 例 で あり、 実 収益 · 契約 継続 · 顧問先 満足 の 保証 で は ありません。 顧問先 個人情報 の 取扱 は 個人情報 保護 法 · GDPR 等 の 適用 法令 に 準じ、 事務所 側 で 覚書 · アクセス 制御 · 監査 log の 整備 を 行って ください。 最新 の 契約 条件 · 特商 法 表記 · 利用 規約 は Nexa Academy 公式 サイト で 必ず ご 確認 ください。</p>
+
+<h2 id="関連-記事">関連 記事</h2>
+<ul class="article-list">
+<li><a href="/insights/nexa-vs-teachable-thinkific-docebo-2026-07-24.html">Nexa と 海外 大手 LMS 3 社 の 比較 判断 軸 (2026)</a></li>
+<li><a href="/insights/subsidy-ai-draft-3-stages.html">補助 金 · 助成 金 の 事前 準備 を AI で 下 書き する 3 段階</a></li>
+<li><a href="/insights/nexa-learner-annual-vs-monthly-2026-08-01.html">Nexa Learner Annual (¥19,800/年) と Monthly (¥1,980/月) の 実 差額 · 選択軸</a></li>
+</ul>
+<p><strong>筆者</strong>: Xiora 代表 沓澤 怜士 (Kutsuzawa Reo)<br/>
+<strong>連絡</strong>: info@xiora-official.com</p>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+<!-- xiora-cta-live-products-2026-07-31 START -->
+<hr/>
+<aside style="border:1px solid #e5e7eb;border-radius:12px;background:#ffffff;padding:20px 22px;margin:32px 0 24px;">
+<p style="margin:0 0 12px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6b7280;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="display:inline-block;width:6px;height:6px;background:#0a0a0a;border-radius:50%;margin-right:8px;vertical-align:middle;"></span>Xiora の LIVE サブスク</p>
+<ul style="list-style:none;padding:0;margin:0;display:grid;gap:10px;">
+<li style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+<span style="font-size:14px;color:#0a0a0a;"><strong style="font-weight:600;">Nexa Academy</strong> <span style="color:#6b7280;font-size:13px;margin-left:6px;">Growth プラン ¥29,800/月 · ≤50 名 · 教材 upload · 進捗 dashboard · 修了証 PDF</span></span>
+<a href="https://academy.xiora-official.com/pricing?utm_source=xiora_hp&utm_medium=insights_cta&utm_campaign=growth_shigyo" target="_blank" rel="noopener" style="font-size:13px;color:#0a0a0a;font-weight:600;text-decoration:none;border:1px solid #0a0a0a;border-radius:6px;padding:6px 14px;">開く →</a>
+</li>
+<li style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+<span style="font-size:14px;color:#0a0a0a;"><strong style="font-weight:600;">KigenX (iOS)</strong> <span style="color:#6b7280;font-size:13px;margin-left:6px;">¥600/月 monthly サブスク</span></span>
+<a href="https://apps.apple.com/jp/app/kigenx/id6776154131?utm_source=xiora_hp&utm_medium=insights_cta&utm_campaign=kigen_sub_only" target="_blank" rel="noopener" style="font-size:13px;color:#0a0a0a;font-weight:600;text-decoration:none;border:1px solid #0a0a0a;border-radius:6px;padding:6px 14px;">App Store →</a>
+</li>
+<li style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0;">
+<span style="font-size:14px;color:#0a0a0a;"><strong style="font-weight:600;">Xiora Lingua</strong> <span style="color:#6b7280;font-size:13px;margin-left:6px;">Free (¥0) — 43 lesson × 3 course</span></span>
+<a href="https://xiora-lingua.xiora-official.com/?utm_source=xiora_hp&utm_medium=insights_cta&utm_campaign=lingua_free" target="_blank" rel="noopener" style="font-size:13px;color:#0a0a0a;font-weight:600;text-decoration:none;border:1px solid #0a0a0a;border-radius:6px;padding:6px 14px;">無料 で 試す →</a>
+</li>
+</ul>
+<p style="margin:12px 0 0;font-size:11px;color:#9ca3af;">Xiora は 2026-07-31 に 単発 買切 販売 を 全 廃止 · サブスク 一本 に 統一 しました (Xiora Algo は 現在 waitlist mode)。</p>
+</aside>
+<!-- xiora-cta-live-products-2026-07-31 END -->
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+<script defer src="../assets/js/main.js"></script>
+</body>
+</html>
