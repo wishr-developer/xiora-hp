@@ -138,7 +138,8 @@ def render_news_list(updates: dict) -> str:
 
 def render_insights_grid(updates: dict) -> str:
     import datetime as _dt
-    today_iso = _dt.date.today().isoformat()
+    # JST 日付 で判定 (GHA runner が UTC の ため + 9h 補正)
+    today_iso = (_dt.datetime.utcnow() + _dt.timedelta(hours=9)).date().isoformat()
     items = [i for i in updates["items"] if i["type"] == "insight"]
     # Future-date guard: 未公開日 の 記事 は list に出さない (audit 2026-08-01 対応)
     items = [i for i in items if (i.get("date") or "9999-99-99")[:10] <= today_iso]
@@ -236,7 +237,8 @@ def render_sitemap_news(updates: dict) -> str:
 
 def render_sitemap_insights(updates: dict) -> str:
     import datetime as _dt
-    today_iso = _dt.date.today().isoformat()
+    # JST 日付 で判定 (GHA runner が UTC の ため + 9h 補正)
+    today_iso = (_dt.datetime.utcnow() + _dt.timedelta(hours=9)).date().isoformat()
     items = [i for i in updates["items"] if i["type"] == "insight"]
     # Future-date guard (same as insights grid)
     items = [i for i in items if (i.get("date") or "9999-99-99")[:10] <= today_iso]
