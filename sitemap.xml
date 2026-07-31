@@ -149,6 +149,11 @@
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
+    <loc>https://xiora-official.com/insights/xcloud-connect-saitama-5-30seats-5-questions-2026-08-01.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/kigen-family-share-4-steps-2026-08-01.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
