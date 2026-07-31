@@ -91,14 +91,20 @@
 
     const payload = serialize(form);
 
-    // Normalize: contact form uses "type" for inquiry-type; API prefers "product" and "message"
+    // Normalize: contact form uses "issue" textarea + "type"/"contactMethod"/"timing" fields
+    const issueText = (payload.issue || payload.message || payload.detail || payload.body || '').toString();
+    const contextParts = [];
+    if (payload.contactMethod) contextParts.push('連絡希望: ' + payload.contactMethod);
+    if (payload.timing) contextParts.push('タイミング: ' + payload.timing);
+    const fullMessage = [issueText, contextParts.join(' / ')].filter(Boolean).join('\n\n---\n');
+
     const apiPayload = {
       product: payload.product || (['product'].includes(payload.type) ? 'general' : payload.type) || 'general',
       name: payload.name || '',
       email: payload.email || '',
       company: payload.company || '',
       phone: payload.phone || '',
-      message: (payload.message || payload.detail || payload.body || '').toString(),
+      message: fullMessage,
       source: location.pathname,
       // 追加コンテキスト
       inquiry_type: payload.type || '',
@@ -129,15 +135,9 @@
         throw new Error('server error');
       }
     } catch (err) {
-      // Fallback: 既存 mailto:
-      console.warn('contact-form POST failed, falling back to mailto:', err);
-      const bodyText = Object.entries(apiPayload)
-        .filter(([k, v]) => v && k !== 'website')
-        .map(([k, v]) => `${k}: ${v}`)
-        .join('\n');
-      const mailto = `mailto:${FALLBACK_MAILTO}?subject=${encodeURIComponent('【お問い合わせ】Xiora HP')}&body=${encodeURIComponent(bodyText)}`;
-      showStatus('err', 'API 送信に失敗したため、メーラーを起動します。うまく起動しない場合は info@xiora-official.com に直接ご連絡ください。');
-      setTimeout(() => { window.location.href = mailto; }, 1500);
+      // 通信エラー時: メーラーを強制起動せず、 message + email 案内 のみ表示 (Web メール利用者への配慮)
+      console.warn('contact-form POST failed:', err);
+      showStatus('err', '送信に失敗しました。 通信環境をご確認の上、 再度お試しください。 継続する場合は info@xiora-official.com まで直接ご連絡ください。');
     } finally {
       if (submitBtn) { submitBtn.disabled = false; if (submitBtn.dataset._originalText) submitBtn.textContent = submitBtn.dataset._originalText; }
     }
