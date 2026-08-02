@@ -129,6 +129,35 @@
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
     reveals.forEach((el) => io.observe(el));
+
+    /* Safety fallback (2026-08-01): 高速スクロール / hashchange で IO 未発火 の
+       reveal 要素を viewport 座標で拾って 強制表示。 opacity=0 stuck 防止。 */
+    const forceRevealInViewport = () => {
+      const unrevealed = document.querySelectorAll('.reveal:not(.is-visible)');
+      if (!unrevealed.length) return;
+      const vh = window.innerHeight;
+      unrevealed.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        // viewport 内 (一部でも見えている) or scroll で 通過 済 なら 強制表示
+        if (r.top < vh && r.bottom > 0) {
+          el.classList.add('is-visible');
+        } else if (r.top < 0) {
+          el.classList.add('is-visible');
+        }
+      });
+    };
+    let scrollTimer;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(forceRevealInViewport, 120);
+    }, { passive: true });
+    window.addEventListener('hashchange', () => setTimeout(forceRevealInViewport, 50));
+    // 初期 safety net (page load 直後 IO 未発火 case を拾う)
+    setTimeout(forceRevealInViewport, 1500);
+    // 追加 fallback: 5秒経って まだ unrevealed が残ってたら 全部強制表示 (transition 完了漏れ 対策)
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => el.classList.add('is-visible'));
+    }, 5000);
   } else {
     reveals.forEach((el) => el.classList.add('is-visible'));
   }
