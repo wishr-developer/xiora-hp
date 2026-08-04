@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>ドメイン · SSL 証明書 の 期限 を 落とさ ない 4 手順 — dev / 小規模 事業者 の 実運用 と Kigen 併用 | Xiora Insights</title>
+<meta content="ドメイン (whois 期限) · SSL 証明書 (Let's Encrypt / 有償 CA) の 期限 を 落とさ ない 4 手順 を 情報 整理。 個人 開発者 · 小規模 事業者 の 実運用 で 起き やすい 落とし穴、 通知 経路 の 冗長 化、 iOS アプリ Kigen を 併用 する 位置付け を fact-based で 記述。" name="description"/>
+<meta content="ドメイン 期限,SSL 証明書 期限,whois 期限,Let's Encrypt 更新,ドメイン 失効,Kigen,期限 管理" name="keywords"/>
+<link href="https://xiora-official.com/insights/domain-ssl-expiry-management-2026-08-04.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/domain-ssl-expiry-management-2026-08-04.html" property="og:url"/>
+<meta content="ドメイン · SSL 証明書 の 期限 を 落とさ ない 4 手順 — dev / 小規模 事業者 の 実運用 と Kigen 併用 | Xiora Insights" property="og:title"/>
+<meta content="ドメイン (whois 期限) · SSL 証明書 の 期限 を 落とさ ない 4 手順、 通知 経路 の 冗長 化、 iOS アプリ Kigen 併用 の 位置付け を fact-based で 記述。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://xiora-official.com/assets/img/ogp.png" name="twitter:image"/>
+<meta content="ドメイン · SSL 期限 を 落とさ ない 4 手順 | Xiora" name="twitter:title"/>
+<meta content="dev / 小規模 事業者 向け の 期限 冗長 化 4 手順 と Kigen 併用。" name="twitter:description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260731a" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ドメイン · SSL 証明書 の 期限 を 落とさ ない 4 手順 — dev / 小規模 事業者 の 実運用 と Kigen 併用",
+  "image": "https://xiora-official.com/assets/img/ogp.png",
+  "description": "ドメイン (whois 期限) · SSL 証明書 の 期限 を 落とさ ない 4 手順、 通知 経路 の 冗長 化、 iOS アプリ Kigen 併用 の 位置付け を fact-based で 記述。",
+  "inLanguage": "ja",
+  "author": { "@type": "Person", "name": "沓澤 怜士 (Kutsuzawa Reo)", "affiliation": { "@type": "Organization", "name": "Xiora" } },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xiora",
+    "url": "https://xiora-official.com/"
+  },
+  "datePublished": "2026-08-04",
+  "mainEntityOfPage": "https://xiora-official.com/insights/domain-ssl-expiry-management-2026-08-04.html"
+}
+</script>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/assets/img/favicon-32.png" rel="shortcut icon" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="沓澤 怜士 (Kutsuzawa Reo)" name="author"/>
+<meta content="Xiora" name="publisher"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<script defer src="/assets/js/cvr-v3-tracking.js?v=2026-07-20"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a class="site-header__brand" href="/"><span class="site-header__brand-mark">X</span><span class="site-header__brand-name">Xiora</span></a>
+</div>
+</header>
+<main id="main">
+<article class="insight-article">
+<div class="container container--narrow">
+<nav aria-label="パンくず" class="article-breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true">/</span>
+<a href="/insights/">Insights</a>
+<span aria-hidden="true">/</span>
+<span aria-current="page">ドメイン · SSL 証明書 の 期限 を 落とさ ない 4 手順</span>
+</nav>
+<header class="insight-header reveal">
+<div class="insight-meta">
+<span class="insight-meta__cat">Practice</span>
+<time datetime="2026-08-04">2026.08.04</time>
+</div>
+<h1 class="insight-title">ドメイン · SSL 証明書 の 期限 を 落とさ ない 4 手順 — dev / 小規模 事業者 の 実運用 と Kigen 併用</h1>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="ドメイン SSL 期限 4 手順 - Xiora Insight" style="width:auto;height:auto;display:block;max-width:720px;background:#fbfbfd;border:1px solid #d1d5db;border-radius:8px;margin:0 0 32px;">
+<rect x="0" y="0" width="1200" height="630" fill="#fbfbfd"/>
+<line x1="80" y1="120" x2="1120" y2="120" stroke="#e5e7eb" stroke-width="1"/>
+<circle cx="80" cy="80" r="6" fill="#0ea5e9"/>
+<text x="100" y="86" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#6b7280" letter-spacing="0.12em">XIORA INSIGHT</text>
+<text x="1120" y="86" text-anchor="end" font-family="Inter, sans-serif" font-size="13" font-weight="400" fill="#9ca3af">xiora-official.com</text>
+<text x="80" y="260" font-family="Noto Sans JP, Inter, sans-serif" font-size="52" font-weight="700" fill="#111827">ドメイン · SSL 期限 を</text>
+<text x="80" y="328" font-family="Noto Sans JP, Inter, sans-serif" font-size="52" font-weight="700" fill="#111827">落とさ ない 4 手順</text>
+<text x="80" y="396" font-family="Noto Sans JP, Inter, sans-serif" font-size="42" font-weight="500" fill="#4b5563">dev / 小規模 事業者 の 実運用</text>
+<line x1="80" y1="530" x2="220" y2="530" stroke="#111827" stroke-width="2"/>
+<text x="80" y="580" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#6b7280">Xiora Apps — Kigen. On-Device / No Ads / No Tracking.</text>
+</svg>
+<p class="insight-lead">個人 開発者 や 小規模 事業者 に とって、 ドメイン (whois 期限) と SSL 証明書 の 期限切れ は 「サイト が 突然 開かない」「メール が 弾かれる」 と いった 目に見える 事故 に 直結 します。 レジストラ · 認証局 から の 通知 メール は 見落と し やすく、 SNS 上 で は 大手 サービス の うっかり 失効 事例 も 定期 的 に 話題 に なります。 本稿 は 通知 経路 の 冗長 化 を 軸 に、 dev 実務 の 4 手順 と、 iOS アプリ Kigen を 併用 する 位置付け を fact-based で 情報 整理 します。</p>
+<div class="insight-author">
+<span class="insight-author__avatar">KR</span>
+<div>
+<span class="insight-author__name">沓澤 怜士 (Kutsuzawa Reo)</span><br/>
+<span>Xiora 代表 · info@xiora-official.com</span>
+</div>
+</div>
+</header>
+<div class="article-rich reveal">
+<h2 id="この記事は何か">この記事は何か</h2>
+<p>この 記事 は、 個人 開発者 · 小規模 事業者 (1-10 人 規模) が 自社 · 自 プロダクト の ドメイン と SSL 証明書 の 期限 を 落とさ ない 為 の 4 手順 を 整理 する ガイド です。 対象 は 「ドメイン 5-20 本」「SSL 証明書 も 同 数 前後」を 抱える 実務 で、 大 企業 の 数百 ドメイン 運用 は 別 領域 (専任 SRE + 監視 SaaS) と 分けて 考え ます。</p>
+
+<h2 id="なぜ-落ちる">なぜ 期限 は 落ちる の か</h2>
+<p>ドメイン · SSL 期限 が 落ちる 典型 経路 は 3 つ あります。 1 つ 目 は 「レジストラ から の 通知 メール が SPAM 判定 · 別 アドレス 宛 · 退職 者 アカウント 宛 で 届か ない」 ケース。 2 つ 目 は 「Let's Encrypt の 自動 更新 cron が 静か に 止まって いる」 ケース で、 サーバ 移設 · Docker イメージ 更新 · 権限 変更 の タイミング で 起こり やすい 実 事例 が あります。 3 つ 目 は 「クレジット カード の 有効 期限 切れ で 自動 課金 が 失敗 → レジストラ が 停止 → 復旧 に GRACE PERIOD 内 手続 が 必要」 と いう 課金 経路 の 事故 です。</p>
+
+<h2 id="手順-1-台帳">手順 1: ドメイン · 証明書 台帳 を 1 枚 に まとめる</h2>
+<p>まず、 保有 ドメイン と 証明書 を 1 表 で 可視 化 します。 列 例: ドメイン 名 / レジストラ / whois 期限 / 自動 更新 の 有無 / 課金 カード 末尾 4 桁 / 用途 (本番 · staging · メール 専用 等) / SSL 発行 元 (Let's Encrypt / ZeroSSL / 有償 CA) / 証明書 期限。 Google スプレッドシート · Notion · 単純 な CSV いずれ でも 構 いません。 大切 な の は 「1 箇所 に 集約 され て いる」 状態 で、 分散 して いる と 手順 2 以降 が 機能 しません。 保有 ドメイン 数 が 5 本 を 超え たら 台帳 化 の 費用 対 効果 が 出 やすい 目安 です。</p>
+
+<h2 id="手順-2-通知-冗長化">手順 2: 通知 経路 を 3 系統 に 冗長 化 する</h2>
+<p>通知 は 1 経路 だけ に 依存 させ ない の が 事故 予防 の 定石 です。 実務 で よく 採用 される 3 系統 は、 (a) レジストラ · CA 公式 の メール 通知 (登録 アドレス を 廃止 予定 の 個人 メール に しない)、 (b) サーバ 上 の 監視 スクリプト (cron で openssl s_client と whois を 週 1 実行 · Slack / Discord に post)、 (c) スマホ の カレンダー · リマインダー 系 アプリ に 「期限 60 日 前 · 30 日 前 · 7 日 前」 の 3 段 で 手動 登録 する 方法。 (a) が 迷惑 メール に 入って も (b) と (c) で 拾える 構造 に して おく と、 見落と し の 確率 が 下がる 傾向 が あります。</p>
+
+<h2 id="手順-3-自動更新">手順 3: 自動 更新 の 動作 確認 を 月次 で 挟む</h2>
+<p>「自動 更新 に して あるから 大丈夫」 と 考え がち です が、 自動 更新 は 静か に 壊れる リスク が あります。 月 1 回、 5 分 で、 (i) 課金 カード の 期限、 (ii) certbot / acme.sh の 直近 log に エラー が ない か、 (iii) 台帳 と 実 サーバ 証明書 の 期限 が 一致 する か、 を 確認 する 月次 ritual を 設ける 運用 例 が あります。</p>
+
+<h2 id="手順-4-手元-通知">手順 4: 手元 の iPhone に も 期限 を 置いて おく</h2>
+<p>台帳 · 監視 スクリプト · メール が 全て 揃って も、 「反応 する 人 が 気付いて い ない」 と 意味 が ありません。 特 に 個人 開発者 は 開発 マシン と 生活 が 混ざる ので、 iPhone の 通知 領域 に 「domain-a.com が 30 日 後 に 期限」 と いう form で 出て いる 状態 が 有効 な 場合 が あります。 iOS 標準 の Reminders で も 実現 でき ます が、 期限 category (ドメイン / SSL / カード / 保険 …) を tag で 束ねて 一覧 したい ケース で は、 期限 管理 に 特化 した iOS アプリ を 併用 する 選択肢 が あります。</p>
+
+<aside aria-label="Kigen を 試す" style="margin:32px 0;padding:20px 24px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;">
+<div style="flex:1 1 240px;min-width:0;">
+<p style="margin:0 0 4px;font-weight:600;font-size:15.5px;color:#111827;">Kigen — 暮らし と 事業 の 期限管理 iOS アプリ</p>
+<p style="margin:0;color:#4b5563;font-size:13.5px;line-height:1.6;">無料 で 始め、 Plus プラン ¥600/月 で 無制限 登録 · 家族 共有 · category tag が 開放。 On-Device 完結 · 広告 なし。</p>
+</div>
+<a href="https://kigen.xiora-official.com" rel="noopener" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#111827;color:#fff;padding:11px 20px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14px;white-space:nowrap;">Kigen を 見る <span aria-hidden="true">→</span></a>
+</aside>
+
+<h2 id="まとめ">まとめ: 冗長 化 が 事故 予防 の 中核</h2>
+<p>4 手順 (台帳 → 通知 3 系統 → 月次 動作 確認 → 手元 通知) の どれ か 1 つ だけ で 完結 しよう と せ ず、 独立 した 経路 を 重ねる こと で、 落ちる 確率 を 下げる 設計 が dev 実務 で 現実 的 です。 期限 の 把握 と 通知 に は Kigen (<a href="https://kigen.xiora-official.com">iOS アプリ</a>) が 対応 して います。 まず 無料 版 で ドメイン 3 本 分 を 登録 して、 手元 通知 の 有効 性 を 検証 する 段階 導入 が 現実 的 です。</p>
+
+<h2 id="免責">免責</h2>
+<p>本 記事 は dev 実務 の 情報 整理 を 目的 と した 参考 情報 です。 各 レジストラ · 認証局 · サーバ 環境 の 挙動 は 各社 の 公式 情報 · 契約 条件 に 準拠 します。 Kigen の 通知 は 補助 的 な 役割 で あり、 監視 SaaS · SRE 運用 の 代替 で は ありません。 効果 は 個別 の 運用 事情 に よって 差 が 出 ます。</p>
+
+<h2 id="関連-記事">関連 記事</h2>
+<ul class="article-list">
+<li><a href="/insights/kigen-subscription-audit-3-steps-2026-07-27.html">サブスク 期限管理 で 年 ¥20,000 節約 する 3 step</a></li>
+<li><a href="/insights/kigen-family-share-4-steps-2026-08-01.html">iPhone 家族共有 で 期限 管理 する 4 手順 — 免許 · 保険 · 予防接種</a></li>
+<li><a href="/insights/kigen-7-expiry-risks-2026-07-31.html">うっかり切らして 損する 7 大 期限 リスト</a></li>
+</ul>
+<p><strong>筆者</strong>: Xiora 代表 沓澤 怜士 (Kutsuzawa Reo)<br/>
+<strong>連絡</strong>: info@xiora-official.com</p>
+</div>
+<a class="article-back" href="/insights/">← Insights 一覧へ</a>
+</div>
+</article>
+</main>
+<footer class="site-footer">
+<div class="container">
+<p>&copy; 2026 Xiora / 沓澤 怜士 · <a href="/">Home</a> · <a href="/insights/">Insights</a> · <a href="/contact.html">Contact</a></p>
+</div>
+</footer>
+<script defer src="../assets/js/main.js"></script>
+</body>
+</html>

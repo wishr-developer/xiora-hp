@@ -3,6 +3,33 @@
   "items": [
     {
       "type": "insight",
+      "url": "/insights/qualification-renewal-management-2026-08-08.html",
+      "date": "2026-08-08",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "title": "国家資格 · 民間資格 の 更新 期限 を 落とさ ない 5 手順 — 講習 予約 と 逆算 の 実運用",
+      "description": "宅建 · 危険物 · 医療系 · 士業 · CPD 系 民間資格 の 更新 期限 を 落とさ ない 5 手順 と Kigen 併用 を fact-based で 情報 整理。"
+    },
+    {
+      "type": "insight",
+      "url": "/insights/credit-card-expiry-subscription-stop-2026-08-06.html",
+      "date": "2026-08-06",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "title": "クレジット カード の 有効期限 切れ で サブスク が 止まる — 事前 に 気付く 4 pattern",
+      "description": "カード 有効期限 切れ で サブスク · 公共料金 · ドメイン 課金 が 止まる 実 事例 と 事前 予兆 4 pattern を fact-based で 情報 整理。 Kigen 併用 の 位置付け も 中立 に 記述。"
+    },
+    {
+      "type": "insight",
+      "url": "/insights/domain-ssl-expiry-management-2026-08-04.html",
+      "date": "2026-08-04",
+      "insight_cat": "Practice",
+      "author": "沓澤 怜士 (Xiora)",
+      "title": "ドメイン · SSL 証明書 の 期限 を 落とさ ない 4 手順 — dev / 小規模 事業者 の 実運用 と Kigen 併用",
+      "description": "ドメイン (whois 期限) · SSL 証明書 の 期限 を 落とさ ない 4 手順、 通知 経路 の 冗長 化、 iOS アプリ Kigen 併用 の 位置付け を fact-based で 記述。"
+    },
+    {
+      "type": "insight",
       "url": "/insights/nexa-annual-juku-lecturer-continuous-learning-2026-08-01.html",
       "date": "2026-08-01",
       "insight_cat": "Practice",
