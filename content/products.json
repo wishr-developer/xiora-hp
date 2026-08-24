@@ -236,12 +236,12 @@
     },
     {
       "id": "ocean-chat",
-      "name": "OceanChat",
-      "brand_short": "OceanChat",
-      "brand_html": "Ocean<br/><span>Chat</span>",
-      "status": "Coming",
+      "name": "Ocean Pro",
+      "brand_short": "Ocean Pro",
+      "brand_html": "Ocean Pro",
+      "status": "LIVE · ¥1,980/月",
       "category_ja": "public 対話 AI",
-      "sub_desc_ja": "業種特化 dataset で 答える 対話 AI (¥1,980/月)",
+      "sub_desc_ja": "Xiora 対話 AI · 3-brain routing (Claude/ChatGPT/Gemini) 代理運用",
       "sub_desc_meta": "Xiora の Ocean LLM 基盤 を 活用する 一般公開 向け 対話 AI。飲食 / 士業 / 教育 / 投資 の 4 dataset を moat とし、¥1,980/月 単一 tier で 提供予定。subdomain ocean.xiora-official.com (DNS approve 待ち)。",
       "who": "業種特化 の 情報 を 対話 で 引き出したい 個人 / 中小事業者",
       "problem": "汎用 対話 AI は 業種 の 実務 に 落ちにくい",
@@ -252,7 +252,9 @@
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><path d=\"M20 20 L60 20 L60 40 L30 40 L20 50 Z\"></path><path d=\"M50 30 L80 30 L80 46 L96 56 L96 40 L100 40\" opacity=\"0.6\"></path></g></svg>",
       "card_class": "prod-card--ocean-chat",
       "include_in_footer": false,
-      "include_in_sitemap": false
+      "include_in_sitemap": false,
+      "payment_link": "https://buy.stripe.com/5kQ14n4Ik6Ij8IcddY1ck0Z",
+      "stripe_price_id": "price_1U7wGRFoGzoX9pTQVTJGL9DX"
     },
     {
       "id": "ocean-llm",
@@ -279,9 +281,9 @@
       "name": "XioraTrader",
       "brand_short": "XioraTrader",
       "brand_html": "Xiora<br/><span>Trader</span>",
-      "status": "Beta",
+      "status": "LIVE · Standard ¥1,980/月 / Pro ¥4,980/月",
       "category_ja": "Pine Script インジ 会員販売",
-      "sub_desc_ja": "TradingView インジ の 月額 会員販売 (¥2,980/月)",
+      "sub_desc_ja": "Sharpe>1.0 / drawdown<30% 通過 の Pine Script インジケータ月次アクセス",
       "sub_desc_meta": "Xiora 自作 の TradingView 用 Pine Script インジケーター を 月額 会員 向け に 提供。投資助言業 に は 該当しない 情報 提供 コンテンツ。¥2,980/月。",
       "who": "TradingView を 使っている 個人投資家",
       "problem": "既製 の 有償 インジ の 品質 と 更新 の 継続性 が 読めない",
@@ -292,16 +294,20 @@
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><path d=\"M10 48 L30 40 L50 44 L70 24 L90 30 L110 14\"></path><path d=\"M10 52 L110 52\" opacity=\"0.3\"></path></g></svg>",
       "card_class": "prod-card--xiora-trader",
       "include_in_footer": false,
-      "include_in_sitemap": false
+      "include_in_sitemap": false,
+      "payment_link": "https://buy.stripe.com/14A28r8YA5EfbUo8XI1ck10",
+      "payment_link_pro": "https://buy.stripe.com/7sY6oH3Eg6Ij0bGgqa1ck11",
+      "stripe_price_id": "price_1U7wGTFoGzoX9pTQTqdiKkSl",
+      "stripe_price_id_pro": "price_1U7wGVFoGzoX9pTQOf42pTOm"
     },
     {
       "id": "xiora-predict",
       "name": "XioraPredict",
       "brand_short": "XioraPredict",
       "brand_html": "Xiora<br/><span>Predict</span>",
-      "status": "Coming",
+      "status": "LIVE · ¥980/月",
       "category_ja": "指標データ 予測 report",
-      "sub_desc_ja": "指標 の レンジ 見立て を 月次 report (¥4,980/月)",
+      "sub_desc_ja": "日本株/米株/FX 日次テクニカル観測レポート (情報提供事業 range)",
       "sub_desc_meta": "CPI / 雇用統計 / GDP / FOMC 等 の 主要 経済 指標 に対する データ ドリブン 予測 report を 月次 提供。投資助言業 に は 該当しない 情報 提供。¥4,980/月。",
       "who": "個人投資家 / 事業者 の 情報 参考 用",
       "problem": "指標 発表前 の レンジ 見立て を 統計的 に 定量化 したい",
@@ -312,16 +318,18 @@
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><rect x=\"18\" y=\"14\" width=\"42\" height=\"36\" rx=\"2\"></rect><path d=\"M24 24 L54 24 M24 30 L44 30 M24 36 L50 36\" opacity=\"0.55\"></path><path d=\"M70 44 L82 32 L92 38 L104 22\" stroke-linecap=\"round\"></path></g></svg>",
       "card_class": "prod-card--xiora-predict",
       "include_in_footer": false,
-      "include_in_sitemap": false
+      "include_in_sitemap": false,
+      "payment_link": "https://buy.stripe.com/eVq6oHb6I9Uve2wa1M1ck12",
+      "stripe_price_id": "price_1U7wGXFoGzoX9pTQDOSbf8y4"
     },
     {
       "id": "xiora-salon",
       "name": "XioraSalon",
       "brand_short": "XioraSalon",
       "brand_html": "Xiora<br/><span>Salon</span>",
-      "status": "Coming",
+      "status": "LIVE · AI 経営塾 ¥3,980/月",
       "category_ja": "オンライン サロン (Discord + note)",
-      "sub_desc_ja": "3 領域 の 有料 コミュニティ + note archive",
+      "sub_desc_ja": "AI × 経営 月次オンラインサロン · 月 2 回 Q&A + Discord 継続議論",
       "sub_desc_meta": "AI 実務 / SaaS 起業 / 個人投資家 の 3 領域 で Discord コミュニティ と note 有料 記事 archive を 束ねた 有料 サロン。¥2,980-¥5,980/月。",
       "who": "実務 質問 と 記事 archive を 1 会員 で 受け取りたい 個人 / 小規模 事業者",
       "problem": "情報 発信 と 相談 の 場 が 分散、記事 の 個別 購入 が 面倒",
@@ -332,7 +340,9 @@
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"><circle cx=\"36\" cy=\"32\" r=\"12\"></circle><circle cx=\"60\" cy=\"22\" r=\"9\"></circle><circle cx=\"84\" cy=\"32\" r=\"12\"></circle><path d=\"M36 32 L60 22 L84 32\" opacity=\"0.35\"></path></g></svg>",
       "card_class": "prod-card--xiora-salon",
       "include_in_footer": false,
-      "include_in_sitemap": false
+      "include_in_sitemap": false,
+      "payment_link": "https://buy.stripe.com/14AeVdfmYgiT4rWa1M1ck13",
+      "stripe_price_id": "price_1U7wGZFoGzoX9pTQH0u21cBB"
     },
     {
       "id": "ec-autopilot",

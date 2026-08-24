@@ -2,6 +2,14 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "type": "news",
+      "url": "/insights/xiora-5-subscriptions-launch-2026-08-24.html",
+      "date": "2026-08-24",
+      "author": "沓澤 怜士 (Xiora)",
+      "title": "Xiora 新 5 サブスクリプション launch — Ocean Pro / Trader Standard/Pro / Predict / Salon",
+      "description": "Xiora が 4 領域 5 商品 の サブスクリプション を Stripe 決済 で 一斉 launch。 Ocean Pro (¥1,980 対話 AI 3-brain routing 代理運用) · Xiora Trader Standard ¥1,980 / Pro ¥4,980 (Pine Script インジケータ 月次) · Xiora Predict ¥980 (日次 銘柄観測 情報提供) · Xiora Salon ¥3,980 (AI 経営塾)。 全 商品 payment link で 即 開始 可能、月額 税込。"
+    },
+    {
       "type": "insight",
       "url": "/insights/qualification-renewal-management-2026-08-08.html",
       "date": "2026-08-08",

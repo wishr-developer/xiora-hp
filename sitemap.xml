@@ -149,10 +149,14 @@
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
-    <loc>https://xiora-official.com/insights/rakuten-travel-autumn-budget-guide-2026-08-22.html</loc>
-    <lastmod>2026-08-22</lastmod>
+    <loc>https://xiora-official.com/insights/qualification-renewal-management-2026-08-08.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/credit-card-expiry-subscription-stop-2026-08-06.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://xiora-official.com/insights/domain-ssl-expiry-management-2026-08-04.html</loc>
@@ -456,6 +460,11 @@
     <priority>0.6</priority>
   </url>
   <!-- BUILD:start sitemap-news -->
+  <url>
+    <loc>https://xiora-official.com/insights/xiora-5-subscriptions-launch-2026-08-24.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
   <url>
     <loc>https://xiora-official.com/news/2026-07-21-xiora-aos-guide-2026-launch.html</loc>
     <changefreq>yearly</changefreq>
