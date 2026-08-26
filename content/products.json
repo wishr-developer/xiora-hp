@@ -366,6 +366,26 @@
       "include_in_sitemap": false
     },
     {
+      "id": "sales-ai-os",
+      "name": "Sales AI OS",
+      "brand_short": "Sales AI OS",
+      "brand_html": "Sales AI<br/><span>OS</span>",
+      "status": "α · Starter ¥3,000/月 / SMB ¥30,000/月 / Business ¥100,000/月",
+      "category_ja": "完全自動 営業 SaaS",
+      "sub_desc_ja": "営業を、AI が 自動運転 する SaaS · 13 AI エージェント + 承認 flow",
+      "sub_desc_meta": "Sales AI OS — リード獲得 → 分析 → スコアリング → 文面生成 → 送信 → 返信解析 → 商談 → 見積 → 契約 → 請求まで、13 AI エージェント が 一気通貫 で 営業 を 自動運転 する SaaS。 Starter ¥3,000/月 (返信率 A/B) / SMB ¥30,000/月 (全 agent + CRM) / Business ¥100,000/月 (multi-tenant + API)。 α β 事前登録 受付中。",
+      "who": "個人事業主 〜 中小企業 の 営業責任者、地方 SMB、士業 事務所、SaaS 販売代理店",
+      "problem": "リード収集 → 分析 → 送信 → 返信対応 が 属人化、返信率 が 上がらない、商談 化 が follow up 漏れで 流れる",
+      "ai_use": "13 AI agents (Lead / Research / Scoring / Content / Review / Conversation / Scheduling / Proposal / Contract / Billing / CRM / Analytics / Improvement) が 分業、Human-on-the-loop で 契約・決済・削除 のみ 承認 escalation",
+      "url": "https://sales-ai-os.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=sales_ai_os",
+      "sub_short_desc": "営業を、13 AI エージェントが 自動運転 する SaaS。 Starter ¥3,000/月 から。 α β 事前登録 受付中。",
+      "sub_cat_short": "Sales SaaS",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"1.4\"><path d=\"M8 44 L28 32 L48 40 L68 22 L88 30 L112 14\"></path><circle cx=\"28\" cy=\"32\" r=\"2.5\" fill=\"currentColor\"></circle><circle cx=\"48\" cy=\"40\" r=\"2.5\" fill=\"currentColor\"></circle><circle cx=\"68\" cy=\"22\" r=\"2.5\" fill=\"currentColor\"></circle><circle cx=\"88\" cy=\"30\" r=\"2.5\" fill=\"currentColor\"></circle><circle cx=\"112\" cy=\"14\" r=\"3\" fill=\"currentColor\"></circle></g></svg>",
+      "card_class": "prod-card--sales-ai-os",
+      "include_in_footer": false,
+      "include_in_sitemap": false
+    },
+    {
       "id": "xiora-life-media",
       "name": "XioraLifeMedia",
       "brand_short": "XioraLifeMedia",
