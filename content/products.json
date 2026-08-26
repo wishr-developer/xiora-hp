@@ -426,6 +426,26 @@
       "include_in_sitemap": true
     },
     {
+      "id": "prompt-pack-v1",
+      "name": "Xiora AI Prompt Pack v1",
+      "brand_short": "Prompt Pack v1",
+      "brand_html": "Prompt<br/><span>Pack v1</span>",
+      "status": "β · 試験販売 ¥490 (3 プロンプト同梱、v1.1 で 12 追加時 無償 upgrade)",
+      "category_ja": "デジタルコンテンツ (プロンプト集)",
+      "sub_desc_ja": "Xiora 実運用中の 15 プロンプト を段階公開。 β は Claude Code / 業務自動化 / AI 執筆 の 3 プロンプト ¥490 試験販売。",
+      "sub_desc_meta": "Xiora AI Prompt Pack v1.0 β — Claude Code / SMB 業務自動化 / AI 執筆 の 3 テーマ 3 プロンプト β 版。 Xiora 実運用中の実物、fabrication 禁止 clause 内蔵。 ¥490 試験販売 (先着 30 部限定、v1.1 で 12 プロンプト追加時に購入者は無償 upgrade)。 公開 preview あり。",
+      "who": "Claude Code / ChatGPT / Gemini を業務に使う個人事業主 · SMB 経営者 · AI ライター",
+      "problem": "汎用プロンプトは fabrication (LLM の空想) を抑制せず、実用に耐える型が見つからない",
+      "ai_use": "プロンプト は 全て Xiora 実事業 (WorkAgent / XAIOutreach / Nexa / KigenX) で 稼働 実績。 使用者側 の AI 呼び出しに 挿入 して 即利用。",
+      "url": "/prompt-pack/",
+      "sub_short_desc": "Xiora 実運用中の 3 プロンプト を ¥490 β 販売。 v1.1 で 12 追加時 無償 upgrade。",
+      "sub_cat_short": "Prompt Pack",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"1.4\"><path d=\"M12 20 L108 20 M12 30 L92 30 M12 40 L108 40\"></path><circle cx=\"8\" cy=\"20\" r=\"2\" fill=\"currentColor\"></circle><circle cx=\"8\" cy=\"30\" r=\"2\" fill=\"currentColor\"></circle><circle cx=\"8\" cy=\"40\" r=\"2\" fill=\"currentColor\"></circle></g></svg>",
+      "card_class": "prod-card--prompt-pack",
+      "include_in_footer": false,
+      "include_in_sitemap": true
+    },
+    {
       "id": "xiora-hire",
       "name": "XioraHire",
       "brand_short": "XioraHire",

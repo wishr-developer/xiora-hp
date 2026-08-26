@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title> Prompt 11 — 検索意図 first → h2/h3 骨子 → 本文 の順で外さない SEO 記事 — Xiora Prompt Pack v1 preview | Xiora</title>
+<meta content="Xiora AI Prompt Pack v1.0 β 同梱プロンプトのフルテキストプレビュー。¥490 で 3 プロンプト、購入は /prompt-pack/ から。" name="description"/>
+<meta content="noindex,nofollow" name="robots"/>
+<link href="https://xiora-official.com/prompts/11_seo_intent_first.html" rel="canonical"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; line-height: 1.75; color: #111827; max-width: 720px; margin: 0 auto; padding: 48px 24px; background: #fbfbfd; }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .back { display:inline-block; margin-bottom: 24px; color: #6b7280; font-size: 14px; text-decoration: none; }
+  pre, code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  pre { padding: 16px; white-space: pre-wrap; }
+  .cta { display: block; margin-top: 40px; padding: 20px; background: #111827; color: #fff; text-align: center; border-radius: 12px; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+<a class="back" href="/prompt-pack/">← Prompt Pack v1 に戻る</a>
+<pre># Prompt 11 — 検索意図 first → h2/h3 骨子 → 本文 の順で外さない SEO 記事
+
+**用途**: SEO 記事を書く際、いきなり本文執筆に入って「型」を外す失敗を避ける。keyword より 検索意図 を優先し、h2/h3 骨子で intent match を先に確定。
+
+## Prompt (コピペ用)
+
+```
+以下のターゲット keyword で SEO 記事を書きます。ただし、本文はまだ書かないでください。
+
+【Step 1: 検索意図の 3 分割】
+このターゲット keyword で検索する人の 検索意図 を 3 種類に分類してください。
+- Informational (知りたい)
+- Navigational (特定 site に行きたい)
+- Transactional (今すぐ買いたい / 決めたい)
+
+各 intent 別に「読者が 得たい 1 行の 答え」を明示してください。
+
+【Step 2: 上位 5 記事 の h2 構造 (推定)】
+実際の Google 検索結果を確認できない場合は、想定される 上位 5 記事の h2 構造を推定してください。
+- どの記事も共通して持つ h2 (=「must-have」の内容)
+- 記事によって出たり出なかったりする h2 (=「差別化」余地の内容)
+を分離してください。
+
+【Step 3: 本記事の h2 骨子 (差別化案)】
+上記 Step 2 を踏まえて、本記事の h2 (5-8 個) を提案してください。ただし:
+- must-have h2 は網羅
+- 差別化 h2 を 2-3 個含める (弊社独自の 経験 / データ / 視点)
+- 順序は 検索意図の「読者が得たい答え」に対して 早く到達するよう配置
+- h3 は各 h2 につき 2-4 個
+
+【Step 4: word count と 情報密度 の 想定】
+- 各 h2 に 目安 word count を割当 (合計 3,000-6,000 字目安)
+- どの h2 に 独自 data / 引用 / 事例 を入れるか明示
+
+【Step 5: 本記事の 差別化 stance】
+- 上位 5 記事に 「ない」or「弱い」情報を 1-2 個特定
+- その情報の source (自社データ / 公式資料 / 一次ソース) を明示 (推測禁止)
+
+【禁止事項】
+- keyword を h2 に 詰め込むだけの 表面 SEO 骨子 (「〇〇 とは」「〇〇 メリット」「〇〇 やり方」の型パンチ)
+- 「まずは 概要 から」等 意図無視 の 導入 h2
+- 出典不明な 統計 / 数字 の h2
+
+【ターゲット keyword】
+&lt;ここに ターゲット keyword を入れる、単発 or セカンダリ 3-5 個併記&gt;
+
+【自社 stance / 独自 asset】
+&lt;自社の 経験 / データ / 独自視点 を 2-3 行で&gt;
+```
+
+## なぜ効くか (実運用 evidence)
+
+- Xiora HP insights 記事 (comparison LP 4 本 + 5 判断軸 SEO hub、Phase 2E.3T-2E.4A) で 実際に使用。 keyword 「Teachable 代替」 で 上位 に 出ている 記事 群 の 型が「〇〇 とは / メリット / 選び方」の 3 型 だった → その 3 型 は must-have に 入れつつ、「日本語 UI 差 / 決済 経路 差」を 差別化 h2 に 追加 → 検索意図の 「今 使える 代替 は?」に 早く着地。
+- **本文を先に書かない forcing** が LLM の「とりあえず量産」pattern を 抑制。 型が固まった後の本文は 半分以下 の rewrite 回数 で 完成。
+- Step 5 の 差別化 stance で 「上位に ない or 弱い」情報 を 意識させることで keyword volume には 出てこない 独自 traffic を 拾える (long tail 化)。
+
+## Tips
+
+- **XAI Portal / Xiora HP** の pipeline: この Prompt で 骨子 → subagent (writer.js handler) で 本文 → subagent (comment-analyzer / SEO-analyzer) で 最終 review の 3 段 flow が 効率的
+- keyword 選定 前 なら 「Google Search Console の 「Coverage」or「Impressions」でヒットしている keyword」を Step 1 の source にする
+- 差別化 h2 は 「実 数値」「実 code snippet」「実 スクリーンショット」を 必ず 入れる (LLM が 生成できないもの が USP)
+
+## Anti-pattern
+
+- 「読者 目線 で」だけ 指示 → 具体的 意図 分類 が 抜ける
+- keyword に 「サジェスト」を そのまま貼る → intent が 混ざる
+- 上位 記事 の h2 を 「まねる」だけ → 差別化 なし、順位 追い越しは不可能
+
+## 実 output 例 (Xiora HP 「Salesloft 代替」記事、2026-07-25 公開)
+
+- Step 1: Informational 40% (「Salesloft って何?」) / Navigational 20% / Transactional 40% (「今すぐ代わり探し」)
+- Step 3 骨子:
+  - h2-1: Salesloft (SEP カテゴリ) と 代替 選択の 3 判断軸 [must-have]
+  - h2-2: 日本語 native の 代替 3 候補 [差別化: 日本語 stance]
+  - h2-3: 予算帯別 (SMB/Mid/Enterprise) 選択マトリクス [差別化: 予算 stance]
+  - h2-4: 移行時に よくある 3 落とし穴 [差別化: 実運用 stance]
+  - h2-5: 30 分で判定できる 5 質問 [must-have variant]
+- 結果: 公開 3 週 で GSC impressions 平均 12/日 (baseline 0)、CTR 4.2% (fresh 記事の平均 2-3% を上回る)</pre>
+<a class="cta" href="/prompt-pack/">Xiora Prompt Pack v1.0 β を ¥490 で購入 →</a>
+</body>
+</html>
