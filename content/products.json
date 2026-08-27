@@ -426,6 +426,26 @@
       "include_in_sitemap": true
     },
     {
+      "id": "prompt-pack-v1-full",
+      "name": "Xiora AI Prompt Pack v1 Full",
+      "brand_short": "Prompt Pack v1 Full",
+      "brand_html": "Prompt Pack<br/><span>v1 Full</span>",
+      "status": "販売中 · ¥1,980 · 15 プロンプト · 100 部 hard limit",
+      "category_ja": "デジタルコンテンツ (プロンプト集 15 本)",
+      "sub_desc_ja": "Xiora 実運用中 の 15 プロンプト完全版 · コードレビュー / 会議 / Cold Email / OKR / SEO / LP コピー / X post 等。 ¥1,980 (v1.0 β の 4x)。",
+      "sub_desc_meta": "Xiora AI Prompt Pack v1 Full — 15 実運用プロンプト完全版。 診断的コードレビュー / 会議→アクション化 / Cold Email パーソナライゼーション / バグ再現 / OKR-KPI / Customer Research / 機能 spec / 採用面接 / 長文アウトライン / 契約 Triage / SEO Intent / LP コピー / X post フック / 30 秒動画スクリプト / Prompt 改善メタ。 ¥1,980 (税込)、 100 部 hard limit、 v2/v3 無償 upgrade。 v1.0 β 購入者は 差額購入なしで upgrade 可能。",
+      "who": "Claude Code / ChatGPT / Gemini を業務に使う個人事業主 · SMB 経営者 · AI ライター · SDR",
+      "problem": "汎用プロンプトは fabrication (LLM の空想) を抑制せず、 業務ドメイン 別 (レビュー / 営業 / OKR / 動画) の 型が 見つからない",
+      "ai_use": "全 15 プロンプト は Xiora 実事業 (WorkAgent / XAIOutreach / Nexa / KigenX / Xiora HP insights) で 稼働実績。 Claude Code / ChatGPT / Gemini どの LLM でも 使用可能。",
+      "url": "/prompt-pack/v1-full.html",
+      "sub_short_desc": "Xiora 実運用中の 15 プロンプト完全版 · ¥1,980 · 100 部 hard limit · v2/v3 無償 upgrade。",
+      "sub_cat_short": "Prompt Pack Full",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"1.4\"><path d=\"M8 15 L112 15 M8 25 L96 25 M8 35 L112 35 M8 45 L88 45\"></path><circle cx=\"4\" cy=\"15\" r=\"2\" fill=\"currentColor\"></circle><circle cx=\"4\" cy=\"25\" r=\"2\" fill=\"currentColor\"></circle><circle cx=\"4\" cy=\"35\" r=\"2\" fill=\"currentColor\"></circle><circle cx=\"4\" cy=\"45\" r=\"2\" fill=\"currentColor\"></circle></g></svg>",
+      "card_class": "prod-card--prompt-pack-full",
+      "include_in_footer": false,
+      "include_in_sitemap": true
+    },
+    {
       "id": "prompt-pack-v1",
       "name": "Xiora AI Prompt Pack v1",
       "brand_short": "Prompt Pack v1",
