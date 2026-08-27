@@ -2,6 +2,16 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-2026-08-27-web-30k-300k-5",
+      "type": "insight",
+      "kind": "insight",
+      "date": "2026-08-27",
+      "title": "Web 制作 案件 で 単価 ¥30k → ¥300k に 上げる 5 段階",
+      "description": "Web 制作案件の受注単価は、案件の規模や要件、提供するサービスの範囲などによって大きく異なる。一般的に、単価が¥30k程度の案件は、シンプルなサイト作成や既存サイトの軽微な更新といった比較的単純な作業を含むことが多い。一方、単価が¥300kを超える案件は、高度な機能を備えたカスタムサイトの開発や、ユーザーエクスペリエ",
+      "url": "/insights/2026-08-27-web-30k-300k-5.html",
+      "build_cat": "Xiora Insights"
+    },
+    {
       "id": "insight-2026-08-27-smb-saas-13-ai",
       "type": "insight",
       "kind": "insight",
