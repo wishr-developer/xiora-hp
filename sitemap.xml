@@ -164,6 +164,11 @@
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
+    <loc>https://xiora-official.com/insights/2026-08-28-prompt-3-fabrication.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/2026-08-28-30-tiktok-shorts-reels.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
