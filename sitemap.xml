@@ -164,6 +164,11 @@
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
+    <loc>https://xiora-official.com/insights/2026-08-27-3.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/2026-08-27-web-30k-300k-5.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
