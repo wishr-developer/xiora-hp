@@ -506,6 +506,26 @@
       "include_in_sitemap": true
     },
     {
+      "id": "ai-staff-kit",
+      "name": "Xiora AI Staff Engine Blueprint Kit v1",
+      "brand_short": "AI Staff Kit",
+      "brand_html": "AI Staff Engine<br/><span>Kit v1</span>",
+      "status": "販売中 · ¥7,980 · 50 部 hard limit",
+      "category_ja": "デジタル kit (SMB AI 社員 実装済 blueprint)",
+      "sub_desc_ja": "中小企業向け「AI 社員」の 実装済 base (Node.js+TS+SQLite+Anthropic)。 20+ tests + 6 spec docs + 12 プロンプト 同梱。 コンサル ¥300k-¥1M/project の 代替。",
+      "sub_desc_meta": "Xiora AI Staff Engine Blueprint Kit v1 — 中小企業向け「AI 社員」共通エンジン の 実装済 blueprint。 Node.js + TypeScript + SQLite + Anthropic SDK、20+ vitest tests、6 spec docs (要件/システム設計/プロンプト設計 P-01~P-12/実装計画 T-01~T-17/受入/運用)、Claude Code で 自動実装 継続可能。 コンサル 相場 ¥300k-¥1M/project の 代替として ¥7,980 (50 部 hard limit)。",
+      "who": "自社 に AI コンサル 呼ぶ 予算がない SMB、 Claude Code 使いこなしたい 個人開発者、AI 社員 概念 に興味 ある 経営者、既存 SI ベンダーへの 発注起点資料 が欲しい 顧客",
+      "problem": "AI コンサル 相場 ¥300k-¥1M/project が高い、要件定義 + 実装計画 を 内製化 したい、Claude Code の 効果的な 使い方 が わからない",
+      "ai_use": "docs/03 プロンプト設計 P-01~P-12 が LLM プロンプト 原文、 実装 は Claude Code + Anthropic API で 継続可能、 業種別 customize は プロンプト書換 で 対応",
+      "url": "/ai-staff-kit/",
+      "sub_short_desc": "SMB 向け AI 社員 実装済 blueprint、¥7,980 · 50 部 hard limit。 コンサル ¥300k-¥1M/project の 代替。",
+      "sub_cat_short": "AI Staff Kit",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"1.4\"><circle cx=\"30\" cy=\"30\" r=\"10\"></circle><circle cx=\"60\" cy=\"30\" r=\"10\"></circle><circle cx=\"90\" cy=\"30\" r=\"10\"></circle><path d=\"M40 30 L50 30 M70 30 L80 30\"></path></g></svg>",
+      "card_class": "prod-card--ai-staff-kit",
+      "include_in_footer": false,
+      "include_in_sitemap": true
+    },
+    {
       "id": "prompt-pack-v1",
       "name": "Xiora AI Prompt Pack v1",
       "brand_short": "Prompt Pack v1",

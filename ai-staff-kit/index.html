@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#fbfbfd"/>
+<title>Xiora AI Staff Engine Blueprint Kit v1 — SMB 向け「AI 社員」実装済 base ¥7,980 | Xiora</title>
+<meta name="description" content="中小企業向け「AI 社員」共通エンジン の 実装済 blueprint。 Node.js + TypeScript + SQLite + Anthropic SDK、20+ vitest tests、6 spec docs、12 LLM プロンプト 完全同梱 (Claude Code で 自動実装 可能)。 コンサル 相場 ¥300k-¥1M/project の 代替として ¥7,980。"/>
+<meta property="og:type" content="product"/>
+<meta property="og:title" content="Xiora AI Staff Engine Kit v1 (¥7,980)"/>
+<meta property="og:url" content="https://xiora-official.com/ai-staff-kit/"/>
+<link rel="canonical" href="https://xiora-official.com/ai-staff-kit/"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<style>
+  :root { --bg: oklch(1 0 0); --fg: oklch(0.15 0 0); --muted: oklch(0.55 0 0); --border: oklch(0.9 0 0); }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Inter", sans-serif; background: var(--bg); color: var(--fg); line-height: 1.75; margin: 0; padding: 0; }
+  .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+  h1 { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 12px; line-height: 1.35; }
+  h2 { font-size: 20px; font-weight: 700; margin: 40px 0 12px; }
+  p, li { font-size: 15px; color: var(--fg); margin: 0 0 12px; }
+  .lead { font-size: 16px; color: var(--muted); margin-bottom: 32px; line-height: 1.85; }
+  .badge { display: inline-block; font-size: 11px; letter-spacing: 0.08em; color: #065f46; border: 1px solid #10b981; background: #f0fdf4; border-radius: 20px; padding: 4px 12px; margin-bottom: 20px; }
+  .price-box { display: flex; align-items: baseline; gap: 12px; margin: 20px 0; }
+  .price-amount { font-size: 36px; font-weight: 700; }
+  .price-note { font-size: 13px; color: var(--muted); }
+  .cta { display: block; padding: 20px; background: #111827; color: #fff; text-align: center; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 17px; margin: 20px 0; }
+  .compare { border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 24px 0; background: #f9fafb; }
+  .compare table { width: 100%; border-collapse: collapse; }
+  .compare th, .compare td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .compare th { font-weight: 600; }
+  .compare tr:last-child td { border-bottom: 0; }
+  .compare .highlight { background: #f0fdf4; font-weight: 600; }
+  ul { padding-left: 24px; }
+  ul li { padding: 4px 0; }
+  footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<span class="badge">● 販売中 · Stripe LIVE</span>
+<h1>Xiora AI Staff Engine Blueprint Kit v1</h1>
+<p class="lead">中小企業向け「AI 社員」共通エンジン の <strong>実装済 blueprint</strong>。 Node.js + TypeScript + SQLite + Anthropic SDK。 20+ vitest tests / 6 spec docs / 12 LLM プロンプト 完全同梱 (Claude Code で 自動実装 継続可能)。</p>
+
+<div class="price-box">
+  <span class="price-amount">¥7,980</span>
+  <span class="price-note">(税込 · 50 部 hard limit · v2/v3 無償 upgrade 権)</span>
+</div>
+
+<a class="cta" href="https://buy.stripe.com/4gMaEXgr2eaLaQkgqa1ck18?utm_source=xiora_hp&utm_medium=lp&utm_campaign=ai_staff_kit_v1">¥7,980 で購入する →</a>
+<p style="font-size:13px;color:var(--muted);text-align:center;">Stripe checkout · Visa/Mastercard/AMEX/JCB · 決済後 即納品 (ZIP 275 KB)</p>
+
+<h2>コンサル 相場 との 比較</h2>
+<div class="compare">
+<table>
+<thead><tr><th>項目</th><th>AI コンサル (要件定義+実装計画)</th><th class="highlight">Xiora AI Staff Kit</th></tr></thead>
+<tbody>
+<tr><td>相場 (単発)</td><td>¥300,000 〜 ¥1,000,000</td><td class="highlight">¥7,980</td></tr>
+<tr><td>期間</td><td>1-3 か月</td><td class="highlight">即納品</td></tr>
+<tr><td>成果物</td><td>要件書 + 実装計画</td><td class="highlight">実装済 code + 20+ tests + spec 6 docs</td></tr>
+<tr><td>customize</td><td>追加見積</td><td class="highlight">プロンプト書換で対応</td></tr>
+<tr><td>再利用</td><td>単発 契約</td><td class="highlight">永続 使用可 (単一 事業者)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>同梱物</h2>
+<ul>
+  <li><strong>docs/ 6 spec docs</strong> (A4 換算 ~50 ページ) — 要件 / システム設計 / プロンプト設計 (P-01~P-12) / 実装計画 (T-01~T-17) / テスト受入 / 運用手順</li>
+  <li><strong>src/ TypeScript modules</strong> — Xiora 実装 実物 (ingest / classify / draft / weekly / trust / masking / killswitch など)</li>
+  <li><strong>tests/ 20+ vitest 件</strong> — ingest / purge / reminder / init / db / masking / draft / onboard / trust / bypass / duties / run / demo / weekly / killswitch / classify / classify_events / blue …</li>
+  <li><strong>mockups/</strong> — UI mockups (承認 UI / demo dashboard)</li>
+  <li><strong>CLAUDE.md</strong> — Claude Code への 恒久指示 (docs/ 順 に 自動実装 継続)</li>
+  <li><strong>00_START_HERE.md</strong> — 0 → 100 の 手順書</li>
+  <li><strong>KIT_OVERVIEW.md</strong> — 全体 map</li>
+  <li><strong>BUYER_README.md</strong> — 買主 向け quick guide</li>
+</ul>
+
+<h2>Xiora 実運用</h2>
+<p>Xiora 内部で 一部 client 向け に 稼働 中 (customer 業務 data は 除外、 汎用 Kit として 提供)。 各 test は 業界横断で 動作、 Xiora 固有 業務内容 に 依存 しません。</p>
+
+<h2>使い方 quick</h2>
+<ol>
+  <li>Kit ZIP 展開 → 空 repo に 配置</li>
+  <li><code>echo 'ANTHROPIC_API_KEY=sk-ant-xxx' > .env</code></li>
+  <li><code>npm install && npm test</code> (20+ tests pass 確認)</li>
+  <li>Claude Code 起動、CLAUDE.md + docs/ を読ませて T-01 から 実装 継続</li>
+  <li>業種別 customize は docs/03 プロンプト設計 (P-01~P-12) を書換</li>
+</ol>
+
+<h2>想定 買主</h2>
+<ul>
+  <li>自社 に AI コンサル 呼ぶ 予算がない SMB (¥300k-¥1M/project 相場 の代替)</li>
+  <li>Claude Code を 使いこなしたい 個人開発者 / エンジニア</li>
+  <li>AI 社員 概念 に興味 ある 経営者</li>
+  <li>既存 SI ベンダー に 「これを 参考 customize」と 発注 する 起点資料</li>
+</ul>
+
+<h2>推奨環境</h2>
+<ul>
+  <li>Node.js 20+</li>
+  <li>Anthropic API key (¥3-30/月 の 従量、貴社 側で契約)</li>
+  <li>macOS / Linux (Windows は WSL2)</li>
+</ul>
+
+<h2>販売条件</h2>
+<ul>
+  <li>価格: ¥7,980 (税込)</li>
+  <li>hard limit: 50 部 で 自動販売停止 (blueprint の 希少性 維持)</li>
+  <li>v2 / v3 無償 upgrade</li>
+  <li>返品: デジタル納品につき 返品不可</li>
+  <li>ライセンス: 購入者本人 / 単一事業者 の 業務利用 限定、 再販 / SaaS 組み込み / 内容 の 二次配布 禁止</li>
+  <li>特商法 表記: <a href="/legal/tokusho.html">特商法表示</a></li>
+</ul>
+
+<footer>
+<p>© Xiora 2026 — <a href="https://xiora-official.com">xiora-official.com</a> — Xiora Digital Products</p>
+<p>本ページの表示価格は税込。 支払いは Stripe (Visa/Mastercard/AMEX/JCB) 経由。 デジタル納品につき返品不可。 特商法表示は <a href="/legal/tokusho.html">こちら</a>。</p>
+</footer>
+
+</div>
+</body>
+</html>
