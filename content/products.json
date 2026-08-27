@@ -486,6 +486,26 @@
       "include_in_sitemap": true
     },
     {
+      "id": "cs-autopilot-kit",
+      "name": "Xiora Customer Support Autopilot Kit v1",
+      "brand_short": "CS Autopilot Kit",
+      "brand_html": "CS Autopilot<br/><span>Kit v1</span>",
+      "status": "販売中 · ¥4,980 · 100 部 hard limit",
+      "category_ja": "デジタル kit (顧客問い合わせ 自動応答)",
+      "sub_desc_ja": "IMAP pull → カテゴリ分類 → auto-reply → 送信。 5 gate escalation で 誤送信防止。 Intercom/Zendesk 代替、単発 ¥4,980。",
+      "sub_desc_meta": "Xiora Customer Support Autopilot Kit v1 — 個人事業主 / 小規模チーム 向け の 顧客問い合わせ 自動応答 pipeline。 IMAP pull → カテゴリ分類 → auto-reply draft → 送信 の完結。 5 gate (billing/契約/KYC/個人情報/権限) escalation で 誤送信防止。 Intercom $74/月 / Zendesk $19/agent/月 の 代替、単発 ¥4,980。 9 モジュール Python source + 8 template + 38 tests。 標準ライブラリのみ (外部依存ゼロ)。",
+      "who": "個人事業主 / 5 人以下 の 小規模チーム、 顧客問い合わせ 日 5-20 件、 Gmail Google Workspace 運用中",
+      "problem": "問い合わせ 対応 が 属人化 + 深夜/週末 遅延、 Intercom/Zendesk は cloud + 月額課金、 誤送信 リスク (billing/契約 領域)",
+      "ai_use": "rule-based classifier で カテゴリ判定 (confidence 0.80 未満 は escalate)、 憲法 filter で 誇大表現/士業/事故領域 grep。 v2 で LLM 補助 template 生成 予定。",
+      "url": "/cs-autopilot/",
+      "sub_short_desc": "顧客問い合わせ 自動応答 pipeline、5 gate escalation、Intercom 代替 単発 ¥4,980。",
+      "sub_cat_short": "CS Kit",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"1.4\"><path d=\"M20 15 L100 15 L100 40 L60 40 L50 50 L50 40 L20 40 Z\"></path><circle cx=\"40\" cy=\"27\" r=\"2\" fill=\"currentColor\"></circle><circle cx=\"60\" cy=\"27\" r=\"2\" fill=\"currentColor\"></circle><circle cx=\"80\" cy=\"27\" r=\"2\" fill=\"currentColor\"></circle></g></svg>",
+      "card_class": "prod-card--cs-autopilot",
+      "include_in_footer": false,
+      "include_in_sitemap": true
+    },
+    {
       "id": "prompt-pack-v1",
       "name": "Xiora AI Prompt Pack v1",
       "brand_short": "Prompt Pack v1",
