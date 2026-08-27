@@ -164,6 +164,11 @@
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
+    <loc>https://xiora-official.com/insights/2026-08-27-cold-email-3-2026-smb.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/2026-08-27-claude-code.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
