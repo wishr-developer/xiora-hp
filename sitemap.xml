@@ -164,12 +164,17 @@
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
+    <loc>https://xiora-official.com/insights/2026-08-27-stripe-payment-link-subscription.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/2026-08-27-2026-saas-ec.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://xiora-official.com/insights/2026-08-27-3.html</loc>
+    <loc>https://xiora-official.com/insights/2026-08-27-insight-89462587.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
