@@ -446,6 +446,26 @@
       "include_in_sitemap": true
     },
     {
+      "id": "meeting-recorder-kit",
+      "name": "Xiora Meeting Recorder Kit v1",
+      "brand_short": "Meeting Recorder Kit",
+      "brand_html": "Meeting<br/><span>Recorder Kit</span>",
+      "status": "販売中 · ¥3,980 · 100 部 hard limit",
+      "category_ja": "デジタル kit (Mac local 会議自動議事録)",
+      "sub_desc_ja": "Zoom/Meet/Teams の 会議音声を Mac local で録音 → 自動議事録化。 音声データは Mac から出ない (士業/医療 対応)。",
+      "sub_desc_meta": "Xiora Meeting Recorder Kit v1 — Zoom/Meet/Teams の 会議音声を Mac local で 録音 → 自動議事録化 (ffmpeg + whisper.cpp + Ollama qwen2.5:7b)。 100% local processing (音声データは Mac から出ない)。 Otter.ai/Fireflies の 代替、¥0 recurring。 セットアップ 15-30 分、30 分会議 → 33 分で議事録。 ¥3,980 · 100 部 hard limit · v2/v3 無償 upgrade。",
+      "who": "士業 (弁護士/税理士/社労士 - 守秘義務あり)、医療従事者、SMB 経営者、リモートワーカー",
+      "problem": "会議の議事録作成 に 30-60 分/回 かかる、Otter.ai/Fireflies は cloud upload で 守秘義務 リスク、月額 課金",
+      "ai_use": "whisper.cpp 音声認識 + Ollama qwen2.5:7b で 11 section 構造化 議事録 生成 (100% local)。 Fail-closed 設計で 幻覚防止。",
+      "url": "/meeting-recorder/",
+      "sub_short_desc": "Zoom/Meet/Teams 会議 を Mac local で 自動議事録化。 ¥3,980 単発 · 100 部 hard limit。",
+      "sub_cat_short": "Meeting Kit",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"1.4\"><circle cx=\"60\" cy=\"20\" r=\"8\"></circle><path d=\"M45 40 Q60 50 75 40 M52 44 L52 52 M68 44 L68 52 M52 52 L68 52\"></path></g></svg>",
+      "card_class": "prod-card--meeting-recorder",
+      "include_in_footer": false,
+      "include_in_sitemap": true
+    },
+    {
       "id": "prompt-pack-v1",
       "name": "Xiora AI Prompt Pack v1",
       "brand_short": "Prompt Pack v1",

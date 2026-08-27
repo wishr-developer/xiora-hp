@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#fbfbfd"/>
+<title>Xiora Meeting Recorder Kit v1 — Mac local で Zoom/Meet/Teams を 自動議事録化 (¥3,980) | Xiora</title>
+<meta name="description" content="Zoom / Google Meet / Teams の 会議音声を Mac local で 録音 → 自動議事録化。 100% local processing で 音声データは Mac から出ない (士業/医療/SMB の 守秘義務対応)。 ffmpeg + whisper.cpp + Ollama qwen2.5:7b の 実装済 pipeline (7/7 acceptance test PASS)、 30 分会議 → 33 分で議事録完成。 ¥3,980 · 100 部 hard limit · v2/v3 無償 upgrade。"/>
+<meta property="og:type" content="product"/>
+<meta property="og:title" content="Xiora Meeting Recorder Kit v1 — Mac local で 会議自動議事録化 ¥3,980"/>
+<meta property="og:description" content="100% local processing の 会議録音+議事録 kit。 Otter.ai / Fireflies の代替 (¥0 recurring)。"/>
+<meta property="og:url" content="https://xiora-official.com/meeting-recorder/"/>
+<link rel="canonical" href="https://xiora-official.com/meeting-recorder/"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<style>
+  :root { --bg: oklch(1 0 0); --fg: oklch(0.15 0 0); --muted: oklch(0.55 0 0); --border: oklch(0.9 0 0); --accent: oklch(0.55 0.16 262); }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Inter", sans-serif; background: var(--bg); color: var(--fg); line-height: 1.75; margin: 0; padding: 0; }
+  .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+  h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 12px; line-height: 1.35; }
+  h2 { font-size: 20px; font-weight: 700; margin: 40px 0 12px; }
+  p, li { font-size: 15px; color: var(--fg); margin: 0 0 12px; }
+  .lead { font-size: 17px; color: var(--muted); margin-bottom: 32px; line-height: 1.85; }
+  .badge { display: inline-block; font-size: 11px; letter-spacing: 0.08em; color: #065f46; border: 1px solid #10b981; background: #f0fdf4; border-radius: 20px; padding: 4px 12px; margin-bottom: 20px; }
+  .price-box { display: flex; align-items: baseline; gap: 12px; margin: 20px 0; }
+  .price-amount { font-size: 40px; font-weight: 700; }
+  .price-note { font-size: 13px; color: var(--muted); }
+  .cta { display: block; padding: 20px; background: #111827; color: #fff; text-align: center; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 17px; margin: 20px 0; transition: opacity 0.2s; }
+  .cta:hover { opacity: 0.9; }
+  .cta-note { font-size: 13px; color: var(--muted); text-align: center; margin-top: 8px; }
+  ul { padding-left: 24px; }
+  ul li { padding: 4px 0; }
+  .compare { border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 24px 0; background: #f9fafb; }
+  .compare table { width: 100%; border-collapse: collapse; }
+  .compare th, .compare td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .compare th { font-weight: 600; }
+  .compare tr:last-child td { border-bottom: 0; }
+  .compare .highlight { background: #f0fdf4; font-weight: 600; }
+  footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<span class="badge">● 販売中 · Stripe LIVE</span>
+<h1>Xiora Meeting Recorder Kit v1</h1>
+<p class="lead">Zoom / Google Meet / Teams の 会議音声を Mac local で 録音 → 自動議事録化。 <strong>100% local processing</strong>、 音声データは Mac から出ません。 士業 / 医療 / SMB の 守秘義務対応。</p>
+
+<div class="price-box">
+  <span class="price-amount">¥3,980</span>
+  <span class="price-note">(税込 · 100 部 hard limit · v2/v3 無償 upgrade 権)</span>
+</div>
+
+<a class="cta" href="https://buy.stripe.com/dRm9ATfmY3w72jO5Lw1ck15?utm_source=xiora_hp&utm_medium=lp&utm_campaign=meeting_recorder_v1">¥3,980 で購入する →</a>
+<p class="cta-note">Stripe checkout · Visa / Mastercard / AMEX / JCB · 決済後 即納品 (ZIP + セットアップ手順)</p>
+
+<h2>何が同梱?</h2>
+<ul>
+  <li><strong>bin/record.sh</strong> — マイク キャプチャ (ffmpeg avfoundation, PCM WAV 16k mono)</li>
+  <li><strong>bin/pipeline.sh</strong> — 議事録生成 pipeline (whisper.cpp + Ollama)</li>
+  <li><strong>bin/verify_gate_a.sh</strong> — 7 条件 acceptance test</li>
+  <li><strong>tests/test_fail_closed.sh</strong> — 10 パターン 回帰テスト (現状 10/10 PASS)</li>
+  <li><strong>docs/QUICK_START.md</strong> — 15 分 セットアップ手順</li>
+  <li><strong>README.md</strong> — 全体仕様 + トラブルシューティング</li>
+</ul>
+
+<h2>Otter.ai / Fireflies と の 比較</h2>
+
+<div class="compare">
+<table>
+<thead>
+<tr><th>項目</th><th>Otter.ai (Pro)</th><th>Fireflies</th><th class="highlight">Xiora MR Kit</th></tr>
+</thead>
+<tbody>
+<tr><td>月額</td><td>$16.99/月 (~¥2,500)</td><td>$18/月 (~¥2,700)</td><td class="highlight">¥3,980 (単発)</td></tr>
+<tr><td>5 年 total</td><td>¥150,000</td><td>¥162,000</td><td class="highlight">¥3,980</td></tr>
+<tr><td>音声保管場所</td><td>cloud</td><td>cloud</td><td class="highlight">Mac 内 のみ</td></tr>
+<tr><td>守秘義務対応</td><td>△ (規約次第)</td><td>△</td><td class="highlight">◎</td></tr>
+<tr><td>解約手続き</td><td>必要</td><td>必要</td><td class="highlight">不要 (単発購入)</td></tr>
+<tr><td>API 依存</td><td>依存 (英語主)</td><td>依存 (英語主)</td><td class="highlight">なし (Ollama local)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Xiora 実運用実績</h2>
+<p>Xiora 実業務で 使用中 (Lancers 面談 / CrowdWorks 検収会議 / 内部 stand-up 等)。 pipeline は 2026-08-21 に 7/7 acceptance test PASS 済み、 変更禁止 (FROZEN) の 安定版。</p>
+
+<h2>推奨環境</h2>
+<ul>
+  <li>macOS (Apple Silicon 推奨、Intel でも 動作)</li>
+  <li>16 GB RAM 以上 (Ollama qwen2.5:7b 動作用)</li>
+  <li>ストレージ 10 GB 以上 (whisper model 3 GB + Ollama 4.7 GB + 録音)</li>
+  <li>マイク access 権限</li>
+</ul>
+
+<h2>依存関係 (Mac で 事前 install)</h2>
+<ul>
+  <li>ffmpeg 8.1+ (<code>brew install ffmpeg</code>)</li>
+  <li>whisper.cpp (<code>brew install whisper-cpp</code>)</li>
+  <li>whisper model (ggml-large-v3-turbo-q5_0.bin) — 別途 DL、手順同梱</li>
+  <li>Ollama qwen2.5:7b (<code>ollama pull qwen2.5:7b</code>)</li>
+</ul>
+<p>セットアップ所要時間: 15-30 分 (whisper model 3 GB DL 含む)。</p>
+
+<h2>納品</h2>
+<p>Stripe checkout 完了後、 24 時間以内 に 購入時 email 宛 に ZIP を 送付。 xiora00000@gmail.com からの mail が spam に入っていないかご確認ください。</p>
+
+<h2>販売条件</h2>
+<ul>
+  <li>価格: ¥3,980 (税込)</li>
+  <li>hard limit: 100 部 で 自動販売停止 (Stripe restrictions.completed_sessions)</li>
+  <li>v2 / v3 無償 upgrade: 購入者 email 宛 に 更新版 URL を配信 (v2 は 2026 Q4 予定)</li>
+  <li>返品: デジタル納品につき 返品不可</li>
+  <li>特商法 表記: <a href="/legal/tokusho.html">特商法表示</a></li>
+</ul>
+
+<h2>お問い合わせ</h2>
+<p><a href="mailto:xiora00000@gmail.com?subject=Meeting%20Recorder%20Kit">xiora00000@gmail.com</a> まで。</p>
+
+<footer>
+<p>© Xiora 2026 — <a href="https://xiora-official.com">xiora-official.com</a> — Xiora Digital Products</p>
+<p>本ページの表示価格は税込。 支払いは Stripe (Visa/Mastercard/AMEX/JCB) 経由。 デジタル納品につき返品不可。 特商法表示は <a href="/legal/tokusho.html">こちら</a>。</p>
+</footer>
+
+</div>
+</body>
+</html>
