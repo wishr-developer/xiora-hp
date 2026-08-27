@@ -2,6 +2,16 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-2026-08-27-2026-saas-ec",
+      "type": "insight",
+      "kind": "insight",
+      "date": "2026-08-27",
+      "title": "特商法 表記 の 実務チェックリスト (2026 版) — SaaS / EC / デジタル コンテンツ",
+      "description": "2026年現在、特商法（特定商取引法）の改正により、SaaS（Software as a Service）、EC（電子商取引）、デジタルコンテンツの提供における表記要件が更に厳格化されています。特に、デジタル商品の販売では、商品の特性や利用方法、返品の可否など、消費者が商品を適切に理解できるよう、明確な情報提供が求めら",
+      "url": "/insights/2026-08-27-2026-saas-ec.html",
+      "build_cat": "Xiora Insights"
+    },
+    {
       "id": "insight-2026-08-27-3",
       "type": "insight",
       "kind": "insight",
