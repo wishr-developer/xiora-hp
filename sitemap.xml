@@ -169,6 +169,11 @@
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
+    <loc>https://xiora-official.com/insights/2026-08-28-otterai-fireflies-local-3.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/2026-08-28-3-cloud-saas-vs-local-pipeline-vs.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
