@@ -682,6 +682,26 @@
       "card_class": "prod-card--shukan-review",
       "include_in_footer": false,
       "include_in_sitemap": true
+    },
+    {
+      "id": "business-suite",
+      "name": "Xiora Business AI Suite (4 tier)",
+      "brand_short": "Business AI Suite",
+      "brand_html": "Business AI<br/><span>Suite (4 tier)</span>",
+      "status": "販売中 · ¥50万-¥200万/年 · 補助金適用で 自己負担 1/5",
+      "category_ja": "統合 SaaS Suite (SMB 向け AI 業務効率化、補助金対応 準備中)",
+      "sub_desc_ja": "4 tier (¥50万/¥100万/¥150万/¥200万/年) · デジタル化・AI導入補助金 適用時 自己負担 ¥10-40万/年 · 6 pillar 統合 + 導入 support。",
+      "sub_desc_meta": "Xiora Business AI Suite — 中小企業 / 士業事務所 向け AI業務効率化 統合 Suite の 4 tier (Starter ¥50万 / Standard ¥100万 / Pro ¥150万 / Enterprise ¥200万 年間)。 デジタル化・AI導入補助金 (旧 IT導入補助金) 適用時 自己負担 ¥10万-¥40万/年 (4/5 補助)。 6 pillar (契約書AI + 面接質問 + 週次経営 + 議事録 + CS Autopilot + 経理) 統合 + 導入 support。 IT導入支援事業者 登録 2026 Q4 目安。",
+      "who": "5-300 人 の 中小企業 / 士業事務所 (弁護士/税理士/社労士) / SMB 経営者、 AI 業務効率化 の 統合導入 を 検討 中",
+      "problem": "SaaS 個別導入 は 管理煩雑 + 総額嵩む、 SIer カスタム開発 は ¥3-30M で 手が出ない、 補助金 の 存在 は知っているが 申請サポート が 見つからない",
+      "ai_use": "6 pillar 全 SaaS の 統合 + 導入 support + (登録完了後) 補助金申請 support、 貴社 業種向け プロンプト customize (Pro/Enterprise)",
+      "url": "/business-suite/",
+      "sub_short_desc": "SMB AI 統合 Suite · ¥50-200万/年 · 補助金 適用で 実質 ¥10-40万 · 6 pillar 全機能。",
+      "sub_cat_short": "AI Suite",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"1.4\"><rect x=\"10\" y=\"15\" width=\"20\" height=\"30\" rx=\"3\"></rect><rect x=\"35\" y=\"10\" width=\"20\" height=\"40\" rx=\"3\"></rect><rect x=\"60\" y=\"5\" width=\"20\" height=\"50\" rx=\"3\"></rect><rect x=\"85\" y=\"0\" width=\"20\" height=\"60\" rx=\"3\"></rect></g></svg>",
+      "card_class": "prod-card--business-suite",
+      "include_in_footer": false,
+      "include_in_sitemap": true
     }
   ]
 }
