@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#fbfbfd"/>
+<title>Xiora 面接質問ジェネレーター Web — SMB 採用 STAR 準拠 質問セット (Free 月2回 / Pro ¥1,480) | Xiora</title>
+<meta name="description" content="役職 + レベル 入力 → STAR 準拠 10-12 質問 + red flag + follow-up 生成。 SMB 採用担当 / 個人事業主 の 初回採用 に。 HRMOS / ジョブカン採用管理 (¥8,500+/月) の 代替、Free 月 2 回 / Pro ¥1,480/月 (BYOK)。"/>
+<meta property="og:type" content="product"/>
+<meta property="og:title" content="Xiora 面接質問ジェネレーター Web (Free / Pro ¥1,480)"/>
+<meta property="og:url" content="https://xiora-official.com/mensetsu/"/>
+<link rel="canonical" href="https://xiora-official.com/mensetsu/"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<style>
+  :root { --bg: #ffffff; --fg: #111827; --muted: #6b7280; --border: #e5e7eb; --accent: #1e3a8a; --danger: #dc2626; --warn: #d97706; --safe: #16a34a; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Inter", sans-serif; background: var(--bg); color: var(--fg); line-height: 1.75; margin: 0; padding: 0; }
+  header { padding: 24px 20px; border-bottom: 1px solid var(--border); background: #fbfbfd; }
+  .header-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-weight: 700; font-size: 18px; text-decoration: none; color: var(--fg); }
+  .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+  h1 { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 12px; line-height: 1.35; }
+  h2 { font-size: 20px; font-weight: 700; margin: 32px 0 12px; }
+  h3 { font-size: 16px; font-weight: 600; margin: 20px 0 8px; }
+  p, li { font-size: 15px; color: var(--fg); margin: 0 0 12px; }
+  .lead { font-size: 16px; color: var(--muted); margin-bottom: 24px; line-height: 1.85; }
+  .badge { display: inline-block; font-size: 11px; letter-spacing: 0.08em; color: #065f46; border: 1px solid var(--safe); background: #f0fdf4; border-radius: 20px; padding: 4px 12px; margin-bottom: 20px; }
+  .disclaimer { padding: 16px; background: #fef3c7; border-left: 4px solid var(--warn); margin: 20px 0; font-size: 14px; }
+  .app-shell { border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; background: #f9fafb; }
+  .field-group { margin-bottom: 20px; }
+  .field-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--fg); }
+  .field-group input, .field-group textarea, .field-group select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; box-sizing: border-box; background: #fff; }
+  .field-group textarea { min-height: 120px; resize: vertical; }
+  .field-group .helper { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  button { padding: 14px 28px; background: var(--fg); color: #fff; border: 0; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  button.secondary { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+  .result { display: none; margin-top: 24px; padding: 24px; background: #fff; border: 1px solid var(--border); border-radius: 12px; }
+  .result.visible { display: block; }
+  .result pre { white-space: pre-wrap; word-wrap: break-word; font-size: 13px; background: #f3f4f6; padding: 16px; border-radius: 6px; font-family: -apple-system, monospace; line-height: 1.7; }
+  .rate-limit { font-size: 12px; color: var(--muted); text-align: center; padding: 8px; }
+  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .plans .plan { padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: #fff; }
+  .plans .plan.paid { border-color: var(--accent); border-width: 2px; }
+  .plans .plan h3 { margin: 0 0 8px; }
+  .plans .price { font-size: 24px; font-weight: 700; margin: 8px 0; }
+  .plans .cta-plan { display: block; padding: 12px; background: var(--fg); color: #fff; text-decoration: none; text-align: center; border-radius: 8px; margin-top: 16px; font-weight: 600; font-size: 14px; }
+  footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; text-align: center; padding-bottom: 32px; }
+  @media (max-width: 600px) { .plans { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+<div class="header-inner">
+<a href="/" class="brand">xiora</a>
+<a href="/products/" style="color:var(--muted);text-decoration:none;font-size:14px;">← プロダクト一覧</a>
+</div>
+</header>
+
+<div class="container">
+
+<span class="badge">● Free tool · 月 2 回まで無料</span>
+<h1>Xiora 面接質問ジェネレーター</h1>
+<p class="lead">役職 + レベル + 要件 を 入力 → STAR (Situation-Task-Action-Result) 準拠 の 10-12 質問 + red flag + follow-up 質問 が 60 秒 で 生成。 SMB 採用担当 / 個人事業主 の 初回採用 の 「感覚判断」を 客観指標 に置換。</p>
+
+<div class="disclaimer">
+  <strong>採用差別に該当する 質問 は 除外</strong><br/>
+  本ツール は 職業安定法 5 条 の 4 / 雇用対策法 に 沿って、 出身地 / 家族 / 宗教 / 支持政党 / 病歴 (業務上必要 除く) 等 の 差別的質問 は 生成 しません。 出力された 質問 は 貴社 の 採用ポリシー に照らして 最終判断 してください。
+</div>
+
+<h2>使い方</h2>
+<ol>
+  <li>Anthropic API key を 取得 (<a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>)</li>
+  <li>下記 に 貼付 (localStorage 保存)</li>
+  <li>役職 / レベル / 期待要件 を 入力</li>
+  <li>「質問セット生成」→ 60 分面接用 10-12 質問 が返る</li>
+</ol>
+
+<div class="app-shell">
+  <div class="field-group">
+    <label for="api-key">Anthropic API Key <span style="color:var(--muted);font-weight:400;">(BYOK · localStorage 保存)</span></label>
+    <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off"/>
+    <p class="helper">Xiora サーバー は key を 一切 受信 しません、 直接 Anthropic API に 送信。</p>
+  </div>
+
+  <div class="field-group">
+    <label for="role">役職</label>
+    <input type="text" id="role" placeholder="例: バックエンドエンジニア / 経理担当 / 営業アシスタント"/>
+  </div>
+
+  <div class="field-group">
+    <label for="level">レベル</label>
+    <select id="level">
+      <option value="junior">Junior (新卒 - 3 年目)</option>
+      <option value="mid" selected>Mid (3-7 年目)</option>
+      <option value="senior">Senior (7 年+ / リード)</option>
+      <option value="parttime">パート / アルバイト</option>
+    </select>
+  </div>
+
+  <div class="field-group">
+    <label for="industry">業界</label>
+    <input type="text" id="industry" placeholder="例: SaaS / 飲食 / 士業 / 教育 / 医療 / 物販"/>
+  </div>
+
+  <div class="field-group">
+    <label for="requirements">期待要件 (箇条書き 3-5 項目、 各 1 行)</label>
+    <textarea id="requirements" placeholder="例:&#10;- TypeScript + Next.js 実装 3 年以上&#10;- SaaS 業務経験&#10;- 週 3 出社 + リモート可&#10;- チーム 3-5 人 で 動ける協調性"></textarea>
+  </div>
+
+  <div class="field-group">
+    <label for="culture">貴社 の 現状 (人数、フェーズ、tone、 optional)</label>
+    <textarea id="culture" placeholder="例:&#10;5 人 スタートアップ、シード 直後、Slack コミュニケーション中心、水曜 出社日"></textarea>
+  </div>
+
+  <button id="gen-btn" onclick="runGen()">質問セット生成</button>
+  <button class="secondary" onclick="clearAll()">クリア</button>
+
+  <div id="rate-notice" class="rate-limit"></div>
+
+  <div id="result" class="result">
+    <h2>面接質問セット</h2>
+    <pre id="result-content"></pre>
+  </div>
+</div>
+
+<h2>プラン</h2>
+<div class="plans">
+  <div class="plan">
+    <h3>Free</h3>
+    <div class="price">¥0</div>
+    <ul style="font-size:13px;padding-left:20px;">
+      <li>月 2 回まで 生成</li>
+      <li>Anthropic API BYOK</li>
+      <li>STAR 準拠 10-12 質問</li>
+      <li>red flag + follow-up</li>
+    </ul>
+    <span class="cta-plan" style="background:#f3f4f6;color:var(--muted);">現在 の プラン</span>
+  </div>
+  <div class="plan paid">
+    <h3>Pro</h3>
+    <div class="price">¥1,480<span style="font-size:14px;color:var(--muted);">/月</span></div>
+    <ul style="font-size:13px;padding-left:20px;">
+      <li>生成 <strong>無制限</strong></li>
+      <li>Anthropic API BYOK</li>
+      <li>STAR 準拠 10-12 質問</li>
+      <li>履歴保存 (次実装)</li>
+      <li>PDF export (次実装)</li>
+    </ul>
+    <a class="cta-plan" href="https://buy.stripe.com/aFa3cv6Qs6Ij5w07TE1ck1a?utm_source=xiora_hp&utm_medium=mensetsu&utm_campaign=pro">Pro に 加入する →</a>
+  </div>
+</div>
+
+<h2>差別化 vs HRMOS / ジョブカン採用管理</h2>
+<div style="border:1px solid var(--border);border-radius:12px;padding:20px;background:#f9fafb;">
+<table style="width:100%;border-collapse:collapse;font-size:14px;">
+<thead><tr style="border-bottom:1px solid var(--border);"><th style="text-align:left;padding:10px;">項目</th><th style="text-align:left;padding:10px;">HRMOS / ジョブカン</th><th style="text-align:left;padding:10px;background:#f0fdf4;font-weight:600;">Xiora</th></tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">月額</td><td style="padding:10px;">¥8,500-¥60,000/月</td><td style="padding:10px;background:#f0fdf4;">¥0 (Free) / ¥1,480 (Pro)</td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">対象</td><td style="padding:10px;">中堅企業 人事部</td><td style="padding:10px;background:#f0fdf4;">SMB / 個人事業主 初回採用</td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">導入時間</td><td style="padding:10px;">1-2 週間 (設定 + 学習)</td><td style="padding:10px;background:#f0fdf4;">2 分 (API key 貼付)</td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">主機能</td><td style="padding:10px;">応募者管理 + 面接調整 + 選考 flow</td><td style="padding:10px;background:#f0fdf4;">質問セット 生成 に 特化</td></tr>
+<tr><td style="padding:10px;">1 回 想定コスト</td><td style="padding:10px;">¥8,500+ (月額固定)</td><td style="padding:10px;background:#f0fdf4;">¥5-15 (Anthropic 従量)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>よくある質問</h2>
+
+<h3>Q. HRMOS を すでに 使っています。 併用可能?</h3>
+<p>A. はい、 独立ツール なので併用可能。 HRMOS で 応募者管理 + 本ツール で 質問セット 生成 が 一般的な 使い方。</p>
+
+<h3>Q. 差別禁止 質問 は 本当に 出力 されない?</h3>
+<p>A. 職業安定法 5 条の 4 に 沿って、 プロンプト側 で 「出身地 / 家族 / 宗教 / 支持政党 / 病歴 (業務上必要 除く) 等 の 差別的質問 は 除外」を 明示。 生成後 の 目視 確認 は 推奨。</p>
+
+<h3>Q. Xiora サーバー に 要件 が送信 されますか?</h3>
+<p>A. いいえ。 browser から Anthropic API に 直接 送信。 Xiora サーバー は 一切 受信 しません。</p>
+
+<h3>Q. 面接官 の 経験不足 でも 使える?</h3>
+<p>A. はい、 STAR (Situation-Task-Action-Result) 型 は 初心者 面接官 向け の 世界標準。 質問 + follow-up + red flag が セット で 出るので、 面接中 の 「次 何 聞く?」に 対応可能。</p>
+
+<footer>
+<p>© Xiora 2026 — <a href="https://xiora-official.com">xiora-official.com</a> — Xiora 面接質問ジェネレーター Web</p>
+<p>本ページ の 内容 は 採用助言 でなく 一般的な 業務 support tool。 <a href="/legal/tokusho.html">特商法表示</a> / <a href="/legal/privacy.html">プライバシーポリシー</a></p>
+</footer>
+
+</div>
+
+<script>
+const RATE_KEY = 'xiora_mensetsu_count';
+const RATE_MONTH_KEY = 'xiora_mensetsu_month';
+const FREE_MONTHLY_LIMIT = 2;
+
+function getMonth() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+}
+
+function getUsage() {
+  const savedMonth = localStorage.getItem(RATE_MONTH_KEY);
+  const currentMonth = getMonth();
+  if (savedMonth !== currentMonth) {
+    localStorage.setItem(RATE_MONTH_KEY, currentMonth);
+    localStorage.setItem(RATE_KEY, '0');
+    return 0;
+  }
+  return parseInt(localStorage.getItem(RATE_KEY) || '0', 10);
+}
+
+function incrementUsage() {
+  const cur = getUsage();
+  localStorage.setItem(RATE_KEY, String(cur + 1));
+  return cur + 1;
+}
+
+function updateRateNotice() {
+  const used = getUsage();
+  const remaining = Math.max(0, FREE_MONTHLY_LIMIT - used);
+  const el = document.getElementById('rate-notice');
+  el.textContent = 'Free: 今月 残り ' + remaining + '/' + FREE_MONTHLY_LIMIT + ' 回 (無制限 は Pro ¥1,480/月)';
+}
+updateRateNotice();
+
+document.getElementById('api-key').value = localStorage.getItem('xiora_anth_key') || '';
+document.getElementById('api-key').addEventListener('change', function(e) {
+  localStorage.setItem('xiora_anth_key', e.target.value);
+});
+
+function clearAll() {
+  document.getElementById('role').value = '';
+  document.getElementById('industry').value = '';
+  document.getElementById('requirements').value = '';
+  document.getElementById('culture').value = '';
+  document.getElementById('result').classList.remove('visible');
+  document.getElementById('result-content').textContent = '';
+}
+
+async function runGen() {
+  const btn = document.getElementById('gen-btn');
+  const resultEl = document.getElementById('result');
+  const contentEl = document.getElementById('result-content');
+
+  const used = getUsage();
+  if (used >= FREE_MONTHLY_LIMIT) {
+    alert('Free tier の 月 ' + FREE_MONTHLY_LIMIT + ' 回 上限 に達しました。 Pro (¥1,480/月) で 無制限 に。');
+    return;
+  }
+
+  const apiKey = document.getElementById('api-key').value.trim();
+  if (!apiKey || !apiKey.startsWith('sk-ant-')) {
+    alert('Anthropic API key を貼付してください (sk-ant- で始まる 文字列)');
+    return;
+  }
+
+  const role = document.getElementById('role').value.trim();
+  const level = document.getElementById('level').value;
+  const industry = document.getElementById('industry').value.trim();
+  const requirements = document.getElementById('requirements').value.trim();
+  const culture = document.getElementById('culture').value.trim();
+
+  if (!role || !requirements) {
+    alert('役職 + 期待要件 は 必須 です');
+    return;
+  }
+
+  const prompt = '以下 は 採用する role と 期待要件 です。 これに対して 60 分面接用 の 質問セット (10-12 問) を生成してください。 STAR 法 (Situation-Task-Action-Result) の 行動事象面接 が base、 誘導質問 と ダメ質問 は 明示的 に 排除します。\n\n' +
+    '【職業安定法 5 条 の 4 遵守】\n出身地 / 家族 / 宗教 / 支持政党 / 病歴 (業務上必要 除く) 等 の 差別的質問 は 一切 生成 しないでください。\n\n' +
+    '【Step 1: 要件 → 質問カテゴリ 割当】\n与えられた 要件 (技術 / 経験 / 対人 / 判断力 等) を 4-6 カテゴリに 分類、 各カテゴリに 何問割り当てるか mapping。 合計 10-12 問。\n\n' +
+    '【Step 2: 質問生成】\n各質問 は 「過去 の 具体的経験 を 話させる」形式 (「もし〜だったら」の 仮定 は 禁止)。\n\n' +
+    '良い質問 例: 「直近 6 ヶ月で 最も 難しかった 意思決定 を 教えてください。 その時 の 情報 / 選択肢 / 結果 を STAR で 順に。」\n\n' +
+    '悪い質問 例: 「チームワーク は 好きですか」(Yes/No で 答えられる 誘導質問)、 「弊社に 興味を 持った 理由 は?」(準備した 回答 が返る、実力 見抜けない)。\n\n' +
+    '【Step 3: 深掘り follow-up】\n各 main 質問 に 「回答 が薄い 場合 の follow-up」を 2 つ 添えてください。\n\n' +
+    '【Step 4: 評価 rubric】\n各質問 に 「良い回答 の 3 signal」 (探すべき 要素、 3 つ)、 「red flag」 (即 減点) を 1 つ ずつ。\n\n' +
+    'red flag 例: 「私一人で やりました」(チームで 進めた 事実 の 独占)、「上司 の 判断 に 従いました」(自 責 で 判断していない)。\n\n' +
+    '【出力形式】\nMarkdown、 各 質問 は 見出し + STAR + follow-up + rubric。\n\n' +
+    '【role & 要件】\n- Role: ' + role + '\n' +
+    '- レベル: ' + level + '\n' +
+    '- 業界: ' + (industry || '未指定') + '\n' +
+    '- 期待要件: ' + requirements + '\n' +
+    '- 貴社 現状: ' + (culture || '未指定') + '\n';
+
+  btn.disabled = true;
+  btn.textContent = '生成中… (30-60 秒)';
+  resultEl.classList.remove('visible');
+  contentEl.textContent = '';
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-5-20250929',
+        max_tokens: 4000,
+        messages: [{ role: 'user', content: prompt }],
+      }),
+    });
+
+    if (!resp.ok) {
+      const err = await resp.text();
+      throw new Error('API error ' + resp.status + ': ' + err.slice(0, 300));
+    }
+
+    const data = await resp.json();
+    const output = data.content && data.content[0] && data.content[0].text ? data.content[0].text : '';
+    if (!output) throw new Error('Empty API response');
+
+    contentEl.textContent = output;
+    resultEl.classList.add('visible');
+    incrementUsage();
+    updateRateNotice();
+
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'mensetsu_gen_run', { role: role, level: level });
+    }
+  } catch (e) {
+    alert('エラー: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '質問セット生成';
+  }
+}
+</script>
+
+</body>
+</html>

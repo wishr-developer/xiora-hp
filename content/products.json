@@ -642,6 +642,26 @@
       "card_class": "prod-card--keiyaku-review",
       "include_in_footer": false,
       "include_in_sitemap": true
+    },
+    {
+      "id": "mensetsu-generator",
+      "name": "Xiora 面接質問ジェネレーター Web",
+      "brand_short": "面接質問 SaaS",
+      "brand_html": "面接質問<br/><span>ジェネレーター Web</span>",
+      "status": "販売中 · Free 月2回 / Pro ¥1,480/月",
+      "category_ja": "SaaS (採用面接 STAR 質問生成、BYOK)",
+      "sub_desc_ja": "役職 + レベル + 要件 → STAR 準拠 10-12 質問 + red flag + follow-up。 HRMOS の 5 分の 1、SMB / 個人事業主 特化。",
+      "sub_desc_meta": "Xiora 面接質問ジェネレーター Web — 役職 + レベル + 期待要件 を 入力 → STAR (Situation-Task-Action-Result) 準拠 10-12 質問 + red flag + follow-up 質問 が 60 秒 で 生成。 SMB 採用担当 / 個人事業主 の 初回採用 に。 HRMOS / ジョブカン採用管理 (¥8,500+/月) の 代替、Free 月 2 回 / Pro ¥1,480/月 (BYOK Anthropic API)。 職業安定法 5 条の 4 遵守 (差別的質問 除外)。",
+      "who": "SMB 採用担当 / 個人事業主 の 初回採用 / 面接経験 が 少ない 現場マネージャー",
+      "problem": "面接 の 「感覚判断」で ミスマッチ発生、 HRMOS/ジョブカン は 高機能すぎ & 高額、 STAR 準拠 質問 を 都度 考える 時間ない",
+      "ai_use": "browser から Anthropic Claude API に 直接 (BYOK)、 職業安定法 遵守 の プロンプト で 差別的質問 を 除外、 role + level + 要件 → 60 分 面接 用 10-12 質問セット",
+      "url": "/mensetsu/",
+      "sub_short_desc": "面接質問セット SaaS · Free 月 2 回 / Pro ¥1,480/月 · BYOK · HRMOS 5 分の 1。",
+      "sub_cat_short": "面接 SaaS",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"1.4\"><circle cx=\"40\" cy=\"30\" r=\"12\"></circle><circle cx=\"80\" cy=\"30\" r=\"12\"></circle><path d=\"M40 42 L40 50 M80 42 L80 50 M30 55 L50 55 M70 55 L90 55\"></path></g></svg>",
+      "card_class": "prod-card--mensetsu",
+      "include_in_footer": false,
+      "include_in_sitemap": true
     }
   ]
 }
