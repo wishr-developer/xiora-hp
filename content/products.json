@@ -882,6 +882,24 @@
       "sub_cat_short": "SaaS",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><circle cx=\"25\" cy=\"30\" r=\"8\"></circle><path d=\"M15 48 Q25 40 35 48\"></path><circle cx=\"95\" cy=\"30\" r=\"8\"></circle><path d=\"M85 48 Q95 40 105 48\"></path><path d=\"M33 30 L87 30\" stroke-dasharray=\"3,3\"></path><path d=\"M84 26 L88 30 L84 34\"></path></g></svg>",
       "card_class": "prod-card--dashiin"
+    },
+    {
+      "id": "kessan",
+      "name": "Kessan (by Xiora)",
+      "brand_short": "Kessan",
+      "brand_html": "Kessan <span style='color:#888;font-weight:normal'>(決算 · Enterprise · by Xiora)</span>",
+      "status": "LIVE · Free 月30仕訳 / Pro ¥9,800/月 / Enterprise 相談",
+      "category_ja": "中堅企業・自治体 向け 会計 · 決算 統合 プラットフォーム",
+      "sub_desc_ja": "複式簿記 + 決算 (B/S · P/L) + 電子帳簿保存法 対応 + インボイス制度 対応 + hash chain 監査ログ + RBAC の 統合 会計 SaaS。 Free 月30仕訳 / Pro ¥9,800/月。",
+      "sub_desc_meta": "Kessan (決算) — 中堅企業・自治体 向け 会計 · 決算 統合 プラットフォーム。 標準 60+ 勘定科目、 複式簿記 (借方/貸方 balance check)、 総勘定元帳、 試算表、 P/L、 B/S を 完全 実装。 電子帳簿保存法 対応 (削除不可 + 反対仕訳)、 インボイス制度 対応 (T登録番号 check digit 検証)、 hash chain 監査ログ (改ざん検知 API)、 RBAC 4 role (owner/accountant/viewer/auditor)、 マルチ 組織 対応。 Free 月 30 仕訳、 Pro ¥9,800/月、 Enterprise 相談。",
+      "who": "中堅企業 (30-300 人) の 経理 部 · 自治体 財務課 · 監査法人 · 会計事務所",
+      "problem": "freee/MoneyForward は 個人事業主 向け、 SAP/勘定奉行 は 大企業 向け。 中堅・自治体 の 統合 会計 · 決算 · 監査 対応 SaaS が 空白 地帯",
+      "ai_use": "AI で 仕訳 補完 · 決算 分析 · 監査ログ 異常 検知 (今後)",
+      "url": "https://kessanx.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=kessan_launch",
+      "sub_short_desc": "Kessan — Enterprise 会計 · 決算 SaaS。 Free 月30仕訳、 Pro ¥9,800/月、 Enterprise 相談。",
+      "sub_cat_short": "Enterprise",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><rect x=\"12\" y=\"8\" width=\"46\" height=\"44\" rx=\"3\"></rect><path d=\"M18 20 L52 20\"></path><path d=\"M18 28 L52 28\"></path><path d=\"M18 36 L52 36\"></path><path d=\"M18 44 L42 44\"></path><rect x=\"70\" y=\"14\" width=\"38\" height=\"32\" rx=\"3\"></rect><path d=\"M76 24 L102 24\" stroke-width=\"2\"></path><path d=\"M76 32 L90 32\"></path><path d=\"M76 38 L96 38\"></path><circle cx=\"98\" cy=\"32\" r=\"1.8\" fill=\"currentColor\"></circle><circle cx=\"104\" cy=\"32\" r=\"1.8\" fill=\"currentColor\"></circle></g></svg>",
+      "card_class": "prod-card--kessan"
     }
   ]
 }
