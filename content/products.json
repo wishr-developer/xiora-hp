@@ -756,6 +756,24 @@
       "sub_cat_short": "SaaS",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><circle cx=\"25\" cy=\"20\" r=\"6\"></circle><circle cx=\"25\" cy=\"42\" r=\"6\"></circle><circle cx=\"55\" cy=\"31\" r=\"6\"></circle><path d=\"M31 20 L49 28\"></path><path d=\"M31 42 L49 34\"></path><rect x=\"75\" y=\"12\" width=\"36\" height=\"38\" rx=\"2\"></rect><path d=\"M80 22 L106 22\"></path><path d=\"M80 30 L106 30\"></path><path d=\"M80 38 L100 38\"></path></g></svg>",
       "card_class": "prod-card--meeting"
+    },
+    {
+      "id": "xiora-email",
+      "name": "Xiora Business Email Cloud",
+      "brand_short": "Business Email",
+      "brand_html": "Xiora Business Email Cloud",
+      "status": "LIVE · Free 月10通 / Pro ¥980/月",
+      "category_ja": "日本語 ビジネス メール AI SaaS",
+      "sub_desc_ja": "目的・宛先・要点 を 入力 する だけ で AI が 適切 な 敬語 の 日本語 メール を 起草。 Free 月10通 / Pro ¥980/月。",
+      "sub_desc_meta": "Xiora Business Email Cloud — 日本語 ビジネス メール AI 起草 SaaS。 目的 (依頼 / 断り / お詫び / 感謝 / 催促 / 提案) と 要点 を 入力 する だけ で、 適切 な 敬語 で メール を 生成。 件名 代替 案 と 送信 前 チェック も 自動 生成。 Free 月 10 通、 Pro ¥980/月。",
+      "who": "毎日 5-20 通 ビジネス メール を 送る 個人事業主 / 営業 / フリーランス",
+      "problem": "敬語・件名・言い回し を 考える 時間 が 1 通 5-10 分 かかる",
+      "ai_use": "CF Workers AI (@cf/openai/gpt-oss-120b) で 件名 + 本文 + tone note + 代替 案 + チェックリスト を 構造化",
+      "url": "https://xiora-email.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=email_launch",
+      "sub_short_desc": "Xiora Business Email Cloud — メール AI 起草 SaaS。 Free 月 10 通、 Pro ¥980/月。",
+      "sub_cat_short": "SaaS",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><rect x=\"12\" y=\"12\" width=\"48\" height=\"36\" rx=\"3\"></rect><path d=\"M12 14 L36 34 L60 14\"></path><circle cx=\"90\" cy=\"30\" r=\"18\"></circle><path d=\"M82 26 L86 30 L98 22\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g></svg>",
+      "card_class": "prod-card--email"
     }
   ]
 }
