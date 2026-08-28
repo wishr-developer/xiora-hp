@@ -846,6 +846,24 @@
       "sub_cat_short": "SaaS",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M20 15 L20 55\"></path><path d=\"M35 15 L35 55\"></path><path d=\"M15 25 L55 25\"></path><path d=\"M15 45 L55 45\"></path><circle cx=\"85\" cy=\"25\" r=\"5\"></circle><circle cx=\"75\" cy=\"38\" r=\"3\"></circle><circle cx=\"95\" cy=\"38\" r=\"3\"></circle><circle cx=\"85\" cy=\"50\" r=\"4\"></circle><path d=\"M85 30 L75 35\"></path><path d=\"M85 30 L95 35\"></path><path d=\"M75 41 L85 46\"></path><path d=\"M95 41 L85 46\"></path></g></svg>",
       "card_class": "prod-card--hashu"
+    },
+    {
+      "id": "kokuchi",
+      "name": "Kokuchi (by Xiora)",
+      "brand_short": "Kokuchi",
+      "brand_html": "Kokuchi <span style='color:#888;font-weight:normal'>(告知 · by Xiora)</span>",
+      "status": "LIVE · Free 月5件 / Pro ¥1,480/月",
+      "category_ja": "新商品/新機能 告知 パッケージ AI SaaS",
+      "sub_desc_ja": "1 テーマ で Blog + Email + SNS 3種 + Press + 動画 hook を 一括 生成。 Free 月5件 / Pro ¥1,480/月。",
+      "sub_desc_meta": "Kokuchi (告知) — 新商品/新機能 告知 パッケージ を AI 一括 生成 する SaaS。 1 テーマ 入力 で Blog 記事 + Email 告知 + SNS 投稿 3 種 (X/LinkedIn/Instagram) + プレスリリース outline + 30 秒 動画 hook 3 案 + 配信 前 チェックリスト を 60 秒 で 生成。 1 launch 30-60 分 を 60 秒 に 短縮。 Free 月 5 件、 Pro ¥1,480/月。",
+      "who": "月 1-5 回 新商品 / 新機能 / キャンペーン を launch する 個人事業主 / スタートアップ / SMB",
+      "problem": "1 launch あたり Blog + Email + SNS + PR + 動画 hook の 執筆 に 30-60 分 かかる",
+      "ai_use": "CF Workers AI (llama-3.3-70b-fp8-fast) で 7 種 の 告知 資料 を 一括 生成",
+      "url": "https://kokuchi.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=kokuchi_launch",
+      "sub_short_desc": "Kokuchi — 告知 パッケージ AI SaaS。 Free 月 5 件、 Pro ¥1,480/月。",
+      "sub_cat_short": "SaaS",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><rect x=\"18\" y=\"10\" width=\"32\" height=\"40\" rx=\"3\"></rect><path d=\"M22 20 L46 20\"></path><path d=\"M22 28 L46 28\"></path><path d=\"M22 36 L42 36\"></path><path d=\"M70 20 L100 20\" stroke-linecap=\"round\"></path><path d=\"M70 30 L100 30\" stroke-linecap=\"round\"></path><path d=\"M70 40 L100 40\" stroke-linecap=\"round\"></path><path d=\"M50 30 L70 30\" stroke-dasharray=\"2,2\"></path><circle cx=\"105\" cy=\"20\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"105\" cy=\"30\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"105\" cy=\"40\" r=\"3\" fill=\"currentColor\"></circle></g></svg>",
+      "card_class": "prod-card--kokuchi"
     }
   ]
 }
