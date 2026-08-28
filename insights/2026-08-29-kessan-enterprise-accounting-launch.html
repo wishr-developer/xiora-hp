@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Kessan (決算) LIVE — 中堅企業・自治体 向け 会計 · 決算 統合 プラットフォーム 開放 (電子帳簿保存法・インボイス制度 対応) | Xiora Insights</title>
+<meta content="Xiora が 中堅企業・自治体 向け に 会計・決算 統合 プラットフォーム Kessan (決算) を LIVE 化。 複式簿記 + 決算 (B/S · P/L) + 電子帳簿保存法 対応 + インボイス制度 対応 + hash chain 監査ログ + RBAC の 11 モジュール。 Free 月30仕訳 / Pro ¥9,800/月 / Enterprise 相談。" name="description"/>
+<meta content="Kessan,決算,会計SaaS,中堅企業,自治体,電子帳簿保存法,インボイス制度,監査ログ,RBAC,複式簿記,Xiora" name="keywords"/>
+<link href="https://xiora-official.com/insights/2026-08-29-kessan-enterprise-accounting-launch.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/2026-08-29-kessan-enterprise-accounting-launch.html" property="og:url"/>
+<meta content="Kessan (決算) LIVE — 中堅企業・自治体 向け 会計 SaaS" property="og:title"/>
+<meta content="複式簿記 + 決算 + 電子帳簿保存法 + インボイス制度 + hash chain 監査ログ + RBAC の 統合 プラットフォーム。 Free 月30仕訳 / Pro ¥9,800/月 / Enterprise 相談。" property="og:description"/>
+<meta content="xiora" property="og:site_name"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<style>
+  .insight-container { max-width: 780px; margin: 0 auto; padding: 48px 24px; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; line-height: 1.85; color: #111827; }
+  .insight-container h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.015em; line-height: 1.35; }
+  .insight-container .meta { font-size: 13px; color: #6b7280; margin-bottom: 32px; }
+  .insight-container h2 { font-size: 22px; font-weight: 700; margin: 44px 0 14px; color: #111827; padding-bottom: 6px; border-bottom: 2px solid #111; }
+  .insight-container h3 { font-size: 17px; font-weight: 600; margin: 24px 0 10px; color: #1f2937; }
+  .insight-container p { font-size: 15px; margin-bottom: 12px; color: #374151; }
+  .insight-container ul { padding-left: 20px; margin: 12px 0; }
+  .insight-container li { font-size: 15px; padding: 4px 0; color: #374151; }
+  .cta-inline { margin: 40px 0; padding: 24px; background: #f9fafb; border-radius: 12px; border: 1px solid #e5e7eb; text-align: center; }
+  .cta-inline .btn { display:inline-block; padding:14px 32px; background:#111; color:#fff; text-decoration:none; border-radius:8px; margin-top:8px; font-weight:600; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+  th, td { border: 1px solid #e5e7eb; padding: 10px 12px; text-align: left; }
+  th { background: #f9fafb; font-weight: 600; }
+  .m-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 20px 0; }
+  .m-card { border: 1px solid #e5e7eb; padding: 18px; border-radius: 10px; background: #fff; }
+  .m-card h4 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+  .m-card .code { font-family: "SF Mono", monospace; font-size: 11px; color: #6b7280; margin-bottom: 8px; letter-spacing: 0.05em; }
+  .m-card p { margin: 0; font-size: 13px; color: #4b5563; }
+  .highlight-box { background: #fef3c7; border: 1px solid #fbbf24; padding: 16px; border-radius: 8px; margin: 20px 0; font-size: 14px; }
+  .code-block { background: #0f172a; color: #e2e8f0; padding: 16px; border-radius: 8px; font-family: "SF Mono", monospace; font-size: 12px; line-height: 1.7; overflow-x: auto; white-space: pre; }
+  footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280; }
+</style>
+</head>
+<body>
+<main class="insight-container">
+<h1>Kessan (決算) LIVE — 中堅企業・自治体 向け 会計 · 決算 統合 プラットフォーム 開放</h1>
+<p class="meta">公開: 2026-08-29 · Xiora Engineering · Real SaaS #11 · Enterprise Grade</p>
+
+<div class="highlight-box">
+Xiora が 中堅企業 · 自治体 向け に 会計 · 決算 統合 プラットフォーム 「<strong>Kessan (決算)</strong>」 を LIVE 化 しました。 複式簿記 + 決算 (B/S · P/L) + 電子帳簿保存法 対応 + インボイス制度 対応 + hash chain 監査ログ + RBAC の 11 モジュール 統合。 Free tier で 30 仕訳 まで 全 機能 が 試せます。
+</div>
+
+<h2>なぜ 作ったか</h2>
+<p>日本 の 会計 SaaS 市場 は 2 極 化 して います:</p>
+<ul>
+<li><strong>個人事業主 · 小規模 事業者 向け</strong>: freee / MoneyForward / 弥生 が 月額 ¥1,000-¥5,000 で 提供。 UI は 使いやすい が 中堅 規模 の 統合 会計 · 監査 対応 に は 機能 が 不足。</li>
+<li><strong>大企業 · 上場 企業 向け</strong>: SAP · 勘定奉行 · 弥生販売 プロフェッショナル 等 が 月額 ¥50,000+ で 提供。 導入 に 数ヶ月 · 数百万 円 の コスト。</li>
+</ul>
+<p>その 間 の 「<strong>中堅企業 (30-300 人) · 自治体 財務課 · 会計事務所</strong>」 に とって、 電子帳簿保存法 · インボイス制度 対応 の 統合 会計 SaaS が 空白 地帯 でした。 Kessan は この 空白 を 埋める 「国 レベル」 品質 の 会計 プラットフォーム です。</p>
+
+<h2>11 モジュール 統合</h2>
+
+<h3>記帳 (M-001 〜 M-003)</h3>
+<div class="m-grid">
+  <div class="m-card"><div class="code">M-001</div><h4>勘定科目 マスタ</h4><p>日本 中小企業 会計 指針 準拠 の 60+ 標準 科目 (資産/負債/純資産/収益/費用) を 事前 seed。 自社 追加 科目 も 対応。 subtype で B/S · P/L 自動 集計。</p></div>
+  <div class="m-card"><div class="code">M-002</div><h4>仕訳 起票 (複式簿記)</h4><p>借方/貸方 バランス チェック (mismatch 時 IMBALANCE エラー)、 記帳 後 削除 不可 (電子帳簿保存法 遵守)、 訂正 は 反対仕訳 で。</p></div>
+  <div class="m-card"><div class="code">M-003</div><h4>総勘定 元帳</h4><p>科目 別 期間 別 の 取引 一覧、 running balance 計算、 相手 科目 表示、 摘要 · 参照 番号 保持。</p></div>
+</div>
+
+<h3>決算 (M-004 〜 M-006)</h3>
+<div class="m-grid">
+  <div class="m-card"><div class="code">M-004</div><h4>試算表</h4><p>全 科目 の 借方/貸方 発生 と 残高 集計。 一定 時点 の 財政 概要 が 一目 で。 貸借 一致 検証。</p></div>
+  <div class="m-card"><div class="code">M-005</div><h4>損益計算書 (P/L)</h4><p>売上高 · 売上原価 · 販管費 · 営業外 · 特別 · 法人税 で 自動 集計。 段階 利益 (売総/営業/経常/税引前/当期) を 表示。</p></div>
+  <div class="m-card"><div class="code">M-006</div><h4>貸借対照表 (B/S)</h4><p>資産・負債・純資産 を section 別 に 集計。 当期純利益 は P/L と 自動 連動。 貸借 一致 (資産 = 負債 + 純資産) を 常時 検証。</p></div>
+</div>
+
+<h3>ガバナンス · コンプライアンス (M-007 〜 M-011)</h3>
+<div class="m-grid">
+  <div class="m-card"><div class="code">M-007</div><h4>監査ログ (hash chain)</h4><p>全 操作 に SHA-256 の 前後 リンク hash、 改ざん 検知 API (<code>/api/audit/verify</code>) で 全 log の integrity を 検証。 監査法人 対応。</p></div>
+  <div class="m-card"><div class="code">M-008</div><h4>RBAC (4 role)</h4><p>owner (全 操作) / accountant (起票 · 閲覧) / viewer (閲覧 のみ) / auditor (監査ログ 読取 のみ) の 4 role を 分離。</p></div>
+  <div class="m-card"><div class="code">M-009</div><h4>インボイス 登録番号 検証</h4><p>T + 13 桁 の check digit (mod 9) を 検証 する API + 適格 事業者 マスタ で 保存 · 自動 参照。</p></div>
+  <div class="m-card"><div class="code">M-010</div><h4>マルチ 組織 · 会計期間</h4><p>1 user が 複数 組織 (子会社 · 部門) を 切り替え。 会計 期首 月 は 組織 単位 で 設定。</p></div>
+  <div class="m-card"><div class="code">M-011</div><h4>CSV エクスポート</h4><p>電子帳簿保存法 対応 の 標準 CSV export。 既存 会計 ソフト (freee/MoneyForward/弥生) 移行 も 可能。 vendor lock-in なし。</p></div>
+</div>
+
+<h2>電子帳簿保存法 · インボイス制度 対応 の 実装</h2>
+
+<h3>1. 記帳 後 削除 不可 (電子帳簿保存法)</h3>
+<p>Kessan は 記帳 (POST /api/journals) 後 の 仕訳 レコード に <strong>DELETE エンドポイント を 提供 しません</strong>。 訂正 が 必要 な 場合 は 反対仕訳 (reversal) を 追加 起票 し、 元 データ は そのまま 保持。 これ で 「訂正 · 削除 の 履歴」 の 保存 要件 (電子帳簿保存法 第 8 条) を 満たします。</p>
+
+<h3>2. Hash chain 監査ログ (改ざん 検知)</h3>
+<p>各 操作 (org.create / member.invite / coa.create / journal.post / journal.reverse / vendor.create / org.upgrade / org.plan_change) は 監査ログ に 記録 されます。 各 entry は <strong>前 entry の hash</strong> を 含めて SHA-256 で hash 化。 途中 で 1 件 でも 改ざん されれば chain が 破綻 し 検知 可能。</p>
+
+<div class="code-block">GET /api/audit/verify
+{
+  "total_entries": 4,
+  "chain_head": "5aca51823a4c0eac...",
+  "integrity_ok": true,
+  "breaks": []
+}</div>
+
+<h3>3. インボイス 登録番号 check digit 検証</h3>
+<p>適格 請求書 発行 事業者 の 登録番号 (T + 13 桁 数字) は、 12 桁目 まで の 加重 sum を mod 9 で check digit と 照合 する 標準 検証 を 実装。 vendor マスタ 登録 時 に 自動 検証。</p>
+
+<div class="code-block">GET /api/masters/validate-invoice-registration?number=T1234567890123
+{
+  "valid": false,
+  "reason": "checksum 不一致 (expected 7, got 3)"
+}</div>
+
+<h2>技術 構成</h2>
+<ul>
+<li><strong>Backend</strong>: Cloudflare Pages Functions (serverless、 auto-scale)</li>
+<li><strong>Data</strong>: Cloudflare KV × 5 namespace (users / orgs / data / audit / sessions) — 自社 保管、 第三者 データ 送信 なし</li>
+<li><strong>Auth</strong>: magic-link (パスワード レス) + HttpOnly Secure Cookie + org-scoped role</li>
+<li><strong>Frontend</strong>: バニラ HTML/JS SPA (依存 ゼロ、 サポート 容易)</li>
+<li><strong>Billing</strong>: Stripe LIVE (org-level subscription、 owner のみ アップグレード 可能)</li>
+</ul>
+
+<h2>料金</h2>
+<table>
+<tr><th>プラン</th><th>月額</th><th>仕訳</th><th>user</th><th>対象</th></tr>
+<tr><td>Free</td><td>¥0</td><td>月 30 件</td><td>1 名</td><td>試用 · 個人事業主</td></tr>
+<tr><td>Pro</td><td>¥9,800</td><td>無制限</td><td>5 名</td><td>中堅企業 (主力)</td></tr>
+<tr><td>Enterprise</td><td>相談</td><td>無制限</td><td>無制限</td><td>自治体 · 監査法人 · SSO 対応</td></tr>
+</table>
+<p>Enterprise プラン に は SSO (SAML/OIDC)、 専用 SLA、 監査 対応 支援、 custom domain、 on-premise 相談 が 含まれます。 詳細 は お問い合わせ ください。</p>
+
+<h2>実 動作 例 (E2E テスト 済)</h2>
+<p>「テスト 株式会社」 という 組織 を 作成 し、 3 つ の 仕訳 を 起票:</p>
+<ol>
+<li>資本金 3,000,000 円 出資 (普通預金 借方 · 資本金 貸方)</li>
+<li>A社 SaaS 導入 支援 500,000 円 掛売 (売掛金 借方 · 売上高 貸方)</li>
+<li>クラウド インフラ 費用 80,000 円 支払 (通信費 · 消耗品費 借方 · 普通預金 貸方)</li>
+</ol>
+<p>結果:</p>
+<ul>
+<li><strong>試算表</strong>: 借方 ¥3,500,000 = 貸方 ¥3,500,000 ✅ 貸借 一致</li>
+<li><strong>P/L</strong>: 売上高 ¥500,000 − 販管費 ¥80,000 = 当期純利益 ¥420,000</li>
+<li><strong>B/S</strong>: 資産 ¥3,420,000 = 純資産 ¥3,420,000 (資本金 ¥3,000,000 + 当期純利益 ¥420,000) ✅ 貸借 一致</li>
+<li><strong>監査ログ</strong>: 4 entry (org.create + journal.post × 3), integrity_ok = true</li>
+</ul>
+
+<div class="cta-inline">
+<p><strong>まず は 30 秒 で 無料 で 試す</strong></p>
+<p>メールアドレス を 入力 する だけ で 開始。 会員 登録 · パスワード 設定 · クレジットカード 登録 は 不要。 Free tier で 30 仕訳 · 全 モジュール が 使えます。</p>
+<a class="btn" href="https://kessanx.pages.dev/?utm_source=xiora_hp&utm_medium=insight&utm_campaign=kessan_launch" target="_blank">▶ Kessan を 開く</a>
+</div>
+
+<h2>ロードマップ</h2>
+<ul>
+<li>Q3 2026: SSO (SAML/OIDC) 対応 (Enterprise プラン 中心)</li>
+<li>Q3 2026: 会計期間 締め · 期首 繰越 (前期 決算 → 次期 開始 balance)</li>
+<li>Q4 2026: 銀行 API 連携 (moneytree / freee 会計 API 経由 で 自動 仕訳 補完)</li>
+<li>Q4 2026: 予算 編成 · 予実 対比 (自治体 財務課 想定)</li>
+<li>2027 Q1: キャッシュフロー 計算書 (CF)、 減価償却 台帳、 固定資産 管理</li>
+<li>2027 Q2: 内部監査 対応 レポート テンプレ、 J-SOX 対応 (子会社 統合)</li>
+</ul>
+
+<h2>お問い合わせ</h2>
+<p>Enterprise (自治体 · 監査法人 · SSO / on-premise) の 導入 相談 は <a href="mailto:xiora00000@gmail.com?subject=Kessan%20Enterprise%20%E3%81%94%E7%9B%B8%E8%AB%87">xiora00000@gmail.com</a> まで。 監査 対応 · 会計 基準 準拠 · セキュリティ 監査 の 詳細 資料 を お送り します。</p>
+
+<footer>
+<p>© 2026 Xiora — <a href="https://xiora-official.com" style="color:#6b7280">xiora-official.com</a> · 個人事業主 沓澤怜士 (Reo Kutsuzawa)</p>
+<p style="font-size:11px;margin-top:8px">本 サービス は 会計 業務 の 記帳 · 計算 · 集計 · 保存 を 支援 する 情報 システム です。 税務 申告 · 監査 意見 は 提供 しません。 税理士 · 公認会計士 の 業務 独占 には 該当 しません。 電子帳簿保存法 · インボイス制度 の 具体 対応 は 必ず 顧問 税理士 と ご 相談 ください。</p>
+</footer>
+</main>
+</body>
+</html>
