@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#fbfbfd"/>
+<title>Xiora 週次経営レビュー Web — 5 分入力で 5 観点 KPI 分析 (Free 月4回 / Pro ¥1,480) | Xiora</title>
+<meta name="description" content="個人事業主 / SMB 経営者 の 週次 KPI (売上/経費/時間/案件) を 5 分入力 → LLM 5 観点分析 (数字妥当性/前週比較/リスク/機会/次週アクション) が 60 秒 生成。 freee 経営分析 の 代替、Free 月 4 回 / Pro ¥1,480/月 BYOK。"/>
+<meta property="og:type" content="product"/>
+<meta property="og:title" content="Xiora 週次経営レビュー Web (Free / Pro ¥1,480)"/>
+<meta property="og:url" content="https://xiora-official.com/shukan-review/"/>
+<link rel="canonical" href="https://xiora-official.com/shukan-review/"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<style>
+  :root { --bg: #ffffff; --fg: #111827; --muted: #6b7280; --border: #e5e7eb; --accent: #1e3a8a; --danger: #dc2626; --warn: #d97706; --safe: #16a34a; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Inter", sans-serif; background: var(--bg); color: var(--fg); line-height: 1.75; margin: 0; padding: 0; }
+  header { padding: 24px 20px; border-bottom: 1px solid var(--border); background: #fbfbfd; }
+  .header-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-weight: 700; font-size: 18px; text-decoration: none; color: var(--fg); }
+  .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+  h1 { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 12px; line-height: 1.35; }
+  h2 { font-size: 20px; font-weight: 700; margin: 32px 0 12px; }
+  h3 { font-size: 16px; font-weight: 600; margin: 20px 0 8px; }
+  p, li { font-size: 15px; color: var(--fg); margin: 0 0 12px; }
+  .lead { font-size: 16px; color: var(--muted); margin-bottom: 24px; line-height: 1.85; }
+  .badge { display: inline-block; font-size: 11px; letter-spacing: 0.08em; color: #065f46; border: 1px solid var(--safe); background: #f0fdf4; border-radius: 20px; padding: 4px 12px; margin-bottom: 20px; }
+  .app-shell { border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; background: #f9fafb; }
+  .field-group { margin-bottom: 16px; }
+  .field-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--fg); }
+  .field-group input, .field-group textarea, .field-group select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; box-sizing: border-box; background: #fff; }
+  .field-group textarea { min-height: 100px; resize: vertical; }
+  .field-group .helper { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
+  button { padding: 14px 28px; background: var(--fg); color: #fff; border: 0; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  button.secondary { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+  .result { display: none; margin-top: 24px; padding: 24px; background: #fff; border: 1px solid var(--border); border-radius: 12px; }
+  .result.visible { display: block; }
+  .result pre { white-space: pre-wrap; word-wrap: break-word; font-size: 13px; background: #f3f4f6; padding: 16px; border-radius: 6px; font-family: -apple-system, monospace; line-height: 1.7; }
+  .rate-limit { font-size: 12px; color: var(--muted); text-align: center; padding: 8px; }
+  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .plans .plan { padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: #fff; }
+  .plans .plan.paid { border-color: var(--accent); border-width: 2px; }
+  .plans .plan h3 { margin: 0 0 8px; }
+  .plans .price { font-size: 24px; font-weight: 700; margin: 8px 0; }
+  .plans .cta-plan { display: block; padding: 12px; background: var(--fg); color: #fff; text-decoration: none; text-align: center; border-radius: 8px; margin-top: 16px; font-weight: 600; font-size: 14px; }
+  footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; text-align: center; padding-bottom: 32px; }
+  @media (max-width: 600px) { .plans { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+<div class="header-inner">
+<a href="/" class="brand">xiora</a>
+<a href="/products/" style="color:var(--muted);text-decoration:none;font-size:14px;">← プロダクト一覧</a>
+</div>
+</header>
+
+<div class="container">
+
+<span class="badge">● Free tool · 月 4 回まで無料</span>
+<h1>Xiora 週次経営レビュー Web</h1>
+<p class="lead">個人事業主 / SMB 経営者 の 週次 KPI (売上 / 経費 / 時間配分 / 案件進捗) を <strong>5 分入力</strong> → LLM が 5 観点 (数字妥当性 / 前週比較 / リスク / 機会 / 次週アクション) で 60 秒 分析。 「なんとなく」の 週次判断 を 客観指標 に。</p>
+
+<h2>使い方</h2>
+<ol>
+  <li>Anthropic API key を 取得 (<a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>)</li>
+  <li>下記 に 貼付 (localStorage 保存)</li>
+  <li>今週 / 前週 の KPI を 数字入力</li>
+  <li>「週次レビュー実行」→ 5 観点分析 が返る</li>
+</ol>
+
+<div class="app-shell">
+  <div class="field-group">
+    <label for="api-key">Anthropic API Key <span style="color:var(--muted);font-weight:400;">(BYOK · localStorage 保存)</span></label>
+    <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off"/>
+    <p class="helper">Xiora サーバー は 一切 受信 しません、 直接 Anthropic API に 送信。</p>
+  </div>
+
+  <div class="grid2">
+    <div class="field-group">
+      <label for="revenue-week">今週 売上 (¥、税込)</label>
+      <input type="number" id="revenue-week" placeholder="例: 150000"/>
+    </div>
+    <div class="field-group">
+      <label for="revenue-prev">前週 売上 (¥)</label>
+      <input type="number" id="revenue-prev" placeholder="例: 120000"/>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="field-group">
+      <label for="expense-week">今週 経費 (¥)</label>
+      <input type="number" id="expense-week" placeholder="例: 30000"/>
+    </div>
+    <div class="field-group">
+      <label for="expense-prev">前週 経費 (¥)</label>
+      <input type="number" id="expense-prev" placeholder="例: 25000"/>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="field-group">
+      <label for="hours-work">今週 稼働時間 (h)</label>
+      <input type="number" id="hours-work" placeholder="例: 40" step="0.5"/>
+    </div>
+    <div class="field-group">
+      <label for="hours-admin">うち 事務 / 会計 時間 (h)</label>
+      <input type="number" id="hours-admin" placeholder="例: 5" step="0.5"/>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label for="projects">案件 進捗 (箇条書き、 3-5 件)</label>
+    <textarea id="projects" placeholder="例:&#10;- 案件A (顧客X) 見積提出 → 検収待ち&#10;- 案件B (顧客Y) 実装中 60% 完了&#10;- 案件C (新規) 打診 メール送付"></textarea>
+  </div>
+
+  <div class="field-group">
+    <label for="risks-opportunities">今週 気付いた リスク / 機会 (自由記述、 optional)</label>
+    <textarea id="risks-opportunities" placeholder="例:&#10;- 顧客X から 追加依頼 の 打診 (機会)&#10;- 主力顧客Y の 契約更新 が 未確定 (リスク)&#10;- 新規流入 が 減っている (リスク)"></textarea>
+  </div>
+
+  <div class="field-group">
+    <label for="industry">業種 (optional)</label>
+    <input type="text" id="industry" placeholder="例: IT コンサル / 士業 / 飲食 / 教育 / 物販"/>
+  </div>
+
+  <button id="review-btn" onclick="runReview()">週次レビュー実行</button>
+  <button class="secondary" onclick="clearAll()">クリア</button>
+
+  <div id="rate-notice" class="rate-limit"></div>
+
+  <div id="result" class="result">
+    <h2>週次レビュー 結果</h2>
+    <pre id="result-content"></pre>
+  </div>
+</div>
+
+<h2>プラン</h2>
+<div class="plans">
+  <div class="plan">
+    <h3>Free</h3>
+    <div class="price">¥0</div>
+    <ul style="font-size:13px;padding-left:20px;">
+      <li>月 4 回まで レビュー</li>
+      <li>Anthropic API BYOK</li>
+      <li>5 観点分析</li>
+    </ul>
+    <span class="cta-plan" style="background:#f3f4f6;color:var(--muted);">現在 の プラン</span>
+  </div>
+  <div class="plan paid">
+    <h3>Pro</h3>
+    <div class="price">¥1,480<span style="font-size:14px;color:var(--muted);">/月</span></div>
+    <ul style="font-size:13px;padding-left:20px;">
+      <li>レビュー <strong>無制限</strong></li>
+      <li>Anthropic API BYOK</li>
+      <li>履歴保存 + 前月比較 (順次)</li>
+      <li>CSV export (順次)</li>
+    </ul>
+    <a class="cta-plan" href="https://buy.stripe.com/cNi14neiUfePe2w8XI1ck1b?utm_source=xiora_hp&utm_medium=shukan_review&utm_campaign=pro">Pro に 加入する →</a>
+  </div>
+</div>
+
+<h2>差別化 vs freee 経営分析 / MoneyForward Cloud 経営</h2>
+<div style="border:1px solid var(--border);border-radius:12px;padding:20px;background:#f9fafb;">
+<table style="width:100%;border-collapse:collapse;font-size:14px;">
+<thead><tr style="border-bottom:1px solid var(--border);"><th style="text-align:left;padding:10px;">項目</th><th style="text-align:left;padding:10px;">freee / MF 経営分析</th><th style="text-align:left;padding:10px;background:#f0fdf4;font-weight:600;">Xiora 週次レビュー</th></tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">月額</td><td style="padding:10px;">¥3,000-¥8,800/月 (含 会計)</td><td style="padding:10px;background:#f0fdf4;">¥0 / ¥1,480</td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">前提</td><td style="padding:10px;">会計データ連携 (毎月 数百 仕訳)</td><td style="padding:10px;background:#f0fdf4;">週次 8 数字 の 手入力 のみ</td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">頻度</td><td style="padding:10px;">月次 or 四半期</td><td style="padding:10px;background:#f0fdf4;">週次 (経営判断 サイクル 短縮)</td></tr>
+<tr><td style="padding:10px;">分析形式</td><td style="padding:10px;">数字 dashboard</td><td style="padding:10px;background:#f0fdf4;">LLM 自然言語 5 観点 (数字 + 気付き + 次アクション)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>5 観点分析 とは</h2>
+<ul>
+  <li><strong>数字妥当性</strong>: 業種平均 と 大きく 乖離 する 数字 の 洗い出し</li>
+  <li><strong>前週比較</strong>: 差分 が ±30% を超える 項目 の 原因 候補提示</li>
+  <li><strong>リスク</strong>: 今週 の 数字 / 案件 状況 から 見える 3 リスク</li>
+  <li><strong>機会</strong>: 数字 上向き / 案件 の 上振れ余地</li>
+  <li><strong>次週アクション</strong>: 具体的な 3 アクション (曖昧禁止、 数字ベース)</li>
+</ul>
+
+<h2>よくある質問</h2>
+
+<h3>Q. freee を すでに 使っています。 併用?</h3>
+<p>A. はい。 freee で 会計仕訳、 本ツール で 週次 KPI 判断。 5 分入力 で 済む ので 併用負担 小さい。</p>
+
+<h3>Q. データ は Xiora サーバー に 送られる?</h3>
+<p>A. いいえ。 browser から Anthropic API に 直接。 数字 も 案件情報 も Xiora は 一切 受信 しません。</p>
+
+<h3>Q. 業種 特化 は?</h3>
+<p>A. 業種欄 に入力 すると LLM が 業界平均 に照らして 分析。 順次 業種別 プロファイル 拡充予定。</p>
+
+<footer>
+<p>© Xiora 2026 — <a href="https://xiora-official.com">xiora-official.com</a> — Xiora 週次経営レビュー Web</p>
+<p><a href="/legal/tokusho.html">特商法表示</a> / <a href="/legal/privacy.html">プライバシーポリシー</a></p>
+</footer>
+
+</div>
+
+<script>
+const RATE_KEY = 'xiora_shukan_review_count';
+const RATE_MONTH_KEY = 'xiora_shukan_review_month';
+const FREE_MONTHLY_LIMIT = 4;
+
+function getMonth() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+}
+
+function getUsage() {
+  const savedMonth = localStorage.getItem(RATE_MONTH_KEY);
+  const currentMonth = getMonth();
+  if (savedMonth !== currentMonth) {
+    localStorage.setItem(RATE_MONTH_KEY, currentMonth);
+    localStorage.setItem(RATE_KEY, '0');
+    return 0;
+  }
+  return parseInt(localStorage.getItem(RATE_KEY) || '0', 10);
+}
+
+function incrementUsage() {
+  const cur = getUsage();
+  localStorage.setItem(RATE_KEY, String(cur + 1));
+  return cur + 1;
+}
+
+function updateRateNotice() {
+  const used = getUsage();
+  const remaining = Math.max(0, FREE_MONTHLY_LIMIT - used);
+  const el = document.getElementById('rate-notice');
+  el.textContent = 'Free: 今月 残り ' + remaining + '/' + FREE_MONTHLY_LIMIT + ' 回 (無制限 は Pro ¥1,480/月)';
+}
+updateRateNotice();
+
+document.getElementById('api-key').value = localStorage.getItem('xiora_anth_key') || '';
+document.getElementById('api-key').addEventListener('change', function(e) {
+  localStorage.setItem('xiora_anth_key', e.target.value);
+});
+
+function clearAll() {
+  ['revenue-week', 'revenue-prev', 'expense-week', 'expense-prev', 'hours-work', 'hours-admin', 'projects', 'risks-opportunities', 'industry'].forEach(function(id) {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('result').classList.remove('visible');
+  document.getElementById('result-content').textContent = '';
+}
+
+async function runReview() {
+  const btn = document.getElementById('review-btn');
+  const resultEl = document.getElementById('result');
+  const contentEl = document.getElementById('result-content');
+
+  const used = getUsage();
+  if (used >= FREE_MONTHLY_LIMIT) {
+    alert('Free tier の 月 ' + FREE_MONTHLY_LIMIT + ' 回 上限 に達しました。 Pro (¥1,480/月) で 無制限 に。');
+    return;
+  }
+
+  const apiKey = document.getElementById('api-key').value.trim();
+  if (!apiKey || !apiKey.startsWith('sk-ant-')) {
+    alert('Anthropic API key を貼付してください');
+    return;
+  }
+
+  const rw = document.getElementById('revenue-week').value;
+  const rp = document.getElementById('revenue-prev').value;
+  const ew = document.getElementById('expense-week').value;
+  const ep = document.getElementById('expense-prev').value;
+  const hw = document.getElementById('hours-work').value;
+  const ha = document.getElementById('hours-admin').value;
+  const projects = document.getElementById('projects').value.trim();
+  const risks = document.getElementById('risks-opportunities').value.trim();
+  const industry = document.getElementById('industry').value.trim();
+
+  if (!rw || !ew) {
+    alert('今週 売上 + 今週 経費 は 必須');
+    return;
+  }
+
+  const prompt = '以下 は 個人事業主 / SMB 経営者 の 週次 KPI です。 これを 5 観点 で 分析、 具体的 な 気付き と 次週 アクション を 提示 してください。 曖昧 な 助言 (「頑張って」「気をつけて」等) は 禁止、 数字ベース で 具体的 に。\n\n' +
+    '【観点 1: 数字 の 妥当性】\n業種平均 と 大きく 乖離 する 数字 が あれば 該当 項目 を 指摘。 平均 情報 が ない 場合 は 「業界統計 未参照」と 明記、 憶測 で 断定 しないでください。\n\n' +
+    '【観点 2: 前週比較】\n差分 が ±30% を 超える 項目 の 原因候補 を 3 個 提示 (LLM 想定、 「確定原因」 でなく 「候補」と 明記)。\n\n' +
+    '【観点 3: リスク】\n今週 の 数字 / 案件状況 から 見える 3 リスク を 具体的 に。 「大きなリスク」等 の 曖昧 表現 でなく 「〜が起きると 売上 ¥XX 減 の 影響」の 数字 estimate。\n\n' +
+    '【観点 4: 機会】\n数字 上向き / 案件 の 上振れ余地 3 個。 具体的 な 額 / 時間 で estimate。\n\n' +
+    '【観点 5: 次週 アクション】\n数字ベース で 「次週 は XX を X% 削減 して XX に 回す」等 の 具体的 提案 3 個。 「削減」を 曖昧 に 提案 しない、 具体的 な 支出項目 / 案件 を 特定。\n\n' +
+    '【出力形式】\nMarkdown、 各 観点 は H3 見出し + 箇条書き。\n\n' +
+    '【今週 KPI】\n- 売上 (今週): ¥' + rw + '\n' +
+    '- 売上 (前週): ¥' + (rp || '未入力') + '\n' +
+    '- 経費 (今週): ¥' + ew + '\n' +
+    '- 経費 (前週): ¥' + (ep || '未入力') + '\n' +
+    '- 稼働時間 (今週): ' + (hw || '未入力') + ' h\n' +
+    '- うち 事務会計時間: ' + (ha || '未入力') + ' h\n' +
+    '- 案件進捗: ' + (projects || '未入力') + '\n' +
+    '- 気付いた リスク / 機会: ' + (risks || '未入力') + '\n' +
+    '- 業種: ' + (industry || '未指定') + '\n';
+
+  btn.disabled = true;
+  btn.textContent = 'レビュー中… (30-60 秒)';
+  resultEl.classList.remove('visible');
+  contentEl.textContent = '';
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-5-20250929',
+        max_tokens: 3000,
+        messages: [{ role: 'user', content: prompt }],
+      }),
+    });
+
+    if (!resp.ok) {
+      const err = await resp.text();
+      throw new Error('API error ' + resp.status + ': ' + err.slice(0, 300));
+    }
+
+    const data = await resp.json();
+    const output = data.content && data.content[0] && data.content[0].text ? data.content[0].text : '';
+    if (!output) throw new Error('Empty API response');
+
+    contentEl.textContent = output;
+    resultEl.classList.add('visible');
+    incrementUsage();
+    updateRateNotice();
+
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'shukan_review_run', { industry: industry });
+    }
+  } catch (e) {
+    alert('エラー: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '週次レビュー実行';
+  }
+}
+</script>
+
+</body>
+</html>

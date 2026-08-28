@@ -662,6 +662,26 @@
       "card_class": "prod-card--mensetsu",
       "include_in_footer": false,
       "include_in_sitemap": true
+    },
+    {
+      "id": "shukan-review",
+      "name": "Xiora 週次経営レビュー Web",
+      "brand_short": "週次経営レビュー SaaS",
+      "brand_html": "週次経営<br/><span>レビュー Web</span>",
+      "status": "販売中 · Free 月4回 / Pro ¥1,480/月",
+      "category_ja": "SaaS (個人事業主/SMB 週次 KPI 分析、BYOK)",
+      "sub_desc_ja": "週次 KPI 5 分入力 → LLM 5 観点分析 (数字/前週/リスク/機会/次アクション)。 freee 経営分析 の 代替、¥1,480/月 BYOK。",
+      "sub_desc_meta": "Xiora 週次経営レビュー Web — 個人事業主 / SMB 経営者 の 週次 KPI (売上/経費/時間/案件) を 5 分入力 → LLM 5 観点分析 (数字妥当性/前週比較/リスク/機会/次週アクション) が 60 秒 生成。 freee 経営分析 / MoneyForward Cloud 経営 (¥3,000-¥8,800/月) の 代替、Free 月 4 回 / Pro ¥1,480/月 (BYOK Anthropic)。",
+      "who": "個人事業主 / SMB 経営者 / 週次経営判断 を 客観指標 化 したい 層、 freee/MF 会計 併用 も OK",
+      "problem": "月次締め の 経営判断 は 遅い、 週次 で KPI review したいが 会計 SaaS の 月額 が 高い、 「なんとなく」判断 で 機会損失 発生",
+      "ai_use": "browser から Anthropic Claude API 直接 (BYOK)、 5 観点 (数字妥当性 / 前週比較 / リスク / 機会 / 次アクション) で 気付き + 次週 3 アクション を 数字ベース で 生成",
+      "url": "/shukan-review/",
+      "sub_short_desc": "週次 KPI 分析 SaaS · Free 月4回 / Pro ¥1,480/月 · BYOK · freee 経営分析 代替。",
+      "sub_cat_short": "週次レビュー",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"1.4\"><path d=\"M10 50 L30 30 L50 40 L70 20 L90 25 L110 10\"></path><circle cx=\"30\" cy=\"30\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"50\" cy=\"40\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"70\" cy=\"20\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"90\" cy=\"25\" r=\"3\" fill=\"currentColor\"></circle></g></svg>",
+      "card_class": "prod-card--shukan-review",
+      "include_in_footer": false,
+      "include_in_sitemap": true
     }
   ]
 }
