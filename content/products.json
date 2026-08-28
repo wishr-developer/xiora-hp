@@ -622,6 +622,26 @@
       "card_class": "prod-card--xai-public-apis",
       "include_in_footer": false,
       "include_in_sitemap": false
+    },
+    {
+      "id": "keiyaku-review",
+      "name": "Xiora 契約書 AI レビュー Web",
+      "brand_short": "契約書 AI レビュー",
+      "brand_html": "契約書<br/><span>AI レビュー Web</span>",
+      "status": "販売中 · Free 月3回 / Pro ¥1,980/月",
+      "category_ja": "SaaS (契約書 AI レビュー、BYOK)",
+      "sub_desc_ja": "NDA / 業務委託 の 3 tier 分類 + 気づき。 LegalOn 100 分の 1 の 価格、SMB / 個人事業主 特化。 Free 月 3 回 / Pro ¥1,980/月 (BYOK)。",
+      "sub_desc_meta": "Xiora 契約書 AI レビュー Web — NDA / 業務委託 / 秘密保持 の 契約書テキスト を 3 tier (即受入 / 交渉推奨 / 弁護士送り) に 分類 + business 観点 気づき。 LegalOn / リーガルフォース の 100 分の 1 の 価格で SMB / 個人事業主 特化。 Free 月 3 回、Pro ¥1,980/月 無制限 (BYOK Anthropic API)。 弁護士法 disclaimer 明示。",
+      "who": "個人事業主 / SMB 経営者 / 士業事務所 (弁護士以外)、 契約書 月 3-10 通 レビュー ある 層",
+      "problem": "LegalOn / リーガルフォース は ¥100k/月 級 で SMB は無理、 個別 弁護士相談 は 案件毎 ¥3-10 万、 契約書 の 「気づき」を 事前 に 洗い出したい",
+      "ai_use": "browser から Anthropic Claude API に 直接 送信 (BYOK)、 Xiora サーバー は API key / 契約書 一切 受信せず、 3 tier + 気づき + 全体危険度 を Markdown で 返す",
+      "url": "/keiyaku-review/",
+      "sub_short_desc": "契約書 3 tier 分類 SaaS · Free 月 3 回 / Pro ¥1,980/月 · BYOK · LegalOn 100 分の 1。",
+      "sub_cat_short": "契約書 SaaS",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-width=\"1.4\"><path d=\"M25 10 L85 10 L95 20 L95 50 L25 50 Z M25 10 L25 20 L35 20\"></path><path d=\"M35 30 L85 30 M35 38 L85 38 M35 46 L60 46\"></path></g></svg>",
+      "card_class": "prod-card--keiyaku-review",
+      "include_in_footer": false,
+      "include_in_sitemap": true
     }
   ]
 }
