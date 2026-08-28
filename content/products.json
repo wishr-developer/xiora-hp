@@ -738,6 +738,24 @@
       "sub_cat_short": "SaaS",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><rect x=\"14\" y=\"8\" width=\"36\" height=\"46\" rx=\"2\"></rect><path d=\"M20 18 L44 18\"></path><path d=\"M20 26 L44 26\"></path><path d=\"M20 34 L44 34\"></path><path d=\"M20 42 L36 42\"></path><circle cx=\"88\" cy=\"30\" r=\"18\"></circle><path d=\"M88 20 L88 32\" stroke-linecap=\"round\"></path><circle cx=\"88\" cy=\"38\" r=\"1.8\" fill=\"currentColor\"></circle></g></svg>",
       "card_class": "prod-card--contract"
+    },
+    {
+      "id": "xiora-meeting",
+      "name": "Xiora Meeting Notes Cloud",
+      "brand_short": "Meeting Notes",
+      "brand_html": "Xiora Meeting Notes Cloud",
+      "status": "LIVE · Free 月5件 / Pro ¥1,480/月",
+      "category_ja": "会議 議事録 AI SaaS",
+      "sub_desc_ja": "Zoom/Meet/Teams の 書き起こし を貼るだけ で AI 議事録化 (要約+決定+アクション+期日+リスク)。 Free 月5件 / Pro ¥1,480/月。",
+      "sub_desc_meta": "Xiora Meeting Notes Cloud — Zoom / Meet / Teams / Otter で 出力 した 書き起こし を 貼ると、 Cloudflare Workers AI が 議事要約・決定事項・アクション項目 (担当者 + 期日 + 優先度)・未解決 論点・リスク を 抽出。 音声 送信 なし、 守秘義務 の 高い 会議 でも 使いやすい。 Free 月 5 件、 Pro ¥1,480/月。",
+      "who": "週 1-5 回 会議 する 個人事業主 / SMB / フリーランス / コンサル",
+      "problem": "会議 の 記録 と アクション項目 の 整理 に 30 分 かかる",
+      "ai_use": "CF Workers AI (@cf/openai/gpt-oss-120b) で 要約 + 決定 + アクション + リスク を 構造化 抽出",
+      "url": "https://xiora-meeting.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=meeting_launch",
+      "sub_short_desc": "Xiora Meeting Notes Cloud — 議事録 AI SaaS。 Free 月 5 件、 Pro ¥1,480/月。",
+      "sub_cat_short": "SaaS",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><circle cx=\"25\" cy=\"20\" r=\"6\"></circle><circle cx=\"25\" cy=\"42\" r=\"6\"></circle><circle cx=\"55\" cy=\"31\" r=\"6\"></circle><path d=\"M31 20 L49 28\"></path><path d=\"M31 42 L49 34\"></path><rect x=\"75\" y=\"12\" width=\"36\" height=\"38\" rx=\"2\"></rect><path d=\"M80 22 L106 22\"></path><path d=\"M80 30 L106 30\"></path><path d=\"M80 38 L100 38\"></path></g></svg>",
+      "card_class": "prod-card--meeting"
     }
   ]
 }

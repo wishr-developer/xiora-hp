@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Xiora Meeting Notes Cloud 販売開始 — Zoom/Meet の書き起こしを貼るだけで議事録化 (Free 月5件/Pro ¥1,480) | Xiora Insights</title>
+<meta content="Xiora Meeting Notes Cloud は Zoom / Meet / Teams / Otter の 書き起こし を 貼る と、 Cloudflare Workers AI が 議事要約・決定事項・アクション項目 (担当者 + 期日 + 優先度)・未解決 論点・リスク を 構造化 抽出する SaaS。 音声 データ を 送らない ため 守秘義務 の 高い 会議 でも 使いやすい。" name="description"/>
+<meta content="Xiora,Meeting Notes,議事録,SaaS,Otter,Fireflies,Zoom,Meet,Teams,AI" name="keywords"/>
+<link href="https://xiora-official.com/insights/2026-08-28-xiora-meeting-notes-cloud-launch.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/2026-08-28-xiora-meeting-notes-cloud-launch.html" property="og:url"/>
+<meta content="Xiora Meeting Notes Cloud 販売開始 — 書き起こしを貼るだけで議事録化" property="og:title"/>
+<meta content="議事録 AI SaaS。 Free 月 5 件、 Pro ¥1,480/月。 CF Workers AI で 要約 + 決定 + アクション + リスク 抽出。" property="og:description"/>
+<meta content="xiora" property="og:site_name"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<style>
+  .insight-container { max-width: 720px; margin: 0 auto; padding: 48px 24px; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; line-height: 1.85; color: #111827; }
+  .insight-container h1 { font-size: 30px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.01em; line-height: 1.4; }
+  .insight-container .meta { font-size: 13px; color: #6b7280; margin-bottom: 32px; }
+  .insight-container h2 { font-size: 20px; font-weight: 700; margin: 40px 0 12px; color: #111827; }
+  .insight-container h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; }
+  .insight-container p { font-size: 15px; margin-bottom: 12px; color: #374151; }
+  .insight-container ul { padding-left: 20px; margin: 12px 0; }
+  .insight-container li { font-size: 15px; padding: 4px 0; color: #374151; }
+  .cta-inline { margin: 40px 0; padding: 24px; background: #f9fafb; border-radius: 12px; border: 1px solid #e5e7eb; }
+  .cta-inline .btn { display:inline-block; padding:12px 24px; background:#111; color:#fff; text-decoration:none; border-radius:8px; margin-top:8px; }
+  .code { background: #f5f5f5; padding: 12px; border-radius: 6px; font-family: "SF Mono", monospace; font-size: 13px; white-space: pre-wrap; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 14px; }
+  th, td { border: 1px solid #e5e7eb; padding: 8px 12px; text-align: left; }
+  th { background: #f9fafb; font-weight: 600; }
+  footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #6b7280; }
+</style>
+</head>
+<body>
+<main class="insight-container">
+<h1>Xiora Meeting Notes Cloud 販売開始 — Zoom / Meet の 書き起こし を 貼る だけ で 議事録 化 (Free 月 5 件 / Pro ¥1,480)</h1>
+<p class="meta">公開: 2026-08-28 · Xiora Engineering</p>
+
+<h2>この記事 で 分かる 3 つ</h2>
+<ul>
+<li>Zoom / Meet / Teams の 書き起こし を 議事録 に 変換 する 最短 手順</li>
+<li>Otter.ai / Fireflies との 使い分け 判断 (音声 送信 したく ない 会議 の 場合)</li>
+<li>Xiora Meeting Notes Cloud の 実 出力 例 (担当者 + 期日 + 優先度 の 抽出 精度)</li>
+</ul>
+
+<h2>なぜ 作ったか</h2>
+<p>会議 の 議事録 作成 は、 会議 1 時間 に 対して <strong>30-45 分</strong> の 追加 作業 が 発生 します。 Otter.ai や Fireflies が この 領域 を 大きく 効率化 した 一方 で、 以下 の 課題 が 残って います。</p>
+<ul>
+<li><strong>音声 データ を 第三者 サーバー に 送る</strong> — 守秘義務 の 高い 会議 (法律 相談、 顧客 提案、 採用 面接) で 使い にくい</li>
+<li><strong>アクション項目 の 抽出 が 弱い</strong> — 「誰が いつ まで に 何を するか」 を 精度 良く 出せない</li>
+<li><strong>月額 が 高い</strong> — Otter Pro は $16.99/月、 Fireflies Pro は $18/月</li>
+</ul>
+<p>Xiora Meeting Notes Cloud は、 「既に 手元 に ある 書き起こし」 を 対象 に 議事録 化 を する 設計。 音声 は 送らず、 テキスト だけ を Cloudflare エッジ で 処理 します。</p>
+
+<h2>できる こと</h2>
+<ul>
+<li><strong>議事要約</strong> — 3-6 文 で 会議 の 大枠 を 記録</li>
+<li><strong>参加者 抽出</strong> — 話者 リスト を 書き起こし から 推定</li>
+<li><strong>決定事項</strong> — 「〜と決定」 部分 を 背景 付き で 列挙</li>
+<li><strong>アクション項目</strong> — <strong>担当者 + 期日 + 優先度</strong> を 推定</li>
+<li><strong>未解決 論点</strong> — 次回 持ち越し の 項目 を 明示</li>
+<li><strong>リスク フラグ</strong> — 法務 / 契約 / 予算 の 注意点 を 検出</li>
+<li><strong>Markdown コピー</strong> — Notion / Slack に そのまま 貼り付け</li>
+</ul>
+
+<h2>実 出力 例</h2>
+<p>以下 の ような 書き起こし を 入力 すると:</p>
+<div class="code">Speaker A: 予算は 100万円、 納期は 10月末 で 想定 しています。
+Speaker A: 田中さん、 要件定義書 の 準備 を 8月末 まで に お願い できますか？
+田中: はい、 8月30日 まで に 初版 を 提出 します。
+Speaker B: 契約書 の 締結 が 遅れる リスク が あります。</div>
+<p>AI が 以下 の アクション項目 を 抽出 します:</p>
+<div class="code">- [ ] 要件定義書 の 初版 を 作成・提出 する
+      (owner: 田中, deadline: 2026-08-30, priority: high)
+- [ ] 法務 と 事前 相談 し、 契約書 締結 リスク を 軽減 する
+      (owner: Speaker B, priority: high)</div>
+<p>担当者 (「田中さん」→「田中」)、 期日 (「8月30日」→「2026-08-30」)、 優先度 まで 自動 で 埋まります。</p>
+
+<h2>料金</h2>
+<table>
+<tr><th>プラン</th><th>月額</th><th>議事録</th><th>入力</th></tr>
+<tr><td>Free</td><td>¥0</td><td>月 5 件</td><td>30,000 文字/件</td></tr>
+<tr><td>Pro</td><td>¥1,480</td><td>無制限</td><td>30,000 文字/件</td></tr>
+</table>
+<p>Otter Pro ($16.99) / Fireflies Pro ($18) の <strong>約 半額</strong>、 かつ 音声 送信 なし。</p>
+
+<h2>技術 構成</h2>
+<ul>
+<li>AI: <strong>Cloudflare Workers AI (@cf/openai/gpt-oss-120b)</strong> — 日本語 精度 高、 音声 送信 なし</li>
+<li>Backend: Cloudflare Pages Functions + KV (3 namespace)</li>
+<li>Frontend: バニラ HTML/JS、 依存 ゼロ</li>
+<li>Auth: magic-link (パスワード 不要)</li>
+</ul>
+
+<div class="cta-inline">
+<p><strong>今すぐ 使う</strong></p>
+<p>メール で ログイン、 会員 登録 不要。 手元 に ある Zoom / Meet の 書き起こし を そのまま お試し ください。</p>
+<p><a class="btn" href="https://xiora-meeting.pages.dev/?utm_source=xiora_hp&utm_medium=insight&utm_campaign=meeting_launch" target="_blank">▶ Xiora Meeting Notes Cloud を 開く</a></p>
+</div>
+
+<h2>ロードマップ</h2>
+<ul>
+<li>Q3 2026: 音声 ファイル 直接 アップロード (Whisper 経由 で 書き起こし + 議事録 化)</li>
+<li>Q4 2026: Slack 通知 / Notion 直接 エクスポート</li>
+<li>2027 Q1: チーム 共有 (同一 組織 で 議事録 共有)</li>
+<li>2027 Q2: 過去 議事録 横断 検索 (RAG)</li>
+</ul>
+
+<footer>
+<p>© Xiora — <a href="https://xiora-official.com" style="color:#6b7280">xiora-official.com</a></p>
+</footer>
+</main>
+</body>
+</html>
