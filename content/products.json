@@ -792,6 +792,24 @@
       "sub_cat_short": "SaaS",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><circle cx=\"30\" cy=\"22\" r=\"8\"></circle><path d=\"M14 48 Q30 34 46 48\"></path><rect x=\"60\" y=\"12\" width=\"46\" height=\"36\" rx=\"2\"></rect><path d=\"M66 22 L100 22\"></path><path d=\"M66 30 L100 30\"></path><path d=\"M66 38 L88 38\"></path></g></svg>",
       "card_class": "prod-card--recruit"
+    },
+    {
+      "id": "kakusan",
+      "name": "Kakusan (by Xiora)",
+      "brand_short": "Kakusan",
+      "brand_html": "Kakusan <span style='color:#888;font-weight:normal'>(拡散 · by Xiora)</span>",
+      "status": "LIVE · Free 月12件 / Pro ¥1,480/月",
+      "category_ja": "SNS 8 platform 発信 増幅 AI SaaS",
+      "sub_desc_ja": "1 投稿 で X/Threads/Bluesky/Instagram/LinkedIn/note/Reddit/Mastodon の 8 platform 最適化。 Free 月12件 / Pro ¥1,480/月。",
+      "sub_desc_meta": "Kakusan (拡散) — 1 コア メッセージ を、 8 SNS platform (X/Threads/Bluesky/Instagram/LinkedIn/note/Reddit/Mastodon) 用 に AI が tone・文字数・hashtag を 最適化 して 生成。 事業者 発信 に 特化 の 合法 発信 増幅 tool。 Buffer / Hootsuite の 日本 版、 個人事業主・SMB 向け。 Free 月 12 件、 Pro ¥1,480/月。",
+      "who": "自社 商品・サービス を SNS で 発信 する 個人事業主 / SMB / インフルエンサー",
+      "problem": "同じ 内容 を 8 platform に 手動 で リライト するのに 30-60 分 かかる",
+      "ai_use": "CF Workers AI (@cf/meta/llama-3.3-70b-instruct-fp8-fast) で platform 別 に tone/文字数/hashtag 最適化 + フック AB test 案 生成",
+      "url": "https://kakusan.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=kakusan_launch",
+      "sub_short_desc": "Kakusan — 8 platform 一括 SNS 生成 AI。 Free 月 12 件、 Pro ¥1,480/月。",
+      "sub_cat_short": "SaaS",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><circle cx=\"60\" cy=\"30\" r=\"10\"></circle><path d=\"M60 20 L60 8\" stroke-linecap=\"round\"></path><path d=\"M60 40 L60 52\" stroke-linecap=\"round\"></path><path d=\"M50 30 L15 30\" stroke-linecap=\"round\"></path><path d=\"M70 30 L105 30\" stroke-linecap=\"round\"></path><path d=\"M53 23 L28 8\" stroke-linecap=\"round\"></path><path d=\"M67 23 L92 8\" stroke-linecap=\"round\"></path><path d=\"M53 37 L28 52\" stroke-linecap=\"round\"></path><path d=\"M67 37 L92 52\" stroke-linecap=\"round\"></path><circle cx=\"15\" cy=\"30\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"105\" cy=\"30\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"60\" cy=\"8\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"60\" cy=\"52\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"28\" cy=\"8\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"92\" cy=\"8\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"28\" cy=\"52\" r=\"3\" fill=\"currentColor\"></circle><circle cx=\"92\" cy=\"52\" r=\"3\" fill=\"currentColor\"></circle></g></svg>",
+      "card_class": "prod-card--kakusan"
     }
   ]
 }
