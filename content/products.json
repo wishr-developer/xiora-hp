@@ -702,6 +702,24 @@
       "card_class": "prod-card--business-suite",
       "include_in_footer": false,
       "include_in_sitemap": true
+    },
+    {
+      "id": "xiora-invoice",
+      "name": "Xiora Invoice Cloud",
+      "brand_short": "Invoice Cloud",
+      "brand_html": "Xiora Invoice Cloud",
+      "status": "LIVE · Free 月3通 / Pro ¥980/月",
+      "category_ja": "請求書 SaaS / インボイス対応",
+      "sub_desc_ja": "メール1つで請求書を発行・PDF・送付。無料で月3通、Pro無制限 ¥980/月。",
+      "sub_desc_meta": "Xiora Invoice Cloud — 個人事業主・スモールビジネス向け 請求書 SaaS。 メールでログイン (パスワード不要)、取引先/明細/消費税/振込先を保存、PDF出力・メール送付までワンクリック。 インボイス登録番号対応。 Free 月3通、Pro 無制限 ¥980/月。",
+      "who": "請求書を月 3-30 通 発行する 個人事業主 / SMB / フリーランス",
+      "problem": "Word/Excel で請求書 作成 → PDF化 → 郵送/メール送付 が 面倒",
+      "ai_use": "取引先 履歴 学習、消費税 自動計算、送付先 メール 自動 補完 (今後)",
+      "url": "https://xiora-invoice.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=invoice_launch",
+      "sub_short_desc": "Xiora Invoice Cloud — 請求書 SaaS。 Free 月3通、Pro 無制限 ¥980/月。",
+      "sub_cat_short": "SaaS",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><rect x=\"16\" y=\"10\" width=\"44\" height=\"44\" rx=\"3\"></rect><path d=\"M22 20 L54 20\"></path><path d=\"M22 28 L54 28\"></path><path d=\"M22 36 L46 36\"></path><path d=\"M22 44 L42 44\"></path><circle cx=\"90\" cy=\"32\" r=\"18\"></circle><path d=\"M83 32 L88 37 L98 27\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g></svg>",
+      "card_class": "prod-card--invoice"
     }
   ]
 }
