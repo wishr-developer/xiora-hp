@@ -774,6 +774,24 @@
       "sub_cat_short": "SaaS",
       "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><rect x=\"12\" y=\"12\" width=\"48\" height=\"36\" rx=\"3\"></rect><path d=\"M12 14 L36 34 L60 14\"></path><circle cx=\"90\" cy=\"30\" r=\"18\"></circle><path d=\"M82 26 L86 30 L98 22\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g></svg>",
       "card_class": "prod-card--email"
+    },
+    {
+      "id": "xiora-recruit",
+      "name": "Xiora Recruiting Cloud",
+      "brand_short": "Recruiting",
+      "brand_html": "Xiora Recruiting Cloud",
+      "status": "LIVE · Free 月5件 / Pro ¥1,480/月",
+      "category_ja": "採用 スクリーニング AI SaaS",
+      "sub_desc_ja": "JD + 履歴書 を貼るだけ で fit score (0-100) + STAR 面接質問 5-8 個 + 深掘り 論点 を AI 生成。 Free 月5件 / Pro ¥1,480/月。",
+      "sub_desc_meta": "Xiora Recruiting Cloud — 採用 スクリーニング AI SaaS。 JD (求人) と 履歴書 を 貼る と、 fit score (スキル/経験/実績 の 3 軸)、 STAR 準拠 面接 質問 5-8 個 (期待 例 付き)、 強み/気になる点/深掘り 論点 を 提示。 個人属性 は AI 判断 に 使わない 差別 回避 設計。 Free 月 5 件、 Pro ¥1,480/月。",
+      "who": "月 1-10 名 の 業務委託 / 正社員 候補者 を 1 次 面接 する 個人事業主 / SMB / スタートアップ",
+      "problem": "履歴書 を 読んで 面接 質問 を 考える の に 30-60 分 かかる",
+      "ai_use": "CF Workers AI (@cf/openai/gpt-oss-120b) で fit score + STAR 質問 + 期待 例 を 差別 回避 制約 下 で 生成",
+      "url": "https://xiora-recruit.pages.dev/?utm_source=xiora_hp&utm_medium=products_card&utm_campaign=recruit_launch",
+      "sub_short_desc": "Xiora Recruiting Cloud — 採用 AI SaaS。 Free 月 5 件、 Pro ¥1,480/月。",
+      "sub_cat_short": "SaaS",
+      "svg_motif": "<svg viewbox=\"0 0 120 60\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"><circle cx=\"30\" cy=\"22\" r=\"8\"></circle><path d=\"M14 48 Q30 34 46 48\"></path><rect x=\"60\" y=\"12\" width=\"46\" height=\"36\" rx=\"2\"></rect><path d=\"M66 22 L100 22\"></path><path d=\"M66 30 L100 30\"></path><path d=\"M66 38 L88 38\"></path></g></svg>",
+      "card_class": "prod-card--recruit"
     }
   ]
 }
