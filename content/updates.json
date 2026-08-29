@@ -2,6 +2,16 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-2026-08-30-smb-saas-13-ai",
+      "type": "insight",
+      "kind": "insight",
+      "date": "2026-08-30",
+      "title": "SMB の 営業自動化 SaaS 選び方 — 13 AI エージェント の 分業設計",
+      "description": "SMB（小規模事業者）の営業活動は、限られたリソースの中で効率性とパーソナライズを両立させることが求められます。営業自動化 SaaS（Software as a Service）は、この課題に取り組むための有力な手段です。特に、AI（人工知能）技術の進化により、従来のツールでは実現できなかった高度な分析や予測が可能にな",
+      "url": "/insights/2026-08-30-smb-saas-13-ai.html",
+      "build_cat": "Xiora Insights"
+    },
+    {
       "id": "insight-2026-08-29-smb-5-2026",
       "type": "insight",
       "kind": "insight",
