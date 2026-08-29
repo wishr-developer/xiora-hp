@@ -126,7 +126,7 @@
 <li><strong>格納 場所</strong>: `services/systems/XioraLifeMedia/data/inventory.db`</li>
 <li><strong>件数</strong>: 21 商品 (Phase 1 の 起点、Phase 2 以降 で 段階 拡張)</li>
 <li><strong>メタ カバー</strong>: アフィリエイト URL / 本文 (キャプション 素材) / EV2 (期待 値、平均 1.728) / 対象 shop (19 shops)</li>
-<li><strong>rafcid 連動</strong>: `wsc_i_ra_*` (curation 系) を 使用、Insights 系 の `wsc_i_is_*` と 明確 に 分離</li>
+<li><strong>rafcid 連動</strong>: `wsc_i_ra_` (curation 系) を 使用、Insights 系 の `wsc_i_is_` と 明確 に 分離</li>
 <li><strong>意義</strong>: コンテンツ の 中核 が Xiora 側 に 存在 する ため、単一 platform の 露出 変動 に よる リスク を 分散 可能</li>
 </ul>
 <p>inventory を 中核 に 据える こと で、curator の 個人 判断 が 属人 化 する 従来 パターン と は 異なり、明文 化 された 選定 基準 と 統一 された メタ を 前提 に、代理人 が 探索 / 下書き / 投稿 draft を 生成 できる 状態 を 目指します。</p>
@@ -134,7 +134,7 @@
 <h2 id="4-channel-統合">4 channel 統合 の 設計</h2>
 <p>Part 2 で 述べた 通り、Phase 3 で 4 channel の 並列 運用 を 想定 して います。 各 channel は 収益 経路 / 商品 網 / 規約 が 異なる ため、inventory の 共通 化 と channel 別 の 適合 表現 を 分離 する 設計 が 必要 です。</p>
 <ul class="article-list">
-<li><strong>楽天 ROOM</strong> — 起点、rafcid `wsc_i_ra_*`、コレ / 投稿 / プロフィール 経路。 生活系 curation の 主戦場</li>
+<li><strong>楽天 ROOM</strong> — 起点、rafcid `wsc_i_ra_`、コレ / 投稿 / プロフィール 経路。 生活系 curation の 主戦場</li>
 <li><strong>Amazon Associates</strong> — 楽天 に ない 商品 (Amazon 限定 / ブランド 直販) を 補完、審査 通過 後 に 段階 追加</li>
 <li><strong>もしも アフィリエイト</strong> — 楽天 / Amazon を 束ねる 選択 肢、報酬 経路 の 一元 化 を 検討</li>
 <li><strong>他 (バリコマ / A8 / アクセストレード 等)</strong> — 商品 カテゴリ 別 の 特化 platform、carrier 別 に 適合 商品 を 追加</li>

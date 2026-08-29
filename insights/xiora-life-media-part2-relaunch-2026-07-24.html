@@ -123,7 +123,7 @@
 <h2 id="復活-判断">なぜ 2026-07-21 の タイミング で 復活 を 判断 した か</h2>
 <p>撤退 と 復活 の 間 に は 6 日 の 空白 が あり、その 間 に 復活 の 前提 が いくつ か 整い ました。 主 に 4 点 が 復活 判断 の 根拠 と なって います。</p>
 <ul class="article-list">
-<li><strong>rafcid の 再 整備</strong>: 楽天 アフィリエイト ID (rafcid) が curation 用 途 (`wsc_i_ra_*`) と 出版/記事 用 途 (`wsc_i_is_*`) の 2 系統 に 整理 され、Vault (`xai:rakuten:rafcid_ra`) に 収容 されました</li>
+<li><strong>rafcid の 再 整備</strong>: 楽天 アフィリエイト ID (rafcid) が curation 用 途 (`wsc_i_ra_`) と 出版/記事 用 途 (`wsc_i_is_`) の 2 系統 に 整理 され、Vault (`xai:rakuten:rafcid_ra`) に 収容 されました</li>
 <li><strong>inventory DB の 事前 構築</strong>: 21 商品 の inventory (アフィリエイト URL / 本文 / 期待 値 EV2 / 対象 shop) が `services/systems/XioraLifeMedia/data/inventory.db` に 事前 に 整備 され、コンテンツ の 中核 が 属人 で ない 状態 に なりました</li>
 <li><strong>Xiora Rakuten Template Pack との 隣接</strong>: Insights 側 で 楽天 アフィリエイト を 前提 と した 記事 群 が 展開 され、curation と 記事 の 双方 で 楽天 経路 を 束ねる 目処 が 立ちました</li>
 <li><strong>Reo 明示 承認</strong>: Reo 代表 が 「復活」を 明示 で 承認 し、Playwright 経由 の semi-auto 投稿 も 認可 されて います</li>
@@ -144,7 +144,7 @@
 <h2 id="変更-point-2">変更 point 2 — 多 platform 統合 (4 channel 前提)</h2>
 <p>撤退 時 の 「単一 platform 依存」課題 を、多 platform 統合 の 前提 設計 で 解消 します。 Phase 3 以降 で 4 channel (楽天 ROOM / Amazon / もしも / 他) を 並列 で 走らせる 想定 で、コンテンツ 中核 は Xiora 側 の inventory に 蓄積 する こと で 移植 性 を 確保 します。</p>
 <ul class="article-list">
-<li><strong>楽天 ROOM</strong>: 復活 の 起点、rafcid `wsc_i_ra_*` を 使用、コレ / 投稿 の 2 経路</li>
+<li><strong>楽天 ROOM</strong>: 復活 の 起点、rafcid `wsc_i_ra_` を 使用、コレ / 投稿 の 2 経路</li>
 <li><strong>Amazon Associates</strong>: 楽天 に ない ブランド 商品 を 補完 (審査 通過 後)</li>
 <li><strong>もしも アフィリエイト</strong>: 楽天 / Amazon 双方 の 経路 を 束ねる 選択 肢 として 検討</li>
 <li><strong>他 (バリコマ / A8 / アクセストレード 等)</strong>: 商品 カテゴリ に 応じて 追加 (memory の XAI Asset Treasure Hunt 対象)</li>
@@ -177,7 +177,7 @@ XioraLifeMedia の system 設計 (21 商品 inventory / 4 channel 統合 / 12 pr
 <li>Mac IPv6 fix (Playwright と 楽天 側 の 接続 安定化)</li>
 <li>inventory 21 商品 の うち 1 item を 目視 verify (Reo action)</li>
 <li>投稿 pipeline の 最小 疎通 (探索 → 選定 → 下書き → 投稿 の 1 周)</li>
-<li>rafcid `wsc_i_ra_*` の 経路 に アクセス が 流れる こと を 確認</li>
+<li>rafcid `wsc_i_ra_` の 経路 に アクセス が 流れる こと を 確認</li>
 </ul>
 
 <h2 id="phase-2">Phase 2 (W2) — 3 account × 5 投稿 / 日</h2>
