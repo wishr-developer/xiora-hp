@@ -2,6 +2,16 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-2026-09-01-insight-89462587",
+      "type": "insight",
+      "kind": "insight",
+      "date": "2026-09-01",
+      "title": "個人事業主 が 法人化 する タイミング 判断 — 売上・従業員・信用の 3 軸",
+      "description": "個人事業主として事業を始め、一定の売上や従業員数を達成した段階で、事業の成長や持続可能性を考慮すると、法人化の検討が重要になります。特に、売上が年間500万円を超えた場合や、従業員数が3人を超えた場合は、税制や労働法の観点から法人化を視野に入れることが一般的です（業界統計 (2026 目安)）。また、信用力向上のために",
+      "url": "/insights/2026-09-01-insight-89462587.html",
+      "build_cat": "Xiora Insights"
+    },
+    {
       "id": "insight-2026-08-31-web-30k-300k-5",
       "type": "insight",
       "kind": "insight",
