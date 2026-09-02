@@ -209,6 +209,11 @@
   </url>
   <!-- BUILD:start sitemap-insights -->
   <url>
+    <loc>https://xiora-official.com/insights/2026-09-03-stripe-payment-link-subscription.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://xiora-official.com/insights/2026-09-02-2026-saas-ec.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
