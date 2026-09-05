@@ -2,6 +2,16 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-2026-09-06-zoom-transcript-action-item",
+      "type": "insight",
+      "kind": "insight",
+      "date": "2026-09-06",
+      "title": "Zoom transcript を action item に 変換する プロンプト テンプレ",
+      "description": "リモートワークやオンラインミーティングが日常化する中、効率的な議事録作成と行動計画の立案は、プロジェクトの進行と組織の生産性を大きく左右します。しかし、膨大な情報量を短時間に処理し、重要なポイントを適切な action item に変換するのは容易なことではありません。特に、Zoom 会議での議事録作成においては、参加",
+      "url": "/insights/2026-09-06-zoom-transcript-action-item.html",
+      "build_cat": "Xiora Insights"
+    },
+    {
       "id": "insight-2026-09-05-ec-5-axis-sla",
       "type": "insight",
       "kind": "insight",
