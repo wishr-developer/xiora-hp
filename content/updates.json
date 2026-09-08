@@ -2,6 +2,16 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-2026-09-09-10-star",
+      "type": "insight",
+      "kind": "insight",
+      "date": "2026-09-09",
+      "title": "採用面接 の 質問 10 問 テンプレ — STAR 準拠 で 実力 を 見抜く",
+      "description": "採用面接において、候補者の実力を正確に見極めることは非常に重要です。しかし、一般的な面接では、候補者のスキルや経験を適切に評価するのが難しい場合があります。STAR メソッド (Situation, Task, Action, Result) を採用面接に取り入れることで、候補者が過去の事例を具体的に説明し、その結果を",
+      "url": "/insights/2026-09-09-10-star.html",
+      "build_cat": "Xiora Insights"
+    },
+    {
       "id": "insight-2026-09-08-okr-kpi-3",
       "type": "insight",
       "kind": "insight",
