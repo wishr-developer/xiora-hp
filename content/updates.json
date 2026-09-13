@@ -2,6 +2,16 @@
   "$comment": "Single source of truth for News / Insights / Labs entries. Add a new item here; scripts/build.py auto-regenerates the Build in Public section on index.html, news/index.html, insights/index.html, and sitemap.xml. Item schema: see content/README.md.",
   "items": [
     {
+      "id": "insight-2026-09-14-prompt-3-fabrication",
+      "type": "insight",
+      "kind": "insight",
+      "date": "2026-09-14",
+      "title": "Prompt を 改善する メタプロンプト — 3 軸 (fabrication / 具体性 / 制約)",
+      "description": "Prompt の改善は AI 開発において重要な要素であり、効果的なコミュニケーションを実現するための鍵となります。特に、大規模なプロジェクトでは効果的な Prompt がプロジェクトの成功に直結します。しかし、多くの開発者は Prompt の品質を高めるための具体的なアプローチを模索しています。そこで、本記事ではメタ",
+      "url": "/insights/2026-09-14-prompt-3-fabrication.html",
+      "build_cat": "Xiora Insights"
+    },
+    {
       "id": "insight-2026-09-13-30-tiktok-shorts-reels",
       "type": "insight",
       "kind": "insight",
