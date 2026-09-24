@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#0b1220" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Xiora Builder テンプレ 一覧 (20 種) — 日本語 → 動く 自動化 | Xiora</title>
+<meta content="Xiora Builder が すぐ 生成 できる 20 種類 の 業務自動化 テンプレ を 一覧 化。 定期通知・フォーム 記録・AI 判定 の 3 分類 に、 SMB で 頻出 の 具体 業務 を 割当。 コード が 手 に 入る 例 と、 詰まった 時 の 引取 サービス。" name="description"/>
+<meta content="Xiora Builder,テンプレート,業務自動化,ノーコード,GAS,n8n,Notion,kintone,Slack,LINE,Google Sheets,SMB" name="keywords"/>
+<link href="https://xiora-official.com/products/builder-templates.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://xiora-official.com/products/builder-templates.html" property="og:url"/>
+<meta content="Xiora Builder テンプレ 一覧 (20 種)" property="og:title"/>
+<meta content="日本語 で 業務 を 書けば 30 秒 で 動く コード。 頻出 20 種 を 事前 テンプレ 化。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<style>
+  .tpl-hero{padding:40px 20px 8px;text-align:center;max-width:720px;margin:0 auto}
+  .tpl-hero h1{font-size:clamp(24px,3.6vw,34px);line-height:1.3;margin:8px 0 6px;color:#0b1220}
+  .tpl-hero p{color:#374151;font-size:15px;margin:6px 0 14px;line-height:1.85}
+  .filter{max-width:960px;margin:16px auto;padding:0 20px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+  .filter button{background:#fff;border:1px solid #d1d5db;color:#111;border-radius:999px;padding:8px 14px;cursor:pointer;font-size:13.5px}
+  .filter button.on{background:#0b1220;color:#fff;border-color:#0b1220}
+  .grid{max-width:1080px;margin:20px auto;padding:0 20px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px}
+  .card .cat{font-size:12px;font-weight:700;color:#6b7280;letter-spacing:.02em}
+  .card h3{margin:6px 0 6px;color:#0b1220;font-size:16px}
+  .card p{margin:0 0 8px;font-size:14px;color:#374151;line-height:1.75}
+  .card .tag{font-size:12px;color:#0b1220;background:#f3f4f6;padding:2px 8px;border-radius:999px;display:inline-block;margin:2px 4px 0 0}
+  .card a{display:inline-block;margin-top:10px;font-size:13px;color:#0b1220;text-decoration:underline}
+  .cta-strip{max-width:720px;margin:36px auto;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-align:center}
+  .cta-strip a{display:inline-block;background:#0b1220;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:700;font-size:15px;margin-top:8px}
+</style>
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a aria-label="Xiora ホーム" class="brand" href="/">
+<svg aria-hidden="true" class="brand__mark" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 23 Q16 5 26.5 23" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"></path><circle cx="16" cy="12.5" fill="currentColor" r="3.2"></circle></svg>
+<span class="brand__name">Xiora</span>
+</a>
+<nav aria-label="メインメニュー" class="site-nav" id="siteNav">
+<a href="/#services">Services</a>
+<a href="/products/">Products</a>
+<a href="/insights/">Insights</a>
+<a href="/contact.html">Contact</a>
+</nav>
+</div>
+</header>
+
+<main id="main">
+<section class="tpl-hero">
+<nav aria-label="パンくず" style="font-size:13px;color:#6b7280;text-align:left;max-width:1080px;margin:0 auto">
+<a href="/">Home</a> / <a href="/products/">Products</a> / <a href="/products/builder.html">Builder</a> / <span>テンプレ 一覧</span>
+</nav>
+<h1>Xiora Builder テンプレ 一覧 (20 種)</h1>
+<p>頻出 の 業務 を 3 分類 で テンプレ 化。 気に なる テンプレ を 選んで <a href="/products/builder.html">Builder</a> に 貼れば 30 秒 で コード が 手 に 入ります。</p>
+</section>
+
+<div class="filter" id="filter">
+<button data-c="all" class="on">全部</button>
+<button data-c="schedule">定期通知</button>
+<button data-c="form">フォーム 記録</button>
+<button data-c="ai">AI 判定</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="cta-strip">
+<p style="margin:0 0 6px;color:#0b1220;font-weight:700;font-size:15.5px">気に なる テンプレ が 無い / 詰まった 時 は</p>
+<p style="margin:0;color:#374151;font-size:14px">Pro (¥2,980/月) で Xiora が 24 時間 以内 に コード を 引取 実装 します。</p>
+<a href="/contact.html?product=builder&plan=pro&utm_source=templates&utm_medium=cta_strip">Pro を 申込む →</a>
+</div>
+
+</main>
+
+<footer style="background:#fff;border-top:1px solid #e5e7eb;padding:24px 20px;text-align:center;color:#6b7280;font-size:13px">
+<p style="margin:0">© Xiora / Builder テンプレ 一覧</p>
+</footer>
+
+<script>
+(function(){
+  var TPLS = [
+    {c:'schedule', t:'毎朝 の Slack ダイジェスト', d:'Google Sheets の 「今日タスク」 を 平日 9:00 に Slack に 一覧 投稿。', tags:['Slack','Sheets','GAS'], seed:'毎朝 平日 9:00 に Google Sheets の 「今日タスク」シート を Slack #general に 一覧 で 投稿 したい'},
+    {c:'schedule', t:'週次 売上 サマリ を メール', d:'毎週 月曜 8:00 に 先週 の 売上 集計 を 経営陣 に メール。', tags:['Gmail','Sheets','GAS'], seed:'毎週 月曜 8:00 に Google Sheets の 「売上」 シート の 先週分 を 集計 して 経営陣 3 名 に メール したい'},
+    {c:'schedule', t:'月末 KPI レポ を Notion', d:'月末 に 主要 KPI を 集計 して Notion に レポート ページ を 作る。', tags:['Notion','Sheets','GAS'], seed:'月末 21:00 に KPI シート の 数値 を 集計 して Notion に レポート ページ を 追加 したい'},
+    {c:'schedule', t:'朝 の 天気 と 予定 を LINE', d:'毎朝 6:30 に 天気 と 今日 の Google カレンダー を 個人 LINE に。', tags:['LINE','Weather','GAS'], seed:'毎朝 6:30 に 天気 予報 と 今日 の Google カレンダー の 予定 を 私 の LINE に 送信'},
+    {c:'schedule', t:'定期 バックアップ 通知', d:'毎日 3:00 に バックアップ 完了 状況 を Slack に 投稿。', tags:['Slack','Cron'], seed:'毎日 3:00 に バックアップ 完了 状況 を Slack #ops に 投稿'},
+    {c:'schedule', t:'請求書 未払 の 定時 リマインド', d:'月次 で 未払 件数 を Slack に 通知、 担当者 別 に メンション。', tags:['Slack','Sheets'], seed:'毎月 25 日 10:00 に 未払 請求書 一覧 を Slack に 通知、 担当者 に メンション'},
+    {c:'form', t:'お問合せ フォーム → Sheets + メール', d:'Google Form 送信 → シート 追記 + 担当者 に メール 通知。', tags:['Form','Sheets','Gmail'], seed:'Google Form の お問合せ が 入ったら Google Sheets に 追記 し て 担当者 に メール で 通知'},
+    {c:'form', t:'予約 受付 → Google Calendar 反映', d:'フォーム 予約 情報 を 空 の Calendar 枠 に 自動 で 入れる。', tags:['Form','Calendar'], seed:'予約 フォーム が 送信 されたら Google Calendar の 該当 枠 に イベント を 作成'},
+    {c:'form', t:'見積 依頼 → Sheets 保存 + PDF', d:'フォーム 情報 を シート に 保存 + Google Doc テンプレ で PDF 化。', tags:['Form','Doc','Sheets'], seed:'見積 依頼 フォーム が 入ったら Google Sheets に 保存 し Google Doc テンプレ で PDF 見積 を 生成'},
+    {c:'form', t:'応募 者 情報 → Notion', d:'求人 フォーム 送信 → Notion データベース に カード を 作る。', tags:['Form','Notion'], seed:'求人 応募 フォーム 送信 で Notion データベース に 新規 カード を 作成'},
+    {c:'form', t:'問合せ → kintone レコード', d:'HP フォーム の 問合せ を kintone に 直接 レコード 保存。', tags:['Form','kintone'], seed:'HP の 問合せ フォーム が 送信 されたら kintone の 「問合せ」 アプリ に レコード を 追加'},
+    {c:'form', t:'商品 レビュー → Slack + Sheets', d:'アンケート フォーム の レビュー を Slack + Sheets に 保存。', tags:['Form','Slack','Sheets'], seed:'商品 レビュー アンケート が 送信 されたら Slack と Google Sheets の 両方 に 保存'},
+    {c:'ai', t:'問合せ AI スコアリング (A/B/C)', d:'フォーム 内容 を AI で 3 段階 スコア、 A は 即 通知。', tags:['AI','Form','Sheets'], seed:'Google Form 回答 が 入ったら AI で A/B/C の 3 段階 リード スコア を 付けて スプレッドシート に 追記、 A は Slack に 通知'},
+    {c:'ai', t:'請求書 PDF → 自動 振り分け', d:'メール 添付 の 請求書 PDF を AI で 判別 し 適切 フォルダ に。', tags:['AI','Gmail','Drive'], seed:'請求書 PDF を メール で 受け取ったら AI で 判別 し Google Drive の 「請求書/年度」 に 保存'},
+    {c:'ai', t:'長文 問合せ の 要約 と 分類', d:'長い 問合せ を 要約 + 分類 (質問 / 苦情 / 見積) し Notion に。', tags:['AI','Notion'], seed:'メール で 届いた 問合せ を AI で 要約 と 分類 (質問 / 苦情 / 見積) し Notion に カード 追加'},
+    {c:'ai', t:'議事録 → AI 要約 → Slack', d:'Google Meet 議事録 テキスト を AI で 3 行 要約 して 投稿。', tags:['AI','Slack','Doc'], seed:'Google Meet の 議事録 が 保存 されたら AI で 3 行 要約 して Slack #minutes に 投稿'},
+    {c:'ai', t:'顧客 メール の 感情 判定', d:'受信 メール の 感情 を AI で 判定、 ネガ は 即 上司 に。', tags:['AI','Gmail','Slack'], seed:'カスタマーサポート メール が 届いたら AI で 感情 (positive/neutral/negative) を 判定 し negative は Slack で 上司 に 通知'},
+    {c:'ai', t:'商品 説明 の 一括 生成', d:'Sheets の 商品 情報 から AI で 説明 文 を 100 SKU 一括 生成。', tags:['AI','Sheets','EC'], seed:'Google Sheets の 商品 情報 (名前・特長・価格) から AI で 商品 説明 文 を 100 SKU 一括 生成'},
+    {c:'ai', t:'求人 応募 の 一次 スクリーニング', d:'応募 フォーム 回答 を AI で 適合度 判定 し 記録。', tags:['AI','Form','Sheets'], seed:'求人 応募 フォーム 回答 を AI で 適合度 (高 / 中 / 低) と 面接 質問 3 個 を 生成 し Sheets に 記録'},
+    {c:'ai', t:'契約書 チェック の 事前 draft', d:'契約書 PDF を AI で スキャン し 抜け 漏れ の draft を 出す。', tags:['AI','Drive','Doc'], seed:'契約書 PDF を Google Drive に 保存 したら AI で 主要 条項 の 抜け 漏れ を チェック し Google Doc に コメント draft'}
+  ];
+
+  var grid = document.getElementById('grid');
+  var filter = document.getElementById('filter');
+  var current = 'all';
+
+  function el(tag, cls, text){ var e = document.createElement(tag); if(cls) e.className = cls; if(text!=null) e.textContent = text; return e; }
+
+  function render(){
+    while(grid.firstChild) grid.removeChild(grid.firstChild);
+    TPLS.filter(function(x){ return current==='all' || x.c===current; }).forEach(function(x){
+      var card = el('div','card');
+      var catText = x.c==='schedule'?'定期通知':(x.c==='form'?'フォーム 記録':'AI 判定');
+      card.appendChild(el('div','cat',catText));
+      card.appendChild(el('h3', null, x.t));
+      card.appendChild(el('p', null, x.d));
+      x.tags.forEach(function(t){ card.appendChild(el('span','tag', t)); });
+      var a = el('a', null, 'Builder で 生成 →');
+      a.setAttribute('href','/products/builder.html?seed='+encodeURIComponent(x.seed)+'&utm_source=templates&utm_medium=card');
+      card.appendChild(a);
+      grid.appendChild(card);
+    });
+  }
+
+  filter.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('button');
+    if(!b) return;
+    filter.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');
+    current = b.getAttribute('data-c');
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

@@ -111,6 +111,7 @@
 <a href="/">Home</a><span aria-hidden="true">/</span>
 <a href="/products/">Products</a><span aria-hidden="true">/</span>
 <span aria-current="page">Builder</span>
+<span style="margin-left:auto;font-size:13px;color:#6b7280"> · <a href="/products/builder-templates.html" style="color:#0b1220;text-decoration:underline">テンプレ 一覧 (20 種) →</a></span>
 </nav>
 
 <h1>日本語 で 業務 を 書く。<br/>動く 自動化 が <span style="border-bottom:3px solid #0b1220">30 秒</span> で 手 に 入る。</h1>
@@ -288,6 +289,13 @@
     out.style.display = 'block';
     try{ if(window.gtag){ gtag('event','builder_generate',{kind:kind,desc_len:desc.length}); } }catch(e){}
   }
+
+  // Preload seed from ?seed=... (Templates page cards)
+  try{
+    var qs = new URLSearchParams(location.search);
+    var seed = qs.get('seed');
+    if(seed){ document.getElementById('builderInput').value = seed; }
+  }catch(e){}
 
   document.addEventListener('click', function(e){
     var s = e.target.closest && e.target.closest('.templates span');
