@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#0b1220" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>Xiora Builder｜日本語で 業務 を 描くだけ で 動く 自動化 が 手 に 入る | Xiora</title>
+<meta content="Xiora Builder は 日本語 で 業務 を 書くだけ で、 動く 自動化 (フォーム / Google Sheets 連携 / 通知 / 定期実行) を 生成 する SaaS。 コード 不要、 ID 不要、 30 秒 で 動く 物 が 手 に 入る。 ¥0 ではじめて、 継続 は 月 ¥2,980。" name="description"/>
+<meta content="Xiora Builder,ノーコード,AI 開発,業務自動化,日本語 生成,ローコード,SMB,中小企業" name="keywords"/>
+<link href="https://xiora-official.com/products/builder.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://xiora-official.com/products/builder.html" property="og:url"/>
+<meta content="Xiora Builder｜誰もが 開発 できる SaaS" property="og:title"/>
+<meta content="日本語 で 業務 を 書く → 動く 自動化 が 30 秒 で 手 に 入る。" property="og:description"/>
+<meta content="Xiora" property="og:site_name"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+JP:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css?v=20260925a" rel="stylesheet"/>
+<link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="Xiora" name="application-name"/>
+<meta content="Xiora" name="publisher"/>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"SoftwareApplication",
+  "name":"Xiora Builder","applicationCategory":"BusinessApplication","operatingSystem":"Web",
+  "description":"日本語 で 業務 を 書くだけ で 動く 自動化 (フォーム + 通知 + 定期実行 + シート連携) を 生成する AI ビルダー。",
+  "offers":[
+    { "@type":"Offer","name":"Free","price":"0","priceCurrency":"JPY" },
+    { "@type":"Offer","name":"Pro (月額)","price":"2980","priceCurrency":"JPY" },
+    { "@type":"Offer","name":"Team (月額)","price":"9800","priceCurrency":"JPY" }
+  ],
+  "publisher":{"@type":"Organization","name":"Xiora","url":"https://xiora-official.com/"},
+  "url":"https://xiora-official.com/products/builder.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://xiora-official.com/"},
+    {"@type":"ListItem","position":2,"name":"Products","item":"https://xiora-official.com/products/"},
+    {"@type":"ListItem","position":3,"name":"Builder","item":"https://xiora-official.com/products/builder.html"}
+  ]
+}
+</script>
+<script defer="" src="/assets/js/analytics.js"></script>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<style>
+  .builder-hero{padding:56px 20px 20px;text-align:center}
+  .builder-hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.25;margin:16px 0 12px;color:#0b1220}
+  .builder-hero .lead{font-size:17px;line-height:1.85;color:#374151;max-width:640px;margin:0 auto 24px}
+  .demo{max-width:720px;margin:24px auto 8px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:20px}
+  .demo label{font-size:13px;color:#6b7280;font-weight:600;display:block;margin-bottom:8px}
+  .demo textarea{width:100%;min-height:120px;padding:14px;border:1px solid #d1d5db;border-radius:10px;font-family:inherit;font-size:15px;line-height:1.7;resize:vertical;box-sizing:border-box}
+  .demo button{margin-top:12px;background:#0b1220;color:#fff;padding:12px 22px;border:0;border-radius:999px;font-weight:700;font-size:15px;cursor:pointer}
+  .demo button:disabled{opacity:.5;cursor:progress}
+  .demo .out{margin-top:16px;padding:16px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;font-size:14px;line-height:1.75;color:#111827;white-space:pre-wrap;display:none}
+  .templates{max-width:720px;margin:14px auto 0;font-size:13px;color:#6b7280;text-align:left}
+  .templates span{display:inline-block;background:#fff;border:1px solid #e5e7eb;border-radius:999px;padding:5px 12px;margin:4px 4px 0 0;cursor:pointer}
+  .templates span:hover{border-color:#0b1220;color:#0b1220}
+  .price{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:960px;margin:36px auto 0;padding:0 20px}
+  .plan{background:#fff;border:1px solid #e5e7eb;padding:26px;border-radius:12px}
+  .plan.rec{border:2px solid #0b1220;position:relative}
+  .plan.rec::before{content:"推奨";position:absolute;top:-12px;right:20px;background:#0b1220;color:#fff;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700}
+  .plan h3{margin:0 0 4px;color:#0b1220}
+  .plan .amt{font-size:32px;font-weight:800;color:#0b1220;margin:6px 0}
+  .plan .cad{font-size:13px;color:#6b7280;margin:0 0 14px}
+  .plan ul{margin:0;padding-left:18px;color:#374151;line-height:1.9;font-size:14px}
+  .plan a.cta{display:inline-block;margin-top:14px;background:#0b1220;color:#fff;padding:10px 20px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px}
+  .plan a.cta.ghost{background:#fff;color:#0b1220;border:1px solid #0b1220}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="site-header" id="siteHeader">
+<div class="site-header__inner">
+<a aria-label="Xiora ホーム" class="brand" href="/">
+<svg aria-hidden="true" class="brand__mark" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 23 Q16 5 26.5 23" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"></path><circle cx="16" cy="12.5" fill="currentColor" r="3.2"></circle></svg>
+<span class="brand__name">Xiora</span>
+</a>
+<nav aria-label="メインメニュー" class="site-nav" id="siteNav">
+<a href="/#services">Services</a>
+<a aria-current="page" href="/products/">Products</a>
+<a href="/#family">Family</a>
+<a href="/trust/">Trust</a>
+<a href="/insights/">Insights</a>
+<a href="/company.html">Company</a>
+<a href="/contact.html">Contact</a>
+</nav>
+</div>
+</header>
+
+<main id="main">
+
+<section aria-label="Beta LIVE" style="background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 20px;text-align:center">
+<div class="container container--narrow" style="display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:center">
+<p style="margin:0;font-size:14.5px;line-height:1.6;color:#0b1220">
+<span aria-hidden="true" style="display:inline-block;width:8px;height:8px;background:#0b1220;border-radius:999px;vertical-align:middle;margin-right:8px"></span><strong>Beta LIVE</strong> — 誰でも 30 秒 で 業務自動化 を 作れる ビルダー
+</p>
+</div>
+</section>
+
+<section class="builder-hero">
+<nav aria-label="パンくず" class="article-breadcrumb" style="text-align:left;max-width:720px;margin:0 auto">
+<a href="/">Home</a><span aria-hidden="true">/</span>
+<a href="/products/">Products</a><span aria-hidden="true">/</span>
+<span aria-current="page">Builder</span>
+</nav>
+
+<h1>日本語 で 業務 を 書く。<br/>動く 自動化 が <span style="border-bottom:3px solid #0b1220">30 秒</span> で 手 に 入る。</h1>
+<p class="lead">
+コード 不要。 ID 登録 不要。 「毎朝 の 集計 を Slack に 自動投稿 したい」 と 書くだけ で、 その 場 で 動く URL と 手順書 が 生成 されます。 詰まったら Xiora が 実装 まで 引き取ります。
+</p>
+
+<div class="demo">
+<label for="builderInput">やりたい 業務 を 日本語 で 教えてください</label>
+<textarea id="builderInput" placeholder="例: 毎週 月曜 9:00 に Google Sheets の 「今週タスク」シート を Slack #general に 一覧 で 投稿 したい"></textarea>
+<div class="templates" aria-label="サンプル">
+<strong style="color:#0b1220">サンプル:</strong>
+<span data-tpl="お問い合わせ フォーム 送信 → Google Sheets に 追記 + 私 の メール に 通知">お問い合わせ フォーム</span>
+<span data-tpl="毎朝 8:00 に 天気 と 今日 の 予定 を 私 の LINE に 送信">朝の ダイジェスト</span>
+<span data-tpl="請求書 PDF を メール で 受け取ったら Google Drive の 「未処理」 に 保存 + Slack に 通知">請求書 自動振り分け</span>
+<span data-tpl="Google Form 回答 が 入ったら AI で 3 段階 リード スコア を 付けて スプレッドシート に 追記">リードスコア 自動化</span>
+</div>
+<button id="builderRun" type="button">生成 する →</button>
+<div class="out" id="builderOut"></div>
+</div>
+</section>
+
+<section style="padding:56px 20px 24px;background:#fafbfc;border-top:1px solid #e5e7eb">
+<div class="container container--narrow">
+<h2 style="text-align:center;color:#0b1220;font-size:22px;margin:0 0 8px">3 つ の 現実的 な 使い方</h2>
+<p style="text-align:center;color:#6b7280;margin:0 0 24px;font-size:14.5px">「AI で 何でも」 では なく、 業務 で 詰まる 3 点 を 潰す 設計 です。</p>
+<div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+<div style="background:#fff;border:1px solid #e5e7eb;padding:22px;border-radius:12px">
+<strong style="color:#0b1220">① 集計 と 通知</strong><br/><span style="color:#374151;font-size:14px;line-height:1.75">毎朝・毎週・月末 に、 数値 を まとめて Slack / LINE / メール に 投げる</span>
+</div>
+<div style="background:#fff;border:1px solid #e5e7eb;padding:22px;border-radius:12px">
+<strong style="color:#0b1220">② フォーム と 記録</strong><br/><span style="color:#374151;font-size:14px;line-height:1.75">問合せ / 予約 / 申請 の 入力欄 と、 その 記録先 (Sheets / Notion / kintone)</span>
+</div>
+<div style="background:#fff;border:1px solid #e5e7eb;padding:22px;border-radius:12px">
+<strong style="color:#0b1220">③ AI 判定 と 振り分け</strong><br/><span style="color:#374151;font-size:14px;line-height:1.75">入って きた テキスト を AI で 分類 し、 各先 に 自動 で 振り分ける</span>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding:56px 20px;border-top:1px solid #e5e7eb">
+<div class="container container--narrow">
+<h2 style="text-align:center;color:#0b1220;font-size:22px;margin:0 0 8px">料金</h2>
+<p style="text-align:center;color:#6b7280;margin:0 0 8px;font-size:14.5px">まず Free で 試す。 手応え が 出たら Pro。</p>
+</div>
+<div class="price">
+<div class="plan">
+<h3>Free</h3>
+<p class="amt">¥0</p>
+<p class="cad">クレカ 不要 / 生成 3 件 / 月 まで</p>
+<ul>
+<li>基本 テンプレ 4 種</li>
+<li>Google Sheets / Slack / メール 連携</li>
+<li>生成 結果 の コピー &amp; 引取</li>
+<li>Xiora コミュニティ 参加</li>
+</ul>
+<a class="cta ghost" href="#builderInput">今 試す →</a>
+</div>
+<div class="plan rec">
+<h3>Pro</h3>
+<p class="amt">¥2,980<span style="font-size:14px;color:#6b7280;font-weight:500"> / 月</span></p>
+<p class="cad">個人事業主 / 小規模事業者 向け</p>
+<ul>
+<li>生成 無制限</li>
+<li>AI 判定 (Claude / GPT) を 標準 装備</li>
+<li>作った 自動化 の Xiora ホスティング 込</li>
+<li>詰まったら メール で 24h 以内 引取</li>
+</ul>
+<a class="cta" href="/contact.html?product=builder&plan=pro&utm_source=lp&utm_medium=pricing">Pro を 申込む →</a>
+</div>
+<div class="plan">
+<h3>Team</h3>
+<p class="amt">¥9,800<span style="font-size:14px;color:#6b7280;font-weight:500"> / 月</span></p>
+<p class="cad">10 名 まで の チーム / 部門 向け</p>
+<ul>
+<li>Pro の 全 機能</li>
+<li>チーム 共有 と 承認 フロー</li>
+<li>SSO / Slack Bot 連携</li>
+<li>優先 サポート (4h SLA)</li>
+</ul>
+<a class="cta ghost" href="/contact.html?product=builder&plan=team&utm_source=lp&utm_medium=pricing">Team を 相談 する →</a>
+</div>
+</div>
+</section>
+
+<section style="padding:56px 20px;background:#fafbfc;border-top:1px solid #e5e7eb">
+<div class="container container--narrow">
+<h2 style="color:#0b1220;font-size:22px;margin:0 0 20px">よくある 質問</h2>
+<details style="background:#fff;border:1px solid #e5e7eb;padding:16px 20px;border-radius:8px;margin-bottom:10px">
+<summary style="cursor:pointer;font-weight:600;color:#0b1220">生成 された 自動化 は どこで 動きますか？</summary>
+<p style="margin:12px 0 0;color:#374151;line-height:1.85;font-size:14.5px">Pro / Team は Xiora Cloud で ホスト します。 Free は 生成 結果 を コピー して 自分 で n8n / Google Apps Script / Vercel / kintone 等 に 置ける 形 で 提供 します。</p>
+</details>
+<details style="background:#fff;border:1px solid #e5e7eb;padding:16px 20px;border-radius:8px;margin-bottom:10px">
+<summary style="cursor:pointer;font-weight:600;color:#0b1220">プログラム を 書けない 私 でも 使えますか？</summary>
+<p style="margin:12px 0 0;color:#374151;line-height:1.85;font-size:14.5px">Free 版 の 目的 は まさに それ です。 日本語 で 書く → 動く URL / 手順 が 手 に 入る、 の みで 完結 します。 詰まる 点 は Pro 以上 で メール 引取 します。</p>
+</details>
+<details style="background:#fff;border:1px solid #e5e7eb;padding:16px 20px;border-radius:8px;margin-bottom:10px">
+<summary style="cursor:pointer;font-weight:600;color:#0b1220">解約 は いつでも できますか？</summary>
+<p style="margin:12px 0 0;color:#374151;line-height:1.85;font-size:14.5px">月単位 で 解約 可能。 作った 自動化 は、 解約後 も 引取 用 の ソース と 手順書 を お渡し します。</p>
+</details>
+</div>
+</section>
+
+</main>
+
+<footer style="background:#fff;border-top:1px solid #e5e7eb;padding:30px 20px;text-align:center;color:#6b7280;font-size:13px">
+<p style="margin:0">© Xiora / Builder — 誰もが 開発 できる SaaS</p>
+</footer>
+
+<script>
+(function(){
+  var TPL = {
+    'schedule_notify':{
+      title:'定期通知 の 生成 結果',
+      steps:[
+        '1. Google Apps Script に 空 の プロジェクト を 作成',
+        '2. 下記 コード を 貼り付け',
+        '3. Slack 側 で Incoming Webhook URL を 1 つ 発行 して SLACK_URL に 設定',
+        '4. 「トリガー」 で 週次 の 実行 タイミング を 選ぶ',
+        '5. 保存 → 実行 → 完成'
+      ],
+      code:function(desc){return "// Xiora Builder 生成 (要件: "+desc.replace(/\n/g,' ')+")\nconst SLACK_URL = 'https://hooks.slack.com/services/XXX/YYY/ZZZ';\nfunction main(){\n  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('今週タスク');\n  const rows = sheet ? sheet.getDataRange().getValues() : [];\n  const body = rows.map(r=>'・'+r.join(' | ')).join('\\n');\n  UrlFetchApp.fetch(SLACK_URL, {method:'post', contentType:'application/json', payload: JSON.stringify({text: body || '(データ 無し)'})});\n}"; }
+    },
+    'form_sheet':{
+      title:'フォーム → Sheets + 通知 の 生成 結果',
+      steps:[
+        '1. Google フォーム を 新規作成 (問合せ 項目 を 入力)',
+        '2. フォーム を Google Sheets に 連携 (回答 → スプレッドシート)',
+        '3. スプレッドシート の Apps Script に 下記 を 貼付',
+        '4. 「フォーム 送信 時」 の トリガー を 追加',
+        '5. 保存 → 完成'
+      ],
+      code:function(desc){return "// Xiora Builder 生成 (要件: "+desc.replace(/\n/g,' ')+")\nfunction onFormSubmit(e){\n  const values = e.namedValues;\n  const body = Object.keys(values).map(k=>k+': '+values[k]).join('\\n');\n  GmailApp.sendEmail('reo44283@gmail.com', '[新規 問合せ] '+ new Date().toLocaleString(), body);\n}"; }
+    },
+    'ai_score':{
+      title:'AI スコアリング の 生成 結果',
+      steps:[
+        '1. Google Form 回答 が シート に 入る 前提',
+        '2. Apps Script に 下記 を 貼付',
+        '3. Anthropic / OpenAI の API キー を 環境変数 に 設定',
+        '4. 「フォーム 送信 時」 トリガー を 追加',
+        '5. 保存 → 完成'
+      ],
+      code:function(desc){return "// Xiora Builder 生成 (要件: "+desc.replace(/\n/g,' ')+")\nfunction onFormSubmit(e){\n  const text = Object.values(e.namedValues).flat().join(' / ');\n  const key = PropertiesService.getScriptProperties().getProperty('ANTHROPIC_API_KEY');\n  const res = UrlFetchApp.fetch('https://api.anthropic.com/v1/messages',{method:'post', headers:{'x-api-key':key,'anthropic-version':'2023-06-01','content-type':'application/json'}, payload: JSON.stringify({model:'claude-sonnet-4-6',max_tokens:64,messages:[{role:'user',content:'次 の 問合せ を A (高) / B (中) / C (低) の 3 段階 で リード スコア を 付けて 1 文字 で 答えて: '+text}]})});\n  const score = JSON.parse(res.getContentText()).content[0].text.trim().charAt(0);\n  e.range.offset(0, e.values.length).setValue(score);\n}"; }
+    },
+    'concierge':{
+      title:'複雑 な 要件 と 判断 されました',
+      steps:[
+        'この 要件 は テンプレ 化 が 難しい ため、 Xiora チーム が 直接 生成 します。',
+        '下記 の フォーム に 連絡先 を 頂けれ ば、 24 時間 以内 に コード + 手順 を お送り します。',
+        '費用: Free 版 の 対象 (¥0) / Pro 契約 に 進む と そのまま Xiora Cloud で ホスト。'
+      ],
+      code:function(){return null;}
+    }
+  };
+
+  function classify(text){
+    var t = (text||'').toLowerCase();
+    if(/毎朝|毎週|毎月|定期|朝|週次|月末|定時|時刻|時に|日次/.test(t)) return 'schedule_notify';
+    if(/フォーム|問合せ|申込|申請|予約|申し込み|受付|入力欄/.test(t)) return 'form_sheet';
+    if(/ai|スコア|判定|分類|振り分け|優先度|判別/.test(t)) return 'ai_score';
+    return 'concierge';
+  }
+
+  function render(desc){
+    var kind = classify(desc);
+    var tpl = TPL[kind];
+    var out = document.getElementById('builderOut');
+    var body = '■ '+tpl.title+'\n\n';
+    body += '【 手順 】\n' + tpl.steps.map(function(s,i){return s;}).join('\n') + '\n';
+    var code = tpl.code(desc);
+    if(code){ body += '\n【 コード 】\n' + code + '\n'; }
+    body += '\n———\n次 の 一手: 動かなかった / 詰まった 場合 は Pro (¥2,980/月) で Xiora が 引取 実装 します。 → /contact.html?product=builder&plan=pro';
+    out.textContent = body;
+    out.style.display = 'block';
+    try{ if(window.gtag){ gtag('event','builder_generate',{kind:kind,desc_len:desc.length}); } }catch(e){}
+  }
+
+  document.addEventListener('click', function(e){
+    var s = e.target.closest && e.target.closest('.templates span');
+    if(s){ document.getElementById('builderInput').value = s.getAttribute('data-tpl'); return; }
+    if(e.target && e.target.id==='builderRun'){
+      var v = (document.getElementById('builderInput').value||'').trim();
+      if(!v){ document.getElementById('builderInput').focus(); return; }
+      e.target.disabled = true; e.target.textContent = '生成 中…';
+      setTimeout(function(){ render(v); e.target.disabled=false; e.target.textContent='別の 案 を 生成 →'; }, 700);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
