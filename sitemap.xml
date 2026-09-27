@@ -12,6 +12,58 @@
   </url>
   <!-- BUILD:start sitemap-products -->
   <url>
+    <loc>https://xiora-official.com/products/restaurant-servebot-subsidy.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/2026-09-27-restaurant-servebot-subsidy.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://xiora-official.com/products/care-watch-ai.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/2026-09-27-care-watch-ai.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://xiora-official.com/products/construction-2026-pack.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/2026-09-27-construction-2026-pack.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://xiora-official.com/products/manufacturing-inspection-ai.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/2026-09-27-manufacturing-inspection-ai.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
     <loc>https://xiora-official.com/products/factory.html</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
