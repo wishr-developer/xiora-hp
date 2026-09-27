@@ -12,6 +12,32 @@
   </url>
   <!-- BUILD:start sitemap-products -->
   <url>
+    <loc>https://xiora-official.com/products/factory.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/2026-09-27-factory.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://xiora-official.com/products/shigyo-workbench.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://xiora-official.com/insights/2026-09-27-shigyo-workbench.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
     <loc>https://xiora-official.com/products/builder.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>

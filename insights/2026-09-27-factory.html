@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<meta content="light" name="color-scheme"/>
+<title>システム を 作る システム — Xiora Factory の 設計 と ドッグフード 記録 | Xiora Insights</title>
+<meta content="SaaS 起業 の 詰まる 場所 は LP / 決済 / SEO / 記事 の 「整った 一式」 を 揃える 手間。 Xiora Factory は spec JSON 1 枚 から 一式 を 24 時間 で 出す 内部 CI。 テンプレ 置換 は 決定的 で fabrication ゼロ。 Xiora 自身 の プロダクト 生産 に 使っている 実物 の 設計 と 選択 を 記録。" name="description"/>
+<meta content="Xiora Factory,システム 生成,SaaS 生産,dogfood,LP 生成,AI 開発" name="keywords"/>
+<link href="https://xiora-official.com/insights/2026-09-27-factory.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://xiora-official.com/insights/2026-09-27-factory.html" property="og:url"/>
+<meta content="システム を 作る システム — Xiora Factory の 設計 と ドッグフード 記録 | Xiora Insights" property="og:title"/>
+<meta content="SaaS 起業 の 詰まる 場所 は LP / 決済 / SEO / 記事 の 「整った 一式」 を 揃える 手間。 Xiora Factory は spec JSON 1 枚 から 一式 を 24 時間 で 出す 内部 CI。 テンプレ 置換 は 決定的 で fabrication ゼロ。 Xiora 自身 の プロダクト 生産 に 使っている 実物 の 設計 と 選択 を 記録。" property="og:description"/>
+<meta content="xiora" property="og:site_name"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<meta content="G-91W5BP2ZF4" name="ga4-id"/>
+<script defer="" src="/assets/js/analytics.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"システム を 作る システム — Xiora Factory の 設計 と ドッグフード 記録","datePublished":"2026-09-27","author":{"@type":"Organization","name":"Xiora"},"publisher":{"@type":"Organization","name":"Xiora","url":"https://xiora-official.com/"},"mainEntityOfPage":"https://xiora-official.com/insights/2026-09-27-factory.html"}
+</script>
+<style>
+  .insight-container{max-width:720px;margin:0 auto;padding:48px 24px;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.85;color:#111827}
+  .insight-container h1{font-size:30px;font-weight:700;margin-bottom:12px;letter-spacing:-.01em;line-height:1.4}
+  .insight-container .meta{font-size:13px;color:#6b7280;margin-bottom:32px}
+  .insight-container h2{font-size:20px;font-weight:700;margin:40px 0 12px;color:#111827}
+  .insight-container p,.insight-container li{font-size:15px;color:#374151}
+  .insight-container ul,.insight-container ol{padding-left:20px;margin:12px 0}
+  .insight-container li{padding:4px 0}
+  .insight-cta{margin:36px 0;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-align:center}
+  .insight-cta a{display:inline-block;background:#0b1220;color:#fff;padding:12px 28px;border-radius:999px;text-decoration:none;font-weight:700;margin-top:8px}
+</style>
+</head>
+<body>
+<main>
+<article class="insight-container">
+<nav aria-label="パンくず" style="font-size:13px;color:#6b7280;margin-bottom:16px">
+<a href="/" style="color:#6b7280">Home</a> / <a href="/insights/" style="color:#6b7280">Insights</a> / <span>Xiora Factory</span>
+</nav>
+
+<h1>システム を 作る システム — Xiora Factory の 設計 と ドッグフード 記録</h1>
+<p class="meta">2026-09-27 公開 / Xiora Insights</p>
+
+<h2>結論 先出し</h2><p>SaaS 起業 で 詰まる の は アイデア や コード では なく、 「LP + 決済 + SEO + 記事 + 商品 一覧 + outbound」 を 揃える 準備 の 手間 (半日〜数日)。 Xiora Factory は spec JSON 1 枚 で 一式 を 30 秒 で 生成 する 内部 CI。 fabrication 防止 の ため テンプレ 置換 は 決定的、 LLM は 使わない。</p><h2>1. なぜ 決定的 な テンプレ 置換 に した か</h2><p>LLM 生成 の LP は 精度 の バラツキ が 大きく、 事務 レベル で は 「毎回 見直し」 が 必要 に なる。 Xiora Factory は 出力 の 再現性 を 最優先 し、 テンプレ 内 の {{VARIABLE}} を spec で 置換 する 方式 に した。 LLM は spec を 書く 段階 で 使える (spec draft を Xiora Builder に 投げる など)。</p><h2>2. 何 を 一式 で 出力 する か</h2><ul><li>LP HTML (breadcrumb / OG / JSON-LD / GA4 埋込 まで)</li><li>Insights 記事 HTML (SEO 目的、 canonical / schema.org 付)</li><li>sitemap.xml patch</li><li>products/index.html への カード 挿入 + nav 一覧 追加</li><li>outbound メール テンプレ (spec の 内容 に 応じて 差込 済)</li></ul><h2>3. ドッグフード 記録</h2><p>2026-09-27: Shigyo AI Workbench (士業 事務所 向け) を spawn。 生成物 は そのまま prod に push、 手直し は 5 分 未満。 2026-09-28: Xiora Factory 自身 の LP を Factory で spawn (この 記事 も Factory 生成)。</p><h2>4. spec の 書き方</h2><p>spec は フラット な JSON で、 name / tagline / description / features / pricing / faq / cta を 埋める だけ。 詳細 は services/systems/XioraFactory/specs/ 配下 の 実例 を 参照。 Beta 期間 は spec draft を Xiora が 一緒 に 埋める サポート を 提供 する。</p><h2>5. 次 の 拡張 予定</h2><ul><li>Stripe Payment Link 自動 発行 (spec の pricing から)</li><li>独自 ドメイン CNAME + Vercel deploy 自動</li><li>Xiora Builder と の 連携 (spec draft を 日本語 から 生成)</li><li>OG 画像 自動 生成 (Cloudflare Image Resize + テンプレ)</li></ul>
+
+<div class="insight-cta">
+<p>Xiora Factory は 今日 から 稼働 中。 詳細 と 見積 は 下記 から。</p>
+<a href="/products/factory.html?utm_source=insights&utm_medium=article_cta">Xiora Factory の 詳細 →</a>
+</div>
+
+</article>
+</main>
+</body>
+</html>
